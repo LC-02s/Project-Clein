@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import type { PropsWithChildren } from 'react'
 import { THEME_KEY } from '@/shared/constants'
 import { ThemeProvider } from '@/shared/hooks'
-import type { RealTheme } from '@/shared/types'
 import { Pretendard } from './font'
 
 import './globals.css'
@@ -21,7 +20,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
     <html lang="ko" className={Pretendard.variable}>
       <ThemeProvider
         className="bg-white text-zinc-700 antialiased dark:bg-zinc-900 dark:text-zinc-50"
-        defaultTheme={theme?.value as RealTheme | undefined}
+        defaultValue={theme?.value}
       >
         {children}
       </ThemeProvider>

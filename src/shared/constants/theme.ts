@@ -9,3 +9,5 @@ export const THEME_LABEL: Record<Theme, string> = Object.freeze({
   light: '밝은 테마',
   dark: '어두운 테마',
 })
+
+export const THEME_LIST: Theme[] = ['system', 'light', 'dark']

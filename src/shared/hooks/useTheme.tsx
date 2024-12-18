@@ -2,10 +2,10 @@
 
 import Cookies from 'js-cookie'
 import { useIsomorphicLayoutEffect } from 'motion/react'
-import { type JSX, useEffect, useState } from 'react'
+import { type JSX, useEffect, useMemo, useState } from 'react'
 import { create } from 'zustand'
 import type { RealTheme, Theme } from '../types'
-import { DEFAULT_THEME, THEME_KEY } from '../constants'
+import { DEFAULT_THEME, THEME_KEY, THEME_LIST } from '../constants'
 
 interface ThemeState {
   theme: Theme
@@ -45,14 +45,19 @@ const useThemeStore = create<ThemeStore>((set) => ({
 }))
 
 interface ThemeProviderProps {
-  defaultTheme?: Theme
+  defaultValue?: string
 }
 
 export function ThemeProvider({
-  defaultTheme = DEFAULT_THEME,
+  defaultValue = DEFAULT_THEME,
   children,
   ...props
-}: ThemeProviderProps & JSX.IntrinsicElements['body']) {
+}: ThemeProviderProps & Omit<JSX.IntrinsicElements['body'], 'defaultValue'>) {
+  const defaultTheme = useMemo(
+    () => THEME_LIST.find((theme) => theme === defaultValue) || DEFAULT_THEME,
+    [defaultValue],
+  )
+
   const [darkThemeMedia, setMedia] = useState<MediaQueryList | null>(null)
 
   const theme = useThemeStore((store) => store.theme)
