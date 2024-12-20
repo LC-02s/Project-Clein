@@ -1,4 +1,4 @@
-import type { RealTheme, Theme } from '../types'
+import type { RealTheme, Theme } from '../model'
 
 export const THEME_KEY = 'theme'
 

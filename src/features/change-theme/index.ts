@@ -1,4 +1,4 @@
-export { useTheme } from './hooks'
-export { THEME_KEY } from './constants'
-export type * from './types'
+export type { RealTheme, Theme } from './model'
+export { useTheme } from './model'
+export { THEME_KEY } from './config'
 export * from './ui'

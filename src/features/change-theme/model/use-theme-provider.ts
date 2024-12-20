@@ -1,21 +1,12 @@
 'use client'
 
 import { useIsomorphicLayoutEffect } from 'motion/react'
-import { useEffect, useMemo, useState } from 'react'
-import type { JSX } from 'react'
-import { DEFAULT_THEME, THEME_LIST } from '../constants'
-import { useThemeStore } from '../hooks'
-import { matchDarkThemeMedia } from '../utils'
+import { useMemo, useState, useEffect } from 'react'
+import { DEFAULT_THEME, THEME_LIST } from '../config'
+import { matchDarkThemeMedia } from '../lib'
+import { useThemeStore } from './use-theme'
 
-interface ThemeProviderProps {
-  defaultValue?: string
-}
-
-export default function ThemeProvider({
-  defaultValue = DEFAULT_THEME,
-  children,
-  ...props
-}: ThemeProviderProps & Omit<JSX.IntrinsicElements['body'], 'defaultValue'>) {
+export default function useThemeProvider(defaultValue: string = DEFAULT_THEME) {
   const defaultTheme = useMemo(
     () => THEME_LIST.find((theme) => theme === defaultValue) || DEFAULT_THEME,
     [defaultValue],
@@ -46,9 +37,5 @@ export default function ThemeProvider({
     }
   }, [darkThemeMedia, theme, setRealTheme])
 
-  return (
-    <body {...props} data-theme={!darkThemeMedia ? defaultTheme : theme}>
-      {children}
-    </body>
-  )
+  return { theme: !darkThemeMedia ? defaultTheme : theme }
 }

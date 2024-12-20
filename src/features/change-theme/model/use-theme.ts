@@ -1,20 +1,8 @@
-'use client'
-
 import Cookies from 'js-cookie'
 import { create } from 'zustand'
-import type { RealTheme, Theme } from '../types'
-import { DEFAULT_REAL_THEME, DEFAULT_THEME, THEME_KEY } from '../constants'
-import { matchDarkThemeMedia } from '../utils'
-
-interface ThemeState {
-  theme: Theme
-  realTheme: RealTheme
-  setTheme: (theme: Theme) => void
-}
-
-interface ThemeStore extends ThemeState {
-  setRealTheme: (realTheme: RealTheme) => void
-}
+import type { Theme, ThemeState, ThemeStore } from './interface'
+import { DEFAULT_REAL_THEME, DEFAULT_THEME, THEME_KEY } from '../config'
+import { matchDarkThemeMedia } from '../lib'
 
 function themeInterceptor(
   theme: Theme,
