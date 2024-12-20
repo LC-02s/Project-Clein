@@ -1,8 +1,6 @@
-'use client'
-
-import { type ClassValue, clsx } from 'clsx'
+import { cx } from 'class-variance-authority'
 import { twMerge } from 'tailwind-merge'
 
-export default function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+export default function cn(...inputs: Parameters<typeof cx>) {
+  return twMerge(cx(inputs))
 }
