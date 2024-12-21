@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .wrapper {
+    @apply mx-auto w-full max-w-7xl px-5 md:px-10;
+  }
+  .hidden-text {
+    @apply absolute m-0 size-px overflow-hidden whitespace-nowrap border-none p-0 text-[2px] outline-none;
+    clip: rect(1px 1px 1px 1px);
+  }
+}
