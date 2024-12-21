@@ -22,6 +22,13 @@ export default {
       fontFamily: {
         sans: ['var(--pretendard)', ...defaultTheme.fontFamily.sans],
       },
+      screens: {
+        xs: '20rem',
+        sm: '30rem',
+        md: '48rem',
+        lg: '64rem',
+        xl: '80rem',
+      },
     },
   },
   plugins: [],
