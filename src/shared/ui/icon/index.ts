@@ -1,0 +1,5 @@
+export { default as TeaCupOutline } from './tea-cup-outline'
+export { default as GithubLogo } from './github-logo'
+export { default as LetterBold } from './letter-bold'
+export { default as CheckOutline } from './check-outline'
+export { default as CopyOutline } from './copy-outline'
