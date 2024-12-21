@@ -1,8 +1,8 @@
 import { cookies } from 'next/headers'
 import type { Metadata } from 'next'
-import type { PropsWithChildren } from 'react'
 import { MAIN_PAGE_TITLE } from '@/views/main'
 import { THEME_KEY, ThemeProvider } from '@/features/change-theme'
+import { OverlayProvider } from '@/shared/lib'
 import { Pretendard } from './font'
 
 import './globals.css'
@@ -18,17 +18,17 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
-export default async function RootLayout({ children }: PropsWithChildren) {
+export default async function RootLayout({ children }: React.PropsWithChildren) {
   const cookieStore = await cookies()
   const theme = cookieStore.get(THEME_KEY)
 
   return (
     <html lang="ko" className={Pretendard.variable}>
       <ThemeProvider
-        className="bg-white text-zinc-700 antialiased dark:bg-zinc-900 dark:text-zinc-50"
+        className="relative flex min-h-screen min-w-[17.5rem] flex-col items-stretch justify-start bg-white text-zinc-800 antialiased dark:bg-zinc-900 dark:text-zinc-50"
         defaultValue={theme?.value}
       >
-        {children}
+        <OverlayProvider>{children}</OverlayProvider>
       </ThemeProvider>
     </html>
   )
