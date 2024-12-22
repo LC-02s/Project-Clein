@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { MainLogo } from '@/entities/page'
-import { cn } from '@/shared/lib'
 import { buttonVariants, Icon } from '@/shared/ui'
 import { GITHUB_ADDRESS } from '../config'
 import BuyMeACoffeeButton from './coffee-button'
@@ -9,10 +8,12 @@ import EmailButton from './email-button'
 import SiteMap from './site-map'
 
 export default function Footer() {
-  const contactLinkStyle = cn(
-    buttonVariants({ variant: 'light', round: 'full', size: 'lg', square: true }),
-    'bg-white',
-  )
+  const contactLinkStyle = buttonVariants({
+    variant: 'light',
+    round: 'full',
+    size: 'lg',
+    square: true,
+  })
 
   return (
     <footer className="border-t border-zinc-200 bg-zinc-50 pb-24 pt-12 md:pb-16 md:pt-6 dark:border-zinc-700 dark:bg-zinc-800">

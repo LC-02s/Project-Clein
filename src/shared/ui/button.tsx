@@ -30,7 +30,13 @@ export const buttonVariants = cva(
         variant: 'light',
         color: 'default',
         class:
-          'border border-zinc-200 bg-zinc-100 text-zinc-800 hover:bg-zinc-200 active:bg-zinc-200 disabled:!bg-zinc-100 disabled:text-zinc-400 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-600 dark:active:bg-zinc-600 dark:disabled:!bg-zinc-700 dark:disabled:text-zinc-500',
+          'border border-zinc-200 bg-white text-zinc-800 hover:bg-zinc-100 active:bg-zinc-100 disabled:!bg-white disabled:text-zinc-400 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-600 dark:active:bg-zinc-600 dark:disabled:!bg-zinc-700 dark:disabled:text-zinc-500',
+      },
+      {
+        variant: 'subtle',
+        color: 'default',
+        class:
+          'text-zinc-800 hover:bg-zinc-100 active:bg-zinc-100 disabled:!bg-transparent disabled:text-zinc-400 dark:text-zinc-50 dark:hover:bg-zinc-700 dark:active:bg-zinc-700 dark:disabled:text-zinc-500',
       },
       {
         variant: 'filled',
@@ -45,6 +51,12 @@ export const buttonVariants = cva(
           'border border-indigo-100 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 active:bg-indigo-100 disabled:!bg-indigo-50 disabled:text-indigo-400 dark:border-indigo-900 dark:bg-indigo-950 dark:text-indigo-300 dark:hover:bg-indigo-900 dark:active:bg-indigo-900 dark:disabled:!bg-indigo-950 dark:disabled:text-indigo-500',
       },
       {
+        variant: 'subtle',
+        color: 'info',
+        class:
+          'text-indigo-600 hover:bg-indigo-50 active:bg-indigo-50 disabled:!bg-transparent disabled:text-indigo-400 dark:text-indigo-300 dark:hover:bg-indigo-950 dark:active:bg-indigo-950 dark:disabled:text-indigo-500',
+      },
+      {
         variant: 'filled',
         color: 'warn',
         class:
@@ -54,7 +66,13 @@ export const buttonVariants = cva(
         variant: 'light',
         color: 'warn',
         class:
-          'border border-rose-100 bg-rose-50 text-rose-600 hover:bg-rose-100 active:bg-rose-100 disabled:!bg-rose-50 disabled:text-rose-400 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-300 dark:hover:bg-rose-900 dark:active:bg-rose-900 dark:disabled:!bg-rose-950 dark:disabled:text-rose-500',
+          'border border-rose-100 bg-rose-50 text-rose-700 hover:bg-rose-100 active:bg-rose-100 disabled:!bg-rose-50 disabled:text-rose-400 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-300 dark:hover:bg-rose-900 dark:active:bg-rose-900 dark:disabled:!bg-rose-950 dark:disabled:text-rose-500',
+      },
+      {
+        variant: 'subtle',
+        color: 'warn',
+        class:
+          'text-rose-600 hover:bg-rose-50 active:bg-rose-50 disabled:!bg-transparent disabled:text-rose-400 dark:text-rose-300 dark:hover:bg-rose-950 dark:active:bg-rose-950 dark:disabled:text-rose-500',
       },
       { size: 'xs', square: false, class: 'h-8 px-2 py-1 text-sm' },
       { size: 'sm', square: false, class: 'h-9 px-3 py-1 text-sm' },
