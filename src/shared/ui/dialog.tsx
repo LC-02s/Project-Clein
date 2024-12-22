@@ -52,6 +52,7 @@ interface DialogProps {
   withoutDimmed?: boolean
   cancelWithOutsideClick?: boolean
   cancelWithEscape?: boolean
+  className?: string
   size?: keyof typeof dialogVariants.size
   position?: keyof typeof dialogVariants.position
 }
@@ -78,9 +79,10 @@ const dialogVariants = {
 export function Dialog({
   open: isOpen = false,
   onClose,
+  className,
   size = 'md',
-  withoutDimmed,
   position = 'center',
+  withoutDimmed,
   cancelWithOutsideClick = false,
   cancelWithEscape = false,
   children,
@@ -117,6 +119,7 @@ export function Dialog({
               'absolute left-1/2 max-h-[calc(100dvh-2rem)] w-[calc(100vw-1rem)] translate-x-1/2 rounded-xl bg-white p-5 shadow-md dark:bg-zinc-800',
               position === 'center' ? 'top-1/2' : 'top-4',
               dialogVariants.size[size],
+              className,
             )}
             initial={dialogVariants.position[position].initial}
             animate={dialogVariants.position[position].animate}
