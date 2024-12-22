@@ -1,9 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { MainLogo } from '@/entities/page'
 import { cn } from '@/shared/lib'
 import { buttonVariants, Icon } from '@/shared/ui'
+import { GITHUB_ADDRESS } from '../config'
 import BuyMeACoffeeButton from './coffee-button'
 import EmailButton from './email-button'
+import SiteMap from './site-map'
 
 export default function Footer() {
   const contactLinkStyle = cn(
@@ -24,28 +27,9 @@ export default function Footer() {
           />
         </div>
         <div className="flex flex-col items-center justify-center px-1 md:flex-row md:justify-between">
-          <Link href="/" title="메인으로" className="block text-2xl font-bold">
-            Clein&#39;s Portfolio
-          </Link>
+          <MainLogo />
           <div className="mt-2 flex flex-col items-center justify-between space-y-8 md:mt-0 md:flex-row md:space-x-6 md:space-y-0">
-            <ul className="flex flex-wrap items-center justify-center md:space-x-1">
-              {[
-                { href: '/about', name: 'About' },
-                { href: '/blog', name: 'Blog' },
-                { href: '/project', name: 'Project' },
-                { href: '/playground', name: 'Playground' },
-              ].map(({ href, name }) => (
-                <li key={href} className="p-0.5">
-                  <Link
-                    href={href}
-                    title={`${name} 페이지 바로가기`}
-                    className="p-1 hover:text-indigo-600 hover:underline active:text-indigo-600 dark:hover:text-indigo-300 dark:active:text-indigo-300"
-                  >
-                    {name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <SiteMap />
             <BuyMeACoffeeButton
               title="클라인에게 커피 사주기"
               color="none"
@@ -64,7 +48,7 @@ export default function Footer() {
           <ul className="mb-6 flex space-x-2 md:mb-0">
             <li>
               <Link
-                href="https://github.com/LC-02s"
+                href={GITHUB_ADDRESS}
                 target="_blank"
                 title="새창이동: Clein 깃허브"
                 className={contactLinkStyle}
