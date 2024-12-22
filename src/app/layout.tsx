@@ -4,7 +4,7 @@ import { BLOG_PAGE_TITLE } from '@/views/blog'
 import { MAIN_PAGE_TITLE } from '@/views/main'
 import { Footer } from '@/widgets/footer'
 import { THEME_KEY, ThemeProvider } from '@/features/change-theme'
-import { OverlayProvider } from '@/shared/lib'
+import { BreakpointProvider, OverlayProvider } from '@/shared/lib'
 import { Pretendard } from './font'
 
 import './globals.css'
@@ -45,10 +45,12 @@ export default async function RootLayout({ children }: React.PropsWithChildren) 
         className="relative flex min-h-screen min-w-[17.5rem] flex-col items-stretch justify-start bg-white text-zinc-800 antialiased dark:bg-zinc-900 dark:text-zinc-50"
         defaultValue={theme?.value}
       >
-        <OverlayProvider>
-          {children}
-          <Footer />
-        </OverlayProvider>
+        <BreakpointProvider>
+          <OverlayProvider>
+            {children}
+            <Footer />
+          </OverlayProvider>
+        </BreakpointProvider>
       </ThemeProvider>
     </html>
   )

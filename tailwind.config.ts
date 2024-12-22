@@ -28,6 +28,7 @@ export default {
         md: '48rem',
         lg: '64rem',
         xl: '80rem',
+        '2xl': '90rem',
       },
     },
   },
