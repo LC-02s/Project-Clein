@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { BLOG_PAGE_TITLE } from '@/views/blog'
 import { MAIN_PAGE_TITLE } from '@/views/main'
 import { Footer } from '@/widgets/footer'
-import { THEME_KEY, ThemeProvider } from '@/features/change-theme'
+import { THEME_KEY, ThemeDropdownButton, ThemeProvider } from '@/features/change-theme'
 import { BreakpointProvider, OverlayProvider } from '@/shared/lib'
 import { Pretendard } from './font'
 
@@ -47,6 +47,7 @@ export default async function RootLayout({ children }: React.PropsWithChildren) 
       >
         <BreakpointProvider>
           <OverlayProvider>
+            <ThemeDropdownButton />
             {children}
             <Footer />
           </OverlayProvider>

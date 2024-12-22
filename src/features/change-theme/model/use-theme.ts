@@ -4,9 +4,7 @@ import type { Theme, ThemeState, ThemeStore } from './interface'
 import { DEFAULT_REAL_THEME, DEFAULT_THEME, THEME_KEY } from '../config'
 import { matchDarkThemeMedia } from '../lib'
 
-function themeInterceptor(
-  theme: Theme,
-): Pick<ThemeStore, 'theme' | 'realTheme'> {
+function themeInterceptor(theme: Theme): Pick<ThemeStore, 'theme' | 'realTheme'> {
   if (theme === 'system') {
     const isDarkTheme = matchDarkThemeMedia().matches
 

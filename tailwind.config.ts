@@ -30,6 +30,15 @@ export default {
         xl: '80rem',
         '2xl': '90rem',
       },
+      animation: {
+        'pop-spin': 'pop-spin 0.5s',
+      },
+      keyframes: {
+        'pop-spin': {
+          '0%': { transform: 'rotate(-360deg) scale(0)', opacity: '0' },
+          '75%': { transform: 'rotate(25deg)' },
+        },
+      },
     },
   },
   plugins: [],
