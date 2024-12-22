@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers'
 import type { Metadata } from 'next'
+import { BLOG_PAGE_TITLE } from '@/views/blog'
 import { MAIN_PAGE_TITLE } from '@/views/main'
 import { Footer } from '@/widgets/footer'
 import { THEME_KEY, ThemeProvider } from '@/features/change-theme'
@@ -11,6 +12,21 @@ import './globals.css'
 export const metadata: Metadata = {
   title: MAIN_PAGE_TITLE,
   description: 'SI 퍼블리셔 출신 FE 개발자 클라인입니다!',
+  keywords: [
+    '기술 블로그',
+    '프론트엔드 기술 블로그',
+    '클라인의 포트폴리오',
+    '클라인의 포트폴리오 사이트',
+    '프론트엔드 개발자 포트폴리오',
+    '개발자 포트폴리오',
+    '포트폴리오 사이트',
+    '프론트엔드 개발',
+    '퍼블리셔 포트폴리오',
+    '클라인',
+    'clein',
+    MAIN_PAGE_TITLE,
+    BLOG_PAGE_TITLE,
+  ],
   openGraph: {
     type: 'website',
     siteName: MAIN_PAGE_TITLE,

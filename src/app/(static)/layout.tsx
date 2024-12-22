@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import type { PropsWithChildren } from 'react'
 import { MAIN_PAGE_TITLE } from '@/views/main'
 
 export const metadata: Metadata = {
@@ -9,6 +8,6 @@ export const metadata: Metadata = {
   },
 }
 
-export default function StaticLayout({ children }: PropsWithChildren) {
+export default function StaticLayout({ children }: React.PropsWithChildren) {
   return <>{children}</>
 }

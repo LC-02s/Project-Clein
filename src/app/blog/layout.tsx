@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import type { PropsWithChildren } from 'react'
 import { BLOG_PAGE_TITLE } from '@/views/blog'
 
 export const metadata: Metadata = {
@@ -8,6 +7,7 @@ export const metadata: Metadata = {
     default: BLOG_PAGE_TITLE,
   },
   description: 'SI 퍼블리셔 출신 FE 개발자의 기술 블로그',
+  keywords: ['기술 블로그', '프론트엔드 기술 블로그', BLOG_PAGE_TITLE],
   openGraph: {
     type: 'website',
     siteName: BLOG_PAGE_TITLE,
@@ -15,6 +15,6 @@ export const metadata: Metadata = {
   },
 }
 
-export default function BlogLayout({ children }: PropsWithChildren) {
+export default function BlogLayout({ children }: React.PropsWithChildren) {
   return <>{children}</>
 }
