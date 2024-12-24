@@ -17,7 +17,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-zinc-200 bg-zinc-50 pb-24 pt-12 md:pb-16 md:pt-6 dark:border-zinc-700 dark:bg-zinc-800">
-      <div className="wrapper">
+      <div className="wrapper-xl">
         <div className="relative mb-6 md:hidden">
           <Image
             src="/img/profile.png"

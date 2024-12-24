@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 @layer components {
-  .wrapper {
+  .wrapper-2xl {
     @apply mx-auto w-full max-w-screen-2xl px-5 md:px-10;
+  }
+  .wrapper-xl {
+    @apply mx-auto w-full max-w-screen-xl px-5 md:px-10;
   }
   .hidden-text {
     @apply absolute m-0 size-px overflow-hidden whitespace-nowrap border-none p-0 text-[2px] outline-none;
