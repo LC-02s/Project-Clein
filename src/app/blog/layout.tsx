@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { BLOG_PAGE_TITLE } from '@/views/blog'
+import { BLOG_PAGE_TITLE } from '@/entities/page'
 
 export const metadata: Metadata = {
   title: {
@@ -16,5 +16,5 @@ export const metadata: Metadata = {
 }
 
 export default function BlogLayout({ children }: React.PropsWithChildren) {
-  return <>{children}</>
+  return <section className="flex-1">{children}</section>
 }

@@ -7,3 +7,7 @@ export const SITE_MAP: readonly Page[] = Object.freeze([
   { href: '/project', segment: '/project', title: 'Project', icon: Icon.CodeOutline },
   { href: '/playground', segment: '/playground', title: 'Playground', icon: Icon.AtomOutline },
 ])
+
+export const MAIN_PAGE_TITLE = `Clein's Portfolio Site`
+
+export const BLOG_PAGE_TITLE = `Clein's Tech Blog`
