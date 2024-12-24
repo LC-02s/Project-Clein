@@ -32,15 +32,15 @@ export default function ThemeDropdownButton() {
   return (
     <div ref={containerRef} className="relative flex items-center justify-center">
       <Button ref={buttonRef} title="테마 변경" square onClick={toggle}>
-        <Icon.SunBold
+        <Icon.SunEmoji
           className={cn(
-            'absolute inset-0 m-auto opacity-0 transition-opacity',
+            'absolute inset-0 m-auto text-xl opacity-0 transition-opacity',
             realTheme === 'light' && 'animate-pop-spin opacity-100',
           )}
         />
-        <Icon.MoonBold
+        <Icon.MoonEmoji
           className={cn(
-            'absolute inset-0 m-auto opacity-0 transition-opacity',
+            'absolute inset-0 m-auto text-xl opacity-0 transition-opacity',
             realTheme === 'dark' && 'animate-pop-spin opacity-100',
           )}
         />
