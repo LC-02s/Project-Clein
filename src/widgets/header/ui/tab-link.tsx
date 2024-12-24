@@ -14,11 +14,11 @@ export default function TabLink({ href, segment, title, icon: Icon }: TabLinkPro
   const linkRef = useRef<HTMLAnchorElement | null>(null)
 
   return (
-    <li className="relative flex h-full items-center justify-center py-2">
+    <li className="relative flex items-center justify-center pb-3 pt-1 xl:h-full xl:pt-3">
       <Link
         ref={linkRef}
         href={href}
-        className={buttonVariants({ variant: 'subtle' })}
+        className={buttonVariants({ variant: 'subtle', size: 'sm' })}
         title={`${title} 페이지 바로가기`}
         onClick={(e) => {
           const linkEl = linkRef.current
@@ -31,7 +31,7 @@ export default function TabLink({ href, segment, title, icon: Icon }: TabLinkPro
         }}
       >
         <Icon className="text-lg text-zinc-500 dark:text-zinc-400" />
-        <span className="ml-2 pr-1">{title}</span>
+        <span className="ml-2 pr-1 text-base">{title}</span>
       </Link>
       {isActive && <TabUnderline />}
     </li>
