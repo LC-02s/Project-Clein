@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/shared/lib'
+import { MAIN_PAGE_TITLE } from '../config'
 
 interface MainLogoProps {
   className?: string
@@ -20,7 +21,7 @@ export default function MainLogo({ className }: MainLogoProps) {
         if (pathname === '/') e.preventDefault()
       }}
     >
-      Clein&#39;s Portfolio
+      {MAIN_PAGE_TITLE}
     </Link>
   )
 }
