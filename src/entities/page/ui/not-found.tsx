@@ -1,6 +1,6 @@
-import { EMAIL_ADDRESS } from '@/shared/config'
 import { cn } from '@/shared/lib'
 import { Icon } from '@/shared/ui'
+import { EMAIL_ADDRESS } from '../config'
 import PageIconWrapper from './page-icon-wrapper'
 import RouteButtonGroup from './route-button-group'
 

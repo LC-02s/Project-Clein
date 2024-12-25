@@ -1,13 +1,14 @@
 'use client'
 
 import Image from 'next/image'
+import { NICKNAME_KR } from '@/entities/page'
 import { useOverlay, type OverlayElementState } from '@/shared/lib'
 import { Button, type ButtonProps, Dialog } from '@/shared/ui'
 
 function AccountDialog({ isOpen, close }: OverlayElementState) {
   return (
     <Dialog open={isOpen} onClose={close} size="sm" cancelWithOutsideClick cancelWithEscape>
-      <Dialog.Title className="mb-6">클라인에게 커피 사주기</Dialog.Title>
+      <Dialog.Title className="mb-6">{NICKNAME_KR}에게 커피 사주기</Dialog.Title>
       <div className="relative w-full overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-600">
         <p className="absolute inset-x-0 bottom-5 z-10 inline-flex h-16 w-full items-center justify-center pr-3">
           <Image

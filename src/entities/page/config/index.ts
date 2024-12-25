@@ -8,6 +8,14 @@ export const SITE_MAP: readonly Page[] = Object.freeze([
   { href: '/playground', segment: '/playground', title: 'Playground', icon: Icon.AtomOutline },
 ])
 
-export const MAIN_PAGE_TITLE = `Clein's Portfolio`
+export const NICKNAME = 'Clein'
 
-export const BLOG_PAGE_TITLE = `Clein's Tech Blog`
+export const NICKNAME_KR = '클라인'
+
+export const MAIN_PAGE_TITLE = `${NICKNAME}'s Portfolio`
+
+export const BLOG_PAGE_TITLE = `${NICKNAME}'s Tech Blog`
+
+export const EMAIL_ADDRESS = 'chanlee1007@naver.com'
+
+export const GITHUB_ADDRESS = 'https://github.com/LC-02s'

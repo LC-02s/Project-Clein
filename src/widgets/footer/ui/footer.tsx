@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { MainLogo } from '@/entities/page'
-import { GITHUB_ADDRESS } from '@/shared/config'
+import { MainLogo, NICKNAME, NICKNAME_KR, GITHUB_ADDRESS } from '@/entities/page'
 import { buttonVariants, Icon } from '@/shared/ui'
 import BuyMeACoffeeButton from './coffee-button'
 import EmailButton from './email-button'
@@ -21,7 +20,7 @@ export default function Footer() {
         <div className="relative mb-6 md:hidden">
           <Image
             src="/img/profile.png"
-            alt="클라인 프로필 이미지"
+            alt={`${NICKNAME_KR} 프로필 이미지`}
             className="mx-auto size-20 overflow-hidden rounded-full border border-zinc-300 dark:border-zinc-600"
             width={160}
             height={160}
@@ -32,7 +31,7 @@ export default function Footer() {
           <div className="mt-2 flex flex-col items-center justify-between space-y-8 md:mt-0 md:flex-row md:space-x-6 md:space-y-0">
             <SiteMap />
             <BuyMeACoffeeButton
-              title="클라인에게 커피 사주기"
+              title={`${NICKNAME_KR}에게 커피 사주기`}
               color="none"
               className="bg-gradient-to-br from-indigo-500 to-violet-500 text-white hover:to-indigo-400 active:to-indigo-400"
             >
@@ -44,18 +43,18 @@ export default function Footer() {
         <hr className="my-8 border-zinc-300 md:my-6 dark:border-zinc-600" />
         <div className="flex flex-col-reverse items-center justify-between px-1 md:flex-row">
           <p className="break-keep text-center text-lg font-medium text-zinc-500 md:text-left dark:text-zinc-400">
-            SI 퍼블리셔 출신 FE 개발자 클라인의 포트폴리오 사이트
+            SI 퍼블리셔 출신 FE 개발자 {NICKNAME_KR}의 포트폴리오 사이트
           </p>
           <ul className="mb-6 flex space-x-2 md:mb-0">
             <li>
               <Link
                 href={GITHUB_ADDRESS}
                 target="_blank"
-                title="새창이동: Clein 깃허브"
+                title={`새창이동: ${NICKNAME} 깃허브`}
                 className={contactLinkStyle}
               >
                 <Icon.GithubLogo className="size-7 dark:text-white" />
-                <span className="hidden-text">새창이동: Clein 깃허브</span>
+                <span className="hidden-text">새창이동: {NICKNAME} 깃허브</span>
               </Link>
             </li>
             <li>
@@ -67,7 +66,7 @@ export default function Footer() {
           </ul>
         </div>
         <p className="mt-12 break-keep px-1 text-center text-zinc-500 md:mt-2 md:text-left dark:text-zinc-400">
-          &copy; 2024 Clein All Rights Reserved.
+          &copy; 2024 {NICKNAME} All Rights Reserved.
         </p>
       </div>
     </footer>
