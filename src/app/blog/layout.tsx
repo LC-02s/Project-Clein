@@ -16,5 +16,9 @@ export const metadata: Metadata = {
 }
 
 export default function BlogLayout({ children }: React.PropsWithChildren) {
-  return <section className="flex-1">{children}</section>
+  return (
+    <section id="content" className="relative flex-1">
+      {children}
+    </section>
+  )
 }

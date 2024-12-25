@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function NotFoundPage() {
   return (
-    <section className="wrapper-xl flex flex-1 flex-col items-center justify-center pb-[16vh] pt-[12vh]">
+    <section id="not-found" className="flex-1">
       <NotFound />
     </section>
   )

@@ -1,5 +1,5 @@
 import { UnderConstruction } from '@/entities/page'
 
-export default function BlogMainPage() {
+export default function BlogDetailPage() {
   return <UnderConstruction />
 }
