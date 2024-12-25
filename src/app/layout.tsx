@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
 import { THEME_KEY, ThemeDropdownButton, ThemeProvider } from '@/features/change-theme'
-import { MAIN_PAGE_TITLE, BLOG_PAGE_TITLE, NICKNAME_KR, NICKNAME } from '@/entities/page'
+import { MAIN_PAGE_TITLE, BLOG_PAGE_TITLE, NICKNAME_KR, NICKNAME } from '@/entities/site'
 import { BreakpointProvider, OverlayProvider } from '@/shared/lib'
 import { Pretendard } from './font'
 

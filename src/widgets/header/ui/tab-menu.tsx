@@ -1,6 +1,6 @@
 'use client'
 
-import { SITE_MAP } from '@/entities/page'
+import { SITE_MAP } from '@/entities/site'
 import TabLink from './tab-link'
 
 export default function TabMenu() {

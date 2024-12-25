@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { SITE_MAP } from '@/entities/page'
+import { SITE_MAP } from '@/entities/site'
 
 export default function SiteMap() {
   const pathname = usePathname()

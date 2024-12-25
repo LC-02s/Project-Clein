@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { MainLogo, NICKNAME, NICKNAME_KR, GITHUB_ADDRESS } from '@/entities/page'
+import { MainLogo, NICKNAME, NICKNAME_KR, GITHUB_ADDRESS } from '@/entities/site'
 import { buttonVariants, Icon } from '@/shared/ui'
 import BuyMeACoffeeButton from './coffee-button'
 import EmailButton from './email-button'

@@ -1,6 +1,6 @@
 'use client'
 
-import { MainLogo } from '@/entities/page'
+import { MainLogo } from '@/entities/site'
 import TabMenu from './tab-menu'
 
 export default function Header({ children }: React.PropsWithChildren) {

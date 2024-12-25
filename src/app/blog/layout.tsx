@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { BLOG_PAGE_TITLE } from '@/entities/page'
+import { BLOG_PAGE_TITLE } from '@/entities/site'
 
 export const metadata: Metadata = {
   title: {

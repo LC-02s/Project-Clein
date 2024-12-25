@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { NotFound, MAIN_PAGE_TITLE } from '@/entities/page'
+import { NotFound, MAIN_PAGE_TITLE } from '@/entities/site'
 
 export const metadata: Metadata = {
   title: `Page Not Found - ${MAIN_PAGE_TITLE}`,

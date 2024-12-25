@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { NICKNAME_KR } from '@/entities/page'
+import { NICKNAME_KR } from '@/entities/site'
 import { useOverlay, type OverlayElementState } from '@/shared/lib'
 import { Button, type ButtonProps, Dialog } from '@/shared/ui'
 

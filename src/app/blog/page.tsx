@@ -1,4 +1,4 @@
-import { UnderConstruction } from '@/entities/page'
+import { UnderConstruction } from '@/entities/site'
 
 export default function BlogMainPage() {
   return <UnderConstruction />
