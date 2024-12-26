@@ -14,9 +14,9 @@ export const metadata: Metadata = {
     description: BLOG_DESCRIPTION,
     locale: 'ko_KR',
     images: {
-      url: '/img/og-image-blog.png',
+      url: '/img/og-image-blog.jpg',
       alt: BLOG_TITLE,
-      type: 'image/png',
+      type: 'image/jpg',
       width: 1200,
       height: 630,
     },
