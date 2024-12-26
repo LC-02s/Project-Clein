@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { MainLogo, NICKNAME, NICKNAME_KR, GITHUB_ADDRESS } from '@/entities/site'
+import { MainLogo, NICKNAME, NICKNAME_KR, GITHUB_ADDRESS, MAIN_DESCRIPTION } from '@/entities/site'
 import { buttonVariants, Icon } from '@/shared/ui'
 import BuyMeACoffeeButton from './coffee-button'
 import EmailButton from './email-button'
@@ -43,7 +43,7 @@ export default function Footer() {
         <hr className="my-8 border-zinc-300 md:my-6 dark:border-zinc-600" />
         <div className="flex flex-col-reverse items-center justify-between px-1 md:flex-row">
           <p className="break-keep text-center text-lg font-medium text-zinc-500 md:text-left dark:text-zinc-400">
-            SI 퍼블리셔 출신 FE 개발자 {NICKNAME_KR}의 포트폴리오 사이트
+            {MAIN_DESCRIPTION}
           </p>
           <ul className="mb-6 flex space-x-2 md:mb-0">
             <li>

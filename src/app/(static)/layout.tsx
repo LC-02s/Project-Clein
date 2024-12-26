@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import { MAIN_PAGE_TITLE } from '@/entities/site'
+import { MAIN_TITLE } from '@/entities/site'
 
 export const metadata: Metadata = {
   title: {
-    template: `%s - ${MAIN_PAGE_TITLE}`,
-    default: MAIN_PAGE_TITLE,
+    template: `%s - ${MAIN_TITLE}`,
+    default: MAIN_TITLE,
   },
 }
 

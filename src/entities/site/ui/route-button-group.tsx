@@ -14,14 +14,10 @@ export default function RouteButtonGroup({ className }: ButtonGroupProps) {
 
   return (
     <p className={cn('mt-16 flex items-center justify-center space-x-3', className)}>
-      <Button size="lg" title="뒤로가기" className="bg-zinc-50" onClick={back}>
+      <Button size="lg" title="뒤로가기" onClick={back}>
         뒤로가기
       </Button>
-      <Link
-        href="/"
-        title="메인페이지 이동"
-        className={cn(buttonVariants({ size: 'lg' }), 'bg-zinc-50')}
-      >
+      <Link href="/" title="메인페이지 이동" className={buttonVariants({ size: 'lg' })}>
         <Icon.HouseEmoji className="text-2xl" />
         <span className="ml-2 pr-2">메인으로</span>
       </Link>

@@ -3,34 +3,35 @@ import type { Metadata } from 'next'
 import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
 import { THEME_KEY, ThemeDropdownButton, ThemeProvider } from '@/features/change-theme'
-import { MAIN_PAGE_TITLE, BLOG_PAGE_TITLE, NICKNAME_KR, NICKNAME } from '@/entities/site'
+import {
+  SITE_ADDRESS,
+  MAIN_TITLE,
+  MAIN_DESCRIPTION,
+  MAIN_KEYWORDS,
+  BLOG_KEYWORDS,
+} from '@/entities/site'
 import { BreakpointProvider, OverlayProvider } from '@/shared/lib'
 import { Pretendard } from './font'
 
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: MAIN_PAGE_TITLE,
-  description: `SI 퍼블리셔 출신 FE 개발자 ${NICKNAME_KR}입니다!`,
-  keywords: [
-    '기술 블로그',
-    '프론트엔드 기술 블로그',
-    '프론트엔드 개발자 포트폴리오',
-    '개발자 포트폴리오',
-    '포트폴리오 사이트',
-    '프론트엔드 개발',
-    '퍼블리셔 포트폴리오',
-    `${NICKNAME_KR}의 포트폴리오`,
-    `${NICKNAME_KR}의 포트폴리오 사이트`,
-    NICKNAME_KR,
-    NICKNAME,
-    MAIN_PAGE_TITLE,
-    BLOG_PAGE_TITLE,
-  ],
+  metadataBase: new URL(SITE_ADDRESS),
+  title: MAIN_TITLE,
+  description: MAIN_DESCRIPTION,
+  keywords: [...BLOG_KEYWORDS, ...MAIN_KEYWORDS],
   openGraph: {
     type: 'website',
-    siteName: MAIN_PAGE_TITLE,
+    siteName: MAIN_TITLE,
+    description: MAIN_DESCRIPTION,
     locale: 'ko_KR',
+    images: {
+      url: '/img/og-image-main.png',
+      alt: MAIN_TITLE,
+      type: 'image/png',
+      width: 1200,
+      height: 630,
+    },
   },
   robots: { index: true, follow: true },
 }

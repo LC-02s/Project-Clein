@@ -1,17 +1,25 @@
 import type { Metadata } from 'next'
-import { BLOG_PAGE_TITLE } from '@/entities/site'
+import { BLOG_DESCRIPTION, BLOG_KEYWORDS, BLOG_TITLE } from '@/entities/site'
 
 export const metadata: Metadata = {
   title: {
-    template: `%s - ${BLOG_PAGE_TITLE}`,
-    default: BLOG_PAGE_TITLE,
+    template: `%s - ${BLOG_TITLE}`,
+    default: BLOG_TITLE,
   },
-  description: 'SI 퍼블리셔 출신 FE 개발자의 기술 블로그',
-  keywords: ['기술 블로그', '프론트엔드 기술 블로그', BLOG_PAGE_TITLE],
+  description: BLOG_DESCRIPTION,
+  keywords: BLOG_KEYWORDS,
   openGraph: {
     type: 'website',
-    siteName: BLOG_PAGE_TITLE,
+    siteName: BLOG_TITLE,
+    description: BLOG_DESCRIPTION,
     locale: 'ko_KR',
+    images: {
+      url: '/img/og-image-blog.png',
+      alt: BLOG_TITLE,
+      type: 'image/png',
+      width: 1200,
+      height: 630,
+    },
   },
 }
 

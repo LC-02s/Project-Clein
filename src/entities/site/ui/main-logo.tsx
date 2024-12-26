@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/shared/lib'
-import { MAIN_PAGE_TITLE } from '../config'
+import { MAIN_TITLE } from '../config'
 
 interface MainLogoProps {
   className?: string
@@ -21,7 +21,7 @@ export default function MainLogo({ className }: MainLogoProps) {
         if (pathname === '/') e.preventDefault()
       }}
     >
-      {MAIN_PAGE_TITLE}
+      {MAIN_TITLE}
     </Link>
   )
 }
