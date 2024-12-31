@@ -1,6 +1,10 @@
-export type LiteralDate = `${number}-${number}-${number} ${number}:${number}`
+export type LiteralTime = `${number}:` | `${number}:${number}` | `${number}:${number}:${number}`
 
-export function getTime(date?: LiteralDate) {
+export type LiteralDate = `${number}-${number}-${number}`
+
+export type LiteralDateTime = `${LiteralDate}${` ${LiteralTime}` | ''}`
+
+export function getTime(date?: LiteralDateTime) {
   if (date) {
     return new Date(date).getTime()
   }
