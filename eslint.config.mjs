@@ -59,6 +59,7 @@ const eslintConfig = [
             'unknown',
           ],
           pathGroups: [
+            { pattern: '@/database/*', group: 'internal', position: 'after' },
             { pattern: '@/views/*', group: 'internal', position: 'after' },
             { pattern: '@/widgets/*', group: 'internal', position: 'after' },
             { pattern: '@/features/*', group: 'internal', position: 'after' },
@@ -81,10 +82,7 @@ const eslintConfig = [
       'react/self-closing-comp': 'warn',
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.configs.recommended.rules,
-      'jsx-a11y/label-has-associated-control': [
-        'error',
-        { some: ['nesting', 'id'] },
-      ],
+      'jsx-a11y/label-has-associated-control': ['error', { some: ['nesting', 'id'] }],
       'prettier/prettier': 'warn',
     },
     settings: {
