@@ -17,3 +17,19 @@ export interface PostRawData {
   keywords: Keyword[]
   externalTags?: string[]
 }
+
+export interface Post extends PostRawData {
+  id: PostId
+  content: string
+  readingTime: number
+  related: {
+    prev: PostId | null
+    next: PostId | null
+  }
+}
+
+export type PostMap = Map<PostId, Post>
+
+export type SetOfPostId = Set<PostId>
+
+export type PostByTagMap = Map<Keyword, SetOfPostId>
