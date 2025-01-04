@@ -25,14 +25,14 @@ export const textInputVariants = cva(
     defaultVariants: {
       variant: 'default',
       size: 'md',
-      withoutBackground: true,
+      withoutBackground: false,
     },
   },
 )
 
 export type TextInputVariantProps = VariantProps<typeof textInputVariants>
 
-export default function TextInput({
+export function TextInput({
   variant,
   size,
   withoutBackground,

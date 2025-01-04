@@ -30,7 +30,7 @@ function AccountDialog({ isOpen, close }: OverlayElementState) {
         />
       </div>
       <Dialog.Footer>
-        <Dialog.Button title="닫기" className="min-w-20" onClick={close}>
+        <Dialog.Button title="닫기" variant="light" className="min-w-20" onClick={close}>
           닫기
         </Dialog.Button>
       </Dialog.Footer>

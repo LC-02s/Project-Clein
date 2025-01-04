@@ -31,7 +31,7 @@ export default function ThemeDropdownButton() {
 
   return (
     <div ref={containerRef} className="relative flex items-center justify-center">
-      <Button ref={buttonRef} title="테마 변경" square onClick={toggle}>
+      <Button ref={buttonRef} variant="light" title="테마 변경" square onClick={toggle}>
         <Icon.SunEmoji
           className={cn(
             'absolute inset-0 m-auto text-xl opacity-0 transition-opacity',

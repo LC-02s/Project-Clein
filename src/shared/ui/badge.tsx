@@ -2,16 +2,19 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../lib'
 
 export const badgeVariants = cva(
-  'relative flex items-center justify-center whitespace-nowrap font-medium',
+  'relative flex items-center justify-center whitespace-nowrap border border-zinc-200 font-medium dark:border-zinc-600',
   {
     variants: {
+      variant: {
+        default: 'bg-white dark:bg-zinc-800',
+        light: 'bg-zinc-50 dark:bg-zinc-700',
+      },
       color: {
-        default:
-          'border border-zinc-200 bg-zinc-100 text-zinc-600 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-300',
-        info: 'border border-indigo-100 bg-indigo-50 text-indigo-600 dark:border-indigo-900 dark:bg-indigo-950 dark:text-indigo-300',
-        success:
-          'border border-emerald-100 bg-emerald-50 text-emerald-700 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-300',
-        warn: 'border border-rose-100 bg-rose-50 text-rose-700 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-300',
+        gray: 'text-zinc-800 dark:text-zinc-50',
+        info: 'text-indigo-600 dark:text-indigo-300',
+        success: 'text-emerald-600 dark:text-emerald-300',
+        caution: 'text-amber-600 dark:text-amber-300',
+        warn: 'text-rose-600 dark:text-rose-300',
         none: '',
       },
       size: {
@@ -32,7 +35,8 @@ export const badgeVariants = cva(
       },
     },
     defaultVariants: {
-      color: 'default',
+      variant: 'light',
+      color: 'gray',
       size: 'sm',
       round: 'sm',
     },
@@ -43,9 +47,9 @@ export type BadgeVariantsProps = VariantProps<typeof badgeVariants>
 
 export type BadgeProps = React.JSX.IntrinsicElements['span'] & BadgeVariantsProps
 
-export function Badge({ color, size, round, className, children, ...props }: BadgeProps) {
+export function Badge({ variant, color, size, round, className, children, ...props }: BadgeProps) {
   return (
-    <span className={cn(badgeVariants({ color, size, round }), className)} {...props}>
+    <span className={cn(badgeVariants({ variant, color, size, round }), className)} {...props}>
       {children}
     </span>
   )

@@ -14,10 +14,11 @@ function EmailDialog({ isOpen, close }: OverlayElementState) {
           value={EMAIL_ADDRESS}
           className="w-[calc(100%-3rem)] text-sm xs:text-base"
           readOnly
+          withoutBackground
         />
         <CopyButton value={EMAIL_ADDRESS}>
           {({ status, copy }) => (
-            <Button title="이메일 복사하기" square onClick={copy} disabled={status}>
+            <Button title="이메일 복사하기" variant="light" square onClick={copy} disabled={status}>
               {status ? (
                 <Icon.CheckOutline className="text-emerald-600 dark:text-emerald-400" />
               ) : (
@@ -29,7 +30,7 @@ function EmailDialog({ isOpen, close }: OverlayElementState) {
         </CopyButton>
       </div>
       <Dialog.Footer>
-        <Dialog.Button title="닫기" className="min-w-20" onClick={close}>
+        <Dialog.Button title="닫기" variant="light" className="min-w-20" onClick={close}>
           닫기
         </Dialog.Button>
       </Dialog.Footer>

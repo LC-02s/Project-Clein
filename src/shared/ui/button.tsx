@@ -5,8 +5,17 @@ export const buttonVariants = cva(
   'relative flex select-none items-center justify-center whitespace-nowrap font-medium',
   {
     variants: {
-      variant: { filled: '', light: '', subtle: '', none: '' },
-      color: { default: '', info: '', warn: '', none: '' },
+      variant: {
+        filled: '',
+        default:
+          'dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:active:bg-zinc-700 dark:disabled:!bg-zinc-800',
+        light:
+          'dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-600 dark:disabled:!bg-zinc-700',
+        subtle:
+          'hover:bg-zinc-100 active:bg-zinc-100 disabled:!bg-transparent dark:hover:bg-zinc-700 dark:active:bg-zinc-700',
+        none: '',
+      },
+      color: { gray: '', info: '', warn: '', none: '' },
       size: { xs: '', sm: '', md: '', lg: '', none: '' },
       square: { true: '', false: '' },
       round: {
@@ -21,22 +30,32 @@ export const buttonVariants = cva(
     },
     compoundVariants: [
       {
+        variant: ['default', 'light'],
+        class:
+          'border border-zinc-200 bg-white hover:bg-zinc-100 active:bg-zinc-100 disabled:!bg-white dark:border-zinc-600',
+      },
+      {
+        variant: ['default', 'light', 'subtle'],
+        color: 'gray',
+        class: 'text-zinc-800 disabled:text-zinc-400 dark:text-zinc-50 dark:disabled:text-zinc-500',
+      },
+      {
+        variant: ['default', 'light', 'subtle'],
+        color: 'info',
+        class:
+          'text-indigo-600 disabled:text-indigo-400 dark:text-indigo-300 dark:disabled:text-indigo-500',
+      },
+      {
+        variant: ['default', 'light', 'subtle'],
+        color: 'warn',
+        class:
+          'text-rose-600 disabled:text-rose-400 dark:text-rose-300 dark:disabled:text-rose-500',
+      },
+      {
         variant: 'filled',
-        color: 'default',
+        color: 'gray',
         class:
           'bg-zinc-600 text-white hover:bg-zinc-800 active:bg-zinc-800 disabled:!bg-zinc-300 disabled:text-zinc-50 dark:bg-zinc-50 dark:text-zinc-800 dark:hover:bg-zinc-300 dark:active:bg-zinc-300 dark:disabled:!bg-zinc-700 dark:disabled:text-zinc-500',
-      },
-      {
-        variant: 'light',
-        color: 'default',
-        class:
-          'border border-zinc-200 bg-white text-zinc-800 hover:bg-zinc-100 active:bg-zinc-100 disabled:!bg-white disabled:text-zinc-400 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-600 dark:active:bg-zinc-600 dark:disabled:!bg-zinc-700 dark:disabled:text-zinc-500',
-      },
-      {
-        variant: 'subtle',
-        color: 'default',
-        class:
-          'text-zinc-800 hover:bg-zinc-100 active:bg-zinc-100 disabled:!bg-transparent disabled:text-zinc-400 dark:text-zinc-50 dark:hover:bg-zinc-700 dark:active:bg-zinc-700 dark:disabled:text-zinc-500',
       },
       {
         variant: 'filled',
@@ -45,34 +64,10 @@ export const buttonVariants = cva(
           'bg-indigo-600 text-white hover:bg-indigo-700 active:bg-indigo-700 disabled:!bg-indigo-300 dark:hover:bg-indigo-500 dark:active:bg-indigo-500 dark:disabled:!bg-indigo-900 dark:disabled:text-indigo-500',
       },
       {
-        variant: 'light',
-        color: 'info',
-        class:
-          'border border-indigo-100 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 active:bg-indigo-100 disabled:!bg-indigo-50 disabled:text-indigo-400 dark:border-indigo-900 dark:bg-indigo-950 dark:text-indigo-300 dark:hover:bg-indigo-900 dark:active:bg-indigo-900 dark:disabled:!bg-indigo-950 dark:disabled:text-indigo-500',
-      },
-      {
-        variant: 'subtle',
-        color: 'info',
-        class:
-          'text-indigo-600 hover:bg-indigo-50 active:bg-indigo-50 disabled:!bg-transparent disabled:text-indigo-400 dark:text-indigo-300 dark:hover:bg-indigo-950 dark:active:bg-indigo-950 dark:disabled:text-indigo-500',
-      },
-      {
         variant: 'filled',
         color: 'warn',
         class:
           'bg-rose-600 text-white hover:bg-rose-700 active:bg-rose-700 disabled:!bg-rose-300 dark:hover:bg-rose-500 dark:active:bg-rose-500 dark:disabled:!bg-rose-900 dark:disabled:text-rose-500',
-      },
-      {
-        variant: 'light',
-        color: 'warn',
-        class:
-          'border border-rose-100 bg-rose-50 text-rose-700 hover:bg-rose-100 active:bg-rose-100 disabled:!bg-rose-50 disabled:text-rose-400 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-300 dark:hover:bg-rose-900 dark:active:bg-rose-900 dark:disabled:!bg-rose-950 dark:disabled:text-rose-500',
-      },
-      {
-        variant: 'subtle',
-        color: 'warn',
-        class:
-          'text-rose-600 hover:bg-rose-50 active:bg-rose-50 disabled:!bg-transparent disabled:text-rose-400 dark:text-rose-300 dark:hover:bg-rose-950 dark:active:bg-rose-950 dark:disabled:text-rose-500',
       },
       { size: 'xs', square: false, class: 'h-8 px-2 py-1 text-sm' },
       { size: 'sm', square: false, class: 'h-9 px-3 py-1 text-sm' },
@@ -84,8 +79,8 @@ export const buttonVariants = cva(
       { size: 'lg', square: true, class: 'size-12 p-1' },
     ],
     defaultVariants: {
-      variant: 'light',
-      color: 'default',
+      variant: 'default',
+      color: 'gray',
       size: 'md',
       round: 'sm',
       square: false,
