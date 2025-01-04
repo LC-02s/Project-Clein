@@ -1,4 +1,4 @@
-export type LiteralTime = `${number}:` | `${number}:${number}` | `${number}:${number}:${number}`
+export type LiteralTime = `${number}:${number}` | `${number}:${number}:${number}`
 
 export type LiteralDate = `${number}-${number}-${number}`
 
