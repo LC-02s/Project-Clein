@@ -1,5 +1,5 @@
-import type { Page } from '../model'
 import { Icon } from '@/shared/ui'
+import type { Page } from '../model'
 
 export const SITE_MAP: readonly Page[] = Object.freeze([
   { href: '/about', segment: '/about', title: 'About', icon: Icon.UserOutline },
@@ -39,5 +39,3 @@ export const BLOG_KEYWORDS = ['기술 블로그', '프론트엔드 기술 블로
 export const EMAIL_ADDRESS = 'chanlee1007@naver.com'
 
 export const GITHUB_ADDRESS = 'https://github.com/LC-02s'
-
-export const DOMAIN_ADDRESS = 'https://clein.site'

@@ -4,7 +4,6 @@ import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
 import { THEME_KEY, ThemeDropdownButton, ThemeProvider } from '@/features/change-theme'
 import {
-  DOMAIN_ADDRESS,
   MAIN_TITLE,
   MAIN_DESCRIPTION,
   MAIN_KEYWORDS,
@@ -18,7 +17,7 @@ import { Pretendard } from './font'
 import './globals.css'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(DOMAIN_ADDRESS),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_DOMAIN_ADDRESS!),
   title: MAIN_TITLE,
   description: MAIN_DESCRIPTION,
   keywords: [...BLOG_KEYWORDS, ...MAIN_KEYWORDS],
