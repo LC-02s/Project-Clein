@@ -8,6 +8,7 @@ export const badgeVariants = cva(
       variant: {
         default: 'bg-white dark:bg-zinc-800',
         light: 'bg-zinc-50 dark:bg-zinc-700',
+        none: '',
       },
       color: {
         gray: 'text-zinc-800 dark:text-zinc-50',

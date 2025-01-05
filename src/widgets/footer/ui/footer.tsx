@@ -32,6 +32,7 @@ export default function Footer() {
             <SiteMap />
             <BuyMeACoffeeButton
               title={`${NICKNAME_KR}에게 커피 사주기`}
+              variant="none"
               color="none"
               className="bg-gradient-to-br from-indigo-500 to-violet-500 text-white hover:to-indigo-400 active:to-indigo-400"
             >

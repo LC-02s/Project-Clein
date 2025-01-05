@@ -31,6 +31,7 @@ export const buttonVariants = cva(
     compoundVariants: [
       {
         variant: ['default', 'light'],
+        color: ['gray', 'info', 'warn'],
         class:
           'border border-zinc-200 bg-white hover:bg-zinc-100 active:bg-zinc-100 disabled:!bg-white dark:border-zinc-600',
       },
