@@ -39,6 +39,9 @@ export default {
           '75%': { transform: 'rotate(25deg)' },
         },
       },
+      aspectRatio: {
+        thumbnail: (1200 / 630).toString(),
+      },
     },
   },
   plugins: [],
