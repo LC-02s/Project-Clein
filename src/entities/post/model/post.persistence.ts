@@ -1,9 +1,9 @@
 import { readFile } from 'fs/promises'
 import readingTime from 'reading-time'
-import type { PostId, Post, PostMap, PostByTagMap } from './post.interface'
 import { PostRepository } from '@/database/posts'
 import { orderByDateAsc } from '@/shared/lib'
 import { POSTS_BASE_PATH, THUMBNAIL_PATH_PREFIX } from '../config'
+import type { PostId, Post, PostMap, PostByKeywordMap } from '../model'
 
 async function parsePostDetail(id: PostId, index: number, array: PostId[]): Promise<Post> {
   const content = await readFile(`${POSTS_BASE_PATH}/${id}.md`, 'utf-8')
@@ -35,7 +35,7 @@ async function connectPostDB() {
 export const PostDB = await connectPostDB()
 
 function connectPostByKeywordDB() {
-  return PostRepository.getKeys().reduce<PostByTagMap>((database, postId) => {
+  return PostRepository.getKeys().reduce<PostByKeywordMap>((database, postId) => {
     return PostRepository.findById(postId).keywords.reduce((db, keyword) => {
       return db.set(keyword, (db.get(keyword) ?? new Set()).add(postId))
     }, database)

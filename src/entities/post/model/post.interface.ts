@@ -3,6 +3,17 @@ import type { LiteralDate, SortedFromDate } from '@/shared/lib'
 
 export type Keyword = ReturnType<typeof KeywordRepository.getKeys>[number]
 
+export interface MappedKeyword {
+  id: Keyword
+  name: string
+}
+
+export interface MappedKeywordWithLength extends MappedKeyword {
+  length: number
+}
+
+export type SeparatedKeywordsKey = 'tags' | 'projects' | 'series'
+
 export type PostId = LiteralDate
 
 export interface PostRawData extends SortedFromDate {
@@ -30,4 +41,4 @@ export type PostMap = Map<PostId, Post>
 
 export type SetOfPostId = Set<PostId>
 
-export type PostByTagMap = Map<Keyword, SetOfPostId>
+export type PostByKeywordMap = Map<Keyword, SetOfPostId>
