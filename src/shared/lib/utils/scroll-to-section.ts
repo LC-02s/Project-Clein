@@ -10,7 +10,7 @@ export function scrollToSection(hash: string) {
   window.scrollTo({ top: sectionEl.offsetTop, behavior: 'smooth' })
 }
 
-export function scrollToSectionFactor(
+export function createScrollToSection(
   href: string,
   handler?: React.MouseEventHandler<HTMLAnchorElement>,
 ) {
