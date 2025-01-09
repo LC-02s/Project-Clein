@@ -9,28 +9,26 @@ import ThemeDropdown from './theme-dropdown'
 
 export default function ThemeDropdownButton() {
   const { theme, realTheme, setTheme } = useTheme()
+
   const [isOpen, { setFalse: close, toggle }] = useBooleanState()
   const lg = useBreakpoint('lg', false)
+
   const buttonRef = useRef<HTMLButtonElement | null>(null)
+  const onClose = useCallback(() => {
+    buttonRef.current?.focus()
+    close()
+  }, [close])
 
   const containerRef = useOutsideClick<HTMLDivElement>(() => {
-    if (!lg) close()
+    if (isOpen && !lg) onClose()
   })
 
-  const onClose = useCallback(() => {
-    if (lg) {
-      buttonRef.current?.focus()
-    }
-
-    close()
-  }, [lg, close])
-
   useWindowEvent('keydown', (e) => {
-    if (isOpen && e.key === 'Escape') close()
+    if (isOpen && e.key === 'Escape') onClose()
   })
 
   return (
-    <div ref={containerRef} className="relative flex items-center justify-center">
+    <div ref={containerRef} className="relative">
       <Button ref={buttonRef} variant="light" title="테마 변경" square onClick={toggle}>
         <Icon.SunEmoji
           className={cn(
@@ -55,7 +53,7 @@ export default function ThemeDropdownButton() {
             className="w-full text-base lg:h-9"
             onClick={() => {
               setTheme(value)
-              close()
+              onClose()
             }}
             disabled={theme === value}
           >
