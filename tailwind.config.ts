@@ -29,6 +29,7 @@ export default {
         lg: '64rem',
         xl: '80rem',
         '2xl': '90rem',
+        '3xl': '100rem',
       },
       animation: {
         'pop-spin': 'pop-spin 0.5s',
