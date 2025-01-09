@@ -1,11 +1,19 @@
 import { Icon } from '@/shared/ui'
 import type { Page } from '../model'
 
+export const ABOUT_PATH = '/about'
+
+export const BLOG_PATH = '/blog'
+
+export const PROJECT_PATH = '/project'
+
+export const PLAYGROUND_PATH = '/playground'
+
 export const SITE_MAP: readonly Page[] = Object.freeze([
-  { href: '/about', segment: '/about', title: 'About', icon: Icon.UserOutline },
-  { href: '/blog?page=1', segment: '/blog', title: 'Blog', icon: Icon.DocumentTitleOutline },
-  { href: '/project', segment: '/project', title: 'Project', icon: Icon.CodeOutline },
-  { href: '/playground', segment: '/playground', title: 'Playground', icon: Icon.AtomOutline },
+  { href: ABOUT_PATH, segment: ABOUT_PATH, title: 'About', icon: Icon.UserOutline },
+  { href: BLOG_PATH, segment: BLOG_PATH, title: 'Blog', icon: Icon.DocumentTitleOutline },
+  { href: PROJECT_PATH, segment: PROJECT_PATH, title: 'Project', icon: Icon.CodeOutline },
+  { href: PLAYGROUND_PATH, segment: PLAYGROUND_PATH, title: 'Playground', icon: Icon.AtomOutline },
 ])
 
 export const NICKNAME = 'Clein'
