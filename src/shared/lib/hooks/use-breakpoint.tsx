@@ -55,7 +55,7 @@ export function BreakpointProvider({ children }: React.PropsWithChildren) {
   useIsomorphicLayoutEffect(() => {
     const entries = INITIAL_ENTRIES.map<MediaEntry>(([key, max]) => [
       key,
-      window.matchMedia(`(max-width: ${max})`),
+      window.matchMedia(`(min-width: ${max})`),
     ])
 
     setMediaEntries(entries)
