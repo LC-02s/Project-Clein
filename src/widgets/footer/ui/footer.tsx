@@ -51,6 +51,7 @@ export default function Footer() {
               <Link
                 href={GITHUB_ADDRESS}
                 target="_blank"
+                rel="noopener noreferrer"
                 title={`새창이동: ${NICKNAME} 깃허브`}
                 className={contactLinkStyle}
               >

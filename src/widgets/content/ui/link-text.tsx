@@ -23,7 +23,8 @@ export default function LinkText({
           ? `${isExternal ? '새창' : '페이지 '}이동: ${children}`
           : undefined
       }
-      target={isExternal ? '_blank' : '_self'}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
       className={cn('font-medium text-indigo-600 hover:underline dark:text-indigo-400', className)}
       onClick={createScrollToSection(href)}
     >
