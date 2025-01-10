@@ -22,4 +22,8 @@
   .scrollbar-hidden::-webkit-scrollbar {
     display: none;
   }
+  .bg-dimmed {
+    backdrop-filter: blur(0.25rem) saturate(120%);
+    @apply bg-black/30 dark:bg-slate-200/20;
+  }
 }
