@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
 import { THEME_KEY, ThemeDropdownButton, ThemeProvider } from '@/features/change-theme'
+import { Loader } from '@/features/loader'
 import {
   MAIN_TITLE,
   MAIN_DESCRIPTION,
@@ -59,6 +60,7 @@ export default async function RootLayout({ children }: React.PropsWithChildren) 
             <Header>
               <ThemeDropdownButton />
             </Header>
+            <Loader />
             {children}
             <Footer />
           </OverlayProvider>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { LoadComplete } from '@/features/loader'
 import { UnderConstruction } from '@/entities/site'
 
 export const metadata: Metadata = {
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 }
 
 export default function ProjectMainPage() {
-  return <UnderConstruction />
+  return (
+    <LoadComplete>
+      <UnderConstruction />
+    </LoadComplete>
+  )
 }
