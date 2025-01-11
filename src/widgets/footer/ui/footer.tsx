@@ -1,6 +1,5 @@
 import Image from 'next/image'
-import Link from 'next/link'
-import { MainLogo, NICKNAME, NICKNAME_KR, GITHUB_ADDRESS, MAIN_DESCRIPTION } from '@/entities/site'
+import { MainLogo, NICKNAME, NICKNAME_KR, MAIN_DESCRIPTION, GithubLink } from '@/entities/site'
 import { buttonVariants, Icon } from '@/shared/ui'
 import BuyMeACoffeeButton from './coffee-button'
 import EmailButton from './email-button'
@@ -48,16 +47,10 @@ export default function Footer() {
           </p>
           <ul className="mb-6 flex space-x-2 md:mb-0">
             <li>
-              <Link
-                href={GITHUB_ADDRESS}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={`새창이동: ${NICKNAME} 깃허브`}
-                className={contactLinkStyle}
-              >
+              <GithubLink className={contactLinkStyle}>
                 <Icon.GithubLogo className="size-7 dark:text-white" />
-                <span className="hidden-text">새창이동: {NICKNAME} 깃허브</span>
-              </Link>
+                <span className="hidden-text">{NICKNAME} 깃허브</span>
+              </GithubLink>
             </li>
             <li>
               <EmailButton type="button" title="이메일 보기" className={contactLinkStyle}>
