@@ -14,17 +14,29 @@ export default function LinkText({
   children,
 }: React.PropsWithChildren<LinkTextProps>) {
   const isExternal = href.startsWith('http')
+  const title = typeof children === 'string' ? `: ${children}` : ''
+
+  if (isExternal) {
+    return (
+      <a
+        href={href}
+        title={`새창 이동${title}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cn(
+          'font-medium text-indigo-600 hover:underline dark:text-indigo-400',
+          className,
+        )}
+      >
+        {children}
+      </a>
+    )
+  }
 
   return (
     <Link
       href={href}
-      title={
-        typeof children === 'string'
-          ? `${isExternal ? '새창' : '페이지 '}이동: ${children}`
-          : undefined
-      }
-      target={isExternal ? '_blank' : undefined}
-      rel={isExternal ? 'noopener noreferrer' : undefined}
+      title={`페이지 이동${title}`}
       className={cn('font-medium text-indigo-600 hover:underline dark:text-indigo-400', className)}
       onClick={createScrollToSection(href)}
     >
