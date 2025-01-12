@@ -19,7 +19,8 @@ export const textInputVariants = cva(
       },
       withoutBackground: {
         true: 'bg-white dark:bg-zinc-800 placeholder:dark:text-zinc-400',
-        false: 'bg-zinc-100 placeholder:text-zinc-500 dark:bg-zinc-700',
+        false:
+          'bg-zinc-100 placeholder:text-zinc-500 focus:bg-white dark:bg-zinc-700 dark:focus:bg-zinc-800',
       },
     },
     defaultVariants: {
