@@ -9,8 +9,16 @@ function AccountDialog({ isOpen, close }: OverlayElementState) {
   return (
     <Dialog open={isOpen} onClose={close} size="sm" cancelWithOutsideClick cancelWithEscape>
       <Dialog.Title className="mb-6">{NICKNAME_KR}에게 커피 사주기</Dialog.Title>
-      <div className="relative w-full overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-600">
-        <p className="absolute inset-x-0 bottom-5 z-10 inline-flex h-16 w-full items-center justify-center pr-3">
+      <div className="relative w-full overflow-hidden rounded-lg border border-zinc-200 bg-zinc-100 dark:border-zinc-600 dark:bg-zinc-700">
+        <Image
+          src="/img/toss-accout-qr-code.jpeg"
+          alt="토스 송금 QR코드"
+          className="mb-8 scale-125 select-none"
+          width={1200}
+          height={1200}
+          priority
+        />
+        <p className="absolute inset-x-0 bottom-5 inline-flex h-16 w-full items-center justify-center pr-3">
           <Image
             src="/img/toss-logo-primary.png"
             alt="토스 로고"
@@ -20,14 +28,6 @@ function AccountDialog({ isOpen, close }: OverlayElementState) {
           />
           <span className="hidden-text">토스 사진으로 송금하기</span>
         </p>
-        <Image
-          src="/img/toss-accout-qr-code.jpeg"
-          alt="토스 송금 QR코드"
-          className="mb-8 scale-125 select-none"
-          width={1200}
-          height={1200}
-          priority
-        />
       </div>
       <Dialog.Footer>
         <Dialog.Button title="닫기" variant="light" className="min-w-20" onClick={close}>
