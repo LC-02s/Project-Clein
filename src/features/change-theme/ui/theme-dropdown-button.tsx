@@ -4,7 +4,7 @@ import { useCallback, useRef } from 'react'
 import { cn, useBooleanState, useBreakpoint, useOutsideClick, useWindowEvent } from '@/shared/lib'
 import { Button, Icon } from '@/shared/ui'
 import { THEME_LABEL, THEME_LIST } from '../config'
-import { useTheme } from '../model'
+import { useTheme } from '../lib'
 import ThemeDropdown from './theme-dropdown'
 
 export default function ThemeDropdownButton() {

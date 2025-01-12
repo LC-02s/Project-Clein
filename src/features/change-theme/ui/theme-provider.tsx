@@ -1,6 +1,6 @@
 'use client'
 
-import { useThemeProvider } from '../model'
+import { useThemeProvider } from '../lib'
 
 interface ThemeProviderProps extends Omit<React.JSX.IntrinsicElements['body'], 'defaultValue'> {
   defaultValue?: string

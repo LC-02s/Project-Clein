@@ -2,15 +2,14 @@
 
 import { useIsomorphicLayoutEffect } from 'motion/react'
 import { useMemo, useState, useEffect } from 'react'
-import { DEFAULT_THEME, THEME_LIST } from '../config'
-import { matchDarkThemeMedia } from '../lib'
+import { DEFAULT_THEME, THEME_LIST } from '../../config'
+import { matchDarkThemeMedia } from '../../lib'
 import { useThemeStore } from './use-theme'
 
 export default function useThemeProvider(defaultValue: string = DEFAULT_THEME) {
-  const defaultTheme = useMemo(
-    () => THEME_LIST.find((theme) => theme === defaultValue) || DEFAULT_THEME,
-    [defaultValue],
-  )
+  const defaultTheme = useMemo(() => {
+    return THEME_LIST.find((theme) => theme === defaultValue) || DEFAULT_THEME
+  }, [defaultValue])
 
   const [darkThemeMedia, setMedia] = useState<MediaQueryList | null>(null)
 

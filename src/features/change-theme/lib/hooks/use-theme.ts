@@ -1,12 +1,12 @@
 import Cookies from 'js-cookie'
 import { create } from 'zustand'
-import type { Theme, ThemeState, ThemeStore } from './interface'
-import { DEFAULT_REAL_THEME, DEFAULT_THEME, THEME_KEY } from '../config'
-import { matchDarkThemeMedia } from '../lib'
+import { DEFAULT_REAL_THEME, DEFAULT_THEME, THEME_KEY } from '../../config'
+import { matchDarkThemeMedia } from '../../lib'
+import type { Theme, ThemeState, ThemeStore } from '../../model'
 
 function themeInterceptor(theme: Theme): Pick<ThemeStore, 'theme' | 'realTheme'> {
   if (theme === 'system') {
-    const isDarkTheme = matchDarkThemeMedia().matches
+    const { matches: isDarkTheme } = matchDarkThemeMedia()
 
     Cookies.remove(THEME_KEY)
 
