@@ -13,9 +13,12 @@ export interface ResponseWithPagination<T> extends PageInfo {
   contents: T[]
 }
 
-export type PageParamsKey = 'page'
+export type PaginationParamsKey = (typeof PAGINATION_PARAMS)[keyof typeof PAGINATION_PARAMS]
 
-export type PaginationParamsKey = PageParamsKey | 'size'
+export const PAGINATION_PARAMS = Object.freeze({
+  PAGE: 'page',
+  SIZE: 'size',
+})
 
 export const DEFAULT_PAGE = 1
 
@@ -28,10 +31,10 @@ export class Pagination<T> {
   private size: number
 
   public constructor(params: URLSearchParams, totalLength: number) {
-    this.size = this.validateSize(Number(params.get('size' satisfies PaginationParamsKey)))
+    this.size = this.validateSize(Number(params.get(PAGINATION_PARAMS.SIZE)))
     this.totalLength = totalLength
     this.totalPage = Math.ceil(this.totalLength / this.size)
-    this.page = this.validatePage(Number(params.get('page' satisfies PaginationParamsKey)))
+    this.page = this.validatePage(Number(params.get(PAGINATION_PARAMS.PAGE)))
   }
 
   public response(mapper: (data: T[], index: number) => T[]): ResponseWithPagination<T> {
