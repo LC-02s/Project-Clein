@@ -20,14 +20,12 @@ export default function TabLink({ href, segment, title, icon: Icon }: TabLinkPro
         href={href}
         className={buttonVariants({ variant: 'subtle', size: 'sm' })}
         title={`${title} 페이지 바로가기`}
-        onClick={(e) => {
-          const linkEl = linkRef.current
-
-          if (pathname === segment) {
-            e.preventDefault()
-          }
-
-          linkEl?.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' })
+        onClick={() => {
+          linkRef.current?.scrollIntoView({
+            block: 'nearest',
+            inline: 'center',
+            behavior: 'smooth',
+          })
         }}
       >
         <Icon className="text-lg text-zinc-500 dark:text-zinc-400" />

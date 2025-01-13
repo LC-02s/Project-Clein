@@ -10,6 +10,10 @@ const LinkWithLoader = (({ href, onClick, children, ...props }) => {
     <Link
       href={href}
       onClick={(e) => {
+        if (href === `${window.location.pathname}${window.location.search}`) {
+          return e.preventDefault()
+        }
+
         on(() => e.preventDefault())
         onClick?.(e)
       }}
