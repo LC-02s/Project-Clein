@@ -9,7 +9,7 @@ interface CopyButtonState {
 }
 
 interface CopyButtonProps {
-  value: string
+  value: string | (() => string)
   children: (params: CopyButtonState) => React.ReactNode
   delay?: number
   onSuccess?: () => void
@@ -28,7 +28,7 @@ export default function CopyButton({
 
   const copy = useCallback(async () => {
     try {
-      if (!(await copyToClipboard(value))) {
+      if (!(await copyToClipboard(typeof value === 'string' ? value : value()))) {
         throw new Error('failed to copy')
       }
 
