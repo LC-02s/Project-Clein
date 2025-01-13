@@ -1,3 +1,5 @@
+import type { PaginationParamsKey } from '@/shared/lib'
+import { createSearchParamsToURL, DEFAULT_PAGE, PAGINATION_PARAMS } from '@/shared/lib'
 import { Icon } from '@/shared/ui'
 import type { Page } from '../model'
 
@@ -11,7 +13,15 @@ export const PLAYGROUND_PATH = '/playground'
 
 export const SITE_MAP: readonly Page[] = Object.freeze([
   { href: ABOUT_PATH, segment: ABOUT_PATH, title: 'About', icon: Icon.UserOutline },
-  { href: BLOG_PATH, segment: BLOG_PATH, title: 'Blog', icon: Icon.DocumentTitleOutline },
+  {
+    href: createSearchParamsToURL<PaginationParamsKey>(BLOG_PATH)([
+      PAGINATION_PARAMS.PAGE,
+      DEFAULT_PAGE,
+    ]),
+    segment: BLOG_PATH,
+    title: 'Blog',
+    icon: Icon.DocumentTitleOutline,
+  },
   { href: PROJECT_PATH, segment: PROJECT_PATH, title: 'Project', icon: Icon.CodeOutline },
   { href: PLAYGROUND_PATH, segment: PLAYGROUND_PATH, title: 'Playground', icon: Icon.AtomOutline },
 ])
@@ -47,3 +57,5 @@ export const BLOG_KEYWORDS = ['기술 블로그', '프론트엔드 기술 블로
 export const EMAIL_ADDRESS = 'chanlee1007@naver.com'
 
 export const GITHUB_ADDRESS = 'https://github.com/LC-02s'
+
+export const GITHUB_ISSUE_ADDRESS = `${GITHUB_ADDRESS}/Project-${NICKNAME}/issues`
