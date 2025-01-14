@@ -35,7 +35,7 @@ export default function CodeBlock({
           {({ status, copy }) => (
             <Button variant="subtle" square title="코드 복사하기" onClick={copy} disabled={status}>
               {status ? (
-                <Icon.CheckOutline className="text-emerald-600 dark:text-emerald-400" />
+                <Icon.CheckOutline className="text-emerald-600 dark:text-emerald-300" />
               ) : (
                 <Icon.CopyOutline className="text-xl text-zinc-600 dark:text-zinc-300" />
               )}
