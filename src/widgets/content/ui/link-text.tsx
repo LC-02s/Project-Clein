@@ -24,7 +24,7 @@ export default function LinkText({
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          'font-medium text-indigo-600 hover:underline dark:text-indigo-400',
+          'font-medium text-indigo-600 hover:underline dark:text-indigo-300',
           className,
         )}
       >
@@ -37,7 +37,7 @@ export default function LinkText({
     <Link
       href={href}
       title={`페이지 이동${title}`}
-      className={cn('font-medium text-indigo-600 hover:underline dark:text-indigo-400', className)}
+      className={cn('font-medium text-indigo-600 hover:underline dark:text-indigo-300', className)}
       onClick={createScrollToSection(href)}
     >
       {children}
