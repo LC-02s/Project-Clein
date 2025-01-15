@@ -1,1 +1,1 @@
-export { default as PageController } from './page-controller'
+export * from './page-controller'

@@ -12,14 +12,14 @@ import {
 } from '@/shared/lib'
 import { TextInput } from '@/shared/ui'
 
-interface PageInputProps {
+export interface PageInputProps {
   value: number
   max: number
   baseURL: string
   className?: string
 }
 
-export default function PageInput({ value, max, baseURL, className }: PageInputProps) {
+export function PageInput({ value, max, baseURL, className }: PageInputProps) {
   const { push } = useRouter()
   const { on } = useLoaderSwitch()
 

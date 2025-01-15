@@ -2,15 +2,15 @@ import { LoadComplete } from '@/features/loader'
 import { type PageInfo, type PaginationParamsKey, PAGINATION_PARAMS } from '@/shared/lib'
 import { cn, createSearchParamsToURL } from '@/shared/lib'
 import { buttonVariants, Icon } from '@/shared/ui'
-import PageInput from './page-input'
-import PageLink from './page-link'
+import { PageInput } from './page-input'
+import { PageLink } from './page-link'
 
-interface PageControllerProps extends PageInfo {
+export interface PageControllerProps extends PageInfo {
   baseURL: string
   className?: string
 }
 
-export default function PageController({ page, className, baseURL }: PageControllerProps) {
+export function PageController({ page, className, baseURL }: PageControllerProps) {
   const href = createSearchParamsToURL<PaginationParamsKey>(baseURL)
   const linkStyle = buttonVariants()
 
