@@ -2,7 +2,12 @@ import { cookies } from 'next/headers'
 import type { Metadata } from 'next'
 import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
-import { THEME_KEY, ThemeDropdownButton, ThemeProvider } from '@/features/change-theme'
+import {
+  THEME_KEY,
+  ThemeDropdownButton,
+  ThemeProvider,
+  GiscusScript,
+} from '@/features/change-theme'
 import { Loader } from '@/features/loader'
 import {
   MAIN_TITLE,
@@ -10,7 +15,7 @@ import {
   MAIN_KEYWORDS,
   BLOG_KEYWORDS,
   NICKNAME,
-  GITHUB_ADDRESS,
+  USER_GITHUB_ADDRESS,
 } from '@/entities/site'
 import { BreakpointProvider, OverlayProvider } from '@/shared/lib'
 import { Pretendard } from './font'
@@ -24,7 +29,7 @@ export const metadata: Metadata = {
   keywords: [...BLOG_KEYWORDS, ...MAIN_KEYWORDS],
   applicationName: MAIN_TITLE,
   authors: {
-    url: GITHUB_ADDRESS,
+    url: USER_GITHUB_ADDRESS,
     name: NICKNAME,
   },
   creator: NICKNAME,
@@ -65,6 +70,7 @@ export default async function RootLayout({ children }: React.PropsWithChildren) 
             <Footer />
           </OverlayProvider>
         </BreakpointProvider>
+        <GiscusScript />
       </ThemeProvider>
     </html>
   )

@@ -56,6 +56,4 @@ export const BLOG_KEYWORDS = ['기술 블로그', '프론트엔드 기술 블로
 
 export const EMAIL_ADDRESS = 'chanlee1007@naver.com'
 
-export const GITHUB_ADDRESS = 'https://github.com/LC-02s'
-
-export const GITHUB_ISSUE_ADDRESS = `${GITHUB_ADDRESS}/Project-${NICKNAME}/issues`
+export * from './github'
