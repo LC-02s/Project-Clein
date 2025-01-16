@@ -2,12 +2,7 @@ import { cookies } from 'next/headers'
 import type { Metadata } from 'next'
 import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
-import {
-  THEME_KEY,
-  ThemeDropdownButton,
-  ThemeProvider,
-  GiscusScript,
-} from '@/features/change-theme'
+import { THEME_KEY, ThemeDropdownButton, ThemeProvider } from '@/features/change-theme'
 import { Loader } from '@/features/loader'
 import {
   MAIN_TITLE,
@@ -70,7 +65,6 @@ export default async function RootLayout({ children }: React.PropsWithChildren) 
             <Footer />
           </OverlayProvider>
         </BreakpointProvider>
-        <GiscusScript />
       </ThemeProvider>
     </html>
   )

@@ -3,9 +3,14 @@
 import { useEffect } from 'react'
 import { GISCUS_ADDRESS, GISCUS_CLASS_NAME, GITHUB } from '@/entities/site'
 import { useTimeout } from '@/shared/lib'
+import { cn } from '@/shared/lib'
 import { changeGiscusTheme, useTheme } from '../lib'
 
-export default function GiscusScript() {
+export default function Giscus({
+  className,
+  children,
+  ...props
+}: React.JSX.IntrinsicElements['div']) {
   const { start } = useTimeout()
   const { realTheme } = useTheme()
 
@@ -40,7 +45,15 @@ export default function GiscusScript() {
     }
 
     changeGiscusTheme(realTheme)
+
+    return () => {
+      targetEl?.remove()
+    }
   }, [realTheme, start])
 
-  return <></>
+  return (
+    <div className={cn(className, GISCUS_CLASS_NAME)} {...props}>
+      {children}
+    </div>
+  )
 }
