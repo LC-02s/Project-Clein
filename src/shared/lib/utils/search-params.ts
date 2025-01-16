@@ -18,9 +18,10 @@ export function createSearchParamsFilter<K extends string>({
   const separator = extractSeparator(pathname)
 
   return (without: K[]) => {
+    const withoutKey = new Set(without)
     const entries = params
       .filter(([key, value, defaultValue]) => {
-        return !!value && value !== defaultValue && without.every((k) => key !== k)
+        return !!value && value !== defaultValue && !withoutKey.has(key)
       })
       .map(([key, value]) => [key, value].join('='))
       .join('&')
