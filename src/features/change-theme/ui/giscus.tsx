@@ -8,17 +8,16 @@ import { changeGiscusTheme, useTheme } from '../lib'
 
 export default function Giscus({
   className,
-  children,
   ...props
-}: React.JSX.IntrinsicElements['div']) {
+}: Omit<React.JSX.IntrinsicElements['div'], 'children'>) {
   const { start } = useTimeout()
   const { realTheme } = useTheme()
 
   useEffect(() => {
     const id = `${GISCUS_CLASS_NAME}-client-loader`
-    const targetEl = document.getElementById(id)
+    const failed = !changeGiscusTheme(realTheme)
 
-    if (!targetEl) {
+    if (failed) {
       start(() => {
         const scriptEl = document.createElement('script')
 
@@ -40,20 +39,15 @@ export default function Giscus({
         scriptEl.setAttribute('data-lang', 'ko')
         scriptEl.setAttribute('data-loading', 'lazy')
 
+        document.getElementById(id)?.remove()
         document.body.appendChild(scriptEl)
       }, 300)
     }
 
-    changeGiscusTheme(realTheme)
-
     return () => {
-      targetEl?.remove()
+      document.getElementById(id)?.remove()
     }
   }, [realTheme, start])
 
-  return (
-    <div className={cn(className, GISCUS_CLASS_NAME)} {...props}>
-      {children}
-    </div>
-  )
+  return <div className={cn(GISCUS_CLASS_NAME, className)} {...props} />
 }
