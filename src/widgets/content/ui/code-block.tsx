@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/shared/lib'
-import { Button, CopyButton, Icon } from '@/shared/ui'
+import { Button, Container, CopyButton, Icon } from '@/shared/ui'
 
 interface CodeBlockProps {
   className?: string
@@ -24,8 +24,12 @@ export default function CodeBlock({
   }, [])
 
   return (
-    <div className="relative overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-700">
-      <div className="flex items-center justify-between border-b border-zinc-200 bg-zinc-50 p-2 dark:border-zinc-700 dark:bg-zinc-800">
+    <Container layer="middle" round="md" className="relative overflow-hidden border">
+      <Container
+        layer="middle"
+        round="none"
+        className="flex items-center justify-between border-b p-2"
+      >
         <p className="flex items-center justify-start space-x-2 px-3">
           <span className="block size-3 rounded-full" style={{ backgroundColor: '#FE5F59' }} />
           <span className="block size-3 rounded-full" style={{ backgroundColor: '#FEBC2E' }} />
@@ -43,7 +47,7 @@ export default function CodeBlock({
             </Button>
           )}
         </CopyButton>
-      </div>
+      </Container>
       <pre
         ref={preRef}
         className={cn('relative max-w-full overflow-x-auto *:w-fit *:p-5 *:pb-7', className)}
@@ -51,6 +55,6 @@ export default function CodeBlock({
       >
         {children}
       </pre>
-    </div>
+    </Container>
   )
 }

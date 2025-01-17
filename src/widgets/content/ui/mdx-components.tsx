@@ -2,7 +2,7 @@
 
 import type { MDXRemoteProps } from 'next-mdx-remote/rsc'
 import { cn } from '@/shared/lib'
-import { badgeVariants } from '@/shared/ui'
+import { badgeVariants, containerVariants } from '@/shared/ui'
 import CodeBlock from './code-block'
 import LinkText from './link-text'
 
@@ -143,7 +143,12 @@ const components: MDXRemoteProps['components'] = {
   ),
   img: (props) => (
     <>
-      <span className="flex items-center justify-center overflow-hidden rounded-lg border border-zinc-200 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800">
+      <span
+        className={cn(
+          containerVariants({ variant: 'image', layer: 'middle' }),
+          'flex items-center justify-center',
+        )}
+      >
         <img {...props} alt="" src={props.src} className="object-cover" loading="lazy" />
       </span>
       {props.alt && (
