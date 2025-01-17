@@ -1,5 +1,5 @@
 import type { KeywordRepository } from '@/database/posts'
-import type { LiteralDate, SortedFromDate } from '@/shared/lib'
+import type { LiteralDate, SortedFromDate, SortedFromDateKey } from '@/shared/lib'
 
 export type Keyword = ReturnType<typeof KeywordRepository.getKeys>[number]
 
@@ -42,3 +42,8 @@ export type PostMap = Map<PostId, Post>
 export type SetOfPostId = Set<PostId>
 
 export type PostByKeywordMap = Map<Keyword, SetOfPostId>
+
+export type PostItem = Pick<
+  Post,
+  'id' | 'title' | 'description' | 'thumbnail' | 'readingTime' | SortedFromDateKey
+>

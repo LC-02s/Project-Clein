@@ -3,7 +3,7 @@ import readingTime from 'reading-time'
 import { PostRepository } from '@/database/posts'
 import { orderByDateAsc } from '@/shared/lib'
 import { POSTS_BASE_PATH, THUMBNAIL_PATH_PREFIX } from '../config'
-import type { PostId, Post, PostMap, PostByKeywordMap } from '../model'
+import type { PostId, Post, PostItem, PostMap, PostByKeywordMap } from '../model'
 
 async function parsePostDetail(id: PostId, index: number, array: PostId[]): Promise<Post> {
   const content = await readFile(`${POSTS_BASE_PATH}/${id}.md`, 'utf-8')
@@ -43,3 +43,15 @@ function connectPostByKeywordDB() {
 }
 
 export const PostByKeywordDB = connectPostByKeywordDB()
+
+export function convertPostItem(post: Post): PostItem {
+  return {
+    id: post.id,
+    title: post.title,
+    description: post.description,
+    thumbnail: post.thumbnail,
+    createdAt: post.createdAt,
+    updatedAt: post.updatedAt,
+    readingTime: post.readingTime,
+  }
+}
