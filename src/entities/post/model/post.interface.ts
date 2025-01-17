@@ -47,3 +47,12 @@ export type PostItem = Pick<
   Post,
   'id' | 'title' | 'description' | 'thumbnail' | 'readingTime' | SortedFromDateKey
 >
+
+export interface PostDetail
+  extends Omit<Post, 'related' | 'keywords'>,
+    Record<SeparatedKeywordsKey, MappedKeyword[]> {
+  related: {
+    prev: Pick<Post, 'id' | 'title'> | null
+    next: Pick<Post, 'id' | 'title'> | null
+  }
+}
