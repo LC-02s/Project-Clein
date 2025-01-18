@@ -38,10 +38,7 @@ function AccountDialog({ isOpen, close }: OverlayElementState) {
   )
 }
 
-export default function BuyMeACoffeeButton({
-  children,
-  ...props
-}: Omit<ButtonProps, 'ref' | 'onClick'>) {
+export function BuyMeACoffeeButton({ children, ...props }: Omit<ButtonProps, 'ref' | 'onClick'>) {
   const { startedAt, open } = useOverlay<HTMLButtonElement>()
 
   return (

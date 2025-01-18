@@ -1,1 +1,1 @@
-export { default as ContentBody } from './content-body'
+export * from './content-body'

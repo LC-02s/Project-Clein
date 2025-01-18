@@ -5,9 +5,9 @@ import { cn, useBooleanState, useBreakpoint, useOutsideClick, useWindowEvent } f
 import { Button, Icon } from '@/shared/ui'
 import { THEME_LABEL, THEME_LIST } from '../config'
 import { useTheme } from '../lib'
-import ThemeDropdown from './theme-dropdown'
+import { ThemeDropdown } from './theme-dropdown'
 
-export default function ThemeDropdownButton() {
+export function ThemeDropdownButton() {
   const { theme, realTheme, setTheme } = useTheme()
 
   const [isOpen, { setFalse: close, toggle }] = useBooleanState()

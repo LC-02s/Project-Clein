@@ -2,11 +2,12 @@
 
 import { useThemeProvider } from '../lib'
 
-interface ThemeProviderProps extends Omit<React.JSX.IntrinsicElements['body'], 'defaultValue'> {
+export interface ThemeProviderProps
+  extends Omit<React.JSX.IntrinsicElements['body'], 'defaultValue'> {
   defaultValue?: string
 }
 
-export default function ThemeProvider({ defaultValue, children, ...props }: ThemeProviderProps) {
+export function ThemeProvider({ defaultValue, children, ...props }: ThemeProviderProps) {
   const { theme } = useThemeProvider(defaultValue)
 
   return (

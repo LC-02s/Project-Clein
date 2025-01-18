@@ -3,13 +3,13 @@
 import { createPortal } from 'react-dom'
 import { Dialog, Dropdown } from '@/shared/ui'
 
-interface ThemeDropdownProps {
+export interface ThemeDropdownProps {
   breakpoint: boolean
   open: boolean
   onClose: () => void
 }
 
-export default function ThemeDropdown({
+export function ThemeDropdown({
   breakpoint,
   open: isOpen,
   onClose,

@@ -5,9 +5,9 @@ import { useRef } from 'react'
 import { LinkWithLoader } from '@/features/loader'
 import type { Page as TabLinkProps } from '@/shared/config'
 import { buttonVariants } from '@/shared/ui'
-import TabUnderline from './tab-underline'
+import { TabUnderline } from './tab-underline'
 
-export default function TabLink({ href, segment, title, icon: Icon }: TabLinkProps) {
+export function TabLink({ href, segment, title, icon: Icon }: TabLinkProps) {
   const pathname = usePathname()
   const isActive = pathname.startsWith(segment)
 

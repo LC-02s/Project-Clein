@@ -14,10 +14,10 @@ import {
   type LiteralSortParams,
 } from '@/shared/lib'
 import { Button, Icon } from '@/shared/ui'
-import SortDropdown from './sort-dropdown'
-import SortLink from './sort-link'
+import { SortDropdown } from './sort-dropdown'
+import { SortLink } from './sort-link'
 
-interface SortDropdownButtonProps<K extends string> {
+export interface SortDropdownButtonProps<K extends string> {
   baseURL: string
   sortParams: LiteralSortParams
   paramsKey: K
@@ -25,7 +25,7 @@ interface SortDropdownButtonProps<K extends string> {
   renderLink?: typeof Link
 }
 
-export default function SortDropdownButton<K extends string>({
+export function SortDropdownButton<K extends string>({
   sortParams,
   baseURL,
   paramsKey,

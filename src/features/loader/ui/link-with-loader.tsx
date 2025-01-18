@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useLoaderSwitch } from '../lib'
 
-const LinkWithLoader = (({ href, onClick, children, ...props }) => {
+export const LinkWithLoader: typeof Link = (({ href, onClick, children, ...props }) => {
   const { on } = useLoaderSwitch()
 
   return (
@@ -23,5 +23,3 @@ const LinkWithLoader = (({ href, onClick, children, ...props }) => {
     </Link>
   )
 }) as typeof Link
-
-export default LinkWithLoader

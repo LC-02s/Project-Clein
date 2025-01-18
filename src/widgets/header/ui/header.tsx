@@ -1,8 +1,8 @@
 import { LinkWithLoader } from '@/features/loader'
 import { MainLogo, Container } from '@/shared/ui'
-import TabMenu from './tab-menu'
+import { TabMenu } from './tab-menu'
 
-export default async function Header({ children }: React.PropsWithChildren) {
+export async function Header({ children }: React.PropsWithChildren) {
   return (
     <header className="w-full pt-28 xl:pt-16">
       <Container

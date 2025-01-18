@@ -4,11 +4,11 @@ import { NICKNAME, NICKNAME_KR, MAIN_DESCRIPTION, USER_GITHUB_ADDRESS } from '@/
 import { cn } from '@/shared/lib'
 import { MainLogo, ExternalLink } from '@/shared/ui'
 import { buttonVariants, containerVariants, Icon } from '@/shared/ui'
-import BuyMeACoffeeButton from './coffee-button'
-import EmailButton from './email-button'
-import SiteMap from './site-map'
+import { BuyMeACoffeeButton } from './coffee-button'
+import { EmailButton } from './email-button'
+import { SiteMap } from './site-map'
 
-export default function Footer() {
+export function Footer() {
   const contactLinkStyle = buttonVariants({
     variant: 'light',
     round: 'full',

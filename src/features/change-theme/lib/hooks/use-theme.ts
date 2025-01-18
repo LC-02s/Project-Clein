@@ -1,8 +1,18 @@
 import Cookies from 'js-cookie'
 import { create } from 'zustand'
 import { DEFAULT_REAL_THEME, DEFAULT_THEME, THEME_KEY } from '../../config'
+import type { Theme, RealTheme } from '../../config'
 import { matchDarkThemeMedia } from '../../lib'
-import type { Theme, ThemeState, ThemeStore } from '../../model'
+
+export interface ThemeState {
+  theme: Theme
+  realTheme: RealTheme
+  setTheme: (theme: Theme) => void
+}
+
+interface ThemeStore extends ThemeState {
+  setRealTheme: (realTheme: RealTheme) => void
+}
 
 function themeInterceptor(theme: Theme): Pick<ThemeStore, 'theme' | 'realTheme'> {
   if (theme === 'system') {

@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react'
 
-export default function TabUnderline() {
+export function TabUnderline() {
   return (
     <motion.div
       layoutId="header/tab-menu"

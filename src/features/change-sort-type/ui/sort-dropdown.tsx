@@ -4,14 +4,14 @@ import { createPortal } from 'react-dom'
 import { cn } from '@/shared/lib'
 import { Dialog, Dropdown } from '@/shared/ui'
 
-interface SortDropdownProps {
+export interface SortDropdownProps {
   breakpoint: boolean
   open: boolean
   onClose: () => void
   className?: string
 }
 
-export default function SortDropdown({
+export function SortDropdown({
   breakpoint,
   open: isOpen,
   onClose,

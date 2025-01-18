@@ -1,6 +1,6 @@
 import { cn } from '../../lib'
 
-export default function RotateSpinner({ className, ...props }: React.SVGProps<SVGSVGElement>) {
+export function RotateSpinner({ className, ...props }: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

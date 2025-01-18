@@ -3,7 +3,7 @@
 import { Fragment } from 'react/jsx-runtime'
 import { useOverlayStore } from './use-overlay.model'
 
-export default function OverlayProvider({ children }: React.PropsWithChildren) {
+export function OverlayProvider({ children }: React.PropsWithChildren) {
   const overlay = useOverlayStore((store) => store.overlay)
 
   return (

@@ -1,4 +1,4 @@
-export default async function copyToClipboard(value: string) {
+export async function copyToClipboard(value: string) {
   if (!navigator?.clipboard) {
     return false
   }

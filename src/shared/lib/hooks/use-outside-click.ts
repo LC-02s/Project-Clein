@@ -1,9 +1,9 @@
 'use client'
 
 import { useCallback, useRef } from 'react'
-import useDocumentEvent from './use-document-event'
+import { useDocumentEvent } from './use-document-event'
 
-export default function useOutsideClick<E extends Element>(callback: (event: MouseEvent) => void) {
+export function useOutsideClick<E extends Element>(callback: (event: MouseEvent) => void) {
   const targetAreaRef = useRef<E | null>(null)
 
   const clickHandler = useCallback(

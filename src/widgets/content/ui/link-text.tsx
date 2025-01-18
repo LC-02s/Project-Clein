@@ -4,16 +4,12 @@ import Link from 'next/link'
 import { cn, createScrollToSection } from '@/shared/lib'
 import { ExternalLink } from '@/shared/ui'
 
-interface LinkTextProps {
+export interface LinkTextProps {
   href: string
   className?: string
 }
 
-export default function LinkText({
-  href,
-  className,
-  children,
-}: React.PropsWithChildren<LinkTextProps>) {
+export function LinkText({ href, className, children }: React.PropsWithChildren<LinkTextProps>) {
   const isExternal = href.startsWith('http')
 
   if (isExternal) {

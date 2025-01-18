@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import { Button, Deferred, Icon } from '@/shared/ui'
 import { useLoaderState } from '../lib'
 
-export default function Loader() {
+export function Loader() {
   const { isLoading, off } = useLoaderState()
 
   return (

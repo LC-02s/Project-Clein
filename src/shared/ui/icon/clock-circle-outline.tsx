@@ -1,4 +1,4 @@
-export default function ClockCircleOutline(props: React.SVGProps<SVGSVGElement>) {
+export function ClockCircleOutline(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
       <path

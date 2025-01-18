@@ -4,16 +4,12 @@ import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/shared/lib'
 import { Button, Container, CopyButton, Icon } from '@/shared/ui'
 
-interface CodeBlockProps {
+export interface CodeBlockProps {
   className?: string
   style: React.CSSProperties
 }
 
-export default function CodeBlock({
-  className,
-  children,
-  style,
-}: React.PropsWithChildren<CodeBlockProps>) {
+export function CodeBlock({ className, children, style }: React.PropsWithChildren<CodeBlockProps>) {
   const [value, setValue] = useState('')
   const preRef = useRef<HTMLPreElement | null>(null)
 

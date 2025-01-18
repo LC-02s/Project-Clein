@@ -1,3 +1,3 @@
-export default function matchDarkThemeMedia() {
+export function matchDarkThemeMedia() {
   return window.matchMedia('(prefers-color-scheme: dark)')
 }

@@ -5,7 +5,7 @@ import { GISCUS_ADDRESS, GISCUS_CLASS_NAME, GITHUB } from '@/shared/config'
 import { cn, useTimeout } from '@/shared/lib'
 import { changeGiscusTheme, useTheme } from '../lib'
 
-export default function Giscus({
+export function Giscus({
   className,
   ...props
 }: Omit<React.JSX.IntrinsicElements['div'], 'children'>) {

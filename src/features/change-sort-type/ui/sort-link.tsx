@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { cn } from '@/shared/lib'
 import { Button, buttonVariants } from '@/shared/ui'
 
-interface SortLinkProps {
+export interface SortLinkProps {
   href: string
   title: string
   disabled?: boolean
@@ -10,7 +10,7 @@ interface SortLinkProps {
   render?: typeof Link
 }
 
-export default function SortLink({
+export function SortLink({
   href,
   title,
   disabled,

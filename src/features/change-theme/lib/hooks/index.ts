@@ -1,2 +1,2 @@
-export { useTheme } from './use-theme'
-export { default as useThemeProvider } from './use-theme-provider'
+export { useTheme, type ThemeState } from './use-theme'
+export * from './use-theme-provider'

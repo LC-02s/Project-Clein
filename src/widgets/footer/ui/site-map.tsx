@@ -1,7 +1,7 @@
 import { LinkWithLoader } from '@/features/loader'
 import { SITE_MAP } from '@/shared/config'
 
-export default function SiteMap() {
+export function SiteMap() {
   return (
     <ul className="flex flex-wrap items-center justify-center md:space-x-1">
       {SITE_MAP.map(({ href, segment, title }) => (

@@ -1,1 +1,1 @@
-export { default as SortDropdownButton } from './sort-dropdown-button'
+export * from './sort-dropdown-button'

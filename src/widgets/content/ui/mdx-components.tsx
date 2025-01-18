@@ -3,10 +3,10 @@
 import type { MDXRemoteProps } from 'next-mdx-remote/rsc'
 import { cn } from '@/shared/lib'
 import { badgeVariants, containerVariants } from '@/shared/ui'
-import CodeBlock from './code-block'
-import LinkText from './link-text'
+import { CodeBlock } from './code-block'
+import { LinkText } from './link-text'
 
-const components: MDXRemoteProps['components'] = {
+export const components: MDXRemoteProps['components'] = {
   h1: (props) => (
     <h2
       {...props}
@@ -159,5 +159,3 @@ const components: MDXRemoteProps['components'] = {
     </>
   ),
 }
-
-export default components

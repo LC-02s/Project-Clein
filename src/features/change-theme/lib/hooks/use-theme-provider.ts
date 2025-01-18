@@ -6,7 +6,7 @@ import { DEFAULT_THEME, THEME_LIST } from '../../config'
 import { matchDarkThemeMedia } from '../../lib'
 import { useThemeStore } from './use-theme'
 
-export default function useThemeProvider(defaultValue: string = DEFAULT_THEME) {
+export function useThemeProvider(defaultValue: string = DEFAULT_THEME) {
   const defaultTheme = useMemo(() => {
     return THEME_LIST.find((theme) => theme === defaultValue) || DEFAULT_THEME
   }, [defaultValue])

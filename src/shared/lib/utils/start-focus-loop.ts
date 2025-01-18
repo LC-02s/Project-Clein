@@ -1,6 +1,6 @@
 import { getFocusableElementAll } from './get-focusable-element'
 
-export default function startFocusLoop<T extends HTMLElement>(element: T | null) {
+export function startFocusLoop<T extends HTMLElement>(element: T | null) {
   const focusableEls = getFocusableElementAll(element)
 
   if (focusableEls && focusableEls.length > 0) {

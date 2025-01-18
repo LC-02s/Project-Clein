@@ -4,7 +4,7 @@
 
 import { useEffect } from 'react'
 
-export default function useWindowEvent<K extends keyof WindowEventMap>(
+export function useWindowEvent<K extends keyof WindowEventMap>(
   type: K,
   listener: (this: Window, e: WindowEventMap[K]) => void,
   option?: boolean | AddEventListenerOptions,

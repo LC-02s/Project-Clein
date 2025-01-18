@@ -3,12 +3,12 @@
 import { useState, useRef, useEffect, useMemo } from 'react'
 import type { FocusableElement } from '../utils'
 import type { CreateOverlayElement, OverlayControlRef } from './use-overlay.model'
-import OverlayController from './use-overlay.controller'
+import { OverlayController } from './use-overlay.controller'
 import { useOverlayStore } from './use-overlay.model'
 
 let elementId = 1
 
-export default function useOverlay<E extends FocusableElement>() {
+export function useOverlay<E extends FocusableElement>() {
   const mount = useOverlayStore((store) => store.mount)
   const unmount = useOverlayStore((store) => store.unmount)
   const [id] = useState(() => `overlay-${elementId++}`)

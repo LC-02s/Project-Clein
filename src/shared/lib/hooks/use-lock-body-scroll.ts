@@ -12,7 +12,7 @@ const unlock = () => {
   document.body.style.setProperty('overflow', '')
 }
 
-export default function useLockBodyScroll(isLocked = false) {
+export function useLockBodyScroll(isLocked = false) {
   useEffect(() => {
     if (isLocked) {
       lock()

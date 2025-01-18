@@ -1,6 +1,6 @@
 import { type ArrowIconProps, arrowDirection } from './arrow-outline'
 
-export default function ArrowBold({ direction, style, ...props }: ArrowIconProps) {
+export function ArrowBold({ direction, style, ...props }: ArrowIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

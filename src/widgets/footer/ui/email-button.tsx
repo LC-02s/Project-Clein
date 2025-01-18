@@ -38,7 +38,7 @@ function EmailDialog({ isOpen, close }: OverlayElementState) {
   )
 }
 
-export default function EmailButton(props: Omit<ButtonProps, 'onClick' | 'ref'>) {
+export function EmailButton(props: Omit<ButtonProps, 'onClick' | 'ref'>) {
   const { startedAt, open } = useOverlay<HTMLButtonElement>()
 
   return (

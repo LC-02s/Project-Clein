@@ -2,9 +2,9 @@
 
 import { useCallback, useImperativeHandle, useEffect } from 'react'
 import type { OverlayControllerProps } from './use-overlay.model'
-import useBooleanState from './use-boolean-state'
+import { useBooleanState } from './use-boolean-state'
 
-export default function OverlayController({
+export function OverlayController({
   overlayElement: OverlayElement,
   controlRef: ref,
   onExit,
