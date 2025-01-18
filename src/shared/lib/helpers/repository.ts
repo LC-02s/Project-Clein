@@ -1,19 +1,27 @@
-export default class Repository<K extends string | number | symbol, V> {
-  private data: Record<K, V>
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-  public constructor(data: Record<K, V>) {
-    this.data = data
-  }
+export type RepositoryId<R> = R extends Repository<infer K, any> ? K : never
+
+export type RepositoryData<R> = R extends Repository<any, infer V> ? V : never
+
+export type RepositorySchema<R> = R extends Repository<infer K, infer V> ? Record<K, V> : never
+
+export class Repository<K extends string | number | symbol, V extends string | object> {
+  public constructor(private schema: Record<K, V>) {}
 
   public findById(id: K): V {
-    return this.data[id]
+    return this.schema[id]
   }
 
   public getKeys(): K[] {
-    return Object.keys(this.data) as K[]
+    return Object.keys(this.schema) as K[]
   }
 
   public getValues(): V[] {
-    return Object.values(this.data)
+    return Object.values(this.schema)
+  }
+
+  public getEntries(): [K, V][] {
+    return Object.entries(this.schema) as [K, V][]
   }
 }

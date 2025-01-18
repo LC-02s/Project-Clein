@@ -1,7 +1,7 @@
 import type { KeywordRepository } from '@/database/posts'
-import type { LiteralDate, SortedFromDate, SortedFromDateKey } from '@/shared/lib'
+import type { LiteralDate, RepositoryId, SortedFromDate, SortedFromDateKey } from '@/shared/lib'
 
-export type Keyword = ReturnType<typeof KeywordRepository.getKeys>[number]
+export type Keyword = RepositoryId<typeof KeywordRepository>
 
 export interface MappedKeyword {
   id: Keyword
