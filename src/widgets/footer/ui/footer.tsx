@@ -1,6 +1,8 @@
 import Image from 'next/image'
-import { MainLogo, NICKNAME, NICKNAME_KR, MAIN_DESCRIPTION, GithubLink } from '@/entities/site'
+import { LinkWithLoader } from '@/features/loader'
+import { NICKNAME, NICKNAME_KR, MAIN_DESCRIPTION, USER_GITHUB_ADDRESS } from '@/shared/config'
 import { cn } from '@/shared/lib'
+import { MainLogo, ExternalLink } from '@/shared/ui'
 import { buttonVariants, containerVariants, Icon } from '@/shared/ui'
 import BuyMeACoffeeButton from './coffee-button'
 import EmailButton from './email-button'
@@ -32,7 +34,7 @@ export default function Footer() {
           />
         </div>
         <div className="flex flex-col items-center justify-center px-1 md:flex-row md:justify-between">
-          <MainLogo />
+          <MainLogo render={LinkWithLoader} />
           <div className="mt-2 flex flex-col items-center justify-between space-y-8 md:mt-0 md:flex-row md:space-x-6 md:space-y-0">
             <SiteMap />
             <BuyMeACoffeeButton
@@ -53,10 +55,14 @@ export default function Footer() {
           </p>
           <ul className="mb-6 flex space-x-2 md:mb-0">
             <li>
-              <GithubLink className={contactLinkStyle}>
+              <ExternalLink
+                href={USER_GITHUB_ADDRESS}
+                title={`${NICKNAME} 깃허브`}
+                className={contactLinkStyle}
+              >
                 <Icon.GithubLogo className="size-7 dark:text-white" />
                 <span className="hidden-text">{NICKNAME} 깃허브</span>
-              </GithubLink>
+              </ExternalLink>
             </li>
             <li>
               <EmailButton type="button" title="이메일 보기" className={contactLinkStyle}>

@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { useRef } from 'react'
 import { LinkWithLoader } from '@/features/loader'
-import type { Page as TabLinkProps } from '@/entities/site'
+import type { Page as TabLinkProps } from '@/shared/config'
 import { buttonVariants } from '@/shared/ui'
 import TabUnderline from './tab-underline'
 

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { BLOG_DESCRIPTION, BLOG_KEYWORDS, BLOG_TITLE } from '@/entities/site'
+import { BLOG_DESCRIPTION, BLOG_KEYWORDS, BLOG_TITLE } from '@/shared/config'
 
 export const metadata: Metadata = {
   title: {
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     default: BLOG_TITLE,
   },
   description: BLOG_DESCRIPTION,
-  keywords: BLOG_KEYWORDS,
+  keywords: [...BLOG_KEYWORDS],
   openGraph: {
     type: 'website',
     siteName: BLOG_TITLE,

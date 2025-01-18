@@ -1,4 +1,4 @@
-import { GISCUS_ADDRESS, GISCUS_FRAME_CLASS_NAME } from '@/entities/site'
+import { GISCUS_ADDRESS, GISCUS_FRAME_CLASS_NAME } from '@/shared/config'
 import type { RealTheme } from '../../model'
 
 export default function changeGiscusTheme(realTheme: RealTheme) {

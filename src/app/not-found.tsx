@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { NotFound, MAIN_TITLE } from '@/entities/site'
+import { MAIN_TITLE } from '@/shared/config'
+import { NotFound } from '@/shared/ui'
 
 export const metadata: Metadata = {
   title: `Page Not Found - ${MAIN_TITLE}`,

@@ -1,9 +1,8 @@
 'use client'
 
 import { useEffect } from 'react'
-import { GISCUS_ADDRESS, GISCUS_CLASS_NAME, GITHUB } from '@/entities/site'
-import { useTimeout } from '@/shared/lib'
-import { cn } from '@/shared/lib'
+import { GISCUS_ADDRESS, GISCUS_CLASS_NAME, GITHUB } from '@/shared/config'
+import { cn, useTimeout } from '@/shared/lib'
 import { changeGiscusTheme, useTheme } from '../lib'
 
 export default function Giscus({

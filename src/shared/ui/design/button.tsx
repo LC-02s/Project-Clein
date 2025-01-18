@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '../lib'
+import { cn } from '../../lib'
 
 export const buttonVariants = cva(
   'relative flex select-none items-center justify-center whitespace-nowrap font-medium',

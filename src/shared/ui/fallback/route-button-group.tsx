@@ -2,14 +2,14 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { cn } from '@/shared/lib'
-import { Button, buttonVariants, Icon } from '@/shared/ui'
+import { cn } from '../../lib'
+import { Button, buttonVariants, Icon } from '../../ui'
 
-interface ButtonGroupProps {
+export interface ButtonGroupProps {
   className?: string
 }
 
-export default function RouteButtonGroup({ className }: ButtonGroupProps) {
+export function RouteButtonGroup({ className }: ButtonGroupProps) {
   const { back } = useRouter()
 
   return (

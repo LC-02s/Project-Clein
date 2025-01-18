@@ -1,4 +1,4 @@
-import { MAIN_TITLE } from '@/entities/site'
+import { MAIN_TITLE } from '@/shared/config'
 import { Repository } from '@/shared/lib'
 
 export const DevProjectRepository = new Repository({

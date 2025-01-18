@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { MAIN_TITLE } from '@/entities/site'
+import { MAIN_TITLE } from '@/shared/config'
 
 export const metadata: Metadata = {
   title: {

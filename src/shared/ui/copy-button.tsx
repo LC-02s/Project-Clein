@@ -3,12 +3,12 @@
 import { useCallback, useState } from 'react'
 import { useTimeout, copyToClipboard } from '../lib'
 
-interface CopyButtonState {
+export interface CopyButtonState {
   status: boolean
   copy: () => Promise<void>
 }
 
-interface CopyButtonProps {
+export interface CopyButtonProps {
   value: string | (() => string)
   children: (params: CopyButtonState) => React.ReactNode
   delay?: number
@@ -16,7 +16,7 @@ interface CopyButtonProps {
   onFailed?: () => void
 }
 
-export default function CopyButton({
+export function CopyButton({
   value,
   delay = 1200,
   children,

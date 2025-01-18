@@ -1,10 +1,10 @@
 import { AnimatePresence, motion, useIsomorphicLayoutEffect, type Target } from 'motion/react'
 import { useCallback } from 'react'
-import { cn, startFocusLoop, useLockBodyScroll, useOutsideClick, useWindowEvent } from '../lib'
+import { cn, startFocusLoop, useLockBodyScroll, useOutsideClick, useWindowEvent } from '../../lib'
 import { Button } from './button'
-import Dimmed from './dimmed'
+import { Dimmed } from './dimmed'
 
-export function Title({ className, children, ...props }: React.JSX.IntrinsicElements['h2']) {
+function Title({ className, children, ...props }: React.JSX.IntrinsicElements['h2']) {
   return (
     <h2
       className={cn(
@@ -18,7 +18,7 @@ export function Title({ className, children, ...props }: React.JSX.IntrinsicElem
   )
 }
 
-export function Content({ className, children, ...props }: React.JSX.IntrinsicElements['div']) {
+function Content({ className, children, ...props }: React.JSX.IntrinsicElements['div']) {
   return (
     <div
       className={cn(
@@ -32,7 +32,7 @@ export function Content({ className, children, ...props }: React.JSX.IntrinsicEl
   )
 }
 
-export function Footer({ className, children, ...props }: React.JSX.IntrinsicElements['div']) {
+function Footer({ className, children, ...props }: React.JSX.IntrinsicElements['div']) {
   return (
     <div
       className={cn(
@@ -46,7 +46,7 @@ export function Footer({ className, children, ...props }: React.JSX.IntrinsicEle
   )
 }
 
-interface DialogProps {
+export interface DialogProps {
   open?: boolean
   onClose?: () => void
   withoutDimmed?: boolean
@@ -76,7 +76,7 @@ const dialogVariants = {
   },
 }
 
-export function Dialog({
+function DialogRoot({
   open: isOpen = false,
   onClose,
   className,
@@ -135,4 +135,4 @@ export function Dialog({
   )
 }
 
-export default Object.assign(Dialog, { Title, Content, Footer, Button })
+export const Dialog = Object.assign(DialogRoot, { Title, Content, Footer, Button })

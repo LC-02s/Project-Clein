@@ -1,10 +1,10 @@
-import { cn } from '@/shared/lib'
-import { Icon } from '@/shared/ui'
-import { EMAIL_ADDRESS } from '../config'
-import PageIconWrapper from './page-icon-wrapper'
-import RouteButtonGroup from './route-button-group'
+import { EMAIL_ADDRESS } from '../../config'
+import { cn } from '../../lib'
+import { Icon } from '../../ui'
+import { PageIconWrapper } from './page-icon-wrapper'
+import { RouteButtonGroup } from './route-button-group'
 
-export default function NotFound({
+export function NotFound({
   className,
   ...props
 }: Omit<React.JSX.IntrinsicElements['div'], 'children'>) {

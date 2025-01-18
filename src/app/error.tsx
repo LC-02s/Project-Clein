@@ -1,8 +1,8 @@
 'use client'
 
 import { LoadComplete } from '@/features/loader'
-import { ErrorFallback } from '@/entities/site'
 import type { CommonErrorProps } from '@/shared/api'
+import { ErrorFallback } from '@/shared/ui'
 
 export default function CommonError(props: CommonErrorProps) {
   return (

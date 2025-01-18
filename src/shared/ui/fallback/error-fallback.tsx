@@ -1,11 +1,10 @@
 'use client'
 
-import { Exception, type CommonErrorProps } from '@/shared/api'
-import { cn } from '@/shared/lib'
-import { Button, Icon } from '@/shared/ui'
-import { EMAIL_ADDRESS, GITHUB_ISSUE_ADDRESS, MAIN_TITLE } from '../config'
-import GithubLink from './github-link'
-import PageIconWrapper from './page-icon-wrapper'
+import { Exception, type CommonErrorProps } from '../../api'
+import { EMAIL_ADDRESS, GITHUB_ISSUE_ADDRESS, MAIN_TITLE } from '../../config'
+import { cn } from '../../lib'
+import { Button, Icon, ExternalLink } from '../../ui'
+import { PageIconWrapper } from './page-icon-wrapper'
 
 export interface ErrorFallbackProps
   extends CommonErrorProps,
@@ -40,13 +39,13 @@ export function ErrorFallback({
         )}
         다시 시도해도 동일한 증상이 발생한다면 <br className="hidden xs:block" />
         이메일({EMAIL_ADDRESS})로 문의 하거나 <br className="hidden xs:block" />
-        <GithubLink
+        <ExternalLink
           href={GITHUB_ISSUE_ADDRESS}
           title={`새창이동: ${MAIN_TITLE} 깃허브 이슈`}
           className="text-indigo-600 hover:underline dark:text-indigo-300"
         >
           깃허브 이슈
-        </GithubLink>
+        </ExternalLink>
         에 제보해 주세요!
       </p>
       <p className="mt-16 flex items-center justify-center space-x-3">

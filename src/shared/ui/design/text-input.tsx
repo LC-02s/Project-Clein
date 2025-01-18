@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '../lib'
+import { cn } from '../../lib'
 
 export const textInputVariants = cva(
   'relative flex w-full items-center justify-start rounded-lg border border-zinc-200 font-normal text-zinc-800 outline-none read-only:!border-zinc-200 disabled:!border-zinc-200 disabled:text-zinc-500 dark:border-zinc-600 dark:text-zinc-50 dark:read-only:!border-zinc-600 dark:disabled:!border-zinc-600 dark:disabled:text-zinc-400',

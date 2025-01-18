@@ -1,5 +1,5 @@
-import { MainLogo } from '@/entities/site'
-import { Container } from '@/shared/ui'
+import { LinkWithLoader } from '@/features/loader'
+import { MainLogo, Container } from '@/shared/ui'
 import TabMenu from './tab-menu'
 
 export default async function Header({ children }: React.PropsWithChildren) {
@@ -12,7 +12,7 @@ export default async function Header({ children }: React.PropsWithChildren) {
       >
         <div className="mx-auto flex w-full items-center justify-between px-4 py-3 xl:h-16 xl:py-0">
           <h1 className="pl-3 md:pl-6">
-            <MainLogo className="whitespace-nowrap text-lg xs:text-xl" />
+            <MainLogo className="whitespace-nowrap text-lg xs:text-xl" render={LinkWithLoader} />
           </h1>
           <TabMenu />
           <div className="flex items-center justify-end space-x-2 md:space-x-3">{children}</div>

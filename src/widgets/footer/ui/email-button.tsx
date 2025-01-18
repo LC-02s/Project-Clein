@@ -1,6 +1,6 @@
 'use client'
 
-import { EMAIL_ADDRESS } from '@/entities/site'
+import { EMAIL_ADDRESS } from '@/shared/config'
 import { useOverlay, type OverlayElementState } from '@/shared/lib'
 import { Button, type ButtonProps, CopyButton, Dialog, Icon, TextInput } from '@/shared/ui'
 

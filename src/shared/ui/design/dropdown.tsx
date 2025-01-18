@@ -1,13 +1,13 @@
 import { AnimatePresence, motion } from 'motion/react'
-import { cn } from '../lib'
+import { cn } from '../../lib'
 
-interface DropdownWrapperProps {
+export interface DropdownWrapperProps {
   open?: boolean
   ref?: React.Ref<HTMLDivElement>
   className?: string
 }
 
-export default function Dropdown({
+export function Dropdown({
   open: isOpen = false,
   ref,
   className,

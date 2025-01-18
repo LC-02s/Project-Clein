@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useTimeout } from '../lib'
 
-export default function Deferred({ children }: React.PropsWithChildren) {
+export function Deferred({ children }: React.PropsWithChildren) {
   const { start } = useTimeout()
   const [isDeferred, setIsDeferred] = useState(false)
 

@@ -1,6 +1,6 @@
-import { cn } from '@/shared/lib'
+import { cn } from '../../lib'
 
-export default function PageIconWrapper({
+export function PageIconWrapper({
   className,
   children,
   ...props

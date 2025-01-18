@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { cn, createScrollToSection } from '@/shared/lib'
+import { ExternalLink } from '@/shared/ui'
 
 interface LinkTextProps {
   href: string
@@ -14,29 +15,26 @@ export default function LinkText({
   children,
 }: React.PropsWithChildren<LinkTextProps>) {
   const isExternal = href.startsWith('http')
-  const title = typeof children === 'string' ? `: ${children}` : ''
 
   if (isExternal) {
     return (
-      <a
+      <ExternalLink
         href={href}
-        title={`새창 이동${title}`}
-        target="_blank"
-        rel="noopener noreferrer"
+        title={typeof children === 'string' ? children : ''}
         className={cn(
           'font-medium text-indigo-600 hover:underline dark:text-indigo-300',
           className,
         )}
       >
         {children}
-      </a>
+      </ExternalLink>
     )
   }
 
   return (
     <Link
       href={href}
-      title={`페이지 이동${title}`}
+      title={`페이지 이동${typeof children === 'string' ? `: ${children}` : ''}`}
       className={cn('font-medium text-indigo-600 hover:underline dark:text-indigo-300', className)}
       onClick={createScrollToSection(href)}
     >

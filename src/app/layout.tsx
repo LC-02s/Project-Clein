@@ -11,7 +11,7 @@ import {
   BLOG_KEYWORDS,
   NICKNAME,
   USER_GITHUB_ADDRESS,
-} from '@/entities/site'
+} from '@/shared/config'
 import { BreakpointProvider, OverlayProvider } from '@/shared/lib'
 import { Pretendard } from './font'
 

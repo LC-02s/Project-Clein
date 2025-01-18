@@ -1,9 +1,9 @@
-import { cn } from '@/shared/lib'
-import { Icon } from '@/shared/ui'
-import PageIconWrapper from './page-icon-wrapper'
-import RouteButtonGroup from './route-button-group'
+import { cn } from '../../lib'
+import { Icon } from '../../ui'
+import { PageIconWrapper } from './page-icon-wrapper'
+import { RouteButtonGroup } from './route-button-group'
 
-export default function UnderConstruction({
+export function UnderConstruction({
   className,
   ...props
 }: Omit<React.JSX.IntrinsicElements['div'], 'children'>) {

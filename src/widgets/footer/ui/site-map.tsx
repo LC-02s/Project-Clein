@@ -1,5 +1,5 @@
 import { LinkWithLoader } from '@/features/loader'
-import { SITE_MAP } from '@/entities/site'
+import { SITE_MAP } from '@/shared/config'
 
 export default function SiteMap() {
   return (
