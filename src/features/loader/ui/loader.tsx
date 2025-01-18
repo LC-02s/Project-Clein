@@ -1,11 +1,11 @@
 'use client'
 
 import { AnimatePresence, motion } from 'motion/react'
-import { Deferred, Icon } from '@/shared/ui'
+import { Button, Deferred, Icon } from '@/shared/ui'
 import { useLoaderState } from '../lib'
 
 export default function Loader() {
-  const { isLoading } = useLoaderState()
+  const { isLoading, off } = useLoaderState()
 
   return (
     <AnimatePresence>
@@ -28,9 +28,16 @@ export default function Loader() {
                 borderRadius: '0 0 100% 100%',
               }}
             />
-            <div className="absolute inset-x-0 bottom-0 mx-auto flex size-10 items-center justify-center rounded-full border border-zinc-200 bg-white dark:border-zinc-600 dark:bg-zinc-800">
+            <Button
+              title="대기창 닫기"
+              className="pointer-events-auto absolute inset-x-0 bottom-0 mx-auto"
+              round="full"
+              square
+              onClick={off}
+            >
               <Icon.RotateSpinner className="text-xl" />
-            </div>
+              <span className="hidden-text">대기창 닫기</span>
+            </Button>
           </motion.div>
         </Deferred>
       )}
