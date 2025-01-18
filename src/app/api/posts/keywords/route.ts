@@ -1,9 +1,15 @@
 import { NextResponse } from 'next/server'
-import { PostRepository, KeywordRepository } from '@/database/posts'
+import { PostRepository, KeywordRepository, SeriesRepository } from '@/database/posts'
+import { DevProjectRepository } from '@/database/projects'
 import type { GetPostKeywordAllResponse, MappedKeywordWithLength } from '@/entities/post'
-import { PostByKeywordDB, separateKeywords } from '@/entities/post'
+import { PostByKeywordDB, createSeparateKeywords } from '@/entities/post'
 
 export function GET() {
+  const separateKeywords = createSeparateKeywords({
+    projects: new Set(DevProjectRepository.getKeys()),
+    series: new Set(SeriesRepository.getKeys()),
+  })
+
   return NextResponse.json({
     ...separateKeywords<MappedKeywordWithLength>([...PostByKeywordDB.keys()], (keyword) => ({
       id: keyword,
