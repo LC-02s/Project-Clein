@@ -15,10 +15,7 @@ export interface ResponseWithPagination<T> extends PageInfo {
 
 export type PaginationParamsKey = (typeof PAGINATION_PARAMS)[keyof typeof PAGINATION_PARAMS]
 
-export const PAGINATION_PARAMS = Object.freeze({
-  PAGE: 'page',
-  SIZE: 'size',
-})
+export const PAGINATION_PARAMS = { PAGE: 'page', SIZE: 'size' } as const
 
 export const DEFAULT_PAGE = 1
 

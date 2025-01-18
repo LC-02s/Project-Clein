@@ -5,7 +5,7 @@ import { useCallback, useState } from 'react'
 import { create } from 'zustand'
 import useWindowEvent from './use-window-event'
 
-export type BreakpointKey = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
+export type BreakpointKey = (typeof BREAKPOINT_ENTRIES)[number][0]
 
 export type Breakpoint = Map<BreakpointKey, boolean>
 
@@ -16,7 +16,7 @@ interface BreakpointStore {
   updateBreakpoint: (breakpoint: Breakpoint) => void
 }
 
-const INITIAL_ENTRIES: BreakpointEntry<string>[] = [
+const BREAKPOINT_ENTRIES = [
   ['xs', '20rem'],
   ['sm', '30rem'],
   ['md', '48rem'],
@@ -24,7 +24,7 @@ const INITIAL_ENTRIES: BreakpointEntry<string>[] = [
   ['xl', '80rem'],
   ['2xl', '90rem'],
   ['3xl', '100rem'],
-]
+] as const
 
 const useBreakpointStore = create<BreakpointStore>((set) => ({
   breakpoint: null,
@@ -53,7 +53,7 @@ export function BreakpointProvider({ children }: React.PropsWithChildren) {
   }, [updateBreakpoint, mediaEntries])
 
   useIsomorphicLayoutEffect(() => {
-    const entries = INITIAL_ENTRIES.map<MediaEntry>(([key, max]) => [
+    const entries = BREAKPOINT_ENTRIES.map<MediaEntry>(([key, max]) => [
       key,
       window.matchMedia(`(min-width: ${max})`),
     ])

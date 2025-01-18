@@ -1,8 +1,8 @@
 import { type LiteralDateTime, getTime } from './get-time'
 
-export type SortType = 'asc' | 'desc'
+export type SortType = (typeof SORT_TYPE)[keyof typeof SORT_TYPE]
 
-export type SortedFromDateKey = 'createdAt' | 'updatedAt'
+export type SortedFromDateKey = (typeof SORTED_FROM_DATE)[keyof typeof SORTED_FROM_DATE]
 
 export type SortedFromDate = Record<SortedFromDateKey, LiteralDateTime>
 
@@ -17,14 +17,18 @@ export interface SortedInfo {
 
 export const SORT_PARAMS_SEPARATOR = ','
 
-export const DEFAULT_SORT_PARAMS: LiteralSortParams = 'createdAt,desc'
+export const SORT_TYPE = { DESC: 'desc', ASC: 'asc' } as const
+
+export const SORTED_FROM_DATE = { CREATE: 'createdAt', UPDATE: 'updatedAt' } as const
+
+export const DEFAULT_SORT_PARAMS = joinSortParams(SORTED_FROM_DATE.CREATE, SORT_TYPE.ASC)
 
 export const SORT_PARAMS_LABEL_MAP = new Map<LiteralSortParams, string>([
-  [DEFAULT_SORT_PARAMS, '최신 생성순'],
-  ['updatedAt,desc', '최신 수정순'],
-  ['createdAt,asc', '기본 생성순'],
-  ['updatedAt,asc', '기본 수정순'],
-])
+  [joinSortParams(SORTED_FROM_DATE.CREATE, SORT_TYPE.DESC), '최신 생성순'],
+  [joinSortParams(SORTED_FROM_DATE.UPDATE, SORT_TYPE.DESC), '최신 수정순'],
+  [joinSortParams(SORTED_FROM_DATE.CREATE, SORT_TYPE.ASC), '기본 생성순'],
+  [joinSortParams(SORTED_FROM_DATE.UPDATE, SORT_TYPE.ASC), '기본 수정순'],
+] as const)
 
 export function orderByDateDesc(a: LiteralDateTime, b: LiteralDateTime) {
   return getTime(b) - getTime(a)
@@ -40,12 +44,14 @@ export function sortByDate<T extends SortedFromDate>(
   const sortParams = params?.split(SORT_PARAMS_SEPARATOR)
   const [sortedFrom, sortType]: [SortedFromDateKey, SortType] = sortParams
     ? [
-        sortParams[0] === 'updatedAt' ? 'updatedAt' : 'createdAt',
-        sortParams[1] === 'asc' ? 'asc' : 'desc',
+        sortParams[0] === SORTED_FROM_DATE.UPDATE
+          ? SORTED_FROM_DATE.UPDATE
+          : SORTED_FROM_DATE.CREATE,
+        sortParams[1] === SORT_TYPE.ASC ? SORT_TYPE.ASC : SORT_TYPE.DESC,
       ]
-    : ['createdAt', 'desc']
+    : [SORTED_FROM_DATE.CREATE, SORT_TYPE.DESC]
 
-  const compareFn = sortType === 'asc' ? orderByDateAsc : orderByDateDesc
+  const compareFn = sortType === SORT_TYPE.ASC ? orderByDateAsc : orderByDateDesc
 
   return {
     sorted: { from: sortedFrom, at: sortType },

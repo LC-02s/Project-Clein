@@ -4,11 +4,7 @@ import type { Keyword, PostItem } from '../model'
 
 export type PostListParamsKey = (typeof POST_LIST_PARAMS)[keyof typeof POST_LIST_PARAMS]
 
-export const POST_LIST_PARAMS = Object.freeze({
-  ...PAGINATION_PARAMS,
-  KEYWORD: 'keyword',
-  SORT: 'sort',
-})
+export const POST_LIST_PARAMS = { ...PAGINATION_PARAMS, KEYWORD: 'keyword', SORT: 'sort' } as const
 
 export interface GetPostListResponse extends ResponseWithPagination<PostItem>, SortedInfo {
   keyword: Keyword | null
