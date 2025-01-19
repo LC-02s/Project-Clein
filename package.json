@@ -12,6 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.64.2",
     "class-variance-authority": "^0.7.1",
     "dayjs": "^1.11.13",
     "js-cookie": "^3.0.5",
