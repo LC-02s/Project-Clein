@@ -1,4 +1,4 @@
-import { type LiteralDateTime, getTime } from './get-time'
+import { type LiteralDateTime, getTime } from '../../lib'
 
 export type SortType = (typeof SORT_TYPE)[keyof typeof SORT_TYPE]
 
