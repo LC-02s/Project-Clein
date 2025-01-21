@@ -8,6 +8,7 @@ import typescriptParser from '@typescript-eslint/parser'
 import importPlugin from 'eslint-plugin-import'
 import reactHooks from 'eslint-plugin-react-hooks'
 import react from 'eslint-plugin-react'
+import reactCompiler from 'eslint-plugin-react-compiler'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 import prettier from 'eslint-plugin-prettier'
 import typescriptEslint from 'typescript-eslint'
@@ -39,6 +40,7 @@ const eslintConfig = [
     },
     plugins: {
       react,
+      'react-compiler': reactCompiler,
       'react-hooks': reactHooks,
       'jsx-a11y': jsxA11y,
       import: importPlugin,
@@ -84,6 +86,7 @@ const eslintConfig = [
       '@typescript-eslint/consistent-type-imports': 'error',
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
+      'react-compiler/react-compiler': 'error',
       'react/jsx-props-no-spreading': 'off',
       'react/require-default-props': 'off',
       'react/prop-types': 'off',

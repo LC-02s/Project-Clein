@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
 'use client'
 
 import { useEffect } from 'react'
@@ -15,5 +13,5 @@ export function useDocumentEvent<K extends keyof DocumentEventMap>(
     return () => {
       document.removeEventListener(type, listener, option)
     }
-  }, [type, listener])
+  }, [type, listener, option])
 }
