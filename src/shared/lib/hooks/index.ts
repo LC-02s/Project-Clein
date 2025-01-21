@@ -4,6 +4,7 @@ export * from './use-overlay'
 
 export * from './use-breakpoint'
 export * from './use-timeout'
+export * from './use-debounce'
 export * from './use-boolean-state'
 export * from './use-document-event'
 export * from './use-window-event'
