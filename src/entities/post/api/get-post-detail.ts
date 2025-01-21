@@ -1,5 +1,6 @@
 import { type ExceptionInterceptor, server } from '@/shared/api'
 import type { PostDetail, PostId } from '../model'
+import { ENDPOINT_POST } from './endpoint'
 
 export interface GetPostDetailResponse {
   post: PostDetail
@@ -10,5 +11,5 @@ export interface GetPostDetail {
 }
 
 export const getPostDetail: GetPostDetail = async (id, onException) => {
-  return await server.request<GetPostDetailResponse>(`/api/post/${id}`, { onException })
+  return await server.request<GetPostDetailResponse>(ENDPOINT_POST.DETAIL(id), { onException })
 }

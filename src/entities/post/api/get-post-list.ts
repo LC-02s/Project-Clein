@@ -1,6 +1,7 @@
 import { type SearchParams, server } from '@/shared/api'
 import { PAGINATION_PARAMS, type ResponseWithPagination, type SortedInfo } from '@/shared/lib'
 import type { Keyword, PostItem } from '../model'
+import { ENDPOINT_POST } from './endpoint'
 
 export type PostListParamsKey = (typeof POST_LIST_PARAMS)[keyof typeof POST_LIST_PARAMS]
 
@@ -15,5 +16,5 @@ export interface GetPostList {
 }
 
 export const getPostList: GetPostList = async (params) => {
-  return await server.request<GetPostListResponse>('/api/posts', { params })
+  return await server.request<GetPostListResponse>(ENDPOINT_POST.LIST, { params })
 }
