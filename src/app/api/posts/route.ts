@@ -1,8 +1,17 @@
 import { type NextRequest, NextResponse } from 'next/server'
 import { PostRepository } from '@/database/posts'
 import type { GetPostListResponse, PostItem, Keyword } from '@/entities/post'
-import { PostDB, PostByKeywordDB, convertPostItem, POST_LIST_PARAMS } from '@/entities/post'
+import {
+  connectPostDB,
+  connectPostByKeywordDB,
+  convertPostItem,
+  POST_LIST_PARAMS,
+} from '@/entities/post'
 import { sortByDate, Pagination } from '@/shared/lib'
+
+export const PostDB = await connectPostDB()
+
+export const PostByKeywordDB = await connectPostByKeywordDB()
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl
