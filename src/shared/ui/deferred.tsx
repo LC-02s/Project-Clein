@@ -9,6 +9,10 @@ export function Deferred({ children }: React.PropsWithChildren) {
 
   useEffect(() => {
     start(() => setIsDeferred(true), 200)
+
+    return () => {
+      setIsDeferred(false)
+    }
   }, [start])
 
   if (!isDeferred) {
