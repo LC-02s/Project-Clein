@@ -38,7 +38,7 @@ export function SortDropdownButton<K extends string>({
   const lg = useBreakpoint('lg', true)
   const isDropdownAndOpen = isOpen && lg
 
-  const buttonRef = useRef<HTMLButtonElement | null>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
   const onClose = useCallback(() => {
     buttonRef.current?.focus()
     close()

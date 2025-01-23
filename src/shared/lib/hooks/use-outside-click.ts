@@ -1,21 +1,17 @@
 'use client'
 
-import { useCallback, useRef } from 'react'
+import { useRef } from 'react'
 import { useDocumentEvent } from './use-document-event'
 
 export function useOutsideClick<E extends Element>(callback: (event: MouseEvent) => void) {
-  const targetAreaRef = useRef<E | null>(null)
+  const targetAreaRef = useRef<E>(null)
 
-  const clickHandler = useCallback(
-    (event: MouseEvent) => {
-      if (targetAreaRef.current && !targetAreaRef.current.contains(event.target as Node | null)) {
-        callback(event)
-      }
-    },
-    [callback],
-  )
+  useDocumentEvent('click', (event) => {
+    if (!targetAreaRef.current) return
+    if (targetAreaRef.current.contains(event.target as Node | null)) return
 
-  useDocumentEvent('click', clickHandler)
+    callback(event)
+  })
 
   return targetAreaRef
 }

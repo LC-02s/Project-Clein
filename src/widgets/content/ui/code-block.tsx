@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import { cn } from '@/shared/lib'
 import { Button, Container, CopyButton, Icon } from '@/shared/ui'
 
@@ -10,17 +10,10 @@ export interface CodeBlockProps {
 }
 
 export function CodeBlock({ className, children, style }: React.PropsWithChildren<CodeBlockProps>) {
-  const [value, setValue] = useState('')
-  const preRef = useRef<HTMLPreElement | null>(null)
-
-  useEffect(() => {
-    if (preRef.current) {
-      setValue(preRef.current.textContent ?? '')
-    }
-  }, [])
+  const preRef = useRef<HTMLPreElement>(null)
 
   return (
-    <Container layer="middle" round="md" className="relative overflow-hidden border">
+    <Container layer="middle" round="sm" className="relative overflow-hidden border bg-white">
       <Container
         layer="middle"
         round="none"
@@ -31,7 +24,7 @@ export function CodeBlock({ className, children, style }: React.PropsWithChildre
           <span className="block size-3 rounded-full" style={{ backgroundColor: '#FEBC2E' }} />
           <span className="block size-3 rounded-full" style={{ backgroundColor: '#28C840' }} />
         </p>
-        <CopyButton value={value}>
+        <CopyButton value={() => preRef.current?.textContent ?? ''}>
           {({ status, copy }) => (
             <Button variant="subtle" square title="코드 복사하기" onClick={copy} disabled={status}>
               {status ? (

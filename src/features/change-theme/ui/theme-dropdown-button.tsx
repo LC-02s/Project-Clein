@@ -13,7 +13,7 @@ export function ThemeDropdownButton() {
   const [isOpen, { setFalse: close, toggle }] = useBooleanState()
   const lg = useBreakpoint('lg', true)
 
-  const buttonRef = useRef<HTMLButtonElement | null>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
   const onClose = useCallback(() => {
     buttonRef.current?.focus()
     close()

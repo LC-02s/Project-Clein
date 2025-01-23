@@ -11,7 +11,7 @@ export function TabLink({ href, segment, title, icon: Icon }: TabLinkProps) {
   const pathname = usePathname()
   const isActive = pathname.startsWith(segment)
 
-  const linkRef = useRef<HTMLAnchorElement | null>(null)
+  const linkRef = useRef<HTMLAnchorElement>(null)
 
   return (
     <li className="relative flex items-center justify-center pb-3 pt-1 xl:h-full xl:pt-3">
