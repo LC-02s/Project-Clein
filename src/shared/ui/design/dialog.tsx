@@ -1,6 +1,5 @@
-import { AnimatePresence, motion, useIsomorphicLayoutEffect, type Target } from 'motion/react'
-import { useCallback } from 'react'
-import { cn, startFocusLoop, useLockBodyScroll, useOutsideClick, useWindowEvent } from '../../lib'
+import { AnimatePresence, motion, type Target } from 'motion/react'
+import { cn, useFocusLoop, useLockBodyScroll, useOutsideClick, useWindowEvent } from '../../lib'
 import { Button } from './button'
 import { Dimmed } from './dimmed'
 
@@ -91,23 +90,14 @@ function DialogRoot({
     if (isOpen && cancelWithOutsideClick) onClose?.()
   })
 
-  const keydownHandler = useCallback(
-    (e: KeyboardEvent) => {
-      if (!isOpen || !cancelWithEscape) return
-      if (e.key === 'Escape') onClose?.()
-    },
-    [isOpen, cancelWithEscape, onClose],
-  )
+  useFocusLoop({ ref: containerRef, deps: [isOpen] })
 
-  useWindowEvent('keydown', keydownHandler)
+  useWindowEvent('keydown', (e) => {
+    if (!isOpen || !cancelWithEscape) return
+    if (e.key === 'Escape') onClose?.()
+  })
 
   useLockBodyScroll(isOpen)
-
-  useIsomorphicLayoutEffect(() => {
-    if (isOpen) {
-      startFocusLoop(containerRef.current)
-    }
-  }, [isOpen])
 
   return (
     <AnimatePresence>

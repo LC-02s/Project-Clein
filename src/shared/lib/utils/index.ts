@@ -1,6 +1,5 @@
 export * from './class-names'
 export * from './copy-to-clipboard'
-export * from './start-focus-loop'
 export * from './format-date'
 export * from './get-focusable-element'
 export * from './get-time'

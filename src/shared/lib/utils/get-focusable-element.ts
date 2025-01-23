@@ -9,10 +9,10 @@ export type FocusableElement =
 const focusableElementSelector =
   'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)'
 
-export function getFocusableElement<T extends HTMLElement>(element: T | null) {
+export function getFocusableElement<E extends Element>(element: E | null) {
   return element?.querySelector<FocusableElement>(focusableElementSelector)
 }
 
-export function getFocusableElementAll<T extends HTMLElement>(element: T | null) {
+export function getFocusableElementAll<E extends Element>(element: E | null) {
   return element?.querySelectorAll<FocusableElement>(focusableElementSelector)
 }
