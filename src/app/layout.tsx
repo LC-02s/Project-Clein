@@ -13,7 +13,7 @@ import {
   NICKNAME,
   USER_GITHUB_ADDRESS,
 } from '@/shared/config'
-import { BreakpointProvider, OverlayProvider } from '@/shared/lib'
+import { BreakpointProvider, OverlayViewer } from '@/shared/lib'
 import { Pretendard } from './font'
 
 import './globals.css'
@@ -58,14 +58,13 @@ export default async function RootLayout({ children }: React.PropsWithChildren) 
       >
         <BreakpointProvider>
           <QueryProvider>
-            <OverlayProvider>
-              <Header>
-                <ThemeDropdownButton />
-              </Header>
-              <Loader />
-              {children}
-              <Footer />
-            </OverlayProvider>
+            <Header>
+              <ThemeDropdownButton />
+            </Header>
+            <Loader />
+            {children}
+            <OverlayViewer />
+            <Footer />
           </QueryProvider>
         </BreakpointProvider>
       </ThemeProvider>
