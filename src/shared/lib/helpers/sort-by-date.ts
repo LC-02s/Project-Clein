@@ -19,15 +19,15 @@ export const SORT_PARAMS_SEPARATOR = ','
 
 export const SORT_TYPE = { DESC: 'desc', ASC: 'asc' } as const
 
-export const SORTED_FROM_DATE = { CREATE: 'createdAt', UPDATE: 'updatedAt' } as const
+export const SORTED_FROM_DATE = { UPDATE: 'updatedAt', CREATE: 'createdAt' } as const
 
-export const DEFAULT_SORT_PARAMS = joinSortParams(SORTED_FROM_DATE.CREATE, SORT_TYPE.ASC)
+export const DEFAULT_SORT_PARAMS = joinSortParams(SORTED_FROM_DATE.UPDATE, SORT_TYPE.DESC)
 
 export const SORT_PARAMS_LABEL_MAP = new Map<LiteralSortParams, string>([
-  [joinSortParams(SORTED_FROM_DATE.CREATE, SORT_TYPE.DESC), '최신 생성순'],
   [joinSortParams(SORTED_FROM_DATE.UPDATE, SORT_TYPE.DESC), '최신 수정순'],
-  [joinSortParams(SORTED_FROM_DATE.CREATE, SORT_TYPE.ASC), '기본 생성순'],
+  [joinSortParams(SORTED_FROM_DATE.CREATE, SORT_TYPE.DESC), '최신 생성순'],
   [joinSortParams(SORTED_FROM_DATE.UPDATE, SORT_TYPE.ASC), '기본 수정순'],
+  [joinSortParams(SORTED_FROM_DATE.CREATE, SORT_TYPE.ASC), '기본 생성순'],
 ] as const)
 
 export function orderByDateDesc(a: LiteralDateTime, b: LiteralDateTime) {
@@ -44,12 +44,12 @@ export function sortByDate<T extends SortedFromDate>(
   const sortParams = params?.split(SORT_PARAMS_SEPARATOR)
   const [sortedFrom, sortType]: [SortedFromDateKey, SortType] = sortParams
     ? [
-        sortParams[0] === SORTED_FROM_DATE.UPDATE
-          ? SORTED_FROM_DATE.UPDATE
-          : SORTED_FROM_DATE.CREATE,
+        sortParams[0] === SORTED_FROM_DATE.CREATE
+          ? SORTED_FROM_DATE.CREATE
+          : SORTED_FROM_DATE.UPDATE,
         sortParams[1] === SORT_TYPE.ASC ? SORT_TYPE.ASC : SORT_TYPE.DESC,
       ]
-    : [SORTED_FROM_DATE.CREATE, SORT_TYPE.DESC]
+    : [SORTED_FROM_DATE.UPDATE, SORT_TYPE.DESC]
 
   const compareFn = sortType === SORT_TYPE.ASC ? orderByDateAsc : orderByDateDesc
 
