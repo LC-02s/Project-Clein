@@ -1,18 +1,24 @@
 'use client'
 
 import { AnimatePresence, motion } from 'motion/react'
+import { usePathname, useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 import { Button, Deferred, Icon } from '@/shared/ui'
 import { useLoaderState } from '../lib'
 
-export function Loader() {
+export const Loader: React.FC = () => {
   const { isLoading, off } = useLoaderState()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  useEffect(off, [pathname, searchParams, off])
 
   return (
     <AnimatePresence>
       {isLoading && (
         <Deferred>
           <motion.div
-            className="pointer-events-none fixed inset-x-0 top-28 z-40 h-24 overflow-hidden xl:top-16"
+            className="fixed inset-x-0 top-28 z-40 h-24 overflow-hidden xl:top-16"
             initial={{ y: '-5rem', opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: '-5rem', opacity: 0 }}
@@ -30,7 +36,7 @@ export function Loader() {
             />
             <Button
               title="대기창 닫기"
-              className="pointer-events-auto absolute inset-x-0 bottom-0 mx-auto"
+              className="absolute inset-x-0 bottom-0 mx-auto"
               round="full"
               square
               onClick={off}
