@@ -2,6 +2,7 @@ import { cookies } from 'next/headers'
 import type { Metadata } from 'next'
 import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
+import { SearchBarTrigger } from '@/widgets/search-bar'
 import { THEME_KEY, ThemeDropdownButton, ThemeProvider } from '@/features/change-theme'
 import { Loader } from '@/features/loader'
 import { QueryProvider } from '@/shared/api'
@@ -59,6 +60,7 @@ const RootLayout: React.FC<React.PropsWithChildren> = async ({ children }) => {
         <BreakpointProvider>
           <QueryProvider>
             <Header>
+              <SearchBarTrigger />
               <ThemeDropdownButton />
             </Header>
             <Loader />
