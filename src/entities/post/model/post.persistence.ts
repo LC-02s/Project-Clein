@@ -7,7 +7,7 @@ import { orderByDateAsc } from '@/shared/lib'
 import { POSTS_BASE_PATH, THUMBNAIL_PATH_PREFIX } from '../config'
 import type { PostId, Post, PostMap, PostByKeywordMap } from '../model'
 
-async function parsePostDetail(id: PostId, index: number, array: PostId[]): Promise<Post> {
+const parsePostDetail = async (id: PostId, index: number, array: PostId[]): Promise<Post> => {
   const content = await readFile(`${POSTS_BASE_PATH}/${id}.md`, 'utf-8')
 
   return {
@@ -22,7 +22,7 @@ async function parsePostDetail(id: PostId, index: number, array: PostId[]): Prom
   }
 }
 
-export async function connectPostDB() {
+export const connectPostDB = async () => {
   const postKeys = PostRepository.getKeys().sort(orderByDateAsc)
   const postList = await Promise.all(postKeys.map(parsePostDetail))
 
@@ -34,7 +34,7 @@ export async function connectPostDB() {
   }, new Map())
 }
 
-export async function connectPostByKeywordDB() {
+export const connectPostByKeywordDB = async () => {
   return PostRepository.getKeys().reduce<PostByKeywordMap>((database, postId) => {
     return PostRepository.findById(postId).keywords.reduce((db, keyword) => {
       return db.set(keyword, (db.get(keyword) ?? new Set()).add(postId))

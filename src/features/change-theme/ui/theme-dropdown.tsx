@@ -3,18 +3,18 @@
 import { createPortal } from 'react-dom'
 import { Dialog, Dropdown } from '@/shared/ui'
 
-export interface ThemeDropdownProps {
+export interface ThemeDropdownProps extends React.PropsWithChildren {
   breakpoint: boolean
   open: boolean
   onClose: () => void
 }
 
-export function ThemeDropdown({
+export const ThemeDropdown: React.FC<ThemeDropdownProps> = ({
   breakpoint,
   open: isOpen,
   onClose,
   children,
-}: React.PropsWithChildren<ThemeDropdownProps>) {
+}) => {
   if (breakpoint) {
     return createPortal(
       <Dialog

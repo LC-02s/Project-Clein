@@ -12,11 +12,11 @@ export interface UseFocusLoopParams<E extends Element> {
   withoutFirstFocus?: boolean
 }
 
-export function useFocusLoop<E extends Element>({
+export const useFocusLoop = <E extends Element>({
   ref,
   deps = [],
   withoutFirstFocus = false,
-}: UseFocusLoopParams<E> = {}) {
+}: UseFocusLoopParams<E> = {}) => {
   const containerRef = useRef<E>(null)
 
   useEffect(() => {

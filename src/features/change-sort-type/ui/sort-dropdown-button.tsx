@@ -12,26 +12,26 @@ import {
   useOutsideClick,
   useWindowEvent,
   type LiteralSortParams,
+  type PropsWithClassName,
 } from '@/shared/lib'
 import { Button, Icon } from '@/shared/ui'
 import { SortDropdown } from './sort-dropdown'
 import { SortLink } from './sort-link'
 
-export interface SortDropdownButtonProps<K extends string> {
+export interface SortDropdownButtonProps<K extends string> extends PropsWithClassName {
   baseURL: string
   sortParams: LiteralSortParams
   paramsKey: K
-  className?: string
   renderLink?: typeof Link
 }
 
-export function SortDropdownButton<K extends string>({
+export const SortDropdownButton = <K extends string>({
   sortParams,
   baseURL,
   paramsKey,
   className,
   renderLink,
-}: SortDropdownButtonProps<K>) {
+}: SortDropdownButtonProps<K>): React.ReactNode => {
   const href = createSearchParamsToURL<K>(baseURL)
 
   const [isOpen, { setFalse: close, toggle }] = useBooleanState()

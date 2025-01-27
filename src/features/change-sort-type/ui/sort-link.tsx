@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { cn } from '@/shared/lib'
 import { Button, buttonVariants } from '@/shared/ui'
 
-export interface SortLinkProps {
+export interface SortLinkProps extends React.PropsWithChildren {
   href: string
   title: string
   disabled?: boolean
@@ -10,14 +10,14 @@ export interface SortLinkProps {
   render?: typeof Link
 }
 
-export function SortLink({
+export const SortLink: React.FC<SortLinkProps> = ({
   href,
   title,
   disabled,
   onClick,
   children,
   render: Component = Link,
-}: React.PropsWithChildren<SortLinkProps>) {
+}) => {
   if (disabled) {
     return (
       <Button variant="subtle" className="w-full lg:h-9" title={title} disabled>

@@ -13,7 +13,7 @@ export const PostDB = await connectPostDB()
 
 export const PostByKeywordDB = await connectPostByKeywordDB()
 
-export async function GET(request: NextRequest) {
+export const GET = (request: NextRequest) => {
   const { searchParams } = request.nextUrl
 
   const keywordParams = searchParams.get(POST_LIST_PARAMS.KEYWORD)

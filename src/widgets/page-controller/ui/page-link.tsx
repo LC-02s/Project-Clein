@@ -5,7 +5,7 @@ export interface PageLinkProps extends React.ComponentProps<typeof Link> {
   disabled?: boolean
 }
 
-export function PageLink({ href, disabled, children, ...props }: PageLinkProps) {
+export const PageLink: React.FC<PageLinkProps> = ({ href, disabled, children, ...props }) => {
   if (disabled) {
     return (
       <button type="button" title={props.title} className={props.className} disabled>

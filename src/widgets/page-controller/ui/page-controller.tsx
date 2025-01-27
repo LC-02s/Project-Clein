@@ -1,6 +1,7 @@
 import {
   type PageInfo,
   type PaginationParamsKey,
+  type PropsWithClassName,
   cn,
   createSearchParamsToURL,
   PAGINATION_PARAMS,
@@ -9,12 +10,11 @@ import { buttonVariants, Icon } from '@/shared/ui'
 import { PageInput } from './page-input'
 import { PageLink } from './page-link'
 
-export interface PageControllerProps extends PageInfo {
+export interface PageControllerProps extends PropsWithClassName<PageInfo> {
   baseURL: string
-  className?: string
 }
 
-export function PageController({ page, className, baseURL }: PageControllerProps) {
+export const PageController: React.FC<PageControllerProps> = ({ page, className, baseURL }) => {
   const href = createSearchParamsToURL<PaginationParamsKey>(baseURL)
   const linkStyle = buttonVariants()
 

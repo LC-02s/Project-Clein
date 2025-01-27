@@ -7,7 +7,11 @@ export interface ThemeProviderProps
   defaultValue?: string
 }
 
-export function ThemeProvider({ defaultValue, children, ...props }: ThemeProviderProps) {
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({
+  defaultValue,
+  children,
+  ...props
+}) => {
   const { theme } = useThemeProvider(defaultValue)
 
   return (

@@ -1,12 +1,15 @@
 import { create } from 'zustand'
 
-export interface LoaderState {
-  isLoading: boolean
+export interface LoaderSwitchState {
   on: (withLoad?: () => void) => void
   off: () => void
 }
 
-export const useLoaderState = create<LoaderState>((set) => ({
+export interface LoaderStore extends LoaderSwitchState {
+  isLoading: boolean
+}
+
+export const useLoaderState = create<LoaderStore>((set) => ({
   isLoading: false,
   on: (withLoad) =>
     set((prev) => {
@@ -21,7 +24,7 @@ export const useLoaderState = create<LoaderState>((set) => ({
   off: () => set({ isLoading: false }),
 }))
 
-export const useLoaderSwitch: () => Pick<LoaderState, 'on' | 'off'> = () => ({
+export const useLoaderSwitch = (): LoaderSwitchState => ({
   on: useLoaderState((store) => store.on),
   off: useLoaderState((store) => store.off),
 })

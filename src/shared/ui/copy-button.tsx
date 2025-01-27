@@ -16,13 +16,13 @@ export interface CopyButtonProps {
   onFailed?: () => void
 }
 
-export function CopyButton({
+export const CopyButton: React.FC<CopyButtonProps> = ({
   value,
   delay = 1200,
   children,
   onSuccess,
   onFailed,
-}: CopyButtonProps) {
+}) => {
   const { start } = useTimeout()
   const [status, setStatus] = useState(false)
 
@@ -40,5 +40,5 @@ export function CopyButton({
     }
   }, [value, delay, start, onSuccess, onFailed])
 
-  return children({ status, copy })
+  return <>{children({ status, copy })}</>
 }

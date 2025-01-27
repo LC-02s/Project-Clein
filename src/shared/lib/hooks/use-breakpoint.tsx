@@ -31,13 +31,12 @@ const useBreakpointStore = create<BreakpointStore>((set) => ({
   updateBreakpoint: (breakpoint) => set({ breakpoint }),
 }))
 
-export function useBreakpoint<T extends boolean | null>(point: BreakpointKey, defaultValue?: T) {
-  return (useBreakpointStore((state) => state.breakpoint?.get(point)) ??
+export const useBreakpoint = <T extends boolean | null>(point: BreakpointKey, defaultValue?: T) =>
+  (useBreakpointStore((state) => state.breakpoint?.get(point)) ??
     defaultValue ??
     null) as T extends boolean ? boolean : boolean | null
-}
 
-export function BreakpointProvider({ children }: React.PropsWithChildren) {
+export const BreakpointProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   type MediaEntry = BreakpointEntry<MediaQueryList>
   type MatchesEntry = BreakpointEntry<boolean>
 

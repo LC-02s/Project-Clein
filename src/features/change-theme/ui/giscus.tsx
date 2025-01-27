@@ -5,10 +5,9 @@ import { GISCUS_ADDRESS, GISCUS_CLASS_NAME, GITHUB } from '@/shared/config'
 import { cn, useTimeout } from '@/shared/lib'
 import { changeGiscusTheme, useTheme } from '../lib'
 
-export function Giscus({
-  className,
-  ...props
-}: Omit<React.JSX.IntrinsicElements['div'], 'children'>) {
+export type GiscusProps = Omit<React.JSX.IntrinsicElements['div'], keyof React.PropsWithChildren>
+
+export const Giscus: React.FC<GiscusProps> = ({ className, ...props }) => {
   const { start } = useTimeout()
   const { realTheme } = useTheme()
 

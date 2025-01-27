@@ -7,7 +7,7 @@ export interface OverlayElementState {
 }
 
 export interface CreateOverlayElement {
-  (props: OverlayElementState): React.JSX.Element
+  (props: OverlayElementState): React.ReactNode
 }
 
 export interface OverlayControllerProps {

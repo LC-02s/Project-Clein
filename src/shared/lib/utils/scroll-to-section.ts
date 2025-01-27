@@ -1,4 +1,4 @@
-export function scrollToSection(hash: string) {
+export const scrollToSection = (hash: string) => {
   const sectionEl = document.querySelector<HTMLElement>(decodeURI(hash))
 
   if (!sectionEl) return
@@ -10,10 +10,10 @@ export function scrollToSection(hash: string) {
   window.scrollTo({ top: sectionEl.offsetTop, behavior: 'smooth' })
 }
 
-export function createScrollToSection(
+export const createScrollToSection = (
   href: string,
   handler?: React.MouseEventHandler<HTMLAnchorElement>,
-) {
+) => {
   const isHash = !!href && href.startsWith('#')
 
   return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {

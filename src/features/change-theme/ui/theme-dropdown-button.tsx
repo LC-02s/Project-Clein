@@ -7,7 +7,7 @@ import { THEME_LABEL, THEME_LIST } from '../config'
 import { useTheme } from '../lib'
 import { ThemeDropdown } from './theme-dropdown'
 
-export function ThemeDropdownButton() {
+export const ThemeDropdownButton: React.FC = () => {
   const { theme, realTheme, setTheme } = useTheme()
 
   const [isOpen, { setFalse: close, toggle }] = useBooleanState()

@@ -1,4 +1,16 @@
-export { ArrowOutline } from './arrow-outline'
+export type IconProps = React.SVGProps<SVGSVGElement>
+export interface ArrowIconProps extends IconProps {
+  direction: keyof typeof _directionToDeg
+}
+
+export const _directionToDeg = { top: 0, bottom: 180, left: 270, right: 90 } as const
+
+export const _arrowIconProps = ({ direction, style, ...props }: ArrowIconProps): IconProps => ({
+  ...props,
+  style: { ...style, transform: `rotate(${_directionToDeg[direction]}deg)` },
+})
+
+export * from './arrow-outline'
 export * from './arrow-bold'
 export * from './tea-cup-outline'
 export * from './github-logo'

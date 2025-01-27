@@ -4,9 +4,11 @@ import { useIsomorphicLayoutEffect } from 'motion/react'
 import { useMemo, useState, useEffect } from 'react'
 import { DEFAULT_THEME, THEME_LIST } from '../../config'
 import { matchDarkThemeMedia } from '../../lib'
-import { useThemeStore } from './use-theme'
+import { type ThemeState, useThemeStore } from './use-theme'
 
-export function useThemeProvider(defaultValue: string = DEFAULT_THEME) {
+export const useThemeProvider = (
+  defaultValue: string = DEFAULT_THEME,
+): Pick<ThemeState, 'theme'> => {
   const defaultTheme = useMemo(() => {
     return THEME_LIST.find((theme) => theme === defaultValue) || DEFAULT_THEME
   }, [defaultValue])
@@ -24,9 +26,7 @@ export function useThemeProvider(defaultValue: string = DEFAULT_THEME) {
 
   useEffect(() => {
     const handleChange = (event: MediaQueryListEvent) => {
-      if (theme === 'system') {
-        setRealTheme(event.matches ? 'dark' : 'light')
-      }
+      if (theme === 'system') setRealTheme(event.matches ? 'dark' : 'light')
     }
 
     darkThemeMedia?.addEventListener('change', handleChange)

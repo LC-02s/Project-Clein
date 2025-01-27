@@ -21,6 +21,9 @@ export const SORT_TYPE = { DESC: 'desc', ASC: 'asc' } as const
 
 export const SORTED_FROM_DATE = { UPDATE: 'updatedAt', CREATE: 'createdAt' } as const
 
+export const joinSortParams = (key: SortedFromDateKey, type: SortType) =>
+  [key, type].join(SORT_PARAMS_SEPARATOR) as LiteralSortParams
+
 export const DEFAULT_SORT_PARAMS = joinSortParams(SORTED_FROM_DATE.UPDATE, SORT_TYPE.DESC)
 
 export const SORT_PARAMS_LABEL_MAP = new Map<LiteralSortParams, string>([
@@ -30,17 +33,13 @@ export const SORT_PARAMS_LABEL_MAP = new Map<LiteralSortParams, string>([
   [joinSortParams(SORTED_FROM_DATE.CREATE, SORT_TYPE.ASC), '기본 생성순'],
 ] as const)
 
-export function orderByDateDesc(a: LiteralDateTime, b: LiteralDateTime) {
-  return getTime(b) - getTime(a)
-}
+export const orderByDateDesc = (a: LiteralDateTime, b: LiteralDateTime) => getTime(b) - getTime(a)
 
-export function orderByDateAsc(a: LiteralDateTime, b: LiteralDateTime) {
-  return getTime(a) - getTime(b)
-}
+export const orderByDateAsc = (a: LiteralDateTime, b: LiteralDateTime) => getTime(a) - getTime(b)
 
-export function sortByDate<T extends SortedFromDate>(
+export const sortByDate = <T extends SortedFromDate>(
   params?: string | null,
-): SortedInfo & { compare: (a: T, b: T) => number } {
+): SortedInfo & { compare: (a: T, b: T) => number } => {
   const sortParams = params?.split(SORT_PARAMS_SEPARATOR)
   const [sortedFrom, sortType]: [SortedFromDateKey, SortType] = sortParams
     ? [
@@ -57,8 +56,4 @@ export function sortByDate<T extends SortedFromDate>(
     sorted: { from: sortedFrom, at: sortType },
     compare: (a, b) => compareFn(a[sortedFrom], b[sortedFrom]),
   }
-}
-
-export function joinSortParams(key: SortedFromDateKey, type: SortType) {
-  return [key, type].join(SORT_PARAMS_SEPARATOR) as LiteralSortParams
 }

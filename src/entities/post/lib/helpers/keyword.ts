@@ -5,10 +5,10 @@ export interface CreateSeparateKeywordsParams<P extends Keyword, S extends Keywo
   series: Set<S>
 }
 
-export function createSeparateKeywords<P extends Keyword, S extends Keyword>({
+export const createSeparateKeywords = <P extends Keyword, S extends Keyword>({
   projects,
   series,
-}: CreateSeparateKeywordsParams<P, S>) {
+}: CreateSeparateKeywordsParams<P, S>) => {
   return <T>(keywords: Keyword[], mapper: (keyword: Keyword) => T) => {
     type SeparatedKeywords = Record<SeparatedKeywordsKey, T[]>
 

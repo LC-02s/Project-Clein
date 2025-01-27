@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   },
 }
 
-export default function StaticLayout({ children }: React.PropsWithChildren) {
-  return (
-    <section id="content" className="relative flex-1">
-      {children}
-    </section>
-  )
-}
+const StaticLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
+  <section id="content" className="relative flex-1">
+    {children}
+  </section>
+)
+
+export default StaticLayout

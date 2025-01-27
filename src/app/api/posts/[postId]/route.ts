@@ -6,11 +6,11 @@ import { createSeparateKeywords } from '@/entities/post'
 import { exceptionMessage } from '@/shared/api'
 import { PostDB } from '../route'
 
-export interface GetPostDetailParams {
+interface GetPostDetailParams {
   params: Promise<{ postId: PostId }>
 }
 
-export async function GET(_: NextRequest, { params }: GetPostDetailParams) {
+export const GET = async (_: NextRequest, { params }: GetPostDetailParams) => {
   const { postId } = await params
   const post = PostDB.get(postId)
 

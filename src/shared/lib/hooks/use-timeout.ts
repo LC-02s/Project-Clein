@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef } from 'react'
 
-export function useTimeout() {
+export const useTimeout = () => {
   const timeoutId = useRef<number>(null)
 
   const clear = useCallback(() => {

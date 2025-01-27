@@ -3,7 +3,7 @@
 import { useRef } from 'react'
 import { useDocumentEvent } from './use-document-event'
 
-export function useOutsideClick<E extends Element>(callback: (event: MouseEvent) => void) {
+export const useOutsideClick = <E extends Element>(callback: (event: MouseEvent) => void) => {
   const targetAreaRef = useRef<E>(null)
 
   useDocumentEvent('click', (event) => {

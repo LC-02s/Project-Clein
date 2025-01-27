@@ -58,17 +58,15 @@ export type ContainerVariantsProps = VariantProps<typeof containerVariants>
 
 export type ContainerProps = React.JSX.IntrinsicElements['div'] & ContainerVariantsProps
 
-export function Container({
+export const Container: React.FC<ContainerProps> = ({
   variant,
   layer,
   round,
   className,
   children,
   ...props
-}: ContainerProps) {
-  return (
-    <div className={cn(containerVariants({ variant, layer, round }), className)} {...props}>
-      {children}
-    </div>
-  )
-}
+}) => (
+  <div className={cn(containerVariants({ variant, layer, round }), className)} {...props}>
+    {children}
+  </div>
+)

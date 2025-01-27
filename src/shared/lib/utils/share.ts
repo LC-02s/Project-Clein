@@ -3,7 +3,7 @@ export interface ShareParams {
   description: string
 }
 
-export async function share({ title, description }: ShareParams) {
+export const share = async ({ title, description }: ShareParams) => {
   try {
     await navigator.share({
       title,

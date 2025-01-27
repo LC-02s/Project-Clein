@@ -1,16 +1,8 @@
-export interface FallbackRenderProps {
+export interface FallbackRenderProps extends React.PropsWithChildren {
   render: boolean
   component?: React.ReactNode
 }
 
-export function FallbackRender({
-  render,
-  component,
-  children,
-}: React.PropsWithChildren<FallbackRenderProps>): React.ReactNode {
-  if (render) {
-    return component
-  }
-
-  return <>{children}</>
-}
+export const FallbackRender: React.FC<FallbackRenderProps> = ({ render, component, children }) => (
+  <>{render ? component : children}</>
+)

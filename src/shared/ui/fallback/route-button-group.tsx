@@ -2,14 +2,10 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { cn } from '../../lib'
+import { type PropsWithClassName, cn } from '../../lib'
 import { Button, buttonVariants, Icon } from '../../ui'
 
-export interface ButtonGroupProps {
-  className?: string
-}
-
-export function RouteButtonGroup({ className }: ButtonGroupProps) {
+export const RouteButtonGroup: React.FC<PropsWithClassName> = ({ className }) => {
   const { back } = useRouter()
 
   return (

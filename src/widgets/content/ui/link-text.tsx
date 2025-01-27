@@ -1,15 +1,14 @@
 'use client'
 
 import Link from 'next/link'
-import { cn, createScrollToSection } from '@/shared/lib'
+import { type PropsWithClassName, cn, createScrollToSection } from '@/shared/lib'
 import { ExternalLink } from '@/shared/ui'
 
-export interface LinkTextProps {
+export interface LinkTextProps extends React.PropsWithChildren<PropsWithClassName> {
   href: string
-  className?: string
 }
 
-export function LinkText({ href, className, children }: React.PropsWithChildren<LinkTextProps>) {
+export const LinkText: React.FC<LinkTextProps> = ({ href, className, children }) => {
   const isExternal = href.startsWith('http')
 
   if (isExternal) {

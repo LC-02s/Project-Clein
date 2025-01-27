@@ -48,10 +48,16 @@ export type BadgeVariantsProps = VariantProps<typeof badgeVariants>
 
 export type BadgeProps = React.JSX.IntrinsicElements['span'] & BadgeVariantsProps
 
-export function Badge({ variant, color, size, round, className, children, ...props }: BadgeProps) {
-  return (
-    <span className={cn(badgeVariants({ variant, color, size, round }), className)} {...props}>
-      {children}
-    </span>
-  )
-}
+export const Badge: React.FC<BadgeProps> = ({
+  variant,
+  color,
+  size,
+  round,
+  className,
+  children,
+  ...props
+}) => (
+  <span className={cn(badgeVariants({ variant, color, size, round }), className)} {...props}>
+    {children}
+  </span>
+)

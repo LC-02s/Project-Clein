@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { useLoaderSwitch } from '@/features/loader'
 import {
   type PaginationParamsKey,
+  type PropsWithClassName,
   createSearchParamsToURL,
   cn,
   DEFAULT_PAGE,
@@ -12,14 +13,13 @@ import {
 } from '@/shared/lib'
 import { TextInput } from '@/shared/ui'
 
-export interface PageInputProps {
+export interface PageInputProps extends PropsWithClassName {
   value: number
   max: number
   baseURL: string
-  className?: string
 }
 
-export function PageInput({ value, max, baseURL, className }: PageInputProps) {
+export const PageInput: React.FC<PageInputProps> = ({ value, max, baseURL, className }) => {
   const { push } = useRouter()
   const { on } = useLoaderSwitch()
 

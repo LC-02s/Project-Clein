@@ -11,10 +11,10 @@ export interface CreateSearchParamsFilterParams<K extends string> {
 
 const extractSeparator = (pathname: string) => (pathname.includes('?') ? '&' : '?')
 
-export function createSearchParamsFilter<K extends string>({
+export const createSearchParamsFilter = <K extends string>({
   params,
   pathname = '',
-}: CreateSearchParamsFilterParams<K>) {
+}: CreateSearchParamsFilterParams<K>) => {
   const separator = extractSeparator(pathname)
 
   return (without: K[]) => {
@@ -30,7 +30,7 @@ export function createSearchParamsFilter<K extends string>({
   }
 }
 
-export function createSearchParamsToURL<K extends string>(pathname = '') {
+export const createSearchParamsToURL = <K extends string>(pathname = '') => {
   const separator = extractSeparator(pathname)
 
   return (...params: SearchParamsEntry<K>[]) => {

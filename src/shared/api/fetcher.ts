@@ -89,6 +89,6 @@ export const server = new Fetcher({
   timeout: 5_000,
 })
 
-export function exceptionMessage(message: string) {
-  return { message } as Pick<CommonExceptionResponse, 'message'>
-}
+export const exceptionMessage = (message: string): Pick<CommonExceptionResponse, 'message'> => ({
+  message,
+})

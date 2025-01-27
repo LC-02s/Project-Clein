@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   title: `Page Not Found - ${MAIN_TITLE}`,
 }
 
-export default function NotFoundPage() {
-  return (
-    <section id="not-found" className="flex-1">
-      <NotFound />
-    </section>
-  )
-}
+const NotFoundPage: React.FC = () => (
+  <section id="not-found" className="flex-1">
+    <NotFound />
+  </section>
+)
+
+export default NotFoundPage

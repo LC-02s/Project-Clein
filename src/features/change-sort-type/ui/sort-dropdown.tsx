@@ -1,23 +1,22 @@
 'use client'
 
 import { createPortal } from 'react-dom'
-import { cn } from '@/shared/lib'
+import { type PropsWithClassName, cn } from '@/shared/lib'
 import { Dialog, Dropdown } from '@/shared/ui'
 
-export interface SortDropdownProps {
+export interface SortDropdownProps extends React.PropsWithChildren<PropsWithClassName> {
   breakpoint: boolean
   open: boolean
   onClose: () => void
-  className?: string
 }
 
-export function SortDropdown({
+export const SortDropdown: React.FC<SortDropdownProps> = ({
   breakpoint,
   open: isOpen,
   onClose,
   className,
   children,
-}: React.PropsWithChildren<SortDropdownProps>) {
+}) => {
   if (breakpoint) {
     return createPortal(
       <Dialog

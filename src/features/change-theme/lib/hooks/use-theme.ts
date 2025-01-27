@@ -14,7 +14,7 @@ interface ThemeStore extends ThemeState {
   setRealTheme: (realTheme: RealTheme) => void
 }
 
-function themeInterceptor(theme: Theme): Pick<ThemeStore, 'theme' | 'realTheme'> {
+const themeInterceptor = (theme: Theme): Pick<ThemeStore, 'theme' | 'realTheme'> => {
   if (theme === 'system') {
     const { matches: isDarkTheme } = matchDarkThemeMedia()
 
@@ -35,7 +35,7 @@ export const useThemeStore = create<ThemeStore>((set) => ({
   setRealTheme: (realTheme) => set({ realTheme }),
 }))
 
-export const useTheme: { (): ThemeState } = () => ({
+export const useTheme = (): ThemeState => ({
   theme: useThemeStore((store) => store.theme),
   realTheme: useThemeStore((store) => store.realTheme),
   setTheme: useThemeStore((store) => store.setTheme),

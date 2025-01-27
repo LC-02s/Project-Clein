@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
-export default async function RootLayout({ children }: React.PropsWithChildren) {
+const RootLayout: React.FC<React.PropsWithChildren> = async ({ children }) => {
   const cookieStore = await cookies()
   const theme = cookieStore.get(THEME_KEY)
 
@@ -71,3 +71,5 @@ export default async function RootLayout({ children }: React.PropsWithChildren) 
     </html>
   )
 }
+
+export default RootLayout

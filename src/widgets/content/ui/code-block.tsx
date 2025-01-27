@@ -1,15 +1,14 @@
 'use client'
 
 import { useRef } from 'react'
-import { cn } from '@/shared/lib'
+import { type PropsWithClassName, cn } from '@/shared/lib'
 import { Button, Container, CopyButton, Icon } from '@/shared/ui'
 
-export interface CodeBlockProps {
-  className?: string
+export interface CodeBlockProps extends React.PropsWithChildren<PropsWithClassName> {
   style: React.CSSProperties
 }
 
-export function CodeBlock({ className, children, style }: React.PropsWithChildren<CodeBlockProps>) {
+export const CodeBlock: React.FC<CodeBlockProps> = ({ className, children, style }) => {
   const preRef = useRef<HTMLPreElement>(null)
 
   return (

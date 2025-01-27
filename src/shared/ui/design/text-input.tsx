@@ -33,19 +33,20 @@ export const textInputVariants = cva(
 
 export type TextInputVariantProps = VariantProps<typeof textInputVariants>
 
-export function TextInput({
+export type TextInputProps = Omit<React.JSX.IntrinsicElements['input'], 'size'> &
+  TextInputVariantProps
+
+export const TextInput: React.FC<TextInputProps> = ({
   variant,
   size,
   withoutBackground,
   className,
   ...props
-}: Omit<React.JSX.IntrinsicElements['input'], 'size'> & TextInputVariantProps) {
-  return (
-    <input
-      type="text"
-      autoComplete="off"
-      className={cn(textInputVariants({ variant, size, withoutBackground }), className)}
-      {...props}
-    />
-  )
-}
+}) => (
+  <input
+    type="text"
+    autoComplete="off"
+    className={cn(textInputVariants({ variant, size, withoutBackground }), className)}
+    {...props}
+  />
+)

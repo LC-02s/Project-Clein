@@ -8,19 +8,19 @@ import { PageIconWrapper } from './page-icon-wrapper'
 
 export interface ErrorFallbackProps
   extends CommonErrorProps,
-    Omit<React.JSX.IntrinsicElements['div'], 'children'> {
+    Omit<React.JSX.IntrinsicElements['div'], keyof React.PropsWithChildren> {
   comment?: string | null
   refresh?: () => void
 }
 
-export function ErrorFallback({
+export const ErrorFallback: React.FC<ErrorFallbackProps> = ({
   error,
   reset,
   comment,
   refresh = () => (window.location.href = window.location.href!),
   className,
   ...props
-}: ErrorFallbackProps) {
+}) => {
   const message = Exception.extractMessage(error)
 
   return (
@@ -41,7 +41,7 @@ export function ErrorFallback({
         이메일({EMAIL_ADDRESS})로 문의 하거나 <br className="hidden xs:block" />
         <ExternalLink
           href={GITHUB_ISSUE_ADDRESS}
-          title={`새창이동: ${MAIN_TITLE} 깃허브 이슈`}
+          title={`${MAIN_TITLE} 깃허브 이슈`}
           className="text-indigo-600 hover:underline dark:text-indigo-300"
         >
           깃허브 이슈

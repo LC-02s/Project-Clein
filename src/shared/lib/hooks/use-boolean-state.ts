@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react'
 
-export function useBooleanState(defaultState = false) {
+export const useBooleanState = (defaultState = false) => {
   const [bool, setBool] = useState(defaultState)
   const setTrue = useCallback(() => setBool(true), [])
   const setFalse = useCallback(() => setBool(false), [])

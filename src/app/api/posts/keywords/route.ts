@@ -5,7 +5,7 @@ import type { GetPostKeywordAllResponse, MappedKeywordWithLength } from '@/entit
 import { createSeparateKeywords } from '@/entities/post'
 import { PostByKeywordDB } from '../route'
 
-export function GET() {
+export const GET = () => {
   const separateKeywords = createSeparateKeywords({
     projects: new Set(DevProjectRepository.getKeys()),
     series: new Set(SeriesRepository.getKeys()),

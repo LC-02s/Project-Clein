@@ -1,57 +1,65 @@
 import { AnimatePresence, motion, type Target } from 'motion/react'
-import { cn, useFocusLoop, useLockBodyScroll, useOutsideClick, useWindowEvent } from '../../lib'
+import {
+  type PropsWithClassName,
+  cn,
+  useFocusLoop,
+  useLockBodyScroll,
+  useOutsideClick,
+  useWindowEvent,
+} from '../../lib'
 import { Button } from './button'
 import { Dimmed } from './dimmed'
 
-function Title({ className, children, ...props }: React.JSX.IntrinsicElements['h2']) {
-  return (
-    <h2
-      className={cn(
-        'mb-3 block w-full pt-1 text-lg font-bold leading-tight text-zinc-800 dark:text-zinc-50',
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </h2>
-  )
-}
+const Title: React.FC<React.JSX.IntrinsicElements['h2']> = ({ className, children, ...props }) => (
+  <h2
+    className={cn(
+      'mb-3 block w-full pt-1 text-lg font-bold leading-tight text-zinc-800 dark:text-zinc-50',
+      className,
+    )}
+    {...props}
+  >
+    {children}
+  </h2>
+)
 
-function Content({ className, children, ...props }: React.JSX.IntrinsicElements['div']) {
-  return (
-    <div
-      className={cn(
-        'block max-h-[calc(100dvh-17.5rem)] min-h-12 w-full text-base font-normal leading-relaxed text-zinc-500 dark:text-zinc-400',
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  )
-}
+const Content: React.FC<React.JSX.IntrinsicElements['div']> = ({
+  className,
+  children,
+  ...props
+}) => (
+  <div
+    className={cn(
+      'block max-h-[calc(100dvh-17.5rem)] min-h-12 w-full text-base font-normal leading-relaxed text-zinc-500 dark:text-zinc-400',
+      className,
+    )}
+    {...props}
+  >
+    {children}
+  </div>
+)
 
-function Footer({ className, children, ...props }: React.JSX.IntrinsicElements['div']) {
-  return (
-    <div
-      className={cn(
-        'mt-6 flex w-full items-center justify-end space-x-2 border-t border-zinc-200 pt-4 dark:border-zinc-600',
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  )
-}
+const Footer: React.FC<React.JSX.IntrinsicElements['div']> = ({
+  className,
+  children,
+  ...props
+}) => (
+  <div
+    className={cn(
+      'mt-6 flex w-full items-center justify-end space-x-2 border-t border-zinc-200 pt-4 dark:border-zinc-600',
+      className,
+    )}
+    {...props}
+  >
+    {children}
+  </div>
+)
 
-export interface DialogProps {
+export interface DialogProps extends React.PropsWithChildren<PropsWithClassName> {
   open?: boolean
   onClose?: () => void
   withoutDimmed?: boolean
   cancelWithOutsideClick?: boolean
   cancelWithEscape?: boolean
-  className?: string
   size?: keyof typeof dialogVariants.size
   position?: keyof typeof dialogVariants.position
 }
@@ -75,7 +83,7 @@ const dialogVariants = {
   },
 }
 
-function DialogRoot({
+const DialogRoot: React.FC<DialogProps> = ({
   open: isOpen = false,
   onClose,
   className,
@@ -85,7 +93,7 @@ function DialogRoot({
   cancelWithOutsideClick = false,
   cancelWithEscape = false,
   children,
-}: React.PropsWithChildren<DialogProps>) {
+}) => {
   const containerRef = useOutsideClick<HTMLDivElement>(() => {
     if (isOpen && cancelWithOutsideClick) onClose?.()
   })

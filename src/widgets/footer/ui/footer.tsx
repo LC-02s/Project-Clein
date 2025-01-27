@@ -8,7 +8,7 @@ import { BuyMeACoffeeButton } from './coffee-button'
 import { EmailButton } from './email-button'
 import { SiteMap } from './site-map'
 
-export function Footer() {
+export const Footer: React.FC = () => {
   const contactLinkStyle = buttonVariants({
     variant: 'light',
     round: 'full',

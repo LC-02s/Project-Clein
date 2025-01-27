@@ -8,7 +8,7 @@ import { useOverlayStore } from './use-overlay.model'
 
 let elementId = 1
 
-export function useOverlay<E extends FocusableElement>() {
+export const useOverlay = <E extends FocusableElement>() => {
   const mount = useOverlayStore((store) => store.mount)
   const unmount = useOverlayStore((store) => store.unmount)
 

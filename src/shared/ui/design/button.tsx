@@ -93,7 +93,7 @@ export type ButtonVariantProps = VariantProps<typeof buttonVariants>
 
 export type ButtonProps = React.JSX.IntrinsicElements['button'] & ButtonVariantProps
 
-export function Button({
+export const Button: React.FC<ButtonProps> = ({
   variant,
   color,
   size,
@@ -102,18 +102,16 @@ export function Button({
   className,
   children,
   ...props
-}: ButtonProps) {
-  return (
-    <button
-      type="button"
-      className={cn(
-        buttonVariants({ variant, color, size, round, square }),
-        'disabled:cursor-not-allowed',
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </button>
-  )
-}
+}) => (
+  <button
+    type="button"
+    className={cn(
+      buttonVariants({ variant, color, size, round, square }),
+      'disabled:cursor-not-allowed',
+      className,
+    )}
+    {...props}
+  >
+    {children}
+  </button>
+)

@@ -4,7 +4,7 @@ export type LiteralDate = `${number}-${number}-${number}`
 
 export type LiteralDateTime = `${LiteralDate}${` ${LiteralTime}` | ''}`
 
-export function getTime(date?: LiteralDateTime) {
+export const getTime = (date?: LiteralDateTime) => {
   if (date) {
     return new Date(date).getTime()
   }
