@@ -31,10 +31,8 @@ const useBreakpointStore = create<BreakpointStore>((set) => ({
   updateBreakpoint: (breakpoint) => set({ breakpoint }),
 }))
 
-export const useBreakpoint = <T extends boolean | null>(point: BreakpointKey, defaultValue?: T) =>
-  (useBreakpointStore((state) => state.breakpoint?.get(point)) ??
-    defaultValue ??
-    null) as T extends boolean ? boolean : boolean | null
+export const useBreakpoint = (point: BreakpointKey, defaultValue = true) =>
+  useBreakpointStore((state) => state.breakpoint?.get(point)) ?? defaultValue
 
 export const BreakpointProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   type MediaEntry = BreakpointEntry<MediaQueryList>

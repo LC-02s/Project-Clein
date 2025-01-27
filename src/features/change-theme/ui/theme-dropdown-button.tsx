@@ -11,7 +11,7 @@ export const ThemeDropdownButton: React.FC = () => {
   const { theme, realTheme, setTheme } = useTheme()
 
   const [isOpen, { setFalse: close, toggle }] = useBooleanState()
-  const lg = useBreakpoint('lg', true)
+  const matchesLG = useBreakpoint('lg')
 
   const buttonRef = useRef<HTMLButtonElement>(null)
   const onClose = useCallback(() => {
@@ -20,7 +20,7 @@ export const ThemeDropdownButton: React.FC = () => {
   }, [close])
 
   const containerRef = useOutsideClick<HTMLDivElement>(() => {
-    if (isOpen && lg) onClose()
+    if (isOpen && matchesLG) onClose()
   })
 
   useWindowEvent('keydown', (e) => {
@@ -44,7 +44,7 @@ export const ThemeDropdownButton: React.FC = () => {
         />
         <span className="hidden-text">테마 변경</span>
       </Button>
-      <ThemeDropdown open={isOpen} onClose={onClose} breakpoint={!lg}>
+      <ThemeDropdown open={isOpen} onClose={onClose} breakpoint={!matchesLG}>
         {THEME_LIST.map((value) => (
           <Button
             key={value}

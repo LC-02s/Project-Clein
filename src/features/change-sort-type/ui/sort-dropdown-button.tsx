@@ -35,8 +35,8 @@ export const SortDropdownButton = <K extends string>({
   const href = createSearchParamsToURL<K>(baseURL)
 
   const [isOpen, { setFalse: close, toggle }] = useBooleanState()
-  const lg = useBreakpoint('lg', true)
-  const isDropdownAndOpen = isOpen && lg
+  const matchesLG = useBreakpoint('lg')
+  const isDropdownAndOpen = isOpen && matchesLG
 
   const buttonRef = useRef<HTMLButtonElement>(null)
   const onClose = useCallback(() => {
@@ -60,7 +60,7 @@ export const SortDropdownButton = <K extends string>({
         <span className="mr-2 pl-1">{SORT_PARAMS_LABEL_MAP.get(sortParams) ?? '정렬 옵션'}</span>
         <Icon.ArrowBold direction={isDropdownAndOpen ? 'top' : 'bottom'} />
       </Button>
-      <SortDropdown breakpoint={!lg} open={isOpen} onClose={onClose} className={className}>
+      <SortDropdown breakpoint={!matchesLG} open={isOpen} onClose={onClose} className={className}>
         {[...SORT_PARAMS_LABEL_MAP].map(([params, label]) => (
           <SortLink
             key={params}
