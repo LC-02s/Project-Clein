@@ -10,6 +10,7 @@ const EmailDialog: React.FC<OverlayElementState> = ({ isOpen, close }) => (
     <div className="flex items-center justify-between px-px pt-2">
       <TextInput
         name="email"
+        type="email"
         value={EMAIL_ADDRESS}
         className="w-[calc(100%-3rem)] text-sm xs:text-base"
         readOnly
@@ -23,13 +24,12 @@ const EmailDialog: React.FC<OverlayElementState> = ({ isOpen, close }) => (
             ) : (
               <Icon.CopyOutline className="text-xl text-zinc-600 dark:text-zinc-300" />
             )}
-            <span className="hidden-text">이메일 복사하기</span>
           </Button>
         )}
       </CopyButton>
     </div>
     <Dialog.Footer>
-      <Dialog.Button title="닫기" variant="light" className="min-w-20" onClick={close}>
+      <Dialog.Button title="대화창 닫기" variant="light" className="min-w-20" onClick={close}>
         닫기
       </Dialog.Button>
     </Dialog.Footer>

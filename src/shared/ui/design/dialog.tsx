@@ -113,6 +113,7 @@ const DialogRoot: React.FC<DialogProps> = ({
         <div className="fixed inset-0 z-50">
           <motion.div
             ref={containerRef}
+            role="dialog"
             className={cn(
               'absolute left-1/2 max-h-[calc(100dvh-2rem)] w-[calc(100vw-1rem)] translate-x-1/2 rounded-xl bg-white p-5 shadow-md dark:bg-zinc-800',
               position === 'center' ? 'top-1/2' : 'top-4',

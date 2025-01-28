@@ -17,13 +17,14 @@ export const PostList: React.FC<PostListProps> = ({
   children,
 }) => (
   <div className={className}>
-    <div className="mb-4 flex flex-col-reverse items-center justify-between sm:flex-row">
-      <h2 className="mt-6 flex w-full items-center px-1 sm:mt-0 sm:w-auto">
+    <div className="relative mb-4 flex flex-col-reverse items-center justify-between sm:flex-row">
+      <h2 className="sr-only">포스트 목록</h2>
+      <p className="mt-6 flex w-full items-center px-1 sm:mt-0 sm:w-auto">
         <Icon.PageEmoji className="mr-2" />
         <span className="block break-keep text-lg font-medium text-zinc-500 dark:text-zinc-400">
           {length}개의 포스트가 있어요
         </span>
-      </h2>
+      </p>
       <div className="flex w-full items-center justify-end space-x-2 sm:w-auto">{children}</div>
     </div>
     <ul className="space-y-4">

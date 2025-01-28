@@ -1,7 +1,14 @@
 import type { IconProps } from '../icon'
 
 export const PoliceCarLightEmoji: React.FC<IconProps> = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 36 36" {...props}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    viewBox="0 0 36 36"
+    aria-label="사이렌 이모지"
+    {...props}
+  >
     <path
       fill="#dd2e44"
       d="M34.16 28.812L31.244 2.678A3.01 3.01 0 0 0 28.251 0H7.664a3.01 3.01 0 0 0-2.997 2.704l-2.67 26.108z"

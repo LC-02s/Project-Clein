@@ -33,7 +33,7 @@ export const SearchBarTrigger: React.FC = () => {
   return (
     <Button
       ref={startedAt}
-      title="통합 검색"
+      title={`통합 검색 대화창 ${isOpen ? '닫기' : '열기'}`}
       variant="light"
       className="group md:w-auto md:justify-between md:bg-zinc-50 md:pl-2.5 md:pr-2 md:dark:bg-zinc-800 md:dark:hover:bg-zinc-700"
       square

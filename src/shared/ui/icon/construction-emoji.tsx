@@ -1,7 +1,14 @@
 import type { IconProps } from '../icon'
 
 export const ConstructionEmoji: React.FC<IconProps> = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 36 36" {...props}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    viewBox="0 0 36 36"
+    aria-label="공사장 가림막 이모지"
+    {...props}
+  >
     <path
       fill="#ffcc4d"
       d="M36 15a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4z"

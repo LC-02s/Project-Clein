@@ -29,7 +29,7 @@ export const LinkText: React.FC<LinkTextProps> = ({ href, className, children })
   return (
     <Link
       href={href}
-      title={`페이지 이동${typeof children === 'string' ? `: ${children}` : ''}`}
+      title={`${href.startsWith('#') ? '영역 이동' : '페이지 바로가기'}${typeof children === 'string' ? `: ${children}` : ''}`}
       className={cn('font-medium text-indigo-600 hover:underline dark:text-indigo-300', className)}
       onClick={createScrollToSection(href)}
     >

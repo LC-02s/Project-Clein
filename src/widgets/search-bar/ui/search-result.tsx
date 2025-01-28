@@ -45,7 +45,7 @@ export const SearchResult: React.FC<SearchResultProps> = ({
         <li key={id}>
           <LinkWithLoader
             href={`${BLOG_PATH}/${id}`}
-            title={`포스트 보기: ${title}`}
+            title={`포스트 바로가기: ${title}`}
             className={cn(
               buttonVariants({ variant: 'subtle' }),
               'justify-start pl-10 text-left focus:bg-zinc-100 md:h-12 dark:focus:bg-zinc-700',
@@ -59,12 +59,7 @@ export const SearchResult: React.FC<SearchResultProps> = ({
       ))}
       {hasNextPage && (
         <li className="flex items-center justify-center p-3">
-          <Button
-            color="info"
-            title="검색 결과 더 보기"
-            className="pl-4 pr-5"
-            onClick={fetchNextPage}
-          >
+          <Button color="info" className="pl-4 pr-5" onClick={fetchNextPage}>
             +&nbsp;&nbsp;검색 결과 더 보기
           </Button>
         </li>

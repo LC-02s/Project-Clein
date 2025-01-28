@@ -1,7 +1,14 @@
 import type { IconProps } from '../icon'
 
 export const PageEmoji: React.FC<IconProps> = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 36 36" {...props}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    viewBox="0 0 36 36"
+    aria-label="문서 이모지"
+    {...props}
+  >
     <path
       fill="#e1e8ed"
       d="m32.415 9.586l-9-9a2.001 2.001 0 0 0-2.829 2.829l-3.859 3.859l9 9l3.859-3.859a2 2 0 0 0 2.829-2.829"

@@ -142,20 +142,13 @@ export const components: MDXRemoteProps['components'] = {
     </td>
   ),
   img: (props) => (
-    <>
-      <span
-        className={cn(
-          containerVariants({ variant: 'image', layer: 'middle' }),
-          'flex items-center justify-center',
-        )}
-      >
-        <img {...props} alt="" src={props.src} className="object-cover" loading="lazy" />
-      </span>
-      {props.alt && (
-        <span className="block break-keep px-2 py-3 text-zinc-500 dark:text-zinc-400">
-          {props.alt}
-        </span>
+    <span
+      className={cn(
+        containerVariants({ variant: 'image', layer: 'middle' }),
+        'flex items-center justify-center',
       )}
-    </>
+    >
+      <img {...props} alt={props.alt} src={props.src} className="object-cover" loading="lazy" />
+    </span>
   ),
 }

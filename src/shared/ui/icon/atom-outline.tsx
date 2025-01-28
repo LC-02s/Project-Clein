@@ -6,6 +6,7 @@ export const AtomOutline: React.FC<IconProps> = (props) => (
     width="0.9em"
     height="0.9em"
     viewBox="0 0 24 24"
+    aria-label="원자 아이콘"
     {...props}
   >
     <path

@@ -20,7 +20,7 @@ export const PostLink: React.FC<PostItemProps> = ({
 }) => (
   <LinkWithLoader
     href={`${BLOG_PATH}/${id}`}
-    title={`포스트 보기: ${title}`}
+    title={`포스트 바로가기: ${title}`}
     className={cn(
       buttonVariants({ size: 'none' }),
       'group h-auto flex-col items-stretch justify-between whitespace-normal p-3 xs:p-4 md:flex-row',

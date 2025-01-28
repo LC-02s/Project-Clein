@@ -6,6 +6,7 @@ export const GithubLogo: React.FC<IconProps> = (props) => (
     width="1.03em"
     height="1em"
     viewBox="0 0 256 250"
+    aria-label="깃허브 로고"
     {...props}
   >
     <path

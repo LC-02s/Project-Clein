@@ -1,13 +1,19 @@
 export type IconProps = React.SVGProps<SVGSVGElement>
 export interface ArrowIconProps extends IconProps {
-  direction: keyof typeof _directionToDeg
+  direction: keyof typeof _direction
 }
 
-export const _directionToDeg = { top: 0, bottom: 180, left: 270, right: 90 } as const
+export const _direction = {
+  top: { deg: 0, label: '위쪽' },
+  bottom: { deg: 180, label: '아래쪽' },
+  left: { deg: 270, label: '왼쪽' },
+  right: { deg: 90, label: '오른쪽' },
+} as const
 
 export const _arrowIconProps = ({ direction, style, ...props }: ArrowIconProps): IconProps => ({
   ...props,
-  style: { ...style, transform: `rotate(${_directionToDeg[direction]}deg)` },
+  style: { ...style, transform: `rotate(${_direction[direction].deg}deg)` },
+  'aria-label': `${_direction[direction].label} 화살표`,
 })
 
 export * from './arrow-outline'

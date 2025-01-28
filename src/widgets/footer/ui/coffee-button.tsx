@@ -25,11 +25,11 @@ const AccountDialog: React.FC<OverlayElementState> = ({ isOpen, close }) => (
           width={160}
           height={80}
         />
-        <span className="hidden-text">토스 사진으로 송금하기</span>
+        <span className="sr-only">토스 사진으로 송금하기</span>
       </p>
     </div>
     <Dialog.Footer>
-      <Dialog.Button title="닫기" variant="light" className="min-w-20" onClick={close}>
+      <Dialog.Button title="대화창 닫기" variant="light" className="min-w-20" onClick={close}>
         닫기
       </Dialog.Button>
     </Dialog.Footer>

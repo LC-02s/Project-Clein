@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { CONTENT_ID } from '@/widgets/skip-content'
 import { MAIN_TITLE } from '@/shared/config'
 import { NotFound } from '@/shared/ui'
 
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
 }
 
 const NotFoundPage: React.FC = () => (
-  <section id="not-found" className="flex-1">
+  <section id={CONTENT_ID} className="flex-1">
     <NotFound />
   </section>
 )

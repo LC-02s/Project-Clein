@@ -10,7 +10,7 @@ export const RouteButtonGroup: React.FC<PropsWithClassName> = ({ className }) =>
 
   return (
     <p className={cn('mt-16 flex items-center justify-center space-x-3', className)}>
-      <Button size="lg" title="뒤로가기" onClick={back}>
+      <Button size="lg" title="이전 페이지 이동" onClick={back}>
         뒤로가기
       </Button>
       <Link href="/" title="메인페이지 이동" className={buttonVariants({ size: 'lg' })}>

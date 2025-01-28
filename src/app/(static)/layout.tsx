@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { CONTENT_ID } from '@/widgets/skip-content'
 import { MAIN_TITLE } from '@/shared/config'
 
 export const metadata: Metadata = {
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 const StaticLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <section id="content" className="relative flex-1">
+  <section id={CONTENT_ID} className="relative flex-1">
     {children}
   </section>
 )

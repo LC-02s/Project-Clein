@@ -8,6 +8,7 @@ export const RotateSpinner: React.FC<IconProps> = ({ className, ...props }) => (
     width="1em"
     height="1em"
     viewBox="0 0 24 24"
+    aria-label="로딩 중"
     {...props}
   >
     <g>

@@ -35,14 +35,13 @@ export const Loader: React.FC = () => {
               }}
             />
             <Button
-              title="대기창 닫기"
               className="absolute inset-x-0 bottom-0 mx-auto"
+              title="대기창 닫기"
               round="full"
               square
               onClick={off}
             >
               <Icon.RotateSpinner className="text-xl" />
-              <span className="hidden-text">대기창 닫기</span>
             </Button>
           </motion.div>
         </Deferred>

@@ -27,10 +27,6 @@
   .py-screen {
     @apply pb-[16vh] pt-[12vh];
   }
-  .hidden-text {
-    @apply absolute m-0 size-px overflow-hidden whitespace-nowrap border-none p-0 text-[2px] outline-none;
-    clip: rect(1px 1px 1px 1px);
-  }
   .scrollbar-hidden {
     -ms-overflow-style: none;
   }

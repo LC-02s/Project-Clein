@@ -91,7 +91,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
             onClick={() => setQuery('')}
           >
             <Icon.XOutline className={resetClassName} />
-            <span className="hidden-text">검색어 초기화</span>
           </Button>
         )}
         <Badge

@@ -6,6 +6,7 @@ export const CodeOutline: React.FC<IconProps> = (props) => (
     width="1.1em"
     height="1.1em"
     viewBox="0 0 24 24"
+    aria-label="코드 아이콘 (</>)"
     {...props}
   >
     <path

@@ -56,7 +56,11 @@ export const SortDropdownButton = <K extends string>({
 
   return (
     <div ref={containerRef} className="relative">
-      <Button ref={buttonRef} title="정렬 순 변경" onClick={toggle}>
+      <Button
+        ref={buttonRef}
+        title={`정렬 순 변경 메뉴 ${isOpen ? '닫기' : '열기'}`}
+        onClick={toggle}
+      >
         <span className="mr-2 pl-1">{SORT_PARAMS_LABEL_MAP.get(sortParams) ?? '정렬 옵션'}</span>
         <Icon.ArrowBold direction={isDropdownAndOpen ? 'top' : 'bottom'} />
       </Button>

@@ -22,6 +22,7 @@ export const Footer: React.FC = () => {
         containerVariants({ layer: 'middle', round: 'none' }),
         'border-t pb-24 pt-12 md:pb-16 md:pt-6',
       )}
+      role="contentinfo"
     >
       <div className="wrapper-xl">
         <div className="relative mb-6 md:hidden">
@@ -38,7 +39,7 @@ export const Footer: React.FC = () => {
           <div className="mt-2 flex flex-col items-center justify-between space-y-8 md:mt-0 md:flex-row md:space-x-6 md:space-y-0">
             <SiteMap />
             <BuyMeACoffeeButton
-              title={`${NICKNAME_KR}에게 커피 사주기`}
+              title={`${NICKNAME_KR}에게 커피 사주기 대화창 열기`}
               variant="none"
               color="none"
               className="bg-gradient-to-br from-indigo-500 to-violet-500 text-white hover:to-indigo-400 active:to-indigo-400"
@@ -61,13 +62,17 @@ export const Footer: React.FC = () => {
                 className={contactLinkStyle}
               >
                 <Icon.GithubLogo className="size-7 dark:text-white" />
-                <span className="hidden-text">{NICKNAME} 깃허브</span>
+                <span className="sr-only">{NICKNAME} 깃허브</span>
               </ExternalLink>
             </li>
             <li>
-              <EmailButton type="button" title="이메일 보기" className={contactLinkStyle}>
+              <EmailButton
+                type="button"
+                title="이메일 복사 대화창 열기"
+                className={contactLinkStyle}
+              >
                 <Icon.LetterBold className="size-8 dark:text-white" />
-                <span className="hidden-text">이메일 보기</span>
+                <span className="sr-only">이메일 보기</span>
               </EmailButton>
             </li>
           </ul>
