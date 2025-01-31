@@ -9,7 +9,7 @@ export const Dimmed: React.FC<DimmedProps> = ({ className, ...props }) => (
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     transition={{ ease: 'easeInOut', duration: 0.16 }}
-    className={cn('bg-dimmed absolute inset-0 -z-[1] m-0 border-none p-0', className)}
+    className={cn('bg-dimmed absolute inset-0 z-[-1] m-0 border-none p-0', className)}
     {...props}
   />
 )
