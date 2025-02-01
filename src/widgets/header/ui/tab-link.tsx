@@ -1,7 +1,6 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { useRef } from 'react'
 import { LinkWithLoader } from '@/features/loader'
 import type { Page as TabLinkProps } from '@/shared/config'
 import { buttonVariants } from '@/shared/ui'
@@ -11,17 +10,14 @@ export const TabLink: React.FC<TabLinkProps> = ({ href, segment, title, icon: Ic
   const pathname = usePathname()
   const isActive = pathname.startsWith(segment)
 
-  const linkRef = useRef<HTMLAnchorElement>(null)
-
   return (
     <li className="relative flex items-center justify-center pb-3 pt-1 xl:h-full xl:pt-3">
       <LinkWithLoader
-        ref={linkRef}
         href={href}
         className={buttonVariants({ variant: 'subtle', size: 'sm' })}
         title={`${title} 페이지 바로가기`}
-        onClick={() => {
-          linkRef.current?.scrollIntoView({
+        onClick={(e) => {
+          e.currentTarget.scrollIntoView({
             block: 'nearest',
             inline: 'center',
             behavior: 'smooth',
