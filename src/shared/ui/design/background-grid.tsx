@@ -27,7 +27,7 @@ export const BackgroundGrid: React.FC<React.JSX.IntrinsicElements['div'] & Backg
       backgroundGridStyles[position].className,
       className,
     )}
-    style={{ ...style, maskImage: backgroundGridStyles[position].maskImage }}
+    style={{ maskImage: backgroundGridStyles[position].maskImage, ...style }}
   >
     {children}
   </div>

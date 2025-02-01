@@ -12,7 +12,7 @@ export const _direction = {
 
 export const _arrowIconProps = ({ direction, style, ...props }: ArrowIconProps): IconProps => ({
   ...props,
-  style: { ...style, transform: `rotate(${_direction[direction].deg}deg)` },
+  style: { transform: `rotate(${_direction[direction].deg}deg)`, ...style },
   'aria-label': `${_direction[direction].label} 화살표`,
 })
 
