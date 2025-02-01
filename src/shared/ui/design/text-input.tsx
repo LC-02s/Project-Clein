@@ -1,4 +1,7 @@
+'use client'
+
 import { cva, type VariantProps } from 'class-variance-authority'
+import { useState } from 'react'
 import { cn } from '../../lib'
 
 export const textInputVariants = cva(
@@ -41,12 +44,30 @@ export const TextInput: React.FC<TextInputProps> = ({
   size,
   withoutBackground,
   className,
+  onCompositionStart,
+  onCompositionEnd,
+  onKeyDown,
   ...props
-}) => (
-  <input
-    type="text"
-    autoComplete="off"
-    className={cn(textInputVariants({ variant, size, withoutBackground }), className)}
-    {...props}
-  />
-)
+}) => {
+  const [isComposing, setIsComposing] = useState(false)
+
+  return (
+    <input
+      type="text"
+      autoComplete="off"
+      className={cn(textInputVariants({ variant, size, withoutBackground }), className)}
+      onCompositionStart={(e) => {
+        setIsComposing(true)
+        onCompositionStart?.(e)
+      }}
+      onCompositionEnd={(e) => {
+        setIsComposing(false)
+        onCompositionEnd?.(e)
+      }}
+      onKeyDown={(e) => {
+        if (!isComposing) onKeyDown?.(e)
+      }}
+      {...props}
+    />
+  )
+}
