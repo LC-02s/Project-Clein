@@ -1,10 +1,16 @@
-import Image from 'next/image'
 import { LinkWithLoader } from '@/features/loader'
 import type { PostItem as Item } from '@/entities/post'
 import { BLOG_PATH } from '@/shared/config'
 import type { SortedFromDateKey } from '@/shared/lib'
 import { cn } from '@/shared/lib'
-import { buttonVariants, Badge, Icon, ReadingTimeText, Container } from '@/shared/ui'
+import {
+  buttonVariants,
+  Badge,
+  Icon,
+  ReadingTimeText,
+  Container,
+  ThumbnailImage,
+} from '@/shared/ui'
 
 export interface PostItemProps extends Omit<Item, SortedFromDateKey> {
   date: string
@@ -32,7 +38,7 @@ export const PostLink: React.FC<PostItemProps> = ({
         round="xs"
         className="relative aspect-thumbnail w-full dark:group-hover:border-zinc-500 dark:group-hover:bg-zinc-600"
       >
-        <Image src={thumbnail.src} alt={thumbnail.alt} width={1200} height={630} priority />
+        <ThumbnailImage {...thumbnail} priority />
       </Container>
     </div>
     <div className="flex w-full flex-col justify-between md:w-[calc(100%-16.5rem)]">
