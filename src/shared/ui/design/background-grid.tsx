@@ -20,17 +20,15 @@ export const BackgroundGrid: React.FC<React.JSX.IntrinsicElements['div'] & Backg
   className,
   style,
   children,
-}) => {
-  return (
-    <div
-      className={cn(
-        'absolute inset-x-0 z-[-1] h-80 overflow-hidden bg-grid bg-repeat',
-        backgroundGridStyles[position].className,
-        className,
-      )}
-      style={{ ...style, maskImage: backgroundGridStyles[position].maskImage }}
-    >
-      {children}
-    </div>
-  )
-}
+}) => (
+  <div
+    className={cn(
+      'absolute inset-x-0 z-[-1] h-80 overflow-hidden bg-grid bg-repeat',
+      backgroundGridStyles[position].className,
+      className,
+    )}
+    style={{ ...style, maskImage: backgroundGridStyles[position].maskImage }}
+  >
+    {children}
+  </div>
+)
