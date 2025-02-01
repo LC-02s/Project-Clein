@@ -1,5 +1,11 @@
 import type { KeywordRepository } from '@/database/posts'
-import type { LiteralDate, RepositoryId, SortedFromDate, SortedFromDateKey } from '@/shared/lib'
+import type {
+  ImageData,
+  LiteralDate,
+  RepositoryId,
+  SortedFromDate,
+  SortedFromDateKey,
+} from '@/shared/lib'
 
 export type Keyword = RepositoryId<typeof KeywordRepository>
 
@@ -19,10 +25,7 @@ export type PostId = LiteralDate
 export interface PostRawData extends SortedFromDate {
   title: string
   description: string
-  thumbnail: {
-    src: `/${string}.${'png' | 'jpeg' | 'jpg' | 'gif'}`
-    alt: string
-  }
+  thumbnail: ImageData
   keywords: Keyword[]
   externalTags?: string[]
 }

@@ -8,6 +8,8 @@ import { THEME_KEY, ThemeDropdownButton, ThemeProvider } from '@/features/change
 import { Loader } from '@/features/loader'
 import { QueryProvider } from '@/shared/api'
 import {
+  THUMBNAIL_SIZE,
+  MAIN_THUMBNAIL,
   MAIN_TITLE,
   MAIN_DESCRIPTION,
   MAIN_KEYWORDS,
@@ -38,11 +40,10 @@ export const metadata: Metadata = {
     description: MAIN_DESCRIPTION,
     locale: 'ko_KR',
     images: {
-      url: '/img/og-image-main.jpg',
-      alt: MAIN_TITLE,
+      url: MAIN_THUMBNAIL.src,
+      alt: MAIN_THUMBNAIL.alt,
       type: 'image/jpg',
-      width: 1200,
-      height: 630,
+      ...THUMBNAIL_SIZE,
     },
   },
   robots: { index: true, follow: true },
