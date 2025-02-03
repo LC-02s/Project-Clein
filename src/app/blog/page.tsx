@@ -20,7 +20,7 @@ interface BlogMainPageProps {
 }
 
 const BlogMainPage: React.FC<BlogMainPageProps> = async ({ searchParams }) => {
-  const { page, contents, sorted, keyword } = await getPostList(await searchParams)
+  const { page, contents, sorted, keywords } = await getPostList(await searchParams)
   const sortParams = joinSortParams(sorted.from, sorted.at)
 
   const href = createSearchParamsFilter<PostListParamsKey>({
@@ -28,7 +28,7 @@ const BlogMainPage: React.FC<BlogMainPageProps> = async ({ searchParams }) => {
       [POST_LIST_PARAMS.PAGE, page.current],
       [POST_LIST_PARAMS.SIZE, page.size, DEFAULT_PAGE_SIZE],
       [POST_LIST_PARAMS.SORT, sortParams, DEFAULT_SORT_PARAMS],
-      [POST_LIST_PARAMS.KEYWORD, keyword],
+      [POST_LIST_PARAMS.KEYWORD, keywords.current],
     ],
     pathname: BLOG_PATH,
   })
@@ -39,13 +39,13 @@ const BlogMainPage: React.FC<BlogMainPageProps> = async ({ searchParams }) => {
       profileFallback={ProfileSkeleton}
       keywords={
         <PostKeyword
-          current={keyword}
           baseURL={href([POST_LIST_PARAMS.KEYWORD, POST_LIST_PARAMS.PAGE])}
+          keywords={keywords}
         />
       }
     >
       <PostList contents={contents} length={page.length} sortedFrom={sorted.from}>
-        <KeywordsDrawerTrigger active={!!keyword} />
+        <KeywordsDrawerTrigger active={!!keywords.current} />
         <SortDropdownButton<PostListParamsKey>
           sortParams={sortParams}
           paramsKey={POST_LIST_PARAMS.SORT}

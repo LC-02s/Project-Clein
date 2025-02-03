@@ -21,7 +21,7 @@ export const DEFAULT_PAGE = 1
 
 export const DEFAULT_PAGE_SIZE = 10
 
-export class Pagination<T> {
+export class Pagination {
   private page: number
   private totalLength: number
   private totalPage: number
@@ -34,7 +34,7 @@ export class Pagination<T> {
     this.page = this.validatePage(Number(params.get(PAGINATION_PARAMS.PAGE)))
   }
 
-  public response(mapper: (data: T[], index: number) => T[]): ResponseWithPagination<T> {
+  public response(): PageInfo & { range: number[] } {
     const startIndex = (this.page - DEFAULT_PAGE) * this.size
     const range = Array.from({ length: this.size }, (_, index) => startIndex + index)
 
@@ -47,7 +47,7 @@ export class Pagination<T> {
         first: this.page === DEFAULT_PAGE,
         last: this.page === this.totalPage,
       },
-      contents: range.reduce<T[]>(mapper, []),
+      range,
     }
   }
 

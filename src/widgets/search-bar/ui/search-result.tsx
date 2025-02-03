@@ -1,14 +1,14 @@
 'use client'
 
 import { LinkWithLoader } from '@/features/loader'
-import type { PostItem } from '@/entities/post'
+import type { SearchPostItem } from '@/entities/post'
 import { BLOG_PATH } from '@/shared/config'
 import { cn } from '@/shared/lib'
 import { Button, buttonVariants, Icon } from '@/shared/ui'
 import { type SearchBarProps } from './search-bar'
 
 export interface SearchResultProps extends SearchBarProps {
-  data: PostItem[] | undefined
+  data: SearchPostItem[] | undefined
   isLoading: boolean
   isFetchingNextPage: boolean
   hasNextPage: boolean

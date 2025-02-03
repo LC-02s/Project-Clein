@@ -22,7 +22,7 @@ export type SeparatedKeywordsKey = 'tags' | 'projects' | 'series'
 
 export type PostId = LiteralDate
 
-export interface PostRawData extends SortedFromDate {
+export interface PostData extends SortedFromDate {
   title: string
   description: string
   thumbnail: ImageData
@@ -30,32 +30,22 @@ export interface PostRawData extends SortedFromDate {
   externalTags?: string[]
 }
 
-export interface Post extends PostRawData {
+export interface PostItem
+  extends Pick<PostData, 'title' | 'description' | 'thumbnail' | SortedFromDateKey> {
+  id: PostId
+  readingTime: number
+}
+
+export type SearchPostItem = Pick<PostItem, 'id' | 'title'>
+
+export interface PostDetail
+  extends Omit<PostData, 'keywords'>,
+    Record<SeparatedKeywordsKey, MappedKeyword[]> {
   id: PostId
   content: string
   readingTime: number
   related: {
-    prev: PostId | null
-    next: PostId | null
-  }
-}
-
-export type PostMap = Map<PostId, Post>
-
-export type SetOfPostId = Set<PostId>
-
-export type PostByKeywordMap = Map<Keyword, SetOfPostId>
-
-export type PostItem = Pick<
-  Post,
-  'id' | 'title' | 'description' | 'thumbnail' | 'readingTime' | SortedFromDateKey
->
-
-export interface PostDetail
-  extends Omit<Post, 'related' | 'keywords'>,
-    Record<SeparatedKeywordsKey, MappedKeyword[]> {
-  related: {
-    prev: Pick<Post, 'id' | 'title'> | null
-    next: Pick<Post, 'id' | 'title'> | null
+    prev: SearchPostItem | null
+    next: SearchPostItem | null
   }
 }

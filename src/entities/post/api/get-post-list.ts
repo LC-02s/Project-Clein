@@ -1,6 +1,6 @@
 import { type SearchParams, server } from '@/shared/api'
 import { PAGINATION_PARAMS, type ResponseWithPagination, type SortedInfo } from '@/shared/lib'
-import type { Keyword, PostItem } from '../model'
+import type { Keyword, MappedKeywordWithLength, PostItem, SeparatedKeywordsKey } from '../model'
 import { ENDPOINT_POST } from './endpoint'
 
 export type PostListParamsKey = (typeof POST_LIST_PARAMS)[keyof typeof POST_LIST_PARAMS]
@@ -8,7 +8,10 @@ export type PostListParamsKey = (typeof POST_LIST_PARAMS)[keyof typeof POST_LIST
 export const POST_LIST_PARAMS = { ...PAGINATION_PARAMS, KEYWORD: 'keyword', SORT: 'sort' } as const
 
 export interface GetPostListResponse extends ResponseWithPagination<PostItem>, SortedInfo {
-  keyword: Keyword | null
+  keywords: Record<SeparatedKeywordsKey, MappedKeywordWithLength[]> & {
+    current: Keyword | null
+    total: number
+  }
 }
 
 export interface GetPostList {

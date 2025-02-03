@@ -1,23 +1,10 @@
 import { type NextRequest, NextResponse } from 'next/server'
 import { KeywordRepository } from '@/database/keywords'
-import type { PostId, PostItem, SearchPostResponse } from '@/entities/post'
-import { connectPostDB, convertPostItem, SEARCH_POST_PARAMS } from '@/entities/post'
+import { PostRepository } from '@/database/posts'
+import type { SearchPostItem, SearchPostResponse } from '@/entities/post'
+import { SEARCH_POST_PARAMS } from '@/entities/post'
 import { exceptionMessage } from '@/shared/api'
 import { Pagination, sortByDate } from '@/shared/lib'
-
-const PostDB = await connectPostDB()
-
-const searchIndexOfPost = [...PostDB].map<[PostId, string]>(([id, post]) => [
-  id,
-  [
-    post.title,
-    post.description,
-    post.keywords.map((k) => KeywordRepository.findById(k)).join(' '),
-    post.thumbnail.alt,
-  ]
-    .join(' ')
-    .toLowerCase(),
-])
 
 export const GET = (request: NextRequest) => {
   const { searchParams } = request.nextUrl
@@ -28,22 +15,24 @@ export const GET = (request: NextRequest) => {
   }
 
   const word = query.toLowerCase()
-  const targetPosts = searchIndexOfPost
-    .filter(([, index]) => index.includes(word))
-    .map(([id]) => convertPostItem(PostDB.get(id)!))
+  const targetPosts = PostRepository.getEntries()
+    .filter(([, data]) => {
+      return (
+        data.title.toLowerCase().includes(word) ||
+        data.description.toLowerCase().includes(word) ||
+        data.thumbnail.alt.toLowerCase().includes(word) ||
+        data.keywords.some((key) => KeywordRepository.findById(key).toLowerCase().includes(word)) ||
+        data.externalTags?.some((tag) => tag.toLowerCase().includes(word))
+      )
+    })
+    .map(([id]) => ({ id, ...PostRepository.findById(id) }))
     .sort(sortByDate().compare)
 
-  const pagination = new Pagination<PostItem>(searchParams, targetPosts.length)
+  const { page, range } = new Pagination(searchParams, targetPosts.length).response()
+  const contents = range
+    .map((index) => targetPosts[index])
+    .filter((data) => !!data)
+    .map<SearchPostItem>(({ id, title }) => ({ id, title }))
 
-  return NextResponse.json({
-    ...pagination.response((list: PostItem[], index: number) => {
-      const post = targetPosts[index]
-
-      if (post) {
-        list.push(post)
-      }
-
-      return list
-    }),
-  } satisfies SearchPostResponse)
+  return NextResponse.json({ page, contents } satisfies SearchPostResponse)
 }

@@ -2,12 +2,12 @@ import { useInfiniteQuery } from '@tanstack/react-query'
 import { server } from '@/shared/api'
 import type { ResponseWithPagination } from '@/shared/lib'
 import { DEFAULT_PAGE, PAGINATION_PARAMS } from '@/shared/lib'
-import type { PostItem } from '../model'
+import type { SearchPostItem } from '../model'
 import { ENDPOINT_POST } from './endpoint'
 
 export type SearchPostParamsKey = (typeof SEARCH_POST_PARAMS)[keyof typeof SEARCH_POST_PARAMS]
 
-export type SearchPostResponse = ResponseWithPagination<PostItem>
+export type SearchPostResponse = ResponseWithPagination<SearchPostItem>
 
 export const SEARCH_POST_PARAMS = { ...PAGINATION_PARAMS, QUERY: 'q' } as const
 

@@ -1,8 +1,8 @@
-import type { PostId, PostRawData } from '@/entities/post'
+import type { PostId, PostData } from '@/entities/post'
 import { Repository, getThumbnailData } from '@/shared/lib'
 import { ProjectRepository } from './projects'
 
-export const PostRepository = new Repository<PostId, PostRawData>({
+export const PostRepository = new Repository<PostId, PostData>({
   '2024-07-10': {
     title: 'Next.js에서의 안전한 로그인 구현 여정 (without NextAuth)',
     description:

@@ -1,3 +1,3 @@
-export * from './model'
+export type * from './model'
 export * from './lib'
 export * from './api'

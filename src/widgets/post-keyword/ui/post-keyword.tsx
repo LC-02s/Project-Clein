@@ -1,19 +1,22 @@
-import type { Keyword, PostListParamsKey } from '@/entities/post'
-import { getPostKeywordAll, POST_LIST_PARAMS } from '@/entities/post'
+import type { GetPostListResponse, Keyword, PostListParamsKey } from '@/entities/post'
+import { POST_LIST_PARAMS } from '@/entities/post'
 import { type PropsWithClassName, cn, createSearchParamsToURL, DEFAULT_PAGE } from '@/shared/lib'
 import { FallbackRender, Icon } from '@/shared/ui'
 import { BadgeLink, BarLink, type KeywordLinkProps } from './keyword-link'
 import { KeywordList } from './keyword-list'
 import { KeywordTitle } from './keyword-title'
 
-export interface PostKeywordProps extends PropsWithClassName {
-  current: Keyword | null
+export interface PostKeywordProps
+  extends PropsWithClassName,
+    Pick<GetPostListResponse, 'keywords'> {
   baseURL: string
 }
 
-export const PostKeyword: React.FC<PostKeywordProps> = async ({ baseURL, current, className }) => {
-  const { tags, projects, series, total } = await getPostKeywordAll()
-
+export const PostKeyword: React.FC<PostKeywordProps> = ({
+  baseURL,
+  keywords: { current, tags, series, projects, total },
+  className,
+}) => {
   const href = createSearchParamsToURL<PostListParamsKey>(baseURL)
   const props = (keyword: Keyword) => {
     const { PAGE, KEYWORD } = POST_LIST_PARAMS
