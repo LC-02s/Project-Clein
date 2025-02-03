@@ -1,20 +1,50 @@
-import { MAIN_TITLE } from '@/shared/config'
+import { createProjectData } from '@/entities/project'
+import { MAIN_TITLE, GITHUB, USER_GITHUB_ADDRESS } from '@/shared/config'
 import { Repository } from '@/shared/lib'
 
 export const ProjectRepository = new Repository({
-  attraction: {
+  attraction: createProjectData({
     name: 'Attraction',
-  },
-  'pbl-notes': {
+    description: 'Gmail 기반 뉴스레터 통합 관리 서비스',
+    period: '2024.04 ~ 2025.01',
+    thumbnail: {
+      src: '/images/thumbnail/attraction-default.jpg',
+      alt: 'Attraction - 나만의 뉴스레터 관리 서비스',
+    },
+    githubURL: 'https://github.com/Atractorrr/Attraction-FE',
+    serviceURL: 'https://attraction.run/',
+    isDropped: true,
+  }),
+  'pbl-notes': createProjectData({
     name: 'PBL Notes',
-  },
-  'portfolio-site': {
+    description: 'macOS 기반 애플 메모 앱 SPA 마이그레이션',
+    period: '2024.02 ~ 유지보수 중',
+    thumbnail: { src: '/images/thumbnail/pbl-notes-default.jpg', alt: 'PBL Notes' },
+    githubURL: `${USER_GITHUB_ADDRESS}/PBL-Notes`,
+    serviceURL: 'https://pbl-notes.netlify.app/',
+  }),
+  'portfolio-site': createProjectData({
     name: MAIN_TITLE,
-  },
-  'eung-cham-jal': {
+    description: 'Next.js 기반 개인 포트폴리오 사이트',
+    period: '2024.12 ~ 운영 중',
+    thumbnail: { src: '/images/og-image-main.jpg', alt: MAIN_TITLE },
+    githubURL: `${USER_GITHUB_ADDRESS}/${GITHUB.REPO.NAME}`,
+    serviceURL: process.env.NEXT_PUBLIC_DOMAIN_ADDRESS!,
+  }),
+  'eung-cham-jal': createProjectData({
     name: '응원 참 잘하는 집',
-  },
-  'synergy-meet-2024': {
+    description: '21세기 디지털 부적 발행 서비스',
+    period: '2024.12 ~ 유지보수 중',
+    thumbnail: { src: '/images/thumbnail/eung-cham-jal-default.png', alt: '응원 참 잘하는 집' },
+    githubURL: 'https://github.com/ooh-eung-wan/eung-cham-jal',
+    serviceURL: 'https://eung-cham-jal.vercel.app/',
+  }),
+  'synergy-meet-2024': createProjectData({
     name: 'Synergy Meet 2024',
-  },
+    description: '취준생 대상 밋업 랜딩 페이지 (인터랙티브 웹)',
+    period: '2024.09 ~ 2024.11',
+    thumbnail: { src: '/images/thumbnail/synergy-meet-default.jpg', alt: 'Synergy Meet 2024' },
+    githubURL: `${USER_GITHUB_ADDRESS}/Synergy-Meet-2024`,
+    serviceURL: 'https://synergy-meet-2024.vercel.app/',
+  }),
 } as const)

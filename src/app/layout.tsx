@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers'
 import type { Metadata } from 'next'
+import { ProjectRepository } from '@/database/projects'
 import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
 import { SearchBarTrigger } from '@/widgets/search-bar'
@@ -16,10 +17,12 @@ import {
   NICKNAME,
   USER_GITHUB_ADDRESS,
 } from '@/shared/config'
-import { BreakpointProvider, OverlayViewer } from '@/shared/lib'
+import { BreakpointProvider, extractImageType, OverlayViewer } from '@/shared/lib'
 import { Pretendard } from './font'
 
 import './globals.css'
+
+const { thumbnail } = ProjectRepository.findById('portfolio-site')
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_DOMAIN_ADDRESS!),
@@ -39,9 +42,9 @@ export const metadata: Metadata = {
     description: MAIN_DESCRIPTION,
     locale: 'ko_KR',
     images: {
-      url: '/images/og-image-main.jpg',
-      alt: MAIN_TITLE,
-      type: 'image/jpg',
+      url: thumbnail.src,
+      alt: thumbnail.alt,
+      type: extractImageType(thumbnail.src),
       ...THUMBNAIL_SIZE,
     },
   },
