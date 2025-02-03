@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { useSearchPost } from '@/entities/post'
+import { useSearchProject } from '@/entities/project'
 import { cn, useDebounce, useFocusLoop, useOutsideClick } from '@/shared/lib'
 import { Badge, Button, Icon, TextInput } from '@/shared/ui'
 import { SearchResult } from './search-result'
@@ -15,9 +16,11 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
   const debounced = useDebounce(query)
   const hasQuery = !!query
 
-  const { isLoading, isFetchingNextPage, hasNextPage, fetchNextPage, data } =
-    useSearchPost(debounced)
-  const resultList = data?.pages
+  const project = useSearchProject(debounced)
+  const projectResultList = project.data?.contents
+
+  const post = useSearchPost(debounced)
+  const postResultList = post.data?.pages
 
   const inputRef = useRef<HTMLInputElement>(null)
   const resetClassName = 'search-keyword-reset'
@@ -25,10 +28,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
     if (!(e.target as HTMLElement | null)?.classList.contains(resetClassName)) onClose()
   })
 
-  useFocusLoop({
-    ref: containerRef,
-    deps: [query, debounced, resultList, isLoading, isFetchingNextPage, hasNextPage],
-  })
+  useFocusLoop({ ref: containerRef, deps: [hasQuery, project, post] })
 
   useEffect(() => {
     const containerEl = containerRef.current
@@ -56,12 +56,13 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
         anchorEl.removeEventListener('mouseenter', handleHover)
       })
     }
-  }, [containerRef, resultList])
+  }, [containerRef, postResultList, projectResultList])
 
   return (
     <div ref={containerRef}>
+      <h2 className="sr-only">통합 검색</h2>
       <div className="relative p-4 md:p-2">
-        <Icon.MagnifierOutline className="absolute inset-y-0 left-7 z-10 my-auto text-zinc-500 md:left-5 md:text-lg dark:text-zinc-400" />
+        <Icon.MagnifierOutline className="absolute inset-y-0 left-7 z-10 my-auto text-zinc-500 md:left-6 md:text-lg dark:text-zinc-400" />
         <TextInput
           ref={inputRef}
           type="search"
@@ -90,7 +91,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
             square
             onClick={() => setQuery('')}
           >
-            <Icon.XOutline className={resetClassName} />
+            <Icon.XOutline className="pointer-events-none" />
           </Button>
         )}
         <Badge
@@ -103,11 +104,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
       </div>
       {hasQuery && (
         <SearchResult
-          data={resultList}
-          isLoading={isLoading || debounced !== query}
-          isFetchingNextPage={isFetchingNextPage}
-          hasNextPage={!isFetchingNextPage && hasNextPage}
-          fetchNextPage={fetchNextPage}
+          projects={projectResultList}
+          posts={postResultList}
+          isLoading={project.isLoading || post.isLoading || debounced !== query}
+          isFetchingNextPage={post.isFetchingNextPage}
+          hasNextPage={!post.isFetchingNextPage && post.hasNextPage}
+          fetchNextPage={post.fetchNextPage}
           onClose={onClose}
         />
       )}

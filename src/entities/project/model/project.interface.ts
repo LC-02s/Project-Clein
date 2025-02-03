@@ -16,3 +16,7 @@ export interface ProjectData {
   serviceURL: string
   isDropped?: boolean
 }
+
+export interface SearchProjectItem extends Pick<ProjectData, 'name'> {
+  id: ProjectId
+}
