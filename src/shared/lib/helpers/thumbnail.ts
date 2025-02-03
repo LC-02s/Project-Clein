@@ -7,5 +7,5 @@ export interface ImageData {
 
 export const getThumbnailData = (text: string): ImageData => ({
   alt: text,
-  src: createSearchParamsToURL('/thumbnail-image')(['text', encodeURI(text)]),
+  src: createSearchParamsToURL('/api/images/thumbnail')(['text', encodeURI(text)]),
 })

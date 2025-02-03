@@ -1,10 +1,11 @@
 import { type NextRequest, NextResponse } from 'next/server'
-import { KeywordRepository } from '@/database/posts'
+import { KeywordRepository } from '@/database/keywords'
 import type { PostId, PostItem, SearchPostResponse } from '@/entities/post'
-import { convertPostItem, SEARCH_POST_PARAMS } from '@/entities/post'
+import { connectPostDB, convertPostItem, SEARCH_POST_PARAMS } from '@/entities/post'
 import { exceptionMessage } from '@/shared/api'
 import { Pagination, sortByDate } from '@/shared/lib'
-import { PostDB } from '../route'
+
+const PostDB = await connectPostDB()
 
 const searchIndexOfPost = [...PostDB].map<[PostId, string]>(([id, post]) => [
   id,
@@ -12,9 +13,7 @@ const searchIndexOfPost = [...PostDB].map<[PostId, string]>(([id, post]) => [
     post.title,
     post.description,
     post.keywords.map((k) => KeywordRepository.findById(k)).join(' '),
-    post.externalTags?.join(' ') ?? '',
     post.thumbnail.alt,
-    post.content,
   ]
     .join(' ')
     .toLowerCase(),

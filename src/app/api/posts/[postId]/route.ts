@@ -1,10 +1,12 @@
 import { type NextRequest, NextResponse } from 'next/server'
-import { KeywordRepository, PostRepository, SeriesRepository } from '@/database/posts'
-import { DevProjectRepository } from '@/database/projects'
+import { KeywordRepository, SeriesRepository } from '@/database/keywords'
+import { PostRepository } from '@/database/posts'
+import { ProjectRepository } from '@/database/projects'
 import type { GetPostDetailResponse, MappedKeyword, PostId } from '@/entities/post'
-import { createSeparateKeywords } from '@/entities/post'
+import { connectPostDB, createSeparateKeywords } from '@/entities/post'
 import { exceptionMessage } from '@/shared/api'
-import { PostDB } from '../route'
+
+const PostDB = await connectPostDB()
 
 interface GetPostDetailParams {
   params: Promise<{ postId: PostId }>
@@ -20,7 +22,7 @@ export const GET = async (_: NextRequest, { params }: GetPostDetailParams) => {
 
   const { keywords, related, ...rest } = post
   const separateKeywords = createSeparateKeywords({
-    projects: new Set(DevProjectRepository.getKeys()),
+    projects: new Set(ProjectRepository.getKeys()),
     series: new Set(SeriesRepository.getKeys()),
   })
 

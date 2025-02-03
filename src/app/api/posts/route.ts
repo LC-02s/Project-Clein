@@ -9,9 +9,9 @@ import {
 } from '@/entities/post'
 import { sortByDate, Pagination } from '@/shared/lib'
 
-export const PostDB = await connectPostDB()
+const PostDB = await connectPostDB()
 
-export const PostByKeywordDB = await connectPostByKeywordDB()
+const PostByKeywordDB = await connectPostByKeywordDB()
 
 export const GET = (request: NextRequest) => {
   const { searchParams } = request.nextUrl

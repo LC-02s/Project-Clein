@@ -10,7 +10,7 @@ const AccountDialog: React.FC<OverlayElementState> = ({ isOpen, close }) => (
     <Dialog.Title className="mb-6">{NICKNAME_KR}에게 커피 사주기</Dialog.Title>
     <div className="relative w-full overflow-hidden rounded-lg border border-zinc-200 bg-zinc-100 dark:border-zinc-600 dark:bg-zinc-700">
       <Image
-        src="/img/toss-accout-qr-code.jpeg"
+        src="/images/toss-account-qr-code.jpeg"
         alt="토스 송금 QR코드"
         className="mb-8 scale-125 select-none"
         width={1200}
@@ -19,7 +19,7 @@ const AccountDialog: React.FC<OverlayElementState> = ({ isOpen, close }) => (
       />
       <p className="absolute inset-x-0 bottom-5 inline-flex h-16 w-full items-center justify-center pr-3">
         <Image
-          src="/img/toss-logo-primary.png"
+          src="/images/toss-logo.png"
           alt="토스 로고"
           className="select-none"
           width={160}

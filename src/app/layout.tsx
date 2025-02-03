@@ -9,7 +9,6 @@ import { Loader } from '@/features/loader'
 import { QueryProvider } from '@/shared/api'
 import {
   THUMBNAIL_SIZE,
-  MAIN_THUMBNAIL,
   MAIN_TITLE,
   MAIN_DESCRIPTION,
   MAIN_KEYWORDS,
@@ -40,8 +39,8 @@ export const metadata: Metadata = {
     description: MAIN_DESCRIPTION,
     locale: 'ko_KR',
     images: {
-      url: MAIN_THUMBNAIL.src,
-      alt: MAIN_THUMBNAIL.alt,
+      url: '/images/og-image-main.jpg',
+      alt: MAIN_TITLE,
       type: 'image/jpg',
       ...THUMBNAIL_SIZE,
     },

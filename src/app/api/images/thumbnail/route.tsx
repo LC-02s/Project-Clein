@@ -32,7 +32,7 @@ const thumbnailStyle: React.CSSProperties = {
   WebkitTextStrokeColor: 'rgba(255, 255, 255, 0.24)',
   wordBreak: 'keep-all',
   backgroundColor: '#3f3f46',
-  backgroundImage: `url(${process.env.NEXT_PUBLIC_DOMAIN_ADDRESS}/img/thumbnail-background.jpg)`,
+  backgroundImage: `url(${process.env.NEXT_PUBLIC_DOMAIN_ADDRESS}/images/thumbnail-background.jpg)`,
   backgroundPosition: 'center',
   backgroundSize: 'cover',
 }

@@ -1,18 +1,19 @@
 'use server'
 
-import readingTime from 'reading-time'
 import { PostRepository } from '@/database/posts'
-import { orderByDateAsc, readFileToDatabase } from '@/shared/lib'
+import { getMarkdownContent } from '@/shared/api'
+import { orderByDateAsc } from '@/shared/lib'
+import { computeReadingTime } from '../lib'
 import type { PostId, Post, PostMap, PostByKeywordMap } from '../model'
 
 const parsePostDetail = async (id: PostId, index: number, array: PostId[]): Promise<Post> => {
-  const content = await readFileToDatabase(`/posts/article/${id}.md`)
+  const content = await getMarkdownContent(`/articles/${id}`)
 
   return {
     ...PostRepository.findById(id),
     id,
     content,
-    readingTime: Math.ceil(readingTime(content).minutes),
+    readingTime: computeReadingTime(content),
     related: {
       prev: index ? array[index - 1] : null,
       next: index !== array.length - 1 ? array[index + 1] : null,

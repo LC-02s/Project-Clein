@@ -1,14 +1,14 @@
 import { MAIN_TITLE } from '@/shared/config'
 import { Repository } from '@/shared/lib'
 
-export const DevProjectRepository = new Repository({
+export const ProjectRepository = new Repository({
   attraction: {
     name: 'Attraction',
   },
   'pbl-notes': {
     name: 'PBL Notes',
   },
-  'project-clein': {
+  'portfolio-site': {
     name: MAIN_TITLE,
   },
   'eung-cham-jal': {

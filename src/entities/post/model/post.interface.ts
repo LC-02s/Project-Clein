@@ -1,4 +1,4 @@
-import type { KeywordRepository } from '@/database/posts'
+import type { KeywordRepository } from '@/database/keywords'
 import type {
   ImageData,
   LiteralDate,

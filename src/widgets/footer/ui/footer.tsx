@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
       <div className="wrapper-xl">
         <div className="relative mb-6 md:hidden">
           <Image
-            src="/img/profile.png"
+            src="/images/profile.png"
             alt={`${NICKNAME_KR} 프로필 이미지`}
             className="mx-auto size-20 overflow-hidden rounded-full border border-zinc-300 dark:border-zinc-600"
             width={160}
@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
         </div>
         <hr className="my-8 border-zinc-300 md:my-6 dark:border-zinc-600" />
         <div className="flex flex-col-reverse items-center justify-between px-1 md:flex-row">
-          <p className="break-keep text-center text-lg font-medium text-zinc-500 md:text-left dark:text-zinc-400">
+          <p className="break-keep text-center text-zinc-500 md:text-left dark:text-zinc-400">
             {MAIN_DESCRIPTION}
           </p>
           <ul className="mb-6 flex space-x-2 md:mb-0">

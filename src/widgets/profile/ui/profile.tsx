@@ -12,7 +12,7 @@ export const Profile: React.FC<PropsWithClassName> = ({ className }) => (
   >
     <h2 className="sr-only">프로필</h2>
     <div className="flex size-32 items-center justify-center rounded-full border border-zinc-200 bg-zinc-100 md:mr-8 xl:mr-0 xl:size-40 dark:border-zinc-600 dark:bg-zinc-700">
-      <Image src="/img/me-emoji.png" alt={`${NICKNAME_KR} 미모지`} width={480} height={480} />
+      <Image src="/images/me-emoji.png" alt={`${NICKNAME_KR} 미모지`} width={480} height={480} />
     </div>
     <div className="max-w-72 flex-1 md:max-w-full">
       <h2 className="mt-6 break-keep text-center text-lg font-bold md:mt-0 md:text-left xl:mt-4 xl:text-center">
