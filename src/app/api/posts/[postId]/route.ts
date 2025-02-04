@@ -30,8 +30,8 @@ export const GET = async (_: NextRequest, { params }: GetPostDetailParams) => {
   const postKeys = PostRepository.getKeys().sort(orderByDateAsc)
   const currentIndex = postKeys.findIndex((key) => key === postId)
 
-  const prevPostId = currentIndex ? postKeys[currentIndex - 1] : null
-  const nextPostId = currentIndex !== postKeys.length - 1 ? postKeys[currentIndex + 1] : null
+  const prevPostId = postKeys[currentIndex - 1]
+  const nextPostId = postKeys[currentIndex + 1]
 
   return NextResponse.json({
     post: {

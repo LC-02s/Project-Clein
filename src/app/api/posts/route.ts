@@ -13,7 +13,7 @@ export const GET = async (request: NextRequest) => {
   const postKeysAll = PostRepository.getKeys()
   const postByKeywordMap = postKeysAll.reduce((map, id) => {
     PostRepository.findById(id).keywords.forEach((keyword) => {
-      map.set(keyword, (map.get(keyword) ?? new Set()).add(id))
+      map.set(keyword, (map.get(keyword) ?? new Set<PostId>()).add(id))
     })
 
     return map
@@ -25,7 +25,7 @@ export const GET = async (request: NextRequest) => {
       ? (keywordParams as Keyword)
       : null
 
-  const targetPostIds = keyword ? [...postByKeywordMap.get(keyword)!.values()] : postKeysAll
+  const targetPostIds = keyword ? [...postByKeywordMap.get(keyword)!] : postKeysAll
 
   const sortParams = searchParams.get(POST_LIST_PARAMS.SORT)
   const { sorted, compare } = sortByDate<PostItem>(sortParams)
@@ -33,14 +33,23 @@ export const GET = async (request: NextRequest) => {
   const { page, range } = new Pagination(searchParams, targetPostIds.length).response()
   const targetPosts = range
     .map((index) => targetPostIds[index])
-    .filter((post) => !!post)
-    .map<Promise<PostItem>>(async (id) => ({
-      id,
-      readingTime: computeReadingTime(await getMarkdownContent(`/articles/${id}`)),
-      ...PostRepository.findById(id),
-    }))
+    .filter((postId) => !!postId)
+    .map(async (id) => {
+      const content = await getMarkdownContent(`/articles/${id}`).catch(() => '')
+      const post = PostRepository.findById(id)
 
-  const contents: PostItem[] = await Promise.all(targetPosts)
+      return {
+        id,
+        title: post.title,
+        description: post.description,
+        thumbnail: post.thumbnail,
+        createdAt: post.createdAt,
+        updatedAt: post.updatedAt,
+        readingTime: computeReadingTime(content),
+      } as PostItem
+    })
+
+  const sortedContents: PostItem[] = (await Promise.all(targetPosts)).sort(compare)
 
   const separateKeywords = createSeparateKeywords({
     projects: new Set(ProjectRepository.getKeys()),
@@ -49,7 +58,7 @@ export const GET = async (request: NextRequest) => {
 
   return NextResponse.json({
     page,
-    contents: contents.sort(compare),
+    contents: sortedContents,
     sorted,
     keywords: {
       current: keyword,

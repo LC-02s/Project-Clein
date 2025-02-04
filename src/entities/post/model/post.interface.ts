@@ -1,11 +1,5 @@
 import type { KeywordRepository } from '@/database/keywords'
-import type {
-  ImageData,
-  LiteralDate,
-  RepositoryId,
-  SortedFromDate,
-  SortedFromDateKey,
-} from '@/shared/lib'
+import type { ImageData, LiteralDate, RepositoryId, SortedFromDate } from '@/shared/lib'
 
 export type Keyword = RepositoryId<typeof KeywordRepository>
 
@@ -30,8 +24,7 @@ export interface PostData extends SortedFromDate {
   externalTags?: string[]
 }
 
-export interface PostItem
-  extends Pick<PostData, 'title' | 'description' | 'thumbnail' | SortedFromDateKey> {
+export interface PostItem extends Omit<PostData, 'keywords' | 'externalTags'> {
   id: PostId
   readingTime: number
 }

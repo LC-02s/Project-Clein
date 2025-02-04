@@ -25,7 +25,7 @@ export const GET = (request: NextRequest) => {
         data.externalTags?.some((tag) => tag.toLowerCase().includes(word))
       )
     })
-    .map(([id]) => ({ id, ...PostRepository.findById(id) }))
+    .map(([id, data]) => ({ id, ...data }))
     .sort(sortByDate().compare)
 
   const { page, range } = new Pagination(searchParams, targetPosts.length).response()

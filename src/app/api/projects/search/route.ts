@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server'
 import { ProjectRepository } from '@/database/projects'
-import type { SearchProjectResponse } from '@/entities/project'
+import type { SearchProjectItem, SearchProjectResponse } from '@/entities/project'
 import { PROJECT_TYPE_LABEL, SEARCH_PROJECT_PARAMS } from '@/entities/project'
 import { exceptionMessage } from '@/shared/api'
 
@@ -21,7 +21,7 @@ export const GET = (request: NextRequest) => {
         PROJECT_TYPE_LABEL[data.type].includes(word)
       )
     })
-    .map(([id, { name, thumbnail }]) => ({ id, name, thumbnail }))
+    .map<SearchProjectItem>(([id, { name }]) => ({ id, name }))
 
   return NextResponse.json({ contents: targetProjects } satisfies SearchProjectResponse)
 }
