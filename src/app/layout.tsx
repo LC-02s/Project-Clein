@@ -6,7 +6,7 @@ import { Header } from '@/widgets/header'
 import { SearchBarTrigger } from '@/widgets/search-bar'
 import { SkipContent } from '@/widgets/skip-content'
 import { THEME_KEY, ThemeDropdownButton, ThemeProvider } from '@/features/change-theme'
-import { Loader } from '@/features/loader'
+import { LoadingProgressBar } from '@/features/loader'
 import { QueryProvider } from '@/shared/api'
 import {
   THUMBNAIL_SIZE,
@@ -68,7 +68,7 @@ const RootLayout: React.FC<React.PropsWithChildren> = async ({ children }) => {
               <SearchBarTrigger />
               <ThemeDropdownButton />
             </Header>
-            <Loader />
+            <LoadingProgressBar />
             {children}
             <OverlayViewer />
             <Footer />
