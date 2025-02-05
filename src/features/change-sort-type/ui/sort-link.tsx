@@ -20,7 +20,7 @@ export const SortLink: React.FC<SortLinkProps> = ({
 }) => {
   if (disabled) {
     return (
-      <Button variant="subtle" className="w-full lg:h-9" title={title} disabled>
+      <Button variant="subtle" className="w-full md:h-9" title={title} disabled>
         {children}
       </Button>
     )
@@ -30,7 +30,7 @@ export const SortLink: React.FC<SortLinkProps> = ({
     <Component
       href={href}
       title={title}
-      className={cn(buttonVariants({ variant: 'subtle' }), 'lg:h-9')}
+      className={cn(buttonVariants({ variant: 'subtle' }), 'md:h-9')}
       onClick={onClick}
     >
       {children}

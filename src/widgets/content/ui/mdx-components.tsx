@@ -10,7 +10,7 @@ export const components: MDXRemoteProps['components'] = {
   h1: (props) => (
     <h2
       {...props}
-      className="mb-6 break-keep border-b border-zinc-200 pb-4 pt-8 text-2xl font-bold md:mb-8 md:pb-5 md:pt-12 md:text-3xl dark:border-zinc-600"
+      className="mb-6 break-keep border-b border-gray-200 pb-4 pt-8 text-xl font-bold md:mb-8 md:pb-5 md:pt-12 md:text-3xl dark:border-gray-600"
     >
       {props.children}
     </h2>
@@ -18,28 +18,28 @@ export const components: MDXRemoteProps['components'] = {
   h2: (props) => (
     <h3
       {...props}
-      className="mb-6 break-keep border-b border-zinc-200 pb-4 pt-8 text-2xl font-bold md:mb-8 md:pb-5 md:pt-12 md:text-3xl dark:border-zinc-600"
+      className="mb-6 break-keep border-b border-gray-200 pb-4 pt-8 text-xl font-bold md:mb-8 md:pb-5 md:pt-12 md:text-3xl dark:border-gray-600"
     >
       {props.children}
     </h3>
   ),
   h3: (props) => (
-    <h4 {...props} className="mb-6 break-keep pt-8 text-xl font-bold md:mb-8 md:pt-12 md:text-2xl">
+    <h4 {...props} className="mb-6 break-keep pt-8 text-lg font-bold md:mb-8 md:pt-12 md:text-2xl">
       {props.children}
     </h4>
   ),
   h4: (props) => (
-    <h5 {...props} className="mb-6 break-keep pt-8 text-lg font-bold md:mb-8 md:pt-12 md:text-xl">
+    <h5 {...props} className="mb-6 break-keep pt-8 font-bold md:mb-8 md:pt-12 md:text-xl">
       {props.children}
     </h5>
   ),
   h5: (props) => (
-    <h6 {...props} className="mb-6 break-keep pt-8 text-lg font-bold md:mb-8 md:pt-12 md:text-xl">
+    <h6 {...props} className="mb-6 break-keep pt-8 font-bold md:mb-8 md:pt-12 md:text-xl">
       {props.children}
     </h6>
   ),
   h6: (props) => (
-    <p {...props} className="mb-6 break-keep pt-8 text-lg font-bold md:mb-8 md:pt-12 md:text-xl">
+    <p {...props} className="mb-6 break-keep pt-8 font-bold md:mb-8 md:pt-12 md:text-xl">
       {props.children}
     </p>
   ),
@@ -64,7 +64,7 @@ export const components: MDXRemoteProps['components'] = {
         !props['data-theme']
           ? cn(
               badgeVariants({ round: 'xs' }),
-              'm-0.5 mr-1 inline-flex whitespace-nowrap bg-zinc-50 px-1 py-0.5 text-base font-medium text-zinc-700 group-[]:bg-white dark:bg-zinc-800 dark:text-zinc-50 group-[]:dark:bg-zinc-700',
+              'm-0.5 mr-1 inline-flex whitespace-nowrap bg-gray-50 px-1 py-0.5 text-sm font-medium text-gray-700 group-[]:bg-white md:text-base dark:bg-gray-800 dark:text-gray-50 group-[]:dark:bg-gray-700',
             )
           : undefined
       }
@@ -95,7 +95,7 @@ export const components: MDXRemoteProps['components'] = {
   blockquote: (props) => (
     <blockquote
       {...props}
-      className="group space-y-2 overflow-hidden break-keep rounded-lg border-l-4 border-zinc-200 bg-zinc-50 p-5 pl-6 dark:border-zinc-600 dark:bg-zinc-800"
+      className="group space-y-2 overflow-hidden break-keep rounded-lg border-l-4 border-gray-200 bg-gray-50 p-5 pl-6 dark:border-gray-600 dark:bg-gray-800"
     >
       {props.children}
     </blockquote>
@@ -103,7 +103,7 @@ export const components: MDXRemoteProps['components'] = {
   ul: (props) => (
     <ul
       {...props}
-      className="list-none space-y-2 py-2 *:before:absolute *:before:left-1.5 *:before:top-3 *:before:size-1.5 *:before:rounded-full *:before:bg-zinc-500 *:before:dark:bg-zinc-400"
+      className="list-none space-y-2 py-2 *:before:absolute *:before:left-1.5 *:before:top-3 *:before:size-1.5 *:before:rounded-full *:before:bg-gray-500 *:before:dark:bg-gray-400"
       style={{ counterReset: 'list' }}
     >
       {props.children}
@@ -112,7 +112,7 @@ export const components: MDXRemoteProps['components'] = {
   ol: (props) => (
     <ol
       {...props}
-      className="list-none space-y-2 py-2 *:before:absolute *:before:left-0 *:before:top-0 *:before:text-zinc-500 *:before:content-[counter(list)'.'] *:before:dark:text-zinc-400"
+      className="list-none space-y-2 py-2 *:before:absolute *:before:left-0 *:before:top-0 *:before:text-gray-500 *:before:content-[counter(list)'.'] *:before:dark:text-gray-400"
       style={{ counterReset: 'list' }}
     >
       {props.children}
@@ -131,13 +131,13 @@ export const components: MDXRemoteProps['components'] = {
   th: (props) => (
     <th
       {...props}
-      className="break-keep border border-zinc-200 bg-zinc-50 p-2 font-bold dark:border-zinc-700 dark:bg-zinc-800"
+      className="break-keep border border-gray-200 bg-gray-50 p-2 font-bold dark:border-gray-700 dark:bg-gray-800"
     >
       {props.children}
     </th>
   ),
   td: (props) => (
-    <td {...props} className="break-keep border border-zinc-200 p-2 dark:border-zinc-700">
+    <td {...props} className="break-keep border border-gray-200 p-2 dark:border-gray-700">
       {props.children}
     </td>
   ),

@@ -28,10 +28,10 @@ export const ErrorFallback: React.FC<ErrorFallbackProps> = ({
       <PageIconWrapper>
         <Icon.PoliceCarLightEmoji className="size-full" />
       </PageIconWrapper>
-      <h2 className="mt-12 break-keep text-center text-xl font-bold sm:text-2xl">
+      <h2 className="mt-12 break-keep text-center text-xl font-bold md:text-2xl">
         {comment || '이용에 불편을 드려 죄송해요'}
       </h2>
-      <p className="mt-6 break-keep text-center text-zinc-500 sm:text-lg dark:text-zinc-400">
+      <p className="mt-4 break-keep text-center text-gray-500 md:mt-6 md:text-lg dark:text-gray-400">
         {message && (
           <>
             {message} <br className="hidden xs:block" />
@@ -42,7 +42,7 @@ export const ErrorFallback: React.FC<ErrorFallbackProps> = ({
         <ExternalLink
           href={GITHUB_ISSUE_ADDRESS}
           title={`${MAIN_TITLE} 깃허브 이슈`}
-          className="text-indigo-600 hover:underline dark:text-indigo-300"
+          className="text-blue-700 hover:underline dark:text-blue-300"
         >
           깃허브 이슈
         </ExternalLink>

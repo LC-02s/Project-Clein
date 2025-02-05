@@ -16,10 +16,7 @@ export const LinkText: React.FC<LinkTextProps> = ({ href, className, children })
       <ExternalLink
         href={href}
         title={typeof children === 'string' ? children : ''}
-        className={cn(
-          'font-medium text-indigo-600 hover:underline dark:text-indigo-300',
-          className,
-        )}
+        className={cn('font-medium text-blue-700 hover:underline dark:text-blue-300', className)}
       >
         {children}
       </ExternalLink>
@@ -30,7 +27,7 @@ export const LinkText: React.FC<LinkTextProps> = ({ href, className, children })
     <Link
       href={href}
       title={`${href.startsWith('#') ? '영역 이동' : '페이지 바로가기'}${typeof children === 'string' ? `: ${children}` : ''}`}
-      className={cn('font-medium text-indigo-600 hover:underline dark:text-indigo-300', className)}
+      className={cn('font-medium text-blue-700 hover:underline dark:text-blue-300', className)}
       onClick={createScrollToSection(href)}
     >
       {children}

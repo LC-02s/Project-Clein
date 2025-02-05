@@ -32,14 +32,14 @@ export const SearchResult: React.FC<SearchResultProps> = ({
   if (isLoading) {
     return (
       <div className="flex items-center justify-center p-6">
-        <Icon.RotateSpinner className="size-7 text-zinc-500 dark:text-zinc-400" />
+        <Icon.RotateSpinner className="size-7 text-gray-500 dark:text-gray-400" />
       </div>
     )
   }
 
   if (isEmptyProjects && isEmptyPosts) {
     return (
-      <p className="break-keep p-6 pb-8 text-center font-medium text-zinc-500 dark:text-zinc-400">
+      <p className="break-keep p-6 pb-8 text-center font-medium text-gray-500 dark:text-gray-400">
         검색 결과가 없어요 ㅠ
       </p>
     )
@@ -48,11 +48,11 @@ export const SearchResult: React.FC<SearchResultProps> = ({
   return (
     <div className="max-h-[48vh] space-y-2 overflow-y-auto p-2 pb-5 pl-3">
       <FallbackRender render={isEmptyProjects}>
-        <h3 className="flex items-center px-2 pt-2">
+        <h3 className="flex items-center px-2 pt-2 text-sm md:text-base">
           <Icon.RocketEmoji className="mr-3" />
           관련 프로젝트
         </h3>
-        <ul className="ml-4 border-l border-zinc-200 px-2 pt-2 dark:border-zinc-600">
+        <ul className="ml-4 space-y-1 border-l border-gray-200 px-2 pt-2 dark:border-gray-600">
           {projects?.map(({ id, name }) => (
             <li key={id}>
               <LinkWithLoader
@@ -60,11 +60,11 @@ export const SearchResult: React.FC<SearchResultProps> = ({
                 title={`프로젝트 소개 바로가기: ${name}`}
                 className={cn(
                   buttonVariants({ variant: 'subtle' }),
-                  'justify-start pl-10 text-left focus:bg-zinc-100 md:h-12 dark:focus:bg-zinc-700',
+                  'justify-start pl-10 text-left focus:bg-gray-100 md:h-12 dark:focus:bg-gray-700',
                 )}
                 onClick={onClose}
               >
-                <Icon.CodeOutline className="absolute inset-y-0 left-3 my-auto text-lg text-zinc-500 dark:text-zinc-400" />
+                <Icon.CodeOutline className="absolute inset-y-0 left-3 my-auto text-lg text-gray-500 dark:text-gray-400" />
                 <span className="block truncate">{name}</span>
               </LinkWithLoader>
             </li>
@@ -72,11 +72,11 @@ export const SearchResult: React.FC<SearchResultProps> = ({
         </ul>
       </FallbackRender>
       <FallbackRender render={isEmptyPosts}>
-        <h3 className="flex items-center px-2 pt-2">
+        <h3 className="flex items-center px-2 pt-2 text-sm md:text-base">
           <Icon.PageEmoji className="mr-3" />
           관련 포스트
         </h3>
-        <ul className="ml-4 border-l border-zinc-200 px-2 pt-2 dark:border-zinc-600">
+        <ul className="ml-4 space-y-1 border-l border-gray-200 px-2 pt-2 dark:border-gray-600">
           {posts?.map(({ id, title }) => (
             <li key={id}>
               <LinkWithLoader
@@ -84,11 +84,11 @@ export const SearchResult: React.FC<SearchResultProps> = ({
                 title={`포스트 바로가기: ${title}`}
                 className={cn(
                   buttonVariants({ variant: 'subtle' }),
-                  'justify-start pl-10 text-left focus:bg-zinc-100 md:h-12 dark:focus:bg-zinc-700',
+                  'justify-start pl-10 text-left focus:bg-gray-100 md:h-12 dark:focus:bg-gray-700',
                 )}
                 onClick={onClose}
               >
-                <Icon.DocumentTitleOutline className="absolute inset-y-0 left-3 my-auto text-lg text-zinc-500 dark:text-zinc-400" />
+                <Icon.DocumentTitleOutline className="absolute inset-y-0 left-3 my-auto text-lg text-gray-500 dark:text-gray-400" />
                 <span className="block truncate">{title}</span>
               </LinkWithLoader>
             </li>
@@ -102,7 +102,7 @@ export const SearchResult: React.FC<SearchResultProps> = ({
           )}
           {isFetchingNextPage && (
             <li className="flex items-center justify-center p-4">
-              <Icon.RotateSpinner className="size-6 text-zinc-500 dark:text-zinc-400" />
+              <Icon.RotateSpinner className="size-6 text-gray-500 dark:text-gray-400" />
             </li>
           )}
         </ul>

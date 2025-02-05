@@ -2,27 +2,27 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../lib'
 
 export const badgeVariants = cva(
-  'relative flex items-center justify-center whitespace-nowrap border border-zinc-200 font-medium dark:border-zinc-600',
+  'relative flex items-center justify-center whitespace-nowrap border border-gray-200 font-medium dark:border-gray-600',
   {
     variants: {
       variant: {
-        default: 'bg-white dark:bg-zinc-800',
-        light: 'bg-zinc-50 dark:bg-zinc-700',
+        default: 'bg-white dark:bg-gray-800',
+        light: 'bg-gray-50 dark:bg-gray-700',
         none: '',
       },
       color: {
-        gray: 'text-zinc-800 dark:text-zinc-50',
-        info: 'text-indigo-600 dark:text-indigo-300',
-        success: 'text-emerald-600 dark:text-emerald-300',
-        caution: 'text-amber-600 dark:text-amber-300',
-        warn: 'text-rose-600 dark:text-rose-300',
+        gray: 'text-gray-800 dark:text-gray-50',
+        info: 'text-blue-700 dark:text-blue-300',
+        success: 'text-green-700 dark:text-green-300',
+        caution: 'text-yellow-700 dark:text-yellow-300',
+        warn: 'text-red-700 dark:text-red-300',
         none: '',
       },
       size: {
-        xs: 'h-6 px-2 text-xs',
-        sm: 'h-7 px-2 py-1 text-sm',
-        md: 'h-8 px-2 py-1 text-base',
-        lg: 'h-9 px-3 py-1 text-base',
+        xs: 'h-5 px-2 text-xs md:h-6',
+        sm: 'h-6 px-2 py-1 text-xs md:h-7 md:text-sm',
+        md: 'h-7 px-2 py-1 text-sm md:h-8 md:text-base',
+        lg: 'h-8 px-3 py-1 text-sm md:h-9 md:text-base',
         none: '',
       },
       round: {

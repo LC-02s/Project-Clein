@@ -23,7 +23,7 @@ export const SortDropdown: React.FC<SortDropdownProps> = ({
         open={isOpen}
         onClose={onClose}
         size="xs"
-        className="space-y-3 pb-6"
+        className="space-y-3 p-4 pb-5"
         cancelWithOutsideClick
         cancelWithEscape
       >

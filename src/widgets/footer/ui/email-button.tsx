@@ -20,9 +20,9 @@ const EmailDialog: React.FC<OverlayElementState> = ({ isOpen, close }) => (
         {({ status, copy }) => (
           <Button title="이메일 복사하기" variant="light" square onClick={copy} disabled={status}>
             {status ? (
-              <Icon.CheckOutline className="text-emerald-600 dark:text-emerald-300" />
+              <Icon.CheckOutline className="text-green-600 dark:text-green-300" />
             ) : (
-              <Icon.CopyOutline className="text-xl text-zinc-600 dark:text-zinc-300" />
+              <Icon.CopyOutline className="text-xl text-gray-600 dark:text-gray-300" />
             )}
           </Button>
         )}

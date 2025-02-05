@@ -8,11 +8,11 @@ export const buttonVariants = cva(
       variant: {
         filled: '',
         default:
-          'dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:active:bg-zinc-700 dark:disabled:!bg-zinc-800',
+          'dark:bg-gray-800 dark:hover:bg-gray-700 dark:active:bg-gray-700 dark:disabled:!bg-gray-800',
         light:
-          'dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-600 dark:disabled:!bg-zinc-700',
+          'dark:bg-gray-700 dark:hover:bg-gray-600 dark:active:bg-gray-600 dark:disabled:!bg-gray-700',
         subtle:
-          'hover:bg-zinc-100 active:bg-zinc-100 disabled:!bg-transparent dark:hover:bg-zinc-700 dark:active:bg-zinc-700',
+          'hover:bg-gray-100 active:bg-gray-100 disabled:!bg-transparent dark:hover:bg-gray-700 dark:active:bg-gray-700',
         none: '',
       },
       color: { gray: '', info: '', warn: '', none: '' },
@@ -33,51 +33,50 @@ export const buttonVariants = cva(
         variant: ['default', 'light'],
         color: ['gray', 'info', 'warn'],
         class:
-          'border border-zinc-200 bg-white hover:bg-zinc-100 active:bg-zinc-100 disabled:!bg-white dark:border-zinc-600',
+          'border border-gray-200 bg-white hover:bg-gray-100 active:bg-gray-100 disabled:!bg-white dark:border-gray-600',
       },
       {
         variant: ['default', 'light', 'subtle'],
         color: 'gray',
-        class: 'text-zinc-800 disabled:text-zinc-400 dark:text-zinc-50 dark:disabled:text-zinc-500',
+        class: 'text-gray-800 disabled:text-gray-400 dark:text-gray-50 dark:disabled:text-gray-500',
       },
       {
         variant: ['default', 'light', 'subtle'],
         color: 'info',
         class:
-          'text-indigo-600 disabled:text-indigo-400 dark:text-indigo-300 dark:disabled:text-indigo-500',
+          'text-blue-700 disabled:text-blue-400 dark:text-blue-300 dark:disabled:text-blue-500',
       },
       {
         variant: ['default', 'light', 'subtle'],
         color: 'warn',
-        class:
-          'text-rose-600 disabled:text-rose-400 dark:text-rose-300 dark:disabled:text-rose-500',
+        class: 'text-red-700 disabled:text-red-400 dark:text-red-300 dark:disabled:text-red-500',
       },
       {
         variant: 'filled',
         color: 'gray',
         class:
-          'bg-zinc-600 text-white hover:bg-zinc-800 active:bg-zinc-800 disabled:!bg-zinc-300 disabled:text-zinc-50 dark:bg-zinc-50 dark:text-zinc-800 dark:hover:bg-zinc-300 dark:active:bg-zinc-300 dark:disabled:!bg-zinc-700 dark:disabled:text-zinc-500',
+          'bg-gray-600 text-white hover:bg-gray-800 active:bg-gray-800 disabled:!bg-gray-300 disabled:text-gray-50 dark:bg-gray-50 dark:text-gray-800 dark:hover:bg-gray-300 dark:active:bg-gray-300 dark:disabled:!bg-gray-700 dark:disabled:text-gray-500',
       },
       {
         variant: 'filled',
         color: 'info',
         class:
-          'bg-indigo-600 text-white hover:bg-indigo-700 active:bg-indigo-700 disabled:!bg-indigo-300 dark:hover:bg-indigo-500 dark:active:bg-indigo-500 dark:disabled:!bg-indigo-900 dark:disabled:text-indigo-500',
+          'bg-blue-700 text-white hover:bg-blue-900 active:bg-blue-900 disabled:!bg-blue-200 dark:hover:bg-blue-500 dark:active:bg-blue-500 dark:disabled:!bg-blue-900 dark:disabled:text-blue-400',
       },
       {
         variant: 'filled',
         color: 'warn',
         class:
-          'bg-rose-600 text-white hover:bg-rose-700 active:bg-rose-700 disabled:!bg-rose-300 dark:hover:bg-rose-500 dark:active:bg-rose-500 dark:disabled:!bg-rose-900 dark:disabled:text-rose-500',
+          'bg-red-700 text-white hover:bg-red-900 active:bg-red-900 disabled:!bg-red-200 dark:hover:bg-red-500 dark:active:bg-red-500 dark:disabled:!bg-red-900 dark:disabled:text-red-400',
       },
-      { size: 'xs', square: false, class: 'h-8 px-2 py-1 text-sm' },
-      { size: 'sm', square: false, class: 'h-9 px-3 py-1 text-sm' },
-      { size: 'md', square: false, class: 'h-10 px-3 py-2 text-base' },
-      { size: 'lg', square: false, class: 'h-12 px-4 py-2 text-lg' },
-      { size: 'xs', square: true, class: 'size-8 p-1' },
-      { size: 'sm', square: true, class: 'size-9 p-1' },
-      { size: 'md', square: true, class: 'size-10 p-1' },
-      { size: 'lg', square: true, class: 'size-12 p-1' },
+      { size: 'xs', square: false, class: 'h-7 px-2 py-1 text-sm md:h-8' },
+      { size: 'sm', square: false, class: 'h-8 px-3 py-1 text-sm md:h-9' },
+      { size: 'md', square: false, class: 'h-9 px-3 py-1 text-sm md:h-10 md:text-base' },
+      { size: 'lg', square: false, class: 'h-10 px-4 py-1 text-base md:h-12 md:text-lg' },
+      { size: 'xs', square: true, class: 'size-7 p-1 md:size-8' },
+      { size: 'sm', square: true, class: 'size-8 p-1 md:size-9' },
+      { size: 'md', square: true, class: 'size-9 p-1 md:size-10' },
+      { size: 'lg', square: true, class: 'size-10 p-1 md:size-12' },
     ],
     defaultVariants: {
       variant: 'default',

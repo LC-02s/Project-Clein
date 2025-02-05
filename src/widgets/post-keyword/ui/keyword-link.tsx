@@ -14,13 +14,10 @@ export const BadgeLink: React.FC<KeywordLinkProps> = ({ href, label, name, lengt
   <LinkWithLoader
     href={href}
     title={`${label}별 보기: ${name}`}
-    className={cn(
-      buttonVariants({ color: active ? 'info' : undefined, size: 'xs' }),
-      'xs:h-9 xs:px-3',
-    )}
+    className={buttonVariants({ color: active ? 'info' : undefined, size: 'sm' })}
   >
     <strong className={active ? 'font-bold' : 'font-medium'}>{name}</strong>
-    <span className="ml-1 text-zinc-500 dark:text-zinc-400">{length}</span>
+    <span className="ml-1 font-normal text-gray-500 dark:text-gray-400">{length}</span>
   </LinkWithLoader>
 )
 
@@ -30,12 +27,17 @@ export const BarLink: React.FC<KeywordLinkProps> = ({ href, label, name, length,
     title={`${label}별 보기: ${name}`}
     className={cn(
       buttonVariants({ color: active ? 'info' : undefined }),
-      'justify-between xs:h-12',
+      'h-10 justify-between md:h-12',
     )}
   >
-    <strong className={cn('w-[calc(100%-2rem)] truncate', active ? 'font-bold' : 'font-medium')}>
+    <strong
+      className={cn(
+        'w-[calc(100%-2rem)] truncate text-sm md:text-base',
+        active ? 'font-bold' : 'font-medium',
+      )}
+    >
       {name}
     </strong>
-    <span className="ml-1 text-sm text-zinc-500 xs:text-base dark:text-zinc-400">{length}</span>
+    <span className="ml-1 text-sm font-normal text-gray-500 dark:text-gray-400">{length}</span>
   </LinkWithLoader>
 )

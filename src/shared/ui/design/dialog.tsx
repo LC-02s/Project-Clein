@@ -15,7 +15,7 @@ import { Dimmed } from './dimmed'
 const Title: React.FC<React.JSX.IntrinsicElements['h2']> = ({ className, children, ...props }) => (
   <h2
     className={cn(
-      'mb-3 block w-full pt-1 text-lg font-bold leading-tight text-zinc-800 dark:text-zinc-50',
+      'mb-3 block w-full pt-1 font-bold leading-tight text-gray-800 md:text-lg dark:text-gray-50',
       className,
     )}
     {...props}
@@ -31,7 +31,7 @@ const Content: React.FC<React.JSX.IntrinsicElements['div']> = ({
 }) => (
   <div
     className={cn(
-      'block max-h-[calc(100dvh-17.5rem)] min-h-12 w-full text-base font-normal leading-relaxed text-zinc-500 dark:text-zinc-400',
+      'block max-h-[calc(100dvh-17.5rem)] min-h-12 w-full text-base font-normal leading-relaxed text-gray-500 dark:text-gray-400',
       className,
     )}
     {...props}
@@ -47,7 +47,7 @@ const Footer: React.FC<React.JSX.IntrinsicElements['div']> = ({
 }) => (
   <div
     className={cn(
-      'mt-6 flex w-full items-center justify-end space-x-2 border-t border-zinc-200 pt-4 dark:border-zinc-600',
+      'mt-6 flex w-full items-center justify-end space-x-2 border-t border-gray-200 pt-4 dark:border-gray-600',
       className,
     )}
     {...props}
@@ -118,7 +118,7 @@ const DialogRoot: React.FC<DialogProps> = ({
             ref={containerRef}
             role="dialog"
             className={cn(
-              'absolute left-1/2 max-h-[calc(100dvh-2rem)] w-[calc(100vw-1rem)] translate-x-1/2 rounded-xl bg-white p-5 shadow-md dark:bg-zinc-800',
+              'absolute left-1/2 max-h-[calc(100dvh-2rem)] w-[calc(100vw-1rem)] translate-x-1/2 rounded-xl bg-white p-5 shadow-md dark:bg-gray-800',
               position === 'center' ? 'top-1/2' : 'top-4',
               dialogVariants.size[size],
               className,

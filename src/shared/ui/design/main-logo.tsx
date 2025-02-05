@@ -6,7 +6,11 @@ export interface MainLogoProps extends PropsWithClassName {
 }
 
 export const MainLogo: React.FC<MainLogoProps> = ({ className, render: Component = Link }) => (
-  <Component href="/" title="메인으로" className={cn('block text-xl font-bold', className)}>
+  <Component
+    href="/"
+    title="메인으로"
+    className={cn('block text-lg font-bold md:text-xl', className)}
+  >
     {MAIN_TITLE}
   </Component>
 )

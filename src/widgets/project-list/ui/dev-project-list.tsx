@@ -42,7 +42,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ contents, className })
               className="transition-transform group-hover:scale-105"
             />
           </Container>
-          <h3 className="mb-1 px-0.5 text-lg font-bold">
+          <h3 className="mb-1 px-0.5 font-bold md:text-lg">
             <LinkWithLoader
               href={`${PROJECT_PATH}/${id}`}
               title={`프로젝트 소개 바로가기: ${data.name}`}
@@ -51,7 +51,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ contents, className })
               {data.name}
             </LinkWithLoader>
           </h3>
-          <p className="mb-3 break-keep px-0.5 text-zinc-500 dark:text-zinc-400">
+          <p className="mb-3 break-keep px-0.5 text-sm text-gray-500 md:text-base dark:text-gray-400">
             {data.description}
           </p>
           <p className="flex flex-wrap items-center gap-2">
@@ -69,7 +69,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ contents, className })
             >
               <Icon.GithubLogo className="pointer-events-none mr-3 text-xl" />
               GitHub 바로가기
-              <Icon.NewTabOutline className="pointer-events-none ml-auto text-sm text-zinc-500 dark:text-zinc-400" />
+              <Icon.NewTabOutline className="pointer-events-none ml-auto text-sm text-gray-500 dark:text-gray-400" />
             </ExternalLink>
             {!data.isDropped ? (
               <ExternalLink
@@ -79,13 +79,13 @@ export const ProjectList: React.FC<ProjectListProps> = ({ contents, className })
               >
                 <Icon.LaptopEmoji className="pointer-events-none mb-1 mr-3 text-xl" />
                 사이트 구경하기
-                <Icon.NewTabOutline className="pointer-events-none ml-auto text-sm text-zinc-500 dark:text-zinc-400" />
+                <Icon.NewTabOutline className="pointer-events-none ml-auto text-sm text-gray-500 dark:text-gray-400" />
               </ExternalLink>
             ) : (
               <Button variant="light" round="xs" className="w-full flex-1" disabled>
                 <Icon.LaptopEmoji className="mb-1 mr-3 text-xl grayscale" />
                 서비스 종료됨
-                <Icon.NewTabOutline className="ml-auto text-sm text-zinc-400 dark:text-zinc-500" />
+                <Icon.NewTabOutline className="ml-auto text-sm text-gray-400 dark:text-gray-500" />
               </Button>
             )}
           </div>

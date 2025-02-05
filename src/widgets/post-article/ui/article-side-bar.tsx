@@ -85,7 +85,7 @@ export const ArticleSideBar: React.FC<React.PropsWithChildren> = ({ children }) 
           animate={{ x: 0, opacity: 1 }}
           transition={{ ease: 'easeInOut', duration: 0.16, delay: 0.2 }}
         >
-          <Icon.MenuOutline className="text-xl" />
+          <Icon.MenuOutline className="text-lg md:text-xl" />
         </motion.button>
       )}
       <AnimatePresence>

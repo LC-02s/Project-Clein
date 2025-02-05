@@ -19,7 +19,7 @@ export const RelatedLink: React.FC<RelatedLinkProps> = ({ post, type }) => {
 
   if (!post) {
     return (
-      <span className="hidden items-center justify-center overflow-hidden rounded-lg bg-zinc-50 p-3 font-medium text-zinc-500 md:flex md:w-[calc(50%-0.5rem)] md:text-lg dark:bg-zinc-800 dark:text-zinc-400">
+      <span className="hidden items-center justify-center overflow-hidden rounded-lg bg-gray-50 p-3 font-medium text-gray-500 md:flex md:w-[calc(50%-0.5rem)] md:text-lg dark:bg-gray-800 dark:text-gray-400">
         {comment} 포스트에요
       </span>
     )
@@ -30,13 +30,13 @@ export const RelatedLink: React.FC<RelatedLinkProps> = ({ post, type }) => {
       href={`${BLOG_PATH}/${post.id}`}
       title={`${label} 포스트 바로가기: ${post.title}`}
       className={cn(
-        buttonVariants({ size: 'md' }),
-        'h-auto flex-col justify-center overflow-hidden py-3 md:w-[calc(50%-0.5rem)] md:px-4 md:text-lg',
+        buttonVariants({ size: 'none' }),
+        'h-auto flex-col justify-center overflow-hidden px-5 py-3 md:w-[calc(50%-0.5rem)] md:px-4 md:text-lg',
         style.items,
       )}
     >
       <span
-        className={cn('block text-sm text-zinc-500 md:text-base dark:text-zinc-400', style.align)}
+        className={cn('block text-sm text-gray-500 md:text-base dark:text-gray-400', style.align)}
       >
         {label} 포스트
       </span>

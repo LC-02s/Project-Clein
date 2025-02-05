@@ -21,7 +21,7 @@ export const PostList: React.FC<PostListProps> = ({
       <h2 className="sr-only">포스트 목록</h2>
       <p className="mt-6 flex w-full items-center px-1 sm:mt-0 sm:w-auto">
         <Icon.PageEmoji className="mr-2" />
-        <span className="block break-keep text-lg font-medium text-zinc-500 dark:text-zinc-400">
+        <span className="block break-keep text-sm font-medium text-gray-500 md:text-base dark:text-gray-400">
           {length}개의 포스트가 있어요
         </span>
       </p>

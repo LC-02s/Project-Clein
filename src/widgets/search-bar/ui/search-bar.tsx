@@ -62,7 +62,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
     <div ref={containerRef}>
       <h2 className="sr-only">통합 검색</h2>
       <div className="relative p-4 md:p-2">
-        <Icon.MagnifierOutline className="absolute inset-y-0 left-7 z-10 my-auto text-zinc-500 md:left-6 md:text-lg dark:text-zinc-400" />
+        <Icon.MagnifierOutline className="absolute inset-y-0 left-7 z-10 my-auto text-gray-500 md:left-6 md:text-lg dark:text-gray-400" />
         <TextInput
           ref={inputRef}
           type="search"

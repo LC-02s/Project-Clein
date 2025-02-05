@@ -3,12 +3,15 @@
 import Image from 'next/image'
 import { NICKNAME_KR } from '@/shared/config'
 import { type OverlayElementState, useOverlay } from '@/shared/lib'
-import { type ButtonProps, Button, Dialog } from '@/shared/ui'
+import { type ButtonProps, Button, Dialog, Icon } from '@/shared/ui'
 
 const AccountDialog: React.FC<OverlayElementState> = ({ isOpen, close }) => (
   <Dialog open={isOpen} onClose={close} size="sm" cancelWithOutsideClick cancelWithEscape>
-    <Dialog.Title className="mb-6">{NICKNAME_KR}에게 커피 사주기</Dialog.Title>
-    <div className="relative w-full overflow-hidden rounded-lg border border-zinc-200 bg-zinc-100 dark:border-zinc-600 dark:bg-zinc-700">
+    <Dialog.Title className="mb-6 flex items-center">
+      <Icon.BubbleTeaEmoji className="mb-1 mr-2 text-xl md:text-2xl" />
+      {NICKNAME_KR}에게 커피 사주기
+    </Dialog.Title>
+    <div className="relative w-full overflow-hidden rounded-lg border border-gray-200 bg-gray-100 dark:border-gray-600 dark:bg-gray-700">
       <Image
         src="/images/toss-account-qr-code.jpeg"
         alt="토스 송금 QR코드"

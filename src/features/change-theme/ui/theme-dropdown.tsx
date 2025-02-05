@@ -21,7 +21,7 @@ export const ThemeDropdown: React.FC<ThemeDropdownProps> = ({
         open={isOpen}
         onClose={onClose}
         size="xs"
-        className="space-y-3 pb-6"
+        className="space-y-3 p-4 pb-5"
         cancelWithOutsideClick
         cancelWithEscape
       >
@@ -32,7 +32,7 @@ export const ThemeDropdown: React.FC<ThemeDropdownProps> = ({
   }
 
   return (
-    <Dropdown open={isOpen} className="right-0 top-12 w-48 space-y-2 dark:bg-zinc-800">
+    <Dropdown open={isOpen} className="right-0 top-12 w-48 space-y-2 dark:bg-gray-800">
       {children}
     </Dropdown>
   )

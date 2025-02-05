@@ -35,7 +35,7 @@ export const Loader: React.FC = () => {
               }}
             />
             <Button
-              className="absolute inset-x-0 bottom-0 mx-auto"
+              className="absolute inset-x-0 bottom-0 mx-auto size-10"
               title="대기창 닫기"
               round="full"
               square

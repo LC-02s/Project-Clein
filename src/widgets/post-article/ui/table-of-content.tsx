@@ -20,14 +20,14 @@ export const TableOfContent: React.FC<PropsWithClassName> = ({ className }) => {
   if (isLoading) {
     return (
       <div className={cn('flex items-center justify-center pb-12', className)}>
-        <Icon.RotateSpinner className="size-8 text-zinc-500 dark:text-zinc-400" />
+        <Icon.RotateSpinner className="size-8 text-gray-500 dark:text-gray-400" />
       </div>
     )
   }
 
   return (
     <div className={cn('overflow-y-auto overscroll-none py-4', className)}>
-      <ul className="space-y-2 text-zinc-500 dark:text-zinc-400">
+      <ul className="space-y-2 text-gray-500 dark:text-gray-400">
         {elements.map((heading) => {
           const href = `#${heading.id ?? 'none'}`
 
@@ -36,7 +36,7 @@ export const TableOfContent: React.FC<PropsWithClassName> = ({ className }) => {
               <a
                 href={href}
                 className={cn(
-                  'block break-keep pl-2 font-medium hover:text-indigo-600 hover:underline dark:hover:text-indigo-300',
+                  'block break-keep pl-2 font-medium hover:text-blue-700 hover:underline dark:hover:text-blue-300',
                   heading.tagName === 'H4' && 'pl-6',
                   ARTICLE_ASIDE_CLOSE_CLASS_NAME,
                 )}

@@ -35,7 +35,7 @@ export const SearchBarTrigger: React.FC = () => {
       ref={startedAt}
       title={`통합 검색 대화창 ${isOpen ? '닫기' : '열기'}`}
       variant="light"
-      className="group md:w-auto md:justify-between md:bg-zinc-50 md:pl-2.5 md:pr-2 md:dark:bg-zinc-800 md:dark:hover:bg-zinc-700"
+      className="group md:w-auto md:justify-between md:bg-gray-50 md:pl-2.5 md:pr-2 md:dark:bg-gray-800 md:dark:hover:bg-gray-700"
       square
       onClick={() => {
         open(({ isOpen, close }) => (
@@ -47,14 +47,14 @@ export const SearchBarTrigger: React.FC = () => {
       }}
       disabled={isOpen}
     >
-      <Icon.MagnifierOutline className="text-lg md:text-base md:text-zinc-500 md:dark:text-zinc-400" />
-      <span className="ml-3 hidden whitespace-nowrap text-zinc-500 md:block dark:text-zinc-400">
+      <Icon.MagnifierOutline className="text-base md:text-gray-500 md:dark:text-gray-400" />
+      <span className="ml-3 hidden whitespace-nowrap text-gray-500 md:block dark:text-gray-400">
         검색어를 입력해주세요
       </span>
       <Badge
         size="xs"
         round="xs"
-        className="ml-16 hidden bg-white md:flex dark:group-hover:border-zinc-500 dark:group-hover:bg-zinc-600"
+        className="ml-16 hidden bg-white md:flex dark:group-hover:border-gray-500 dark:group-hover:bg-gray-600"
       >
         {`⌘${SEARCH_HOTKEY}`}
       </Badge>

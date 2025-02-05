@@ -38,13 +38,13 @@ export const ThemeDropdownButton: React.FC = () => {
       >
         <Icon.SunEmoji
           className={cn(
-            'absolute inset-0 m-auto text-xl opacity-0 transition-opacity',
+            'absolute inset-0 m-auto text-lg opacity-0 transition-opacity md:text-xl',
             realTheme === 'light' && 'animate-pop-spin opacity-100',
           )}
         />
         <Icon.MoonEmoji
           className={cn(
-            'absolute inset-0 m-auto text-xl opacity-0 transition-opacity',
+            'absolute inset-0 m-auto text-lg opacity-0 transition-opacity md:text-xl',
             realTheme === 'dark' && 'animate-pop-spin opacity-100',
           )}
         />
@@ -55,7 +55,7 @@ export const ThemeDropdownButton: React.FC = () => {
             key={value}
             variant="subtle"
             title={`테마 변경: ${THEME_LABEL[value]}`}
-            className="w-full text-base lg:h-9"
+            className="w-full md:h-9"
             onClick={() => {
               setTheme(value)
               onClose()

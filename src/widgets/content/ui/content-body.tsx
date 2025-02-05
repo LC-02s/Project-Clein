@@ -16,7 +16,7 @@ export const ContentBody: React.FC<ContentParserProps> = async ({
   ...props
 }) => (
   <div
-    className={cn('py-12 text-base text-zinc-800 md:text-lg dark:text-zinc-200', className)}
+    className={cn('py-12 text-base text-gray-800 md:text-lg dark:text-gray-200', className)}
     {...props}
   >
     <MDXRemote source={content} components={components} options={options} />

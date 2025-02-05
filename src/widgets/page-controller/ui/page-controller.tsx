@@ -21,7 +21,7 @@ export const PageController: React.FC<PageControllerProps> = ({ page, className,
   return (
     <div
       className={cn(
-        'flex flex-col items-center justify-between space-y-6 border-zinc-200 sm:flex-row sm:space-y-0 dark:border-zinc-600',
+        'flex flex-col items-center justify-between space-y-6 border-gray-200 sm:flex-row sm:space-y-0 dark:border-gray-600',
         className,
       )}
     >

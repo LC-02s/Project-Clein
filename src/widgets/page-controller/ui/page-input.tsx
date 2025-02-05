@@ -36,11 +36,11 @@ export const PageInput: React.FC<PageInputProps> = ({ value, max, baseURL, class
   return (
     <p
       className={cn(
-        'flex items-center space-x-2 text-sm text-zinc-500 xs:text-base dark:text-zinc-400',
+        'flex items-center space-x-2 text-sm text-gray-500 xs:text-base dark:text-gray-400',
         className,
       )}
     >
-      <span className="whitespace-nowrap">페이지</span>
+      <span className="whitespace-nowrap text-sm md:text-base">페이지</span>
       <TextInput
         type="number"
         size="sm"
@@ -55,10 +55,10 @@ export const PageInput: React.FC<PageInputProps> = ({ value, max, baseURL, class
         onKeyDown={(e) => {
           if (e.key === 'Enter') onSubmit()
         }}
-        className="w-20 xs:text-base"
+        className="w-20 md:text-base"
         withoutBackground
       />
-      <span className="whitespace-nowrap">/ {max}</span>
+      <span className="whitespace-nowrap text-sm md:text-base">/ {max}</span>
     </p>
   )
 }

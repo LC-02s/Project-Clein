@@ -27,9 +27,9 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ className, children, style
           {({ status, copy }) => (
             <Button title="코드 복사하기" variant="subtle" square onClick={copy} disabled={status}>
               {status ? (
-                <Icon.CheckOutline className="text-emerald-600 dark:text-emerald-300" />
+                <Icon.CheckOutline className="text-green-600 dark:text-green-300" />
               ) : (
-                <Icon.CopyOutline className="text-xl text-zinc-600 dark:text-zinc-300" />
+                <Icon.CopyOutline className="text-lg text-gray-600 md:text-xl dark:text-gray-300" />
               )}
             </Button>
           )}

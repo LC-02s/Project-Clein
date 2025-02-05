@@ -36,31 +36,29 @@ export const PostLink: React.FC<PostItemProps> = ({
       <Container
         variant="image"
         round="xs"
-        className="relative aspect-thumbnail w-full dark:group-hover:border-zinc-500 dark:group-hover:bg-zinc-600"
+        className="relative aspect-thumbnail w-full dark:group-hover:border-gray-500 dark:group-hover:bg-gray-600"
       >
         <ThumbnailImage {...thumbnail} priority />
       </Container>
     </div>
     <div className="flex w-full flex-col justify-between md:w-[calc(100%-16.5rem)]">
       <div className="space-y-2">
-        <h3 className="block break-keep font-bold xs:text-lg">{title}</h3>
-        <p className="block break-keep text-sm text-zinc-500 xs:text-base dark:text-zinc-400">
+        <h3 className="block break-keep font-bold md:text-lg">{title}</h3>
+        <p className="block break-keep text-sm text-gray-500 md:text-base dark:text-gray-400">
           {description}
         </p>
       </div>
       <p className="mt-6 flex items-center space-x-2">
         <Badge
-          size="sm"
           round="xs"
-          className="group-hover:bg-white dark:group-hover:border-zinc-500 dark:group-hover:bg-zinc-600"
+          className="group-hover:bg-white dark:group-hover:border-gray-500 dark:group-hover:bg-gray-600"
         >
           <Icon.CalendarMarkOutline className="mr-1.5" />
           {date}
         </Badge>
         <Badge
-          size="sm"
           round="xs"
-          className="pr-2.5 group-hover:bg-white dark:group-hover:border-zinc-500 dark:group-hover:bg-zinc-600"
+          className="pr-2.5 group-hover:bg-white dark:group-hover:border-gray-500 dark:group-hover:bg-gray-600"
         >
           <Icon.ClockCircleOutline className="mr-1.5" />
           <ReadingTimeText value={readingTime} />

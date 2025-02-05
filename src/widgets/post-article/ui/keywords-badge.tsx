@@ -18,7 +18,7 @@ export const KeywordsBadge: React.FC<KeywordsBadgeProps> = ({ keywords, label })
 
   return (
     <div className="items-start justify-start md:flex">
-      <h3 className="mb-2 whitespace-nowrap px-1 pr-2 text-base font-medium text-zinc-500 md:mb-0 md:w-32 md:text-lg md:leading-9 dark:text-zinc-400">
+      <h3 className="mb-2 whitespace-nowrap px-1 pr-2 text-base font-medium text-gray-500 md:mb-0 md:w-32 md:text-lg md:leading-9 dark:text-gray-400">
         관련 {label} :
       </h3>
       <ul className="flex flex-wrap items-center justify-start gap-2 md:w-[calc(100%-8rem)]">

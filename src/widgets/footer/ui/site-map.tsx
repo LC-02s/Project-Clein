@@ -8,7 +8,7 @@ export const SiteMap: React.FC = () => (
         <LinkWithLoader
           href={href}
           title={`${title} 페이지 바로가기`}
-          className="p-1 text-zinc-500 hover:text-indigo-600 hover:underline dark:text-zinc-400 dark:hover:text-indigo-300"
+          className="p-1 text-sm text-gray-500 hover:text-blue-700 hover:underline md:text-base dark:text-gray-400 dark:hover:text-blue-300"
         >
           {title}
         </LinkWithLoader>

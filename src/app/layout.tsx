@@ -58,7 +58,7 @@ const RootLayout: React.FC<React.PropsWithChildren> = async ({ children }) => {
   return (
     <html lang="ko" className={Pretendard.variable}>
       <ThemeProvider
-        className="relative flex min-h-screen min-w-[17.5rem] flex-col items-stretch justify-start bg-white text-zinc-800 antialiased dark:bg-zinc-900 dark:text-zinc-50"
+        className="relative flex min-h-screen min-w-[17.5rem] flex-col items-stretch justify-start bg-white text-gray-800 antialiased dark:bg-gray-900 dark:text-gray-50"
         defaultValue={theme?.value}
       >
         <SkipContent />

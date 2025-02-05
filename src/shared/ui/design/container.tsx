@@ -22,29 +22,29 @@ export const containerVariants = cva('', {
     {
       variant: 'default',
       layer: 'top',
-      class: 'border-zinc-200 bg-white dark:border-zinc-600 dark:bg-zinc-800',
+      class: 'border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-800',
     },
     {
       variant: 'default',
       layer: 'middle',
-      class: 'border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800',
+      class: 'border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800',
     },
     {
       variant: 'default',
       layer: 'bottom',
-      class: 'border-zinc-100 bg-white dark:border-zinc-700 dark:bg-zinc-900',
+      class: 'border-gray-100 bg-white dark:border-gray-700 dark:bg-gray-900',
     },
     {
       variant: 'image',
       layer: 'top',
       class:
-        'overflow-hidden border border-zinc-200 bg-zinc-200 dark:border-zinc-600 dark:bg-zinc-700',
+        'overflow-hidden border border-gray-200 bg-gray-200 dark:border-gray-600 dark:bg-gray-700',
     },
     {
       variant: 'image',
       layer: ['middle', 'bottom'],
       class:
-        'overflow-hidden border border-zinc-200 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800',
+        'overflow-hidden border border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800',
     },
   ],
   defaultVariants: {

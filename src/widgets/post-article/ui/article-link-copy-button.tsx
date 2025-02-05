@@ -8,12 +8,12 @@ export const ArticleLinkCopyButton: React.FC = () => (
       <button
         type="button"
         title="해당 게시물 링크 복사하기"
-        className="flex items-center justify-center text-zinc-500 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-300"
+        className="flex items-center justify-center text-gray-500 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-300"
         disabled={status}
         onClick={copy}
       >
         {status ? (
-          <span className="text-sm font-medium text-emerald-600 dark:text-emerald-300">
+          <span className="text-sm font-medium text-green-600 dark:text-green-300">
             복사됐어요!!
           </span>
         ) : (

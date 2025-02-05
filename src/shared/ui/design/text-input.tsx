@@ -5,12 +5,12 @@ import { useState } from 'react'
 import { cn } from '../../lib'
 
 export const textInputVariants = cva(
-  'relative flex w-full items-center justify-start rounded-lg border border-zinc-200 font-normal text-zinc-800 outline-none read-only:!border-zinc-200 disabled:!border-zinc-200 disabled:text-zinc-500 dark:border-zinc-600 dark:text-zinc-50 dark:read-only:!border-zinc-600 dark:disabled:!border-zinc-600 dark:disabled:text-zinc-400',
+  'relative flex w-full items-center justify-start rounded-lg border border-gray-200 font-normal text-gray-800 outline-none read-only:!border-gray-200 disabled:!border-gray-200 disabled:text-gray-500 dark:border-gray-600 dark:text-gray-50 dark:read-only:!border-gray-600 dark:disabled:!border-gray-600 dark:disabled:text-gray-400',
   {
     variants: {
       variant: {
-        default: ' focus:border-indigo-500 dark:focus:border-indigo-400',
-        warn: 'focus:border-rose-500 dark:focus:border-rose-400',
+        default: ' focus:border-blue-500 dark:focus:border-blue-400',
+        warn: 'focus:border-red-500 dark:focus:border-red-400',
         none: '',
       },
       size: {
@@ -21,9 +21,9 @@ export const textInputVariants = cva(
         none: '',
       },
       withoutBackground: {
-        true: 'bg-white dark:bg-zinc-800 placeholder:dark:text-zinc-400',
+        true: 'bg-white dark:bg-gray-800 placeholder:dark:text-gray-400',
         false:
-          'bg-zinc-100 placeholder:text-zinc-500 focus:bg-white dark:bg-zinc-700 dark:focus:bg-zinc-800',
+          'bg-gray-100 placeholder:text-gray-500 focus:bg-white dark:bg-gray-700 dark:focus:bg-gray-800',
       },
     },
     defaultVariants: {

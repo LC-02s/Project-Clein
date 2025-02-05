@@ -12,7 +12,7 @@ export const ArticleShareButton: React.FC<ArticleShareButtonProps> = ({ title, d
     className="w-full"
     onClick={() => share({ title, description })}
   >
-    <Icon.ShareOutline className="mr-2 text-xl" />
+    <Icon.ShareOutline className="mr-2 text-lg md:text-xl" />
     <span className="pr-2">공유하기</span>
   </Button>
 )

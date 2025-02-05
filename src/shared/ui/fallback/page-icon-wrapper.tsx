@@ -7,7 +7,7 @@ export const PageIconWrapper: React.FC<React.JSX.IntrinsicElements['div']> = ({
 }) => (
   <div
     className={cn(
-      'mx-auto size-36 rounded-full border border-zinc-200 bg-zinc-50 p-8 sm:size-48 sm:p-12 dark:border-zinc-600 dark:bg-zinc-800',
+      'mx-auto size-36 rounded-full border border-gray-200 bg-gray-50 p-8 md:size-48 md:p-12 dark:border-gray-600 dark:bg-gray-800',
       className,
     )}
     {...props}

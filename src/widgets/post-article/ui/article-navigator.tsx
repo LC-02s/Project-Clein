@@ -14,7 +14,7 @@ export const ArticleNavigator: React.FC<PropsWithClassName> = ({ className }) =>
         window.scrollTo({ top: 0, behavior: 'smooth' })
       }}
     >
-      <Icon.ArrowOutline direction="top" className="text-xl" />
+      <Icon.ArrowOutline direction="top" className="text-lg md:text-xl" />
       <span className="sr-only">TOP</span>
     </Button>
     <Button
@@ -25,7 +25,7 @@ export const ArticleNavigator: React.FC<PropsWithClassName> = ({ className }) =>
         window.scrollTo({ top: document.body.offsetHeight, behavior: 'smooth' })
       }}
     >
-      <Icon.ArrowOutline direction="bottom" className="text-xl" />
+      <Icon.ArrowOutline direction="bottom" className="text-lg md:text-xl" />
       <span className="sr-only">BOTTOM</span>
     </Button>
     <a
@@ -34,7 +34,7 @@ export const ArticleNavigator: React.FC<PropsWithClassName> = ({ className }) =>
       className={cn(buttonVariants(), 'flex-1', ARTICLE_ASIDE_CLOSE_CLASS_NAME)}
       onClick={createScrollToSection(`#${ARTICLE_COMMENT_ID}`)}
     >
-      <Icon.ChatRoundOutline className="mr-2 text-xl" />
+      <Icon.ChatRoundOutline className="mr-2 text-lg md:text-xl" />
       <span className="pr-2">댓글 달기</span>
     </a>
   </div>
