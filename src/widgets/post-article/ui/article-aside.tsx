@@ -4,9 +4,9 @@ import { type PropsWithClassName, cn } from '@/shared/lib'
 import { KeywordsBadge } from './keywords-badge'
 import { RelatedLink } from './related-link'
 
-export interface ArticleFooterProps
-  extends Pick<PostDetail, SeparatedKeywordsKey | 'related'>,
-    PropsWithClassName {}
+export type ArticleFooterProps = PropsWithClassName<
+  Pick<PostDetail, SeparatedKeywordsKey | 'related'>
+>
 
 export const ArticleAside: React.FC<ArticleFooterProps> = ({
   tags,

@@ -6,18 +6,17 @@ import {
   ARTICLE_ID,
   ARTICLE_COMMENT_ID,
   ArticleHeader,
-  ArticleThumbnail,
   ArticleAside,
-  ArticleSideBar,
   ArticleSummary,
   ArticleShareButton,
-  ArticleContent,
-  ArticleNavigator,
+  ArticleCommentAnchor,
+  ArticleLinkCopyButton,
 } from '@/widgets/post-article'
+import { Author } from '@/widgets/profile'
 import { type PostId, getPostDetail } from '@/entities/post'
 import { THUMBNAIL_SIZE, BLOG_DESCRIPTION, BLOG_KEYWORDS, NICKNAME } from '@/shared/config'
 import { extractImageType } from '@/shared/lib'
-import { BackgroundGrid, Comment } from '@/shared/ui'
+import { BackgroundGrid, Comment, Container, ThumbnailImage } from '@/shared/ui'
 
 interface PostDetailPageParams {
   postId: PostId
@@ -70,31 +69,34 @@ const PostDetailPage: React.FC<PostDetailPageProps> = async ({ params }) => {
 
   return (
     <>
-      <div className="relative mx-auto flex justify-center">
-        <div className="py-screen wrapper-xl xl:max-w-[calc(100%-18rem)] 3xl:max-w-screen-xl">
-          <article id="article">
-            <ArticleHeader title={post.title} description={post.description} />
-            <ArticleThumbnail {...post.thumbnail} />
-            <ContentBody id={ARTICLE_ID} content={post.content} />
-          </article>
-          <ArticleAside
-            tags={post.tags}
-            projects={post.projects}
-            series={post.series}
-            related={post.related}
-          />
-          <Comment id={ARTICLE_COMMENT_ID} className="pt-24 md:pt-32" />
-        </div>
-        <ArticleSideBar>
-          <ArticleSummary
-            createdAt={post.createdAt}
-            updatedAt={post.updatedAt}
-            readingTime={post.readingTime}
-          />
+      <div className="py-screen wrapper-xl">
+        <div className="mb-8 flex items-center justify-end space-x-2">
           <ArticleShareButton title={post.title} description={post.description} />
-          <ArticleContent />
-          <ArticleNavigator />
-        </ArticleSideBar>
+          <ArticleCommentAnchor />
+          <ArticleLinkCopyButton />
+        </div>
+        <article id="article">
+          <ArticleHeader title={post.title} description={post.description}>
+            <Author className="mt-6 md:mt-12" />
+            <ArticleSummary
+              createdAt={post.createdAt}
+              updatedAt={post.updatedAt}
+              readingTime={post.readingTime}
+              className="mt-2 md:mt-3"
+            />
+          </ArticleHeader>
+          <Container variant="image" layer="middle" className="flex items-center justify-center">
+            <ThumbnailImage {...post.thumbnail} quality={100} priority />
+          </Container>
+          <ContentBody id={ARTICLE_ID} content={post.content} />
+        </article>
+        <ArticleAside
+          tags={post.tags}
+          projects={post.projects}
+          series={post.series}
+          related={post.related}
+        />
+        <Comment id={ARTICLE_COMMENT_ID} className="pt-24 md:pt-32" />
       </div>
       <BackgroundGrid />
     </>

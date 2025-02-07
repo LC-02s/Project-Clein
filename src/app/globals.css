@@ -18,9 +18,6 @@
 }
 
 @layer components {
-  .wrapper-2xl {
-    @apply mx-auto w-full max-w-screen-2xl px-5 md:px-10;
-  }
   .wrapper-xl {
     @apply mx-auto w-full max-w-screen-xl px-5 md:px-10;
   }
