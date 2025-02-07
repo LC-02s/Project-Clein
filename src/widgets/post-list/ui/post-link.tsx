@@ -1,9 +1,9 @@
-import { LinkWithLoader } from '@/features/loader'
 import type { PostItem as Item } from '@/entities/post'
 import { BLOG_PATH } from '@/shared/config'
 import type { SortedFromDateKey } from '@/shared/lib'
 import { cn } from '@/shared/lib'
 import {
+  LinkWithLoader,
   buttonVariants,
   Badge,
   Icon,

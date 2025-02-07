@@ -1,8 +1,7 @@
-import { LinkWithLoader } from '@/features/loader'
 import { POST_LIST_PARAMS, type MappedKeyword, type PostListParamsKey } from '@/entities/post'
 import { BLOG_PATH } from '@/shared/config'
 import { cn, createSearchParamsToURL, DEFAULT_PAGE } from '@/shared/lib'
-import { buttonVariants } from '@/shared/ui'
+import { buttonVariants, LinkWithLoader } from '@/shared/ui'
 
 export interface KeywordsBadgeProps {
   keywords: MappedKeyword[]

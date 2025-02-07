@@ -1,5 +1,5 @@
-import { LinkWithLoader } from '@/features/loader'
 import { SITE_MAP } from '@/shared/config'
+import { LinkWithLoader } from '@/shared/ui'
 
 export const SiteMap: React.FC = () => (
   <ul className="flex flex-wrap items-center justify-center md:space-x-1">

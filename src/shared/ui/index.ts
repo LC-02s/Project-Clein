@@ -1,6 +1,7 @@
 export * as Icon from './icon'
 export * from './design'
 export * from './fallback'
+export * from './loader'
 
 export * from './fallback-render'
 export * from './external-link'

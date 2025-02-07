@@ -1,9 +1,8 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { LinkWithLoader } from '@/features/loader'
 import type { Page as TabLinkProps } from '@/shared/config'
-import { buttonVariants } from '@/shared/ui'
+import { buttonVariants, LinkWithLoader } from '@/shared/ui'
 import { TabUnderline } from './tab-underline'
 
 export const TabLink: React.FC<TabLinkProps> = ({ href, segment, title, icon: Icon }) => {

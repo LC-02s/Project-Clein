@@ -1,8 +1,7 @@
-import { LinkWithLoader } from '@/features/loader'
 import type { PostDetail } from '@/entities/post'
 import { BLOG_PATH } from '@/shared/config'
 import { cn } from '@/shared/lib'
-import { buttonVariants } from '@/shared/ui'
+import { LinkWithLoader, buttonVariants } from '@/shared/ui'
 
 const relatedLinkVariants = {
   prev: { label: '이전', comment: '처음', style: { items: 'items-start', align: 'text-left' } },

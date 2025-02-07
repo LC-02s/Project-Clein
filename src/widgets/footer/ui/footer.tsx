@@ -1,9 +1,7 @@
 import Image from 'next/image'
-import { LinkWithLoader } from '@/features/loader'
 import { NICKNAME, NICKNAME_KR, MAIN_DESCRIPTION, USER_GITHUB_ADDRESS } from '@/shared/config'
 import { cn } from '@/shared/lib'
-import { MainLogo, ExternalLink } from '@/shared/ui'
-import { buttonVariants, containerVariants, Icon } from '@/shared/ui'
+import { MainLogo, ExternalLink, buttonVariants, containerVariants, Icon } from '@/shared/ui'
 import { BuyMeACoffeeButton } from './coffee-button'
 import { EmailButton } from './email-button'
 import { SiteMap } from './site-map'
@@ -27,7 +25,7 @@ export const Footer: React.FC = () => (
         />
       </div>
       <div className="flex flex-col items-center justify-center px-1 md:flex-row md:justify-between">
-        <MainLogo render={LinkWithLoader} />
+        <MainLogo />
         <div className="mt-2 flex flex-col items-center justify-between space-y-8 md:mt-0 md:flex-row md:space-x-6 md:space-y-0">
           <SiteMap />
           <BuyMeACoffeeButton

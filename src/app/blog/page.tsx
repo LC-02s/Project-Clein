@@ -4,7 +4,6 @@ import { PostKeyword } from '@/widgets/post-keyword'
 import { PostList } from '@/widgets/post-list'
 import { Profile, ProfileSkeleton } from '@/widgets/profile'
 import { SortDropdownButton } from '@/features/change-sort-type'
-import { LinkWithLoader } from '@/features/loader'
 import { type PostListParamsKey, getPostList, POST_LIST_PARAMS } from '@/entities/post'
 import type { SearchParams } from '@/shared/api'
 import { BLOG_PATH } from '@/shared/config'
@@ -50,7 +49,6 @@ const BlogMainPage: React.FC<BlogMainPageProps> = async ({ searchParams }) => {
           sortParams={sortParams}
           paramsKey={POST_LIST_PARAMS.SORT}
           baseURL={href([POST_LIST_PARAMS.SORT])}
-          renderLink={LinkWithLoader}
           className="-right-2"
         />
       </PostList>

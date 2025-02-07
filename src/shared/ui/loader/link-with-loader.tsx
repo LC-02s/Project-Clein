@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useLoaderSwitch } from '../lib'
+import { useLoaderSwitch } from '../../lib'
 
 export const LinkWithLoader: typeof Link = (({ href, onClick, children, ...props }) => {
   const { on } = useLoaderSwitch()

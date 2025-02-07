@@ -1,7 +1,6 @@
-import type Link from 'next/link'
-import { LinkWithLoader } from '@/features/loader'
+import { LinkWithLoader } from '@/shared/ui'
 
-export interface PageLinkProps extends React.ComponentProps<typeof Link> {
+export interface PageLinkProps extends React.ComponentProps<typeof LinkWithLoader> {
   disabled?: boolean
 }
 

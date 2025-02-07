@@ -1,7 +1,6 @@
 'use client'
 
 import { useRef, useCallback } from 'react'
-import type Link from 'next/link'
 import {
   createSearchParamsToURL,
   DEFAULT_SORT_PARAMS,
@@ -22,7 +21,6 @@ export interface SortDropdownButtonProps<K extends string> extends PropsWithClas
   baseURL: string
   sortParams: LiteralSortParams
   paramsKey: K
-  renderLink?: typeof Link
 }
 
 export const SortDropdownButton = <K extends string>({
@@ -30,7 +28,6 @@ export const SortDropdownButton = <K extends string>({
   baseURL,
   paramsKey,
   className,
-  renderLink,
 }: SortDropdownButtonProps<K>): React.ReactNode => {
   const href = createSearchParamsToURL<K>(baseURL)
 
@@ -72,7 +69,6 @@ export const SortDropdownButton = <K extends string>({
             title={`정렬 순 변경: ${label}`}
             onClick={onClose}
             disabled={params === sortParams}
-            render={renderLink}
           >
             {`${label}${params === sortParams ? ' (선택됨)' : ''}`}
           </SortLink>

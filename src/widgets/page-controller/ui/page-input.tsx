@@ -2,7 +2,6 @@
 
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useState } from 'react'
-import { useLoaderSwitch } from '@/features/loader'
 import {
   type PaginationParamsKey,
   type PropsWithClassName,
@@ -10,6 +9,7 @@ import {
   cn,
   DEFAULT_PAGE,
   PAGINATION_PARAMS,
+  useLoaderSwitch,
 } from '@/shared/lib'
 import { TextInput } from '@/shared/ui'
 

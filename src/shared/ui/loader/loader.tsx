@@ -3,8 +3,8 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
-import { Button, Deferred, Icon } from '@/shared/ui'
-import { useLoaderState } from '../lib'
+import { useLoaderState } from '../../lib'
+import { Button, Deferred, Icon } from '../../ui'
 
 export const Loader: React.FC = () => {
   const { isLoading, off } = useLoaderState()

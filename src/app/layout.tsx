@@ -6,7 +6,6 @@ import { Header } from '@/widgets/header'
 import { SearchBarTrigger } from '@/widgets/search-bar'
 import { SkipContent } from '@/widgets/skip-content'
 import { THEME_KEY, ThemeDropdownButton, ThemeProvider } from '@/features/change-theme'
-import { LoadingProgressBar } from '@/features/loader'
 import { QueryProvider } from '@/shared/api'
 import {
   THUMBNAIL_SIZE,
@@ -18,6 +17,7 @@ import {
   USER_GITHUB_ADDRESS,
 } from '@/shared/config'
 import { BreakpointProvider, extractImageType, OverlayViewer } from '@/shared/lib'
+import { LoadingProgressBar } from '@/shared/ui'
 import { Pretendard } from './font'
 
 import './globals.css'

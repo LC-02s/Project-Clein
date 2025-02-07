@@ -1,11 +1,10 @@
 'use client'
 
-import { LinkWithLoader } from '@/features/loader'
 import type { SearchPostItem } from '@/entities/post'
 import type { SearchProjectItem } from '@/entities/project'
 import { BLOG_PATH, PROJECT_PATH } from '@/shared/config'
 import { cn } from '@/shared/lib'
-import { Button, buttonVariants, FallbackRender, Icon } from '@/shared/ui'
+import { LinkWithLoader, Button, buttonVariants, FallbackRender, Icon } from '@/shared/ui'
 import { type SearchBarProps } from './search-bar'
 
 export interface SearchResultProps extends SearchBarProps {

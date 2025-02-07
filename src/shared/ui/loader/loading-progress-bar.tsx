@@ -3,9 +3,8 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useCallback, useEffect, useState } from 'react'
-import { useTimeout } from '@/shared/lib'
-import { Deferred } from '@/shared/ui'
-import { useLoaderState } from '../lib'
+import { useLoaderState, useTimeout } from '../../lib'
+import { Deferred } from '../../ui'
 
 export const FakeProgressBar: React.FC = () => {
   const [step, setStep] = useState(0)

@@ -1,8 +1,7 @@
 'use client'
 
-import Link from 'next/link'
 import { type PropsWithClassName, cn, createScrollToSection } from '@/shared/lib'
-import { ExternalLink } from '@/shared/ui'
+import { ExternalLink, LinkWithLoader } from '@/shared/ui'
 
 export interface LinkTextProps extends React.PropsWithChildren<PropsWithClassName> {
   href: string
@@ -10,27 +9,41 @@ export interface LinkTextProps extends React.PropsWithChildren<PropsWithClassNam
 
 export const LinkText: React.FC<LinkTextProps> = ({ href, className, children }) => {
   const isExternal = href.startsWith('http')
+  const isHash = href.startsWith('#')
+  const classNames = cn('font-medium text-blue-700 hover:underline dark:text-blue-300', className)
 
   if (isExternal) {
     return (
       <ExternalLink
         href={href}
         title={typeof children === 'string' ? children : ''}
-        className={cn('font-medium text-blue-700 hover:underline dark:text-blue-300', className)}
+        className={classNames}
       >
         {children}
       </ExternalLink>
     )
   }
 
+  if (isHash) {
+    return (
+      <a
+        href={href}
+        title={`영역 이동${typeof children === 'string' ? `: ${children}` : ''}`}
+        className={classNames}
+        onClick={createScrollToSection(href)}
+      >
+        {children}
+      </a>
+    )
+  }
+
   return (
-    <Link
+    <LinkWithLoader
       href={href}
-      title={`${href.startsWith('#') ? '영역 이동' : '페이지 바로가기'}${typeof children === 'string' ? `: ${children}` : ''}`}
-      className={cn('font-medium text-blue-700 hover:underline dark:text-blue-300', className)}
-      onClick={createScrollToSection(href)}
+      title={`페이지 이동${typeof children === 'string' ? `: ${children}` : ''}`}
+      className={classNames}
     >
       {children}
-    </Link>
+    </LinkWithLoader>
   )
 }

@@ -1,16 +1,13 @@
-import Link from 'next/link'
 import { MAIN_TITLE } from '../../config'
 import { type PropsWithClassName, cn } from '../../lib'
-export interface MainLogoProps extends PropsWithClassName {
-  render?: typeof Link
-}
+import { LinkWithLoader } from '../../ui'
 
-export const MainLogo: React.FC<MainLogoProps> = ({ className, render: Component = Link }) => (
-  <Component
+export const MainLogo: React.FC<PropsWithClassName> = ({ className }) => (
+  <LinkWithLoader
     href="/"
     title="메인으로"
     className={cn('block text-lg font-bold md:text-xl', className)}
   >
     {MAIN_TITLE}
-  </Component>
+  </LinkWithLoader>
 )

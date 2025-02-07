@@ -1,6 +1,5 @@
-import { LinkWithLoader } from '@/features/loader'
 import { cn } from '@/shared/lib'
-import { buttonVariants } from '@/shared/ui'
+import { LinkWithLoader, buttonVariants } from '@/shared/ui'
 
 export interface KeywordLinkProps {
   href: string
