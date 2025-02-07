@@ -5,7 +5,6 @@ import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
 import { SearchBarTrigger } from '@/widgets/search-bar'
 import { SkipContent } from '@/widgets/skip-content'
-import { THEME_KEY, ThemeDropdownButton, ThemeProvider } from '@/features/change-theme'
 import { QueryProvider } from '@/shared/api'
 import {
   THUMBNAIL_SIZE,
@@ -16,8 +15,8 @@ import {
   NICKNAME,
   USER_GITHUB_ADDRESS,
 } from '@/shared/config'
-import { BreakpointProvider, extractImageType, OverlayViewer } from '@/shared/lib'
-import { LoadingProgressBar } from '@/shared/ui'
+import { BreakpointProvider, extractImageType, OverlayViewer, THEME_STORE_KEY } from '@/shared/lib'
+import { LoadingProgressBar, ThemeDropdownButton, ThemeProvider } from '@/shared/ui'
 import { Pretendard } from './font'
 
 import './globals.css'
@@ -53,7 +52,7 @@ export const metadata: Metadata = {
 
 const RootLayout: React.FC<React.PropsWithChildren> = async ({ children }) => {
   const cookieStore = await cookies()
-  const theme = cookieStore.get(THEME_KEY)
+  const theme = cookieStore.get(THEME_STORE_KEY)
 
   return (
     <html lang="ko" className={Pretendard.variable}>

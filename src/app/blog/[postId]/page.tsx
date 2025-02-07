@@ -14,11 +14,10 @@ import {
   ArticleContent,
   ArticleNavigator,
 } from '@/widgets/post-article'
-import { Giscus } from '@/features/change-theme'
 import { type PostId, getPostDetail } from '@/entities/post'
 import { THUMBNAIL_SIZE, BLOG_DESCRIPTION, BLOG_KEYWORDS, NICKNAME } from '@/shared/config'
 import { extractImageType } from '@/shared/lib'
-import { BackgroundGrid } from '@/shared/ui'
+import { BackgroundGrid, Comment } from '@/shared/ui'
 
 interface PostDetailPageParams {
   postId: PostId
@@ -84,7 +83,7 @@ const PostDetailPage: React.FC<PostDetailPageProps> = async ({ params }) => {
             series={post.series}
             related={post.related}
           />
-          <Giscus id={ARTICLE_COMMENT_ID} className="pt-24 md:pt-32" />
+          <Comment id={ARTICLE_COMMENT_ID} className="pt-24 md:pt-32" />
         </div>
         <ArticleSideBar>
           <ArticleSummary

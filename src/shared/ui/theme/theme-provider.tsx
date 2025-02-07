@@ -1,6 +1,6 @@
 'use client'
 
-import { useThemeProvider } from '../lib'
+import { useThemeProvider } from '../../lib'
 
 export interface ThemeProviderProps
   extends Omit<React.JSX.IntrinsicElements['body'], 'defaultValue'> {
@@ -12,10 +12,10 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   children,
   ...props
 }) => {
-  const { theme } = useThemeProvider(defaultValue)
+  const { systemTheme } = useThemeProvider(defaultValue)
 
   return (
-    <body {...props} data-theme={theme}>
+    <body {...props} data-theme={systemTheme}>
       {children}
     </body>
   )

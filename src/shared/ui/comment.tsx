@@ -1,19 +1,32 @@
 'use client'
 
 import { useEffect } from 'react'
-import { GISCUS_ADDRESS, GISCUS_CLASS_NAME, GITHUB } from '@/shared/config'
-import { cn, useTimeout } from '@/shared/lib'
-import { changeGiscusTheme, useTheme } from '../lib'
+import { GITHUB } from '../config'
+import { type Theme, useTheme, useTimeout, cn } from '../lib'
 
-export type GiscusProps = Omit<React.JSX.IntrinsicElements['div'], keyof React.PropsWithChildren>
+const GISCUS_ADDRESS = 'https://giscus.app'
+const GISCUS_CLASS_NAME = 'giscus'
+const GISCUS_FRAME_CLASS_NAME = `${GISCUS_CLASS_NAME}-frame`
 
-export const Giscus: React.FC<GiscusProps> = ({ className, ...props }) => {
+const changeGiscusTheme = (theme: Theme) => {
+  const selector = `.${GISCUS_FRAME_CLASS_NAME}`
+  const iframe = document.querySelector<HTMLIFrameElement>(selector)
+  const message = { giscus: { setConfig: { theme } } }
+
+  iframe?.contentWindow?.postMessage(message, GISCUS_ADDRESS)
+
+  return !!iframe && !iframe.classList.contains(`${GISCUS_FRAME_CLASS_NAME}--loading`)
+}
+
+export type CommentProps = Omit<React.JSX.IntrinsicElements['div'], keyof React.PropsWithChildren>
+
+export const Comment: React.FC<CommentProps> = ({ className, ...props }) => {
   const { start } = useTimeout()
-  const { realTheme } = useTheme()
+  const { theme } = useTheme()
 
   useEffect(() => {
     const id = `${GISCUS_CLASS_NAME}-client-loader`
-    const failed = !changeGiscusTheme(realTheme)
+    const failed = !changeGiscusTheme(theme)
 
     if (failed) {
       start(() => {
@@ -33,7 +46,7 @@ export const Giscus: React.FC<GiscusProps> = ({ className, ...props }) => {
         scriptEl.setAttribute('data-reactions-enabled', '1')
         scriptEl.setAttribute('data-emit-metadata', '1')
         scriptEl.setAttribute('data-input-position', 'top')
-        scriptEl.setAttribute('data-theme', realTheme)
+        scriptEl.setAttribute('data-theme', theme)
         scriptEl.setAttribute('data-lang', 'ko')
         scriptEl.setAttribute('data-loading', 'lazy')
 
@@ -45,7 +58,7 @@ export const Giscus: React.FC<GiscusProps> = ({ className, ...props }) => {
     return () => {
       document.getElementById(id)?.remove()
     }
-  }, [realTheme, start])
+  }, [theme, start])
 
   return <div className={cn(GISCUS_CLASS_NAME, className)} {...props} />
 }

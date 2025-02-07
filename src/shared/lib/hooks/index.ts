@@ -2,6 +2,9 @@ export type { OverlayElementState, CreateOverlayElement } from './use-overlay.mo
 export * from './use-overlay.view'
 export * from './use-overlay'
 
+export * from './use-theme.model'
+export * from './use-theme'
+
 export * from './use-breakpoint'
 export * from './use-timeout'
 export * from './use-debounce'

@@ -13,8 +13,7 @@ import {
   type LiteralSortParams,
   type PropsWithClassName,
 } from '@/shared/lib'
-import { Button, Icon } from '@/shared/ui'
-import { SortDropdown } from './sort-dropdown'
+import { Button, DropdownToDialog, Icon } from '@/shared/ui'
 import { SortLink } from './sort-link'
 
 export interface SortDropdownButtonProps<K extends string> extends PropsWithClassName {
@@ -61,7 +60,12 @@ export const SortDropdownButton = <K extends string>({
         <span className="mr-2 pl-1">{SORT_PARAMS_LABEL_MAP.get(sortParams) ?? '정렬 옵션'}</span>
         <Icon.ArrowBold direction={isDropdownAndOpen ? 'top' : 'bottom'} />
       </Button>
-      <SortDropdown breakpoint={!matchesLG} open={isOpen} onClose={onClose} className={className}>
+      <DropdownToDialog
+        breakpoint={!matchesLG}
+        open={isOpen}
+        onClose={onClose}
+        className={className}
+      >
         {[...SORT_PARAMS_LABEL_MAP].map(([params, label]) => (
           <SortLink
             key={params}
@@ -73,7 +77,7 @@ export const SortDropdownButton = <K extends string>({
             {`${label}${params === sortParams ? ' (선택됨)' : ''}`}
           </SortLink>
         ))}
-      </SortDropdown>
+      </DropdownToDialog>
     </div>
   )
 }

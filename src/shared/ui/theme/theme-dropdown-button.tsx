@@ -1,14 +1,21 @@
 'use client'
 
 import { useCallback, useRef } from 'react'
-import { cn, useBooleanState, useBreakpoint, useOutsideClick, useWindowEvent } from '@/shared/lib'
-import { Button, Icon } from '@/shared/ui'
-import { THEME_LABEL, THEME_LIST } from '../config'
-import { useTheme } from '../lib'
-import { ThemeDropdown } from './theme-dropdown'
+import {
+  THEME_LABEL,
+  THEME_LIST,
+  THEME,
+  cn,
+  useTheme,
+  useBooleanState,
+  useBreakpoint,
+  useOutsideClick,
+  useWindowEvent,
+} from '../../lib'
+import { Button, Icon, DropdownToDialog } from '../../ui'
 
 export const ThemeDropdownButton: React.FC = () => {
-  const { theme, realTheme, setTheme } = useTheme()
+  const { theme, systemTheme, setSystemTheme } = useTheme()
 
   const [isOpen, { setFalse: close, toggle }] = useBooleanState()
   const matchesLG = useBreakpoint('lg')
@@ -39,17 +46,22 @@ export const ThemeDropdownButton: React.FC = () => {
         <Icon.SunEmoji
           className={cn(
             'absolute inset-0 m-auto text-lg opacity-0 transition-opacity md:text-xl',
-            realTheme === 'light' && 'animate-pop-spin opacity-100',
+            theme === THEME.LIGHT && 'animate-pop-spin opacity-100',
           )}
         />
         <Icon.MoonEmoji
           className={cn(
             'absolute inset-0 m-auto text-lg opacity-0 transition-opacity md:text-xl',
-            realTheme === 'dark' && 'animate-pop-spin opacity-100',
+            theme === THEME.DARK && 'animate-pop-spin opacity-100',
           )}
         />
       </Button>
-      <ThemeDropdown open={isOpen} onClose={onClose} breakpoint={!matchesLG}>
+      <DropdownToDialog
+        open={isOpen}
+        onClose={onClose}
+        breakpoint={!matchesLG}
+        className="right-0 dark:bg-gray-800"
+      >
         {THEME_LIST.map((value) => (
           <Button
             key={value}
@@ -57,15 +69,15 @@ export const ThemeDropdownButton: React.FC = () => {
             title={`테마 변경: ${THEME_LABEL[value]}`}
             className="w-full md:h-9"
             onClick={() => {
-              setTheme(value)
+              setSystemTheme(value)
               onClose()
             }}
-            disabled={theme === value}
+            disabled={systemTheme === value}
           >
-            {`${THEME_LABEL[value]}${theme === value ? ' (선택됨)' : ''}`}
+            {`${THEME_LABEL[value]}${systemTheme === value ? ' (선택됨)' : ''}`}
           </Button>
         ))}
-      </ThemeDropdown>
+      </DropdownToDialog>
     </div>
   )
 }

@@ -13,9 +13,3 @@ export const GITHUB = {
 export const USER_GITHUB_ADDRESS = `https://github.com/${GITHUB.USER_ID}` as const
 
 export const GITHUB_ISSUE_ADDRESS = `${USER_GITHUB_ADDRESS}/${GITHUB.REPO.NAME}/issues` as const
-
-export const GISCUS_ADDRESS = 'https://giscus.app' as const
-
-export const GISCUS_CLASS_NAME = 'giscus' as const
-
-export const GISCUS_FRAME_CLASS_NAME = 'giscus-frame' as const
