@@ -62,7 +62,7 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
       <div className="sticky top-28 hidden h-fit w-72 flex-col space-y-4 pt-8 2xl:flex">
         {profile}
         <img
-          src="http://mazassumnida.wtf/api/v2/generate_badge?boj=chanlee1007"
+          src="https://mazassumnida.wtf/api/v2/generate_badge?boj=chanlee1007"
           alt={`${NICKNAME}'s Solved.ac State`}
           loading="lazy"
           style={{ aspectRatio: 2 }}

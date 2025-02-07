@@ -67,7 +67,8 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
           ref={inputRef}
           type="search"
           placeholder="검색어를 입력해주세요"
-          className="px-10 md:h-12 md:pl-12 md:pr-24"
+          className="px-10 md:pl-12 md:pr-24"
+          size="lg"
           value={query}
           onChange={(e) => setQuery(e.currentTarget.value)}
           onKeyDown={(e) => {

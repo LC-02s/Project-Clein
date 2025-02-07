@@ -7,12 +7,12 @@ import { type ButtonProps, Button, CopyButton, Dialog, Icon, TextInput } from '@
 const EmailDialog: React.FC<OverlayElementState> = ({ isOpen, close }) => (
   <Dialog open={isOpen} onClose={close} size="sm" cancelWithOutsideClick cancelWithEscape>
     <Dialog.Title>이메일 복사하기</Dialog.Title>
-    <div className="flex items-center justify-between px-px pt-2">
+    <div className="flex items-center justify-between space-x-2 px-px pt-2">
       <TextInput
-        name="email"
+        name="user-email"
         type="email"
         value={EMAIL_ADDRESS}
-        className="w-[calc(100%-3rem)] text-sm xs:text-base"
+        className="flex-1 text-sm xs:text-base"
         readOnly
         withoutBackground
       />
@@ -22,7 +22,7 @@ const EmailDialog: React.FC<OverlayElementState> = ({ isOpen, close }) => (
             {status ? (
               <Icon.CheckOutline className="text-green-600 dark:text-green-300" />
             ) : (
-              <Icon.CopyOutline className="text-xl text-gray-600 dark:text-gray-300" />
+              <Icon.CopyOutline className="text-lg text-gray-600 md:text-xl dark:text-gray-300" />
             )}
           </Button>
         )}

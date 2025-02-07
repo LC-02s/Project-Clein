@@ -14,10 +14,10 @@ export const textInputVariants = cva(
         none: '',
       },
       size: {
-        xs: 'h-8 px-2 py-1 text-sm',
-        sm: 'h-9 px-2 py-1 text-sm',
-        md: 'h-10 px-3 py-2 text-base',
-        lg: 'h-12 px-4 py-2 text-lg',
+        xs: 'h-7 px-2 py-1 text-sm md:h-8',
+        sm: 'h-8 px-2 py-1 text-sm md:h-9',
+        md: 'h-9 px-3 py-1 text-base md:h-10',
+        lg: 'h-10 px-4 py-2 text-base md:h-12',
         none: '',
       },
       withoutBackground: {

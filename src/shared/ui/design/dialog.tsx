@@ -15,7 +15,7 @@ import { Dimmed } from './dimmed'
 const Title: React.FC<React.JSX.IntrinsicElements['h2']> = ({ className, children, ...props }) => (
   <h2
     className={cn(
-      'mb-3 block w-full pt-1 font-bold leading-tight text-gray-800 md:text-lg dark:text-gray-50',
+      'mb-2 block w-full font-bold leading-tight text-gray-800 md:pt-1 md:text-lg dark:text-gray-50',
       className,
     )}
     {...props}
@@ -118,7 +118,7 @@ const DialogRoot: React.FC<DialogProps> = ({
             ref={containerRef}
             role="dialog"
             className={cn(
-              'absolute left-1/2 max-h-[calc(100dvh-2rem)] w-[calc(100vw-1rem)] translate-x-1/2 rounded-xl bg-white p-5 shadow-md dark:bg-gray-800',
+              'absolute left-1/2 max-h-[calc(100dvh-2rem)] w-[calc(100vw-1rem)] translate-x-1/2 rounded-xl bg-white p-4 shadow-md dark:bg-gray-800',
               position === 'center' ? 'top-1/2' : 'top-4',
               dialogVariants.size[size],
               className,

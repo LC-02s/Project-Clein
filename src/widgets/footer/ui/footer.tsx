@@ -19,7 +19,7 @@ export const Footer: React.FC = () => (
         <Image
           src="/images/profile.png"
           alt={`${NICKNAME_KR} 프로필 이미지`}
-          className="mx-auto size-20 overflow-hidden rounded-full border border-gray-300 dark:border-gray-600"
+          className="mx-auto size-20 overflow-hidden rounded-full border border-gray-200 bg-gray-100 dark:border-gray-600 dark:bg-gray-700"
           width={160}
           height={160}
         />
