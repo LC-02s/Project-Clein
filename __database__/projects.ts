@@ -3,6 +3,14 @@ import { MAIN_TITLE, GITHUB, USER_GITHUB_ADDRESS } from '@/shared/config'
 import { Repository } from '@/shared/lib'
 
 export const ProjectRepository = new Repository({
+  'portfolio-site': createProjectData({
+    name: MAIN_TITLE,
+    description: 'Next.js 기반 개인 포트폴리오 사이트',
+    period: '2024.12 ~ 운영 중',
+    thumbnail: { src: '/images/og-image-main.jpg', alt: MAIN_TITLE },
+    githubURL: `${USER_GITHUB_ADDRESS}/${GITHUB.REPO.NAME}`,
+    serviceURL: process.env.NEXT_PUBLIC_DOMAIN_ADDRESS!,
+  }),
   attraction: createProjectData({
     name: 'Attraction',
     description: 'Gmail 기반 뉴스레터 통합 관리 서비스',
@@ -22,14 +30,6 @@ export const ProjectRepository = new Repository({
     thumbnail: { src: '/images/thumbnail/pbl-notes-default.jpg', alt: 'PBL Notes' },
     githubURL: `${USER_GITHUB_ADDRESS}/PBL-Notes`,
     serviceURL: 'https://pbl-notes.netlify.app/',
-  }),
-  'portfolio-site': createProjectData({
-    name: MAIN_TITLE,
-    description: 'Next.js 기반 개인 포트폴리오 사이트',
-    period: '2024.12 ~ 운영 중',
-    thumbnail: { src: '/images/og-image-main.jpg', alt: MAIN_TITLE },
-    githubURL: `${USER_GITHUB_ADDRESS}/${GITHUB.REPO.NAME}`,
-    serviceURL: process.env.NEXT_PUBLIC_DOMAIN_ADDRESS!,
   }),
   'eung-cham-jal': createProjectData({
     name: '응원 참 잘하는 집',
