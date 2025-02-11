@@ -4,7 +4,7 @@ import { useIsomorphicLayoutEffect } from 'motion/react'
 import { useEffect, useState } from 'react'
 import { create } from 'zustand'
 import type { SystemTheme, Theme, ThemeState } from './use-theme.model'
-import { DEFAULT_REAL_THEME, DEFAULT_THEME, THEME, THEME_LIST } from './use-theme.model'
+import { DEFAULT_THEME, DEFAULT_SYSTEM_THEME, THEME, THEME_LIST } from './use-theme.model'
 import { matchDarkThemeMedia, themeInterceptor } from './use-theme.utils'
 
 interface ThemeStore extends ThemeState {
@@ -12,9 +12,9 @@ interface ThemeStore extends ThemeState {
 }
 
 const useThemeStore = create<ThemeStore>((set) => ({
-  systemTheme: DEFAULT_THEME,
+  systemTheme: DEFAULT_SYSTEM_THEME,
   setSystemTheme: (systemTheme) => set(themeInterceptor(systemTheme)),
-  theme: DEFAULT_REAL_THEME,
+  theme: DEFAULT_THEME,
   setTheme: (theme) => set({ theme }),
 }))
 
@@ -25,11 +25,11 @@ export const useTheme = (): ThemeState => ({
 })
 
 export const useThemeProvider = (
-  defaultValue: string = DEFAULT_THEME,
+  defaultValue: string = DEFAULT_SYSTEM_THEME,
 ): Pick<ThemeState, 'systemTheme'> => {
   const defaultTheme = THEME_LIST.includes(defaultValue as SystemTheme)
     ? (defaultValue as SystemTheme)
-    : DEFAULT_THEME
+    : DEFAULT_SYSTEM_THEME
 
   const [darkThemeMedia, setMedia] = useState<MediaQueryList | null>(null)
 

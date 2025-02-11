@@ -16,9 +16,9 @@ export const THEME_LABEL = {
   [THEME.DARK]: '어두운 테마',
 } as const
 
-export const DEFAULT_THEME: SystemTheme = THEME.AUTO
+export const DEFAULT_SYSTEM_THEME: SystemTheme = THEME.AUTO
 
-export const DEFAULT_REAL_THEME: Theme = THEME.LIGHT
+export const DEFAULT_THEME: Theme = THEME.LIGHT
 
 export const THEME_LIST = Object.values(THEME)
 
