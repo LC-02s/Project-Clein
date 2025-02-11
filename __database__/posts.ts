@@ -33,14 +33,14 @@ export const PostRepository = new Repository<PostId, PostData>({
     externalTags: ['Vite SSR', 'Vite SSG', 'Emotion SSR', 'Emotion SSG'],
   },
   '2024-12-18': {
-    title: '새로고침할 때 깜빡이지 않는 완성형 다크모드 구현하기',
+    title: '새로고침할 때 깜빡이지 않는 완성형 다크 모드 구현하기',
     description:
-      '여러 프로젝트에서 다크모드를 구현하며 고민했었던 각 상황에 맞는 완성형 다크모드 기능 구현 과정에 대한 글이에요',
-    thumbnail: { src: '/images/thumbnail/dark-mode.jpg', alt: '다크모드 사용하다 눈뽕 맞는 짤' },
+      '여러 프로젝트에서 다크 모드를 구현하며 고민했었던 각 상황에 맞는 완성형 다크 모드 기능 구현 과정에 대한 글이에요',
+    thumbnail: { src: '/images/thumbnail/dark-mode.jpg', alt: '다크 모드 사용하다 눈뽕 맞는 짤' },
     createdAt: '2024-12-18 16:52',
-    updatedAt: '2024-12-18 16:52',
+    updatedAt: '2025-01-12 11:24',
     keywords: ['next', 'react', 'ssr', 'fe'],
-    externalTags: ['리액트 다크모드', 'Next.js 다크모드', '다크모드'],
+    externalTags: ['리액트 다크 모드', 'Next.js 다크 모드', '다크 모드'],
   },
   '2024-12-20': {
     title: '레거시 리액트 프로젝트 FSD 아키텍처로 재구성하기',
