@@ -42,7 +42,10 @@ export const LoadingProgressBar: React.FC = () => {
   useEffect(off, [pathname, searchParams, off])
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-0 z-50" style={{ height: 3 }}>
+    <div
+      className="pointer-events-none fixed inset-x-0 top-0 z-50 overflow-hidden"
+      style={{ height: 3 }}
+    >
       <AnimatePresence>
         {isLoading && (
           <Deferred>
