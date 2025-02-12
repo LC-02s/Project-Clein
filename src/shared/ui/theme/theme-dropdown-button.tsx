@@ -11,10 +11,12 @@ import {
   useBreakpoint,
   useOutsideClick,
   useWindowEvent,
+  useCheckHydration,
 } from '../../lib'
 import { Button, Icon, DropdownToDialog } from '../../ui'
 
 export const ThemeDropdownButton: React.FC = () => {
+  const isHydrated = useCheckHydration()
   const { theme, systemTheme, setSystemTheme } = useTheme()
 
   const [isOpen, { setFalse: close, toggle }] = useBooleanState()
@@ -46,13 +48,13 @@ export const ThemeDropdownButton: React.FC = () => {
         <Icon.SunEmoji
           className={cn(
             'absolute inset-0 m-auto text-lg opacity-0 transition-opacity md:text-xl',
-            theme === THEME.LIGHT && 'animate-pop-spin opacity-100',
+            isHydrated && theme === THEME.LIGHT && 'animate-pop-spin opacity-100',
           )}
         />
         <Icon.MoonEmoji
           className={cn(
             'absolute inset-0 m-auto text-lg opacity-0 transition-opacity md:text-xl',
-            theme === THEME.DARK && 'animate-pop-spin opacity-100',
+            isHydrated && theme === THEME.DARK && 'animate-pop-spin opacity-100',
           )}
         />
       </Button>

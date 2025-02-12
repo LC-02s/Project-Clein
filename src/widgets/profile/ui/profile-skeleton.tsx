@@ -1,13 +1,10 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { type PropsWithClassName, cn } from '@/shared/lib'
+import { type PropsWithClassName, cn, useCheckHydration } from '@/shared/lib'
 import { Container } from '@/shared/ui'
 
 export const ProfileSkeleton: React.FC<PropsWithClassName> = ({ className }) => {
-  const [isHydrated, setHydrated] = useState(false)
-
-  useEffect(() => setHydrated(true), [])
+  const isHydrated = useCheckHydration()
 
   if (isHydrated) {
     return null
