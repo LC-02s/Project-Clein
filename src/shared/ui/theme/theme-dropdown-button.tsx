@@ -24,8 +24,8 @@ export const ThemeDropdownButton: React.FC = () => {
 
   const buttonRef = useRef<HTMLButtonElement>(null)
   const onClose = useCallback(() => {
-    buttonRef.current?.focus()
     close()
+    setTimeout(() => buttonRef.current?.focus(), 0)
   }, [close])
 
   const containerRef = useOutsideClick<HTMLDivElement>(() => {

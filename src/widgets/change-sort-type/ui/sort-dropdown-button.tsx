@@ -36,8 +36,8 @@ export const SortDropdownButton = <K extends string>({
 
   const buttonRef = useRef<HTMLButtonElement>(null)
   const onClose = useCallback(() => {
-    buttonRef.current?.focus()
     close()
+    setTimeout(() => buttonRef.current?.focus(), 0)
   }, [close])
 
   const containerRef = useOutsideClick<HTMLDivElement>(() => {
