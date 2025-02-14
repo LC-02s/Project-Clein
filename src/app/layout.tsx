@@ -17,15 +17,18 @@ import {
 } from '@/shared/config'
 import { BreakpointProvider, extractImageType, OverlayViewer, THEME_STORE_KEY } from '@/shared/lib'
 import { LoadingProgressBar, ThemeDropdownButton, ThemeProvider } from '@/shared/ui'
-import { Pretendard } from './font'
+import { Pretendard } from './assets/font'
 
-import './globals.css'
+import './assets/style/globals.css'
 
 const { thumbnail } = ProjectRepository.findById('portfolio-site')
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_DOMAIN_ADDRESS!),
-  title: MAIN_TITLE,
+  title: {
+    template: `%s - ${MAIN_TITLE}`,
+    default: MAIN_TITLE,
+  },
   description: MAIN_DESCRIPTION,
   keywords: [...BLOG_KEYWORDS, ...MAIN_KEYWORDS],
   applicationName: MAIN_TITLE,

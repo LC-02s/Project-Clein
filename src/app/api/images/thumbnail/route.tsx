@@ -9,7 +9,7 @@ const options: ConstructorParameters<typeof ImageResponse>[1] = {
   emoji: 'twemoji',
   fonts: [
     {
-      data: await readFile(resolve('src/app/font/pretendard-bold.otf')),
+      data: await readFile(resolve('src/app/assets/font/pretendard-bold.otf')),
       name: 'Pretendard',
       weight: 700,
       style: 'normal',
