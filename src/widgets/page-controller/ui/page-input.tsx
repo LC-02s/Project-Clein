@@ -26,10 +26,13 @@ export const PageInput: React.FC<PageInputProps> = ({ value, max, baseURL, class
   const [page, setPage] = useState(value)
   const onSubmit = useCallback(() => {
     if (DEFAULT_PAGE <= page && page <= max) {
-      on()
+      if (page !== value) {
+        on()
+      }
+
       push(createSearchParamsToURL<PaginationParamsKey>(baseURL)([PAGINATION_PARAMS.PAGE, page]))
     }
-  }, [page, max, baseURL, push, on])
+  }, [page, value, max, baseURL, push, on])
 
   useEffect(() => setPage(value), [value])
 
