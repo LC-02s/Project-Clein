@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-
 import type { MDXRemoteProps } from 'next-mdx-remote/rsc'
 import { cn } from '@/shared/lib'
 import { badgeVariants, containerVariants } from '@/shared/ui'
@@ -124,20 +123,35 @@ export const components: MDXRemoteProps['components'] = {
     </li>
   ),
   table: (props) => (
-    <table {...props} className="w-full table-auto border-collapse">
+    <div className="overflow-x-auto rounded-md border border-gray-200 dark:border-gray-700">
+      <table {...props} className="w-full min-w-[48rem] table-auto">
+        {props.children}
+      </table>
+    </div>
+  ),
+  thead: (props) => (
+    <thead {...props} className="border-b border-gray-200 dark:border-gray-700">
       {props.children}
-    </table>
+    </thead>
+  ),
+  tr: (props) => (
+    <tr {...props} className="peer border-gray-200 peer-[]:border-t dark:border-gray-700">
+      {props.children}
+    </tr>
   ),
   th: (props) => (
     <th
       {...props}
-      className="break-keep border border-gray-200 bg-gray-50 p-2 font-bold dark:border-gray-700 dark:bg-gray-800"
+      className="peer break-keep border-gray-200 bg-gray-50 p-2 font-bold peer-[]:border-l dark:border-gray-700 dark:bg-gray-800"
     >
       {props.children}
     </th>
   ),
   td: (props) => (
-    <td {...props} className="break-keep border border-gray-200 p-2 dark:border-gray-700">
+    <td
+      {...props}
+      className="peer break-keep border-gray-200 p-2 peer-[]:border-l dark:border-gray-700"
+    >
       {props.children}
     </td>
   ),
