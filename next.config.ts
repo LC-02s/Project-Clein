@@ -5,6 +5,14 @@ const nextConfig: NextConfig = {
   experimental: {
     reactCompiler: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+      },
+    ],
+  },
 }
 
 export default nextConfig

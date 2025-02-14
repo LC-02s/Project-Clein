@@ -2,7 +2,7 @@
 
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { cn } from '@/shared/lib'
-import { options } from '../config'
+import { IMAGE_COMPONENT_NAME, options } from '../config'
 import { components } from './mdx-components'
 
 export interface ContentParserProps
@@ -16,9 +16,13 @@ export const ContentBody: React.FC<ContentParserProps> = async ({
   ...props
 }) => (
   <div
-    className={cn('py-12 text-base text-gray-800 md:text-lg dark:text-gray-200', className)}
+    className={cn('py-12 text-base text-gray-700 md:text-lg dark:text-gray-200', className)}
     {...props}
   >
-    <MDXRemote source={content} components={components} options={options} />
+    <MDXRemote
+      components={components}
+      options={options}
+      source={content.replaceAll('<img ', `<${IMAGE_COMPONENT_NAME} `)}
+    />
   </div>
 )

@@ -1,8 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 import type { MDXRemoteProps } from 'next-mdx-remote/rsc'
 import { cn } from '@/shared/lib'
-import { badgeVariants, containerVariants } from '@/shared/ui'
+import { badgeVariants } from '@/shared/ui'
+import { IMAGE_COMPONENT_NAME } from '../config'
 import { CodeBlock } from './code-block'
+import { ContentImage } from './content-image'
 import { LinkText } from './link-text'
 
 export const components: MDXRemoteProps['components'] = {
@@ -155,14 +156,5 @@ export const components: MDXRemoteProps['components'] = {
       {props.children}
     </td>
   ),
-  img: (props) => (
-    <span
-      className={cn(
-        containerVariants({ variant: 'image', layer: 'middle' }),
-        'flex items-center justify-center',
-      )}
-    >
-      <img {...props} alt={props.alt} src={props.src} className="object-cover" loading="lazy" />
-    </span>
-  ),
+  [IMAGE_COMPONENT_NAME]: ContentImage,
 }
