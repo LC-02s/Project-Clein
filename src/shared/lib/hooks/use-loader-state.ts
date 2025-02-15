@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 
 export interface LoaderSwitchState {
-  on: (withLoad?: () => void) => void
+  on: () => void
   off: () => void
 }
 
@@ -11,16 +11,7 @@ export interface LoaderStore extends LoaderSwitchState {
 
 export const useLoaderState = create<LoaderStore>((set) => ({
   isLoading: false,
-  on: (withLoad) =>
-    set((prev) => {
-      if (prev.isLoading) {
-        withLoad?.()
-
-        return prev
-      }
-
-      return { isLoading: true }
-    }),
+  on: () => set({ isLoading: true }),
   off: () => set({ isLoading: false }),
 }))
 

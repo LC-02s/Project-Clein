@@ -10,11 +10,13 @@ export const LinkWithLoader: typeof Link = (({ href, onClick, children, ...props
     <Link
       href={href}
       onClick={(e) => {
-        if (href === `${window.location.pathname}${window.location.search}`) {
-          return e.preventDefault()
+        if (
+          typeof href === 'string' &&
+          href !== `${window.location.pathname}${window.location.search}`
+        ) {
+          on()
         }
 
-        on(() => e.preventDefault())
         onClick?.(e)
       }}
       {...props}
