@@ -59,6 +59,7 @@ export const PostRepository = new Repository<PostId, PostData>({
     createdAt: '2024-12-31 21:46',
     updatedAt: '2025-01-12 00:10',
     keywords: ['review'],
+    isWriting: true,
   },
   '2025-01-15': {
     title: '어트랙션 서비스 운영 실패 회고',

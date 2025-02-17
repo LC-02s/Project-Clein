@@ -22,6 +22,7 @@ export interface PostData extends SortedFromDate {
   thumbnail: ImageData
   keywords: Keyword[]
   externalTags?: string[]
+  isWriting?: boolean
 }
 
 export interface PostItem extends Omit<PostData, 'keywords' | 'externalTags'> {

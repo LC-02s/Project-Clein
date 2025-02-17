@@ -46,6 +46,7 @@ export const GET = async (request: NextRequest) => {
         createdAt: post.createdAt,
         updatedAt: post.updatedAt,
         readingTime: computeReadingTime(content),
+        isWriting: post.isWriting,
       } as PostItem
     })
 

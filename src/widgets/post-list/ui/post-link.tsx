@@ -22,6 +22,7 @@ export const PostLink: React.FC<PostItemProps> = ({
   description,
   thumbnail,
   readingTime,
+  isWriting,
   date,
 }) => (
   <LinkWithLoader
@@ -63,6 +64,11 @@ export const PostLink: React.FC<PostItemProps> = ({
           <Icon.ClockCircleOutline className="mr-1.5" />
           <ReadingTimeText value={readingTime} />
         </Badge>
+        {(readingTime < 1 || isWriting) && (
+          <span className="relative pl-6 text-xs font-bold text-yellow-500 before:absolute before:inset-y-0 before:left-2.5 before:my-auto before:size-1.5 before:rounded-full before:bg-yellow-500 md:text-sm dark:text-yellow-400 dark:before:bg-yellow-400">
+            작성 중
+          </span>
+        )}
       </p>
     </div>
   </LinkWithLoader>

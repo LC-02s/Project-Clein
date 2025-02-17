@@ -36,6 +36,7 @@ export const PostList: React.FC<PostListProps> = ({
             description={props.description}
             thumbnail={props.thumbnail}
             readingTime={props.readingTime}
+            isWriting={props.isWriting}
             date={formatDateFromNow(props[sortedFrom])}
           />
         </li>
