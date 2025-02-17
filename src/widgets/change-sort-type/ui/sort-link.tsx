@@ -23,6 +23,7 @@ export const SortLink: React.FC<SortLinkProps> = ({ href, title, disabled, onCli
       title={title}
       className={cn(buttonVariants({ variant: 'subtle' }), 'md:h-9')}
       onClick={onClick}
+      scroll={false}
     >
       {children}
     </LinkWithLoader>
