@@ -1,6 +1,8 @@
 'use client'
 
 import { AnimatePresence, motion, type Target } from 'motion/react'
+import { usePathname, useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 import {
   type PropsWithClassName,
   cn,
@@ -100,6 +102,11 @@ const DialogRoot: React.FC<DialogProps> = ({
   const containerRef = useOutsideClick<HTMLDivElement>(() => {
     if (isOpen && cancelWithOutsideClick) onClose?.()
   })
+
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  useEffect(() => onClose?.(), [pathname, searchParams, onClose])
 
   useFocusLoop({ ref: containerRef, deps: [isOpen] })
 
