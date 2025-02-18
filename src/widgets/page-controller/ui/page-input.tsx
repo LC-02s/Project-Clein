@@ -1,6 +1,5 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useState } from 'react'
 import {
   type PaginationParamsKey,
@@ -9,7 +8,7 @@ import {
   cn,
   DEFAULT_PAGE,
   PAGINATION_PARAMS,
-  useLoaderSwitch,
+  useRouter,
 } from '@/shared/lib'
 import { TextInput } from '@/shared/ui'
 
@@ -21,18 +20,13 @@ export interface PageInputProps extends PropsWithClassName {
 
 export const PageInput: React.FC<PageInputProps> = ({ value, max, baseURL, className }) => {
   const { push } = useRouter()
-  const { on } = useLoaderSwitch()
 
   const [page, setPage] = useState(value)
   const onSubmit = useCallback(() => {
     if (DEFAULT_PAGE <= page && page <= max) {
-      if (page !== value) {
-        on()
-      }
-
       push(createSearchParamsToURL<PaginationParamsKey>(baseURL)([PAGINATION_PARAMS.PAGE, page]))
     }
-  }, [page, value, max, baseURL, push, on])
+  }, [page, max, baseURL, push])
 
   useEffect(() => setPage(value), [value])
 
