@@ -13,5 +13,3 @@ export const options: MDXRemoteProps['options'] = {
     ],
   },
 }
-
-export const IMAGE_COMPONENT_NAME = 'Image'

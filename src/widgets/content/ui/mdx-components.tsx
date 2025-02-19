@@ -1,10 +1,50 @@
 import type { MDXRemoteProps } from 'next-mdx-remote/rsc'
 import { cn } from '@/shared/lib'
 import { badgeVariants } from '@/shared/ui'
-import { IMAGE_COMPONENT_NAME } from '../config'
+import { getHTMLParseInterface } from '../lib'
 import { CodeBlock } from './code-block'
 import { ContentImage } from './content-image'
 import { LinkText } from './link-text'
+
+export const htmlComponents = [
+  getHTMLParseInterface('table')((props) => (
+    <div className="overflow-x-auto rounded-md border border-gray-200 dark:border-gray-700">
+      <table {...props} className="w-full min-w-[48rem] table-auto">
+        {props.children}
+      </table>
+    </div>
+  )),
+  getHTMLParseInterface('thead')((props) => (
+    <thead {...props} className="border-b border-gray-200 dark:border-gray-700">
+      {props.children}
+    </thead>
+  )),
+  getHTMLParseInterface('tr')((props) => (
+    <tr {...props} className="peer border-gray-200 peer-[]:border-t dark:border-gray-700">
+      {props.children}
+    </tr>
+  )),
+  getHTMLParseInterface('th')((props) => (
+    <th
+      {...props}
+      className="peer break-keep border-gray-200 bg-gray-50 p-2 text-left font-bold peer-[]:border-l dark:border-gray-700 dark:bg-gray-800"
+    >
+      {props.children}
+    </th>
+  )),
+  getHTMLParseInterface('td')((props) => (
+    <td
+      {...props}
+      className="peer break-keep border-gray-200 p-2 peer-[]:border-l dark:border-gray-700"
+    >
+      {props.children}
+    </td>
+  )),
+  getHTMLParseInterface('a')(({ href, children }) => (
+    <LinkText href={href || '/'}>{children}</LinkText>
+  )),
+  getHTMLParseInterface('img')(ContentImage),
+]
 
 export const components: MDXRemoteProps['components'] = {
   h1: (props) => (
@@ -48,7 +88,6 @@ export const components: MDXRemoteProps['components'] = {
       {props.children}
     </p>
   ),
-  a: ({ href, children }) => <LinkText href={href || '/'}>{children}</LinkText>,
   pre: (props) => (
     <CodeBlock
       {...props}
@@ -123,38 +162,11 @@ export const components: MDXRemoteProps['components'] = {
       {props.children}
     </li>
   ),
-  table: (props) => (
-    <div className="overflow-x-auto rounded-md border border-gray-200 dark:border-gray-700">
-      <table {...props} className="w-full min-w-[48rem] table-auto">
-        {props.children}
-      </table>
-    </div>
-  ),
-  thead: (props) => (
-    <thead {...props} className="border-b border-gray-200 dark:border-gray-700">
-      {props.children}
-    </thead>
-  ),
-  tr: (props) => (
-    <tr {...props} className="peer border-gray-200 peer-[]:border-t dark:border-gray-700">
-      {props.children}
-    </tr>
-  ),
-  th: (props) => (
-    <th
-      {...props}
-      className="peer break-keep border-gray-200 bg-gray-50 p-2 font-bold peer-[]:border-l dark:border-gray-700 dark:bg-gray-800"
-    >
-      {props.children}
-    </th>
-  ),
-  td: (props) => (
-    <td
-      {...props}
-      className="peer break-keep border-gray-200 p-2 peer-[]:border-l dark:border-gray-700"
-    >
-      {props.children}
-    </td>
-  ),
-  [IMAGE_COMPONENT_NAME]: ContentImage,
+  ...htmlComponents.reduce((map, { tagName, displayName, component }) => {
+    return {
+      ...map,
+      [tagName]: component,
+      [displayName]: component,
+    }
+  }, {}),
 }

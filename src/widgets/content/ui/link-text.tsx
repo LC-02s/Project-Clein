@@ -8,11 +8,9 @@ export interface LinkTextProps extends React.PropsWithChildren<PropsWithClassNam
 }
 
 export const LinkText: React.FC<LinkTextProps> = ({ href, className, children }) => {
-  const isExternal = href.startsWith('http')
-  const isHash = href.startsWith('#')
   const classNames = cn('font-medium text-blue-700 hover:underline dark:text-blue-300', className)
 
-  if (isExternal) {
+  if (href.startsWith('http')) {
     return (
       <ExternalLink
         href={href}
@@ -24,11 +22,13 @@ export const LinkText: React.FC<LinkTextProps> = ({ href, className, children })
     )
   }
 
-  if (isHash) {
+  const title = typeof children === 'string' ? `: ${children}` : ''
+
+  if (href.startsWith('#')) {
     return (
       <a
         href={href}
-        title={`영역 이동${typeof children === 'string' ? `: ${children}` : ''}`}
+        title={`영역 이동${title}`}
         className={classNames}
         onClick={createScrollToSection(href)}
       >
@@ -38,11 +38,7 @@ export const LinkText: React.FC<LinkTextProps> = ({ href, className, children })
   }
 
   return (
-    <LinkWithLoader
-      href={href}
-      title={`페이지 이동${typeof children === 'string' ? `: ${children}` : ''}`}
-      className={classNames}
-    >
+    <LinkWithLoader href={href} title={`페이지 이동${title}`} className={classNames}>
       {children}
     </LinkWithLoader>
   )

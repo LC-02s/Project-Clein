@@ -2,8 +2,9 @@
 
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { cn } from '@/shared/lib'
-import { IMAGE_COMPONENT_NAME, options } from '../config'
-import { components } from './mdx-components'
+import { options } from '../config'
+import { parseHTMLContent } from '../lib'
+import { components, htmlComponents } from './mdx-components'
 
 export interface ContentParserProps
   extends Omit<React.JSX.IntrinsicElements['div'], keyof React.PropsWithChildren> {
@@ -22,7 +23,7 @@ export const ContentBody: React.FC<ContentParserProps> = async ({
     <MDXRemote
       components={components}
       options={options}
-      source={content.replaceAll('<img ', `<${IMAGE_COMPONENT_NAME} `)}
+      source={parseHTMLContent(content, htmlComponents)}
     />
   </div>
 )
