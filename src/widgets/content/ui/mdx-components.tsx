@@ -8,7 +8,7 @@ import { LinkText } from './link-text'
 
 export const htmlComponents = [
   getHTMLParseInterface('table')((props) => (
-    <div className="overflow-x-auto rounded-md border border-gray-200 dark:border-gray-700">
+    <div className="overflow-x-auto rounded-md border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
       <table {...props} className="w-full min-w-[48rem] table-auto">
         {props.children}
       </table>
@@ -27,7 +27,7 @@ export const htmlComponents = [
   getHTMLParseInterface('th')((props) => (
     <th
       {...props}
-      className="peer break-keep border-gray-200 bg-gray-50 p-2 text-left font-bold peer-[]:border-l dark:border-gray-700 dark:bg-gray-800"
+      className="peer break-keep border-gray-200 bg-gray-50 px-3 py-2 font-bold peer-[]:border-l dark:border-gray-700 dark:bg-gray-800"
     >
       {props.children}
     </th>
@@ -35,7 +35,7 @@ export const htmlComponents = [
   getHTMLParseInterface('td')((props) => (
     <td
       {...props}
-      className="peer break-keep border-gray-200 p-2 peer-[]:border-l dark:border-gray-700"
+      className="peer break-keep border-gray-200 px-3 py-2 peer-[]:border-l dark:border-gray-700"
     >
       {props.children}
     </td>
@@ -103,7 +103,7 @@ export const components: MDXRemoteProps['components'] = {
         !props['data-theme']
           ? cn(
               badgeVariants({ round: 'xs' }),
-              'm-0.5 mr-1 inline-flex whitespace-nowrap bg-gray-50 px-1 py-0.5 text-sm font-medium text-gray-700 group-[]:bg-white md:text-base dark:bg-gray-800 dark:text-gray-50 group-[]:dark:bg-gray-700',
+              'm-0.5 inline-flex whitespace-nowrap bg-gray-50 px-1 py-0.5 text-sm font-medium text-gray-700 group-[]:bg-white md:text-base dark:bg-gray-800 dark:text-gray-50 group-[]:dark:bg-gray-700',
             )
           : undefined
       }
