@@ -3,17 +3,19 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { cn } from '@/shared/lib'
 import { options } from '../config'
-import { parseHTMLContent } from '../lib'
+import { type ContentMapper, parseHTMLContent } from '../lib'
 import { EmptyContent } from './empty-content'
 import { components, htmlComponents } from './mdx-components'
 
 export interface ContentParserProps
   extends Omit<React.JSX.IntrinsicElements['div'], keyof React.PropsWithChildren> {
   content: string
+  mapper?: ContentMapper
 }
 
 export const ContentBody: React.FC<ContentParserProps> = async ({
   content,
+  mapper,
   className,
   ...props
 }) => {
@@ -29,7 +31,7 @@ export const ContentBody: React.FC<ContentParserProps> = async ({
       <MDXRemote
         components={components}
         options={options}
-        source={parseHTMLContent(content, htmlComponents)}
+        source={parseHTMLContent(content, htmlComponents, mapper)}
       />
     </div>
   )
