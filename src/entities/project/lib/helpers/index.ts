@@ -7,4 +7,5 @@ export const createProjectData = (data: Omit<ProjectData, 'type'>): ProjectData 
     type: data.githubURL.startsWith(USER_GITHUB_ADDRESS)
       ? PROJECT_TYPE.PERSONAL
       : PROJECT_TYPE.TEAM,
+    iconURL: `${data.githubURL}${data.iconURL}`,
   })

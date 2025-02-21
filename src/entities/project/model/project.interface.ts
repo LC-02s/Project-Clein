@@ -14,6 +14,7 @@ export interface ProjectData {
   period: string
   githubURL: string
   serviceURL: string
+  iconURL: string
   isDropped?: boolean
 }
 
