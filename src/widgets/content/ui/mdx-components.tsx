@@ -9,7 +9,7 @@ import { LinkText } from './link-text'
 export const htmlComponents = [
   getHTMLParseInterface('table')((props) => (
     <div className="overflow-x-auto rounded-md border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
-      <table {...props} className="w-full min-w-[48rem] table-auto">
+      <table {...props} className="w-full min-w-96 table-auto">
         {props.children}
       </table>
     </div>
