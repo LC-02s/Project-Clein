@@ -27,7 +27,7 @@ export const htmlComponents = [
   getHTMLParseInterface('th')((props) => (
     <th
       {...props}
-      className="peer break-keep border-gray-200 bg-gray-50 px-3 py-2 font-bold peer-[]:border-l dark:border-gray-700 dark:bg-gray-800"
+      className="peer break-keep border-gray-200 bg-gray-50 px-3 py-2 text-sm font-medium peer-[]:border-l md:text-base dark:border-gray-700 dark:bg-gray-800"
     >
       {props.children}
     </th>
