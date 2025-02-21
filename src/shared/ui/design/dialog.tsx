@@ -1,8 +1,6 @@
 'use client'
 
 import { AnimatePresence, motion, type Target } from 'motion/react'
-import { usePathname, useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
 import {
   type PropsWithClassName,
   cn,
@@ -103,17 +101,14 @@ const DialogRoot: React.FC<DialogProps> = ({
     if (isOpen && cancelWithOutsideClick) onClose?.()
   })
 
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-
-  useEffect(() => onClose?.(), [pathname, searchParams, onClose])
-
   useFocusLoop({ ref: containerRef, deps: [isOpen] })
 
   useWindowEvent('keydown', (e) => {
     if (!isOpen || !cancelWithEscape) return
     if (e.key === 'Escape') onClose?.()
   })
+
+  useWindowEvent('popstate', () => onClose?.())
 
   useLockBodyScroll(isOpen)
 

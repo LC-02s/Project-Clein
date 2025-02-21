@@ -16,6 +16,8 @@ export const KeywordsDrawer: React.FC<React.PropsWithChildren> = ({ children }) 
     if (e.key === 'Escape') closeWithEffect()
   })
 
+  useWindowEvent('popstate', () => closeWithEffect?.())
+
   useLockBodyScroll(isOpen)
 
   useFocusLoop({ ref: containerRef, deps: [isOpen] })
