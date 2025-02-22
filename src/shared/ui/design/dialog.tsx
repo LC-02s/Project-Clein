@@ -108,7 +108,9 @@ const DialogRoot: React.FC<DialogProps> = ({
     if (e.key === 'Escape') onClose?.()
   })
 
-  useWindowEvent('popstate', () => onClose?.())
+  useWindowEvent('popstate', () => {
+    if (isOpen) onClose?.()
+  })
 
   useLockBodyScroll(isOpen)
 

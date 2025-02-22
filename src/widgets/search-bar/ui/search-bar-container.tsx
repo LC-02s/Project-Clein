@@ -18,7 +18,9 @@ export const SearchBarContainer: React.FC<SearchBarContainerProps> = ({
     if (isOpen && e.key === 'Escape') onClose?.()
   })
 
-  useWindowEvent('popstate', () => onClose?.())
+  useWindowEvent('popstate', () => {
+    if (isOpen) onClose?.()
+  })
 
   useLockBodyScroll(isOpen)
 
