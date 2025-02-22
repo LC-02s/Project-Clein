@@ -45,7 +45,7 @@ export const ProjectRepository = new Repository({
   }),
   'synergy-meet-2024': createProjectData({
     name: 'Synergy Meet 2024',
-    description: '취준생 대상 밋업 랜딩 페이지 템플릿 (인터랙티브 웹)',
+    description: '취준생 대상 밋업 랜딩 페이지 인터랙티브 웹 템플릿',
     period: '2024.09 ~ 2024.11',
     thumbnail: { src: '/images/thumbnail/synergy-meet-default.jpg', alt: 'Synergy Meet 2024' },
     githubURL: `${USER_GITHUB_ADDRESS}/Synergy-Meet-2024`,

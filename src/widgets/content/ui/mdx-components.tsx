@@ -26,81 +26,115 @@ export const htmlComponents = [
   )),
   getHTMLParseInterface('th')((props) => (
     <th
-      {...props}
-      className="peer break-keep border-gray-200 bg-gray-50 px-3 py-2 text-sm font-medium peer-[]:border-l md:text-base dark:border-gray-700 dark:bg-gray-800"
+      className="break-keep border-r border-gray-200 bg-gray-50 px-3 py-2 text-sm font-medium last:border-none md:text-base dark:border-gray-700 dark:bg-gray-800"
+      rowSpan={Number((props as Record<string, string>).rowspan) || props.rowSpan}
+      colSpan={Number((props as Record<string, string>).colspan) || props.colSpan}
+      style={props.style}
     >
       {props.children}
     </th>
   )),
   getHTMLParseInterface('td')((props) => (
     <td
-      {...props}
-      className="peer break-keep border-gray-200 px-3 py-2 peer-[]:border-l dark:border-gray-700"
+      className="break-keep border-r border-gray-200 px-3 py-2 last:border-none dark:border-gray-700"
+      rowSpan={Number((props as Record<string, string>).rowspan) || props.rowSpan}
+      colSpan={Number((props as Record<string, string>).colspan) || props.colSpan}
+      style={props.style}
     >
       {props.children}
     </td>
   )),
-  getHTMLParseInterface('a')(({ href, children }) => (
-    <LinkText href={href || '/'}>{children}</LinkText>
+  getHTMLParseInterface('ul')((props) => (
+    <ul
+      {...props}
+      className="list-none space-y-2 py-2 *:before:absolute *:before:left-1.5 *:before:top-3 *:before:size-1.5 *:before:rounded-full *:before:bg-gray-500 *:before:dark:bg-gray-400"
+      style={{ counterReset: 'list' }}
+    >
+      {props.children}
+    </ul>
   )),
-  getHTMLParseInterface('img')(ContentImage),
-]
-
-export const components: MDXRemoteProps['components'] = {
-  h1: (props) => (
+  getHTMLParseInterface('ol')((props) => (
+    <ol
+      {...props}
+      className="list-none space-y-2 py-2 *:before:absolute *:before:left-0 *:before:top-0 *:before:text-gray-500 *:before:content-[counter(list)'.'] *:before:dark:text-gray-400"
+      style={{ counterReset: 'list' }}
+    >
+      {props.children}
+    </ol>
+  )),
+  getHTMLParseInterface('li')((props) => (
+    <li {...props} className="relative break-keep pl-7" style={{ counterIncrement: 'list' }}>
+      {props.children}
+    </li>
+  )),
+  getHTMLParseInterface('h1')((props) => (
     <h2
       {...props}
       className="mb-6 break-keep border-b border-gray-200 pb-4 pt-8 text-xl font-bold md:mb-8 md:pb-5 md:pt-12 md:text-3xl dark:border-gray-600"
     >
       {props.children}
     </h2>
-  ),
-  h2: (props) => (
+  )),
+  getHTMLParseInterface('h2')((props) => (
     <h3
       {...props}
       className="mb-6 break-keep border-b border-gray-200 pb-4 pt-8 text-xl font-bold md:mb-8 md:pb-5 md:pt-12 md:text-3xl dark:border-gray-600"
     >
       {props.children}
     </h3>
-  ),
-  h3: (props) => (
+  )),
+  getHTMLParseInterface('h3')((props) => (
     <h4 {...props} className="mb-6 break-keep pt-8 text-lg font-bold md:mb-8 md:pt-12 md:text-2xl">
       {props.children}
     </h4>
-  ),
-  h4: (props) => (
+  )),
+  getHTMLParseInterface('h4')((props) => (
     <h5 {...props} className="mb-6 break-keep pt-8 font-bold md:mb-8 md:pt-12 md:text-xl">
       {props.children}
     </h5>
-  ),
-  h5: (props) => (
+  )),
+  getHTMLParseInterface('h5')((props) => (
     <h6 {...props} className="mb-6 break-keep pt-8 font-bold md:mb-8 md:pt-12 md:text-xl">
       {props.children}
     </h6>
-  ),
-  h6: (props) => (
+  )),
+  getHTMLParseInterface('h6')((props) => (
     <p {...props} className="mb-6 break-keep pt-8 font-bold md:mb-8 md:pt-12 md:text-xl">
       {props.children}
     </p>
-  ),
-  p: (props) => (
+  )),
+  getHTMLParseInterface('img')(ContentImage),
+  getHTMLParseInterface('p')((props) => (
     <p {...props} className="break-keep leading-loose">
       {props.children}
     </p>
-  ),
-  pre: (props) => (
-    <CodeBlock
+  )),
+  getHTMLParseInterface('a')(({ href, children }) => (
+    <LinkText href={href || '/'}>{children}</LinkText>
+  )),
+  getHTMLParseInterface('strong')((props) => (
+    <strong {...props} className="break-keep font-bold">
+      {props.children}
+    </strong>
+  )),
+  getHTMLParseInterface('del')((props) => (
+    <del {...props} className="break-keep line-through">
+      {props.children}
+    </del>
+  )),
+  getHTMLParseInterface('blockquote')((props) => (
+    <blockquote
       {...props}
-      className="bg-[var(--shiki-light-bg)] text-[var(--shiki-light)] dark:bg-[var(--shiki-dark-bg)] dark:text-[var(--shiki-dark)]"
+      className="group space-y-2 overflow-hidden break-keep rounded-lg border-l-4 border-gray-200 bg-gray-50 p-5 pl-6 dark:border-gray-600 dark:bg-gray-800"
     >
       {props.children}
-    </CodeBlock>
-  ),
-  code: (props) => (
+    </blockquote>
+  )),
+  getHTMLParseInterface('code')((props) => (
     <code
       {...props}
       className={
-        !props['data-theme']
+        !(props as Record<string, unknown>)['data-theme']
           ? cn(
               badgeVariants({ round: 'xs' }),
               'm-0.5 inline-flex whitespace-nowrap bg-gray-50 px-1 py-0.5 text-sm font-medium text-gray-700 group-[]:bg-white md:text-base dark:bg-gray-800 dark:text-gray-50 group-[]:dark:bg-gray-700',
@@ -110,8 +144,16 @@ export const components: MDXRemoteProps['components'] = {
     >
       {props.children}
     </code>
-  ),
-  span: (props) => (
+  )),
+  getHTMLParseInterface('pre')((props) => (
+    <CodeBlock
+      {...props}
+      className="bg-[var(--shiki-light-bg)] text-[var(--shiki-light)] dark:bg-[var(--shiki-dark-bg)] dark:text-[var(--shiki-dark)]"
+    >
+      {props.children}
+    </CodeBlock>
+  )),
+  getHTMLParseInterface('span')((props) => (
     <span
       {...props}
       className={
@@ -120,53 +162,14 @@ export const components: MDXRemoteProps['components'] = {
     >
       {props.children}
     </span>
-  ),
-  strong: (props) => (
-    <strong {...props} className="break-keep font-bold">
-      {props.children}
-    </strong>
-  ),
-  del: (props) => (
-    <del {...props} className="break-keep line-through">
-      {props.children}
-    </del>
-  ),
-  blockquote: (props) => (
-    <blockquote
-      {...props}
-      className="group space-y-2 overflow-hidden break-keep rounded-lg border-l-4 border-gray-200 bg-gray-50 p-5 pl-6 dark:border-gray-600 dark:bg-gray-800"
-    >
-      {props.children}
-    </blockquote>
-  ),
-  ul: (props) => (
-    <ul
-      {...props}
-      className="list-none space-y-2 py-2 *:before:absolute *:before:left-1.5 *:before:top-3 *:before:size-1.5 *:before:rounded-full *:before:bg-gray-500 *:before:dark:bg-gray-400"
-      style={{ counterReset: 'list' }}
-    >
-      {props.children}
-    </ul>
-  ),
-  ol: (props) => (
-    <ol
-      {...props}
-      className="list-none space-y-2 py-2 *:before:absolute *:before:left-0 *:before:top-0 *:before:text-gray-500 *:before:content-[counter(list)'.'] *:before:dark:text-gray-400"
-      style={{ counterReset: 'list' }}
-    >
-      {props.children}
-    </ol>
-  ),
-  li: (props) => (
-    <li {...props} className="relative break-keep pl-7" style={{ counterIncrement: 'list' }}>
-      {props.children}
-    </li>
-  ),
+  )),
+]
+
+export const components: MDXRemoteProps['components'] = {
   ...htmlComponents.reduce((map, { tagName, displayName, component }) => {
-    return {
-      ...map,
+    return Object.assign(map, {
       [tagName]: component,
       [displayName]: component,
-    }
+    })
   }, {}),
 }

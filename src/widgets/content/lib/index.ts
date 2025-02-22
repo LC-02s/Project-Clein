@@ -12,19 +12,26 @@ export const parseHTMLContent = <K extends keyof React.JSX.IntrinsicElements>(
   content: string,
   targetComponents: Pick<CommonHTMLComponentParseData<K>, 'tagName' | 'displayName'>[],
   mapper?: ContentMapper,
-) => {
-  const mappedContent = mapper
+) =>
+  (mapper
     ? Object.entries(mapper).reduce((mapped, [key, value]) => {
         return mapped.replaceAll(`[{${key}}]`, value)
       }, content)
     : content
+  )
+    .split(/(```[\s\S]*?```)/g)
+    .map((segment) => {
+      if (segment.startsWith('```')) {
+        return segment
+      }
 
-  return targetComponents.reduce((parsed, { tagName, displayName }) => {
-    return parsed
-      .replaceAll(`<${tagName}`, `<${displayName}`)
-      .replaceAll(`</${tagName}>`, `</${displayName}>`)
-  }, mappedContent)
-}
+      return targetComponents.reduce((parsed, { tagName, displayName }) => {
+        return parsed
+          .replaceAll(`<${tagName}`, `<${displayName}`)
+          .replaceAll(`</${tagName}>`, `</${displayName}>`)
+      }, segment)
+    })
+    .join('')
 
 export const getHTMLParseInterface =
   <K extends keyof React.JSX.IntrinsicElements>(key: K) =>

@@ -1,12 +1,12 @@
 <table>
   <colgroup>
     <col />
-    <col width="80%" />
+    <col width="84%" />
   </colgroup>
   <tbody>
     <tr>
       <th>이름</th>
-      <td>[{name}]</td>
+      <td>[{name}] [시너지밋 2024]</td>
     </tr>
     <tr>
       <th>설명</th>
@@ -31,7 +31,7 @@
     <tr>
       <th>사용 기술</th>
       <td>
-        `React` `TypeScript` `Zustand` `Emotion` `Motion` `Swiper.js` `Express.js` `pnpm`
+        <code>React</code>&nbsp;<code>TypeScript</code>&nbsp;<code>Zustand</code>&nbsp;<code>Emotion</code>&nbsp;<code>Motion</code>&nbsp;<code>Swiper.js</code>&nbsp;<code>Express.js</code>&nbsp;<code>pnpm</code>&nbsp;
       </td>
     </tr>
     <tr>
@@ -44,7 +44,7 @@
 <br />
 <br />
 
-### 프로젝트 소개
+## 프로젝트 소개
 
 <img src="/public/images/thumbnail/synergy-meet-default.jpg" alt="2024 SYNERGY MEET" width="1200" height="630" />
 

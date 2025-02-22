@@ -1,7 +1,7 @@
 <table>
   <colgroup>
     <col />
-    <col width="80%" />
+    <col width="84%" />
   </colgroup>
   <tbody>
     <tr>
@@ -25,23 +25,25 @@
       <td>[{serviceURL}]</td>
     </tr>
     <tr>
-      <th>GitHub</th>
-      <td>
-        - [v2] [{githubURL}] <br />
-        - [v1] [{githubURL}]/tree/ver.1 <br />
-      </td>
+      <th rowspan="2">GitHub</th>
+      <td>[v2] [{githubURL}]</td>
+    </tr>
+    <tr>
+      <td>[v1] [{githubURL}]/tree/ver.1</td>
     </tr>
     <tr>
       <th>사용 기술</th>
       <td>
-        `React` `TypeScript` `React-Router` `React-Hook-Form` `CKEditor` <br />
+        <code>React</code>&nbsp;<code>TypeScript</code>&nbsp;<code>React-Router</code>&nbsp;<code>React-Hook-Form</code>&nbsp;<code>CKEditor</code>&nbsp;
         <br />
-        **v2 변경 내역** <br />
-        - `Redux-Toolkit` -> `Zustand` <br />
-        - `Styled-Components` -> `TailWindCSS` + `Motion` <br />
-        - `npm` -> `pnpm` <br />
-        - `CRA` -> `Vite` <br />
-        - `moment.js` -> `day.js` <br />
+        <strong>v2 변경 내역</strong><br />
+        <ul>
+          <li><code>Redux-Toolkit</code> -> <code>Zustand</code></li>
+          <li><code>Styled-Components</code> -> <code>TailWindCSS</code> + <code>Motion</code></li>
+          <li><code>npm</code> -> <code>pnpm</code></li>
+          <li><code>CRA</code> -> <code>Vite</code></li>
+          <li><code>moment.js</code> -> <code>day.js</code></li>
+        </ul>
       </td>
     </tr>
     <tr>
@@ -58,7 +60,7 @@
 <br />
 <br />
 
-### 프로젝트 소개
+## 프로젝트 소개
 
 <img src="/public/images/thumbnail/pbl-notes-default.jpg" alt="PBL Notes" width="1200" height="630" />
 
