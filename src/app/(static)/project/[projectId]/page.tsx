@@ -46,19 +46,26 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = async ({ params }) =
   const project = ProjectRepository.findById(projectId)
 
   if (!project) {
-    return <NotFound />
+    return <NotFound className="flex min-h-[54rem] flex-col items-center justify-center" />
   }
 
   const [data, content] = await Promise.all([
-    getPostList({ [POST_LIST_PARAMS.KEYWORD]: projectId }),
+    getPostList({ [POST_LIST_PARAMS.KEYWORD]: projectId }).catch(() => {
+      return '&#128591;&#127995; 관련 포스트를 불러오지 못했어요 ㅠ &#128591;&#127995;'
+    }),
     getMarkdownContent(`/projects/${projectId}`).catch(() => ''),
   ])
 
   const { name, description, period, githubURL, serviceURL, iconURL } = project
   const type = PROJECT_TYPE_LABEL[project.type]
-  const posts = data.contents.reduce((text, { id, title }) => {
-    return (text += `- <a href="${BLOG_PATH}/${id}">${title}</a><br />\n`)
-  }, '\n')
+  const posts =
+    typeof data === 'string'
+      ? data
+      : data.contents.length <= 0 || data.keywords.current !== projectId
+        ? '관련 포스트가 없어요'
+        : data.contents.reduce((text, { id, title }) => {
+            return (text += `<li><a href="${BLOG_PATH}/${id}">${title}</a></li>`)
+          }, '<ul>') + '</ul>'
 
   return (
     <div className="wrapper-xl py-screen">
