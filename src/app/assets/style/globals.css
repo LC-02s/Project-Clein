@@ -22,7 +22,7 @@
     @apply mx-auto w-full max-w-screen-xl px-5 md:px-10;
   }
   .py-screen {
-    @apply pb-[16vh] pt-[12vh];
+    @apply pb-[10rem] pt-[7.5rem];
   }
   .scrollbar-hidden {
     -ms-overflow-style: none;

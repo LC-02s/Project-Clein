@@ -7,7 +7,7 @@ const ProjectLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
       <Image
         src="/images/retro-futuristic-3d-mesh-circle.png"
         alt="구 형태 3D 메쉬 오브젝트"
-        className="pointer-events-none absolute left-[-12%] top-[-16%] max-w-60 select-none max-md:w-1/2 md:max-w-full xl:left-0 xl:top-[-36%] 2xl:left-[2%]"
+        className="pointer-events-none absolute left-[-12%] top-[-16%] max-w-60 select-none max-md:w-1/2 md:max-w-full xl:left-[-4%] xl:top-[-36%] 2xl:left-[2%]"
         width={360}
         height={360}
         quality={100}
