@@ -1,25 +1,20 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { useBreakpoint } from '@/shared/lib'
+import { useBreakpoint, useOverlay } from '@/shared/lib'
 import { Button, Icon } from '@/shared/ui'
-import { useRemoteOpenState } from '../lib'
+import { KeywordsDrawer } from './keywords-drawer'
 
 export interface KeywordsDrawerTriggerProps {
+  keywords: React.ReactNode
   active?: boolean
 }
 
 export const KeywordsDrawerTrigger: React.FC<KeywordsDrawerTriggerProps> = ({
+  keywords,
   active: isActive,
 }) => {
-  const buttonRef = useRef<HTMLButtonElement>(null)
-
-  const { isOpen, toggle, setEffect } = useRemoteOpenState()
+  const { startedAt, open } = useOverlay<HTMLButtonElement>()
   const matchesXL = useBreakpoint('xl')
-
-  useEffect(() => {
-    setEffect(matchesXL ? null : () => buttonRef.current?.focus())
-  }, [setEffect, matchesXL])
 
   if (matchesXL) {
     return null
@@ -27,11 +22,17 @@ export const KeywordsDrawerTrigger: React.FC<KeywordsDrawerTriggerProps> = ({
 
   return (
     <Button
-      ref={buttonRef}
+      ref={startedAt}
       color={isActive ? 'info' : undefined}
-      title={`키워드 별 분류 메뉴 ${isOpen ? '닫기' : '열기'}`}
+      title="키워드 별 분류 메뉴 대화창 열기"
       className="xl:hidden"
-      onClick={toggle}
+      onClick={() => {
+        open(({ isOpen, close }) => (
+          <KeywordsDrawer open={isOpen} onClose={close}>
+            {keywords}
+          </KeywordsDrawer>
+        ))
+      }}
     >
       <Icon.TagOutline className="mr-2" />
       <span className="pr-1.5">분류</span>

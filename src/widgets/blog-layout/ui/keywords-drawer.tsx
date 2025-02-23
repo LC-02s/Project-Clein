@@ -1,49 +1,57 @@
-import { useIsomorphicLayoutEffect, AnimatePresence, motion } from 'motion/react'
-import { createPortal } from 'react-dom'
+'use client'
+
+import { AnimatePresence, motion } from 'motion/react'
+import { useEffect } from 'react'
 import { cn, useOutsideClick, useWindowEvent, useLockBodyScroll, useFocusLoop } from '@/shared/lib'
 import { Button, containerVariants, Dimmed, Icon } from '@/shared/ui'
-import { useRemoteOpenState } from '../lib'
 
-export const KeywordsDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const { isOpen, closeWithEffect } = useRemoteOpenState()
+export interface KeywordsDrawerProps extends React.PropsWithChildren {
+  open: boolean
+  onClose: () => void
+}
 
+export const KeywordsDrawer: React.FC<KeywordsDrawerProps> = ({
+  open: isOpen,
+  onClose,
+  children,
+}) => {
   const containerRef = useOutsideClick<HTMLDivElement>(() => {
-    if (isOpen) closeWithEffect()
+    if (isOpen) onClose?.()
   })
 
   useWindowEvent('keydown', (e) => {
     if (!isOpen) return
-    if (e.key === 'Escape') closeWithEffect()
+    if (e.key === 'Escape') onClose()
   })
 
   useWindowEvent('popstate', () => {
-    if (isOpen) closeWithEffect()
+    if (isOpen) onClose()
   })
 
   useLockBodyScroll(isOpen)
 
   useFocusLoop({ ref: containerRef, deps: [isOpen] })
 
-  useIsomorphicLayoutEffect(() => {
+  useEffect(() => {
     const containerEl = containerRef.current
     const anchorEls = containerEl?.querySelectorAll('a')
 
     if (isOpen) {
       anchorEls?.forEach((anchorEl) => {
-        anchorEl.addEventListener('click', closeWithEffect)
+        anchorEl.addEventListener('click', onClose)
       })
     }
 
     return () => {
-      if (isOpen) closeWithEffect()
+      if (isOpen) onClose()
 
       anchorEls?.forEach((anchorEl) => {
-        anchorEl.removeEventListener('click', closeWithEffect)
+        anchorEl.removeEventListener('click', onClose)
       })
     }
-  }, [isOpen, closeWithEffect])
+  }, [isOpen, containerRef, onClose])
 
-  return createPortal(
+  return (
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-x-0 bottom-0 top-28 z-40">
@@ -66,7 +74,7 @@ export const KeywordsDrawer: React.FC<React.PropsWithChildren> = ({ children }) 
                 size="sm"
                 round="full"
                 square
-                onClick={closeWithEffect}
+                onClick={onClose}
               >
                 <Icon.XOutline />
               </Button>
@@ -76,7 +84,6 @@ export const KeywordsDrawer: React.FC<React.PropsWithChildren> = ({ children }) 
           <Dimmed />
         </div>
       )}
-    </AnimatePresence>,
-    document.body,
+    </AnimatePresence>
   )
 }

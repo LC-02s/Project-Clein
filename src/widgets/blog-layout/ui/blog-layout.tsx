@@ -4,7 +4,6 @@
 
 import { NICKNAME } from '@/shared/config'
 import { type PropsWithClassName, cn, useBreakpoint } from '@/shared/lib'
-import { KeywordsDrawer } from './keywords-drawer'
 
 export interface BlogLayoutProps extends React.PropsWithChildren<PropsWithClassName> {
   profile: React.ReactNode
@@ -27,7 +26,6 @@ export const BlogLayout: React.FC<BlogLayoutProps> = ({
       <div className="space-y-12 px-3 py-12 xs:px-5 md:px-10">
         {children}
         {profile}
-        <KeywordsDrawer>{keywords}</KeywordsDrawer>
       </div>
     )
   }

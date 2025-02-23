@@ -32,19 +32,17 @@ const BlogMainPage: React.FC<BlogMainPageProps> = async ({ searchParams }) => {
     pathname: BLOG_PATH,
   })
 
+  const postKeywords = (
+    <PostKeyword
+      baseURL={href([POST_LIST_PARAMS.KEYWORD, POST_LIST_PARAMS.PAGE])}
+      keywords={keywords}
+    />
+  )
+
   return (
-    <BlogLayout
-      profile={<Profile />}
-      profileFallback={ProfileSkeleton}
-      keywords={
-        <PostKeyword
-          baseURL={href([POST_LIST_PARAMS.KEYWORD, POST_LIST_PARAMS.PAGE])}
-          keywords={keywords}
-        />
-      }
-    >
+    <BlogLayout profile={<Profile />} profileFallback={ProfileSkeleton} keywords={postKeywords}>
       <PostList contents={contents} length={page.length} sortedFrom={sorted.from}>
-        <KeywordsDrawerTrigger active={!!keywords.current} />
+        <KeywordsDrawerTrigger active={!!keywords.current} keywords={postKeywords} />
         <SortDropdownButton<PostListParamsKey>
           sortParams={sortParams}
           paramsKey={POST_LIST_PARAMS.SORT}
