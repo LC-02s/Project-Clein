@@ -16,7 +16,7 @@ export const Profile: React.FC<PropsWithClassName> = ({ className }) => (
     </div>
     <div className="max-w-72 flex-1 md:max-w-full">
       <h2 className="mt-6 break-keep text-center text-base font-bold md:mt-0 md:text-left md:text-lg xl:mt-6 xl:text-center">
-        {NICKNAME} &middot; FE Developer
+        {NICKNAME} &middot; WEB Developer
       </h2>
       <p className="my-3 break-keep text-center text-sm text-gray-500 md:text-left md:text-base xl:text-center dark:text-gray-400">
         안녕하세요, 모든 사용자에게 동일한 경험을 선사하고 싶은 프론트엔드 개발자{' '}
