@@ -21,7 +21,10 @@ const MainPage: React.FC = () => (
     <section id="introduce" className="wrapper-xl relative pb-8 pt-32">
       <h2 className="mb-8 whitespace-nowrap break-keep text-center text-2xl font-black !leading-snug sm:text-3xl md:mb-10 md:text-5xl">
         WEB Developer <br />
-        <span className="text-green-700 dark:text-green-500">{MAIN_TITLE}</span> Site
+        <span className="bg-gradient-to-tl from-blue-500 to-violet-500 bg-clip-text text-transparent dark:from-blue-400 dark:to-violet-400">
+          {MAIN_TITLE}
+        </span>
+        &nbsp;Site
       </h2>
       <p className="break-keep text-center !leading-relaxed text-gray-500 md:text-xl dark:text-gray-400">
         안녕하세요, 모든 사용자에게 동일한 경험을 선사하고 싶은 웹 프론트엔드 개발자 겸 디자이너
