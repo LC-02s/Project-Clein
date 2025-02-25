@@ -3,23 +3,8 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import { PUBLIC_PATH } from '@/shared/config'
-import { type ImageData, THEME, cn, useCheckHydration, useTheme } from '@/shared/lib'
-import { containerVariants, FallbackRender, Icon } from '@/shared/ui'
-
-interface ImageInnerProps extends ImageData {
-  onError?: () => void
-}
-
-const ImageInner: React.FC<ImageInnerProps> = (props) => (
-  <Image
-    src={props.src.startsWith(PUBLIC_PATH) ? props.src.replace(PUBLIC_PATH, '') : props.src}
-    alt={props.alt}
-    loading="lazy"
-    quality={100}
-    fill
-    onError={props.onError}
-  />
-)
+import { THEME, useCheckHydration, useTheme } from '@/shared/lib'
+import { Container, ExternalLink, FallbackRender, Icon } from '@/shared/ui'
 
 const ImageErrorFallback: React.FC = () => (
   <p className="flex select-none flex-col items-center justify-center px-3 py-12">
@@ -44,26 +29,33 @@ export const ContentImage: React.FC<
   const { theme } = useTheme()
   const isDarkTheme = theme === THEME.DARK
 
+  const raw = isDarkTheme && !!props['data-dark-src'] ? props['data-dark-src'] : props.src || ''
+  const src = raw.startsWith(PUBLIC_PATH) ? raw.replace(PUBLIC_PATH, '') : raw
+
   const ratio = (Number(props.height ?? 0) || 0) / (Number(props.width ?? 0) || 0)
   const [isError, setIsError] = useState(!ratio)
 
   return (
-    <div
-      className={cn(
-        containerVariants({ variant: 'image', layer: 'middle' }),
-        'relative flex w-full items-center justify-center overflow-hidden',
-      )}
+    <Container
+      variant="image"
+      layer="middle"
+      className="relative flex w-full items-center justify-center"
       style={{ paddingBottom: isError ? undefined : `${(ratio * 100).toFixed(4)}%` }}
     >
       <FallbackRender render={isError} component={<ImageErrorFallback />}>
         <FallbackRender render={!isHydrated} component={<ImageLoader />}>
-          <ImageInner
-            src={isDarkTheme && !!props['data-dark-src'] ? props['data-dark-src'] : props.src || ''}
-            alt={props.alt || ''}
-            onError={() => setIsError(true)}
-          />
+          <ExternalLink href={src} title="이미지 크게 보기">
+            <Image
+              src={src}
+              alt={props.alt || ''}
+              loading="lazy"
+              quality={100}
+              fill
+              onError={() => setIsError(true)}
+            />
+          </ExternalLink>
         </FallbackRender>
       </FallbackRender>
-    </div>
+    </Container>
   )
 }
