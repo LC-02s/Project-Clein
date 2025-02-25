@@ -9,9 +9,7 @@ import {
   Icon,
   Badge,
   Container,
-  containerVariants,
   Button,
-  buttonVariants,
   ExternalLink,
   ThumbnailImage,
 } from '@/shared/ui'
@@ -24,12 +22,11 @@ export const ProjectList: React.FC<ProjectListProps> = ({ contents, className })
   <ul className={cn('grid w-full grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3', className)}>
     {contents.map(([id, data]) => (
       <li key={id}>
-        <div
+        <Container
+          layer="middle"
+          round="md"
           title={`프로젝트 소개 바로가기: ${data.name}`}
-          className={cn(
-            containerVariants({ layer: 'middle', round: 'md' }),
-            'group flex flex-col items-stretch border bg-white p-3 hover:cursor-pointer',
-          )}
+          className="group flex flex-col items-stretch border bg-white p-3 hover:cursor-pointer"
           onClick={(e) => {
             if (!((e.target as HTMLElement | null)?.tagName === 'A'))
               e.currentTarget.querySelector('a')?.click()
@@ -62,25 +59,31 @@ export const ProjectList: React.FC<ProjectListProps> = ({ contents, className })
             <Badge round="xs">{PROJECT_TYPE_LABEL[data.type]}</Badge>
           </p>
           <div className="mt-5 space-y-2">
-            <ExternalLink
+            <Button
               href={data.githubURL}
               title={`${data.name} 깃허브`}
-              className={cn(buttonVariants({ variant: 'light', round: 'xs' }), 'flex-1')}
+              variant="light"
+              round="xs"
+              className="flex-1"
+              component={ExternalLink}
             >
               <Icon.GithubLogo className="pointer-events-none mr-3 text-xl" />
               GitHub 바로가기
               <Icon.NewTabOutline className="pointer-events-none ml-auto text-sm text-gray-500 dark:text-gray-400" />
-            </ExternalLink>
+            </Button>
             {!data.isDropped ? (
-              <ExternalLink
+              <Button
                 href={data.serviceURL}
                 title={data.name}
-                className={cn(buttonVariants({ variant: 'light', round: 'xs' }), 'flex-1')}
+                variant="light"
+                round="xs"
+                className="flex-1"
+                component={ExternalLink}
               >
                 <Icon.LaptopEmoji className="pointer-events-none mb-1 mr-3 text-xl" />
                 사이트 구경하기
                 <Icon.NewTabOutline className="pointer-events-none ml-auto text-sm text-gray-500 dark:text-gray-400" />
-              </ExternalLink>
+              </Button>
             ) : (
               <Button variant="light" round="xs" className="w-full flex-1" disabled>
                 <Icon.LaptopEmoji className="mb-1 mr-3 text-xl grayscale" />
@@ -89,7 +92,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ contents, className })
               </Button>
             )}
           </div>
-        </div>
+        </Container>
       </li>
     ))}
   </ul>

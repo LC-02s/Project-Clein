@@ -3,8 +3,7 @@
 import type { SearchPostItem } from '@/entities/post'
 import type { SearchProjectItem } from '@/entities/project'
 import { BLOG_PATH, PROJECT_PATH } from '@/shared/config'
-import { cn } from '@/shared/lib'
-import { LinkWithLoader, Button, buttonVariants, FallbackRender, Icon } from '@/shared/ui'
+import { LinkWithLoader, Button, FallbackRender, Icon } from '@/shared/ui'
 import { type SearchBarProps } from './search-bar'
 
 export interface SearchResultProps extends SearchBarProps {
@@ -54,18 +53,17 @@ export const SearchResult: React.FC<SearchResultProps> = ({
         <ul className="ml-4 space-y-1 border-l border-gray-200 px-2 pt-2 dark:border-gray-600">
           {projects?.map(({ id, name }) => (
             <li key={id}>
-              <LinkWithLoader
+              <Button
                 href={`${PROJECT_PATH}/${id}`}
                 title={`프로젝트 소개 바로가기: ${name}`}
-                className={cn(
-                  buttonVariants({ variant: 'subtle' }),
-                  'justify-start pl-10 text-left focus:bg-gray-100 md:h-12 dark:focus:bg-gray-700',
-                )}
+                variant="subtle"
+                className="justify-start pl-10 text-left focus:bg-gray-100 md:h-12 dark:focus:bg-gray-700"
                 onClick={onClose}
+                component={LinkWithLoader}
               >
                 <Icon.CodeOutline className="absolute inset-y-0 left-3 my-auto text-lg text-gray-500 dark:text-gray-400" />
                 <span className="block truncate">{name}</span>
-              </LinkWithLoader>
+              </Button>
             </li>
           ))}
         </ul>
@@ -78,18 +76,17 @@ export const SearchResult: React.FC<SearchResultProps> = ({
         <ul className="ml-4 space-y-1 border-l border-gray-200 px-2 pt-2 dark:border-gray-600">
           {posts?.map(({ id, title }) => (
             <li key={id}>
-              <LinkWithLoader
+              <Button
                 href={`${BLOG_PATH}/${id}`}
                 title={`포스트 바로가기: ${title}`}
-                className={cn(
-                  buttonVariants({ variant: 'subtle' }),
-                  'justify-start pl-10 text-left focus:bg-gray-100 md:h-12 dark:focus:bg-gray-700',
-                )}
+                variant="subtle"
+                className="justify-start pl-10 text-left focus:bg-gray-100 md:h-12 dark:focus:bg-gray-700"
                 onClick={onClose}
+                component={LinkWithLoader}
               >
                 <Icon.DocumentTitleOutline className="absolute inset-y-0 left-3 my-auto text-lg text-gray-500 dark:text-gray-400" />
                 <span className="block truncate">{title}</span>
-              </LinkWithLoader>
+              </Button>
             </li>
           ))}
           {hasNextPage && (

@@ -11,14 +11,12 @@ export const textInputVariants = cva(
       variant: {
         default: ' focus:border-blue-500 dark:focus:border-blue-400',
         warn: 'focus:border-red-500 dark:focus:border-red-400',
-        none: '',
       },
       size: {
         xs: 'h-7 px-2 py-1 text-sm md:h-8',
         sm: 'h-8 px-2 py-1 text-sm md:h-9',
         md: 'h-9 px-3 py-1 text-base md:h-10',
         lg: 'h-10 px-4 py-2 text-base md:h-12',
-        none: '',
       },
       withoutBackground: {
         true: 'bg-white dark:bg-gray-800 placeholder:dark:text-gray-400',

@@ -1,10 +1,9 @@
 import type { PostItem as Item } from '@/entities/post'
 import { BLOG_PATH } from '@/shared/config'
 import type { SortedFromDateKey } from '@/shared/lib'
-import { cn } from '@/shared/lib'
 import {
   LinkWithLoader,
-  buttonVariants,
+  Button,
   Badge,
   Icon,
   ReadingTimeText,
@@ -25,13 +24,12 @@ export const PostLink: React.FC<PostItemProps> = ({
   isWriting,
   date,
 }) => (
-  <LinkWithLoader
+  <Button
     href={`${BLOG_PATH}/${id}`}
     title={`포스트 바로가기: ${title}`}
-    className={cn(
-      buttonVariants({ size: 'none' }),
-      'group h-auto flex-col items-stretch justify-between whitespace-normal p-3 xs:p-4 md:flex-row',
-    )}
+    size={null}
+    className="group h-auto flex-col items-stretch justify-between whitespace-normal p-3 xs:p-4 md:flex-row"
+    component={LinkWithLoader}
   >
     <div className="mb-5 flex w-full items-start justify-center md:mb-0 md:w-60">
       <Container
@@ -71,5 +69,5 @@ export const PostLink: React.FC<PostItemProps> = ({
         )}
       </p>
     </div>
-  </LinkWithLoader>
+  </Button>
 )

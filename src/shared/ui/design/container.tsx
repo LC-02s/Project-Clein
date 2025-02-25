@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '../../lib'
+import { cn, createPolymorphicComponent } from '../../lib'
 
 export const containerVariants = cva('', {
   variants: {
@@ -15,7 +15,6 @@ export const containerVariants = cva('', {
       lg: 'rounded-2xl',
       xl: 'rounded-3xl',
       full: 'rounded-full',
-      none: '',
     },
   },
   compoundVariants: [
@@ -58,15 +57,11 @@ export type ContainerVariantsProps = VariantProps<typeof containerVariants>
 
 export type ContainerProps = React.JSX.IntrinsicElements['div'] & ContainerVariantsProps
 
-export const Container: React.FC<ContainerProps> = ({
-  variant,
-  layer,
-  round,
-  className,
-  children,
-  ...props
-}) => (
-  <div className={cn(containerVariants({ variant, layer, round }), className)} {...props}>
+export const Container = createPolymorphicComponent<
+  ContainerVariantsProps,
+  React.JSX.IntrinsicElements['div']
+>(({ variant, layer, round, className, children, component: Component = 'div', ...props }) => (
+  <Component className={cn(containerVariants({ variant, layer, round }), className)} {...props}>
     {children}
-  </div>
-)
+  </Component>
+))

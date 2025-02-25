@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import type { Page as TabLinkProps } from '@/shared/config'
-import { buttonVariants, LinkWithLoader } from '@/shared/ui'
+import { Button, LinkWithLoader } from '@/shared/ui'
 import { TabUnderline } from './tab-underline'
 
 export const TabLink: React.FC<TabLinkProps> = ({ href, segment, title, icon: Icon }) => {
@@ -11,9 +11,9 @@ export const TabLink: React.FC<TabLinkProps> = ({ href, segment, title, icon: Ic
 
   return (
     <li className="relative flex items-center justify-center pb-3 pt-1 xl:h-full xl:pt-3">
-      <LinkWithLoader
+      <Button
         href={href}
-        className={buttonVariants({ variant: 'subtle' })}
+        variant="subtle"
         title={`${title} 페이지 바로가기`}
         onClick={(e) => {
           e.currentTarget.scrollIntoView({
@@ -22,10 +22,11 @@ export const TabLink: React.FC<TabLinkProps> = ({ href, segment, title, icon: Ic
             behavior: 'smooth',
           })
         }}
+        component={LinkWithLoader}
       >
         <Icon className="text-gray-500 dark:text-gray-400" />
         <span className="ml-2 pr-1">{title}</span>
-      </LinkWithLoader>
+      </Button>
       {isActive && <TabUnderline />}
     </li>
   )

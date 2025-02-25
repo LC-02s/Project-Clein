@@ -4,15 +4,14 @@ import { motion } from 'motion/react'
 import Image from 'next/image'
 import { CONTENT_ID } from '@/widgets/skip-content'
 import { MAIN_TITLE, NICKNAME_KR, USER_GITHUB_ADDRESS } from '@/shared/config'
-import { cn } from '@/shared/lib'
 import {
   BackgroundGrid,
-  buttonVariants,
-  containerVariants,
-  ExternalLink,
+  Container,
   Icon,
   TechStack,
   ParallaxText,
+  Button,
+  ExternalLink,
 } from '@/shared/ui'
 
 const MainPage: React.FC = () => (
@@ -34,15 +33,17 @@ const MainPage: React.FC = () => (
         유지 가능한 코드를 작성하는 것을 중요하게 생각하여 항상 실천하고 있습니다.
       </p>
       <div className="my-16 flex items-center justify-center">
-        <ExternalLink
+        <Button
           href={USER_GITHUB_ADDRESS}
           title={`${NICKNAME_KR} 깃허브`}
-          className={buttonVariants({ variant: 'filled', size: 'lg' })}
+          variant="filled"
+          size="lg"
+          component={ExternalLink}
         >
           <Icon.GithubLogo className="mr-3 text-xl" />
           <span className="mr-7">GitHub 바로가기</span>
           <Icon.NewTabOutline className="text-sm text-gray-300 md:text-base dark:text-gray-600" />
-        </ExternalLink>
+        </Button>
       </div>
       <ul className="flex flex-col flex-wrap items-stretch gap-4 py-16 sm:flex-row">
         {[
@@ -65,28 +66,26 @@ const MainPage: React.FC = () => (
               '현재는 웹 프론트엔드 분야 위주로 전문성을 기르고 있지만 점차 기획, 디자인, 개발 등의 직군을 가리지 않고 온전히 제품에 집중하는 메이커로 성장하기 위해 노력하고 있습니다.',
           },
         ].map(({ icon: IconComponent, title, content }, idx) => (
-          <motion.li
+          <Container
             key={title}
-            className={cn(
-              containerVariants({ layer: 'middle' }),
-              'flex-1 border p-4 pb-6 sm:min-w-80',
-            )}
+            layer="middle"
+            round="md"
+            className="flex-1 border p-4 pb-5 sm:min-w-80"
             initial={{ y: '24%', opacity: 0 }}
             whileInView={{ y: '0%', opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 * idx }}
+            component={motion.li}
           >
-            <div
-              className={cn(
-                containerVariants({ round: 'sm' }),
-                'mb-6 flex size-12 items-center justify-center border dark:bg-gray-700',
-              )}
+            <Container
+              round="sm"
+              className="mb-6 flex size-12 items-center justify-center border dark:bg-gray-700"
             >
               <IconComponent className="size-5" />
-            </div>
+            </Container>
             <h3 className="mb-2 text-lg font-bold">{title}</h3>
             <p className="break-keep text-gray-600 dark:text-gray-300">{content}</p>
-          </motion.li>
+          </Container>
         ))}
       </ul>
     </section>

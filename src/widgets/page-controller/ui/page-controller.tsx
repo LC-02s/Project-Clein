@@ -6,7 +6,7 @@ import {
   createSearchParamsToURL,
   PAGINATION_PARAMS,
 } from '@/shared/lib'
-import { buttonVariants, Icon } from '@/shared/ui'
+import { Button, Icon } from '@/shared/ui'
 import { PageInput } from './page-input'
 import { PageLink } from './page-link'
 
@@ -16,7 +16,6 @@ export interface PageControllerProps extends PropsWithClassName<PageInfo> {
 
 export const PageController: React.FC<PageControllerProps> = ({ page, className, baseURL }) => {
   const href = createSearchParamsToURL<PaginationParamsKey>(baseURL)
-  const linkStyle = buttonVariants()
 
   return (
     <div
@@ -32,24 +31,24 @@ export const PageController: React.FC<PageControllerProps> = ({ page, className,
         className="w-full sm:w-auto"
       />
       <div className="flex w-full items-center justify-end space-x-2 sm:w-auto sm:justify-center">
-        <PageLink
+        <Button
           href={href([PAGINATION_PARAMS.PAGE, page.current - 1])}
           title="이전 페이지 이동"
-          className={linkStyle}
           disabled={page.first}
+          component={PageLink}
         >
           <Icon.ArrowOutline direction="left" />
           <span className="ml-2 pr-1">이전</span>
-        </PageLink>
-        <PageLink
+        </Button>
+        <Button
           href={href([PAGINATION_PARAMS.PAGE, page.current + 1])}
           title="다음 페이지 이동"
-          className={linkStyle}
           disabled={page.last}
+          component={PageLink}
         >
           <span className="mr-2 pl-1">다음</span>
           <Icon.ArrowOutline direction="right" />
-        </PageLink>
+        </Button>
       </div>
     </div>
   )

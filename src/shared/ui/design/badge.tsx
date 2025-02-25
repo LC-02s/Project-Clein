@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '../../lib'
+import { cn, createPolymorphicComponent } from '../../lib'
 
 export const badgeVariants = cva(
   'relative flex items-center justify-center whitespace-nowrap border border-gray-200 font-medium dark:border-gray-600',
@@ -8,7 +8,6 @@ export const badgeVariants = cva(
       variant: {
         default: 'bg-white dark:bg-gray-800',
         light: 'bg-gray-50 dark:bg-gray-700',
-        none: '',
       },
       color: {
         gray: 'text-gray-800 dark:text-gray-50',
@@ -16,14 +15,12 @@ export const badgeVariants = cva(
         success: 'text-green-700 dark:text-green-300',
         caution: 'text-yellow-700 dark:text-yellow-300',
         warn: 'text-red-700 dark:text-red-300',
-        none: '',
       },
       size: {
         xs: 'h-5 px-2 text-xs md:h-6',
         sm: 'h-6 px-2 py-1 text-xs md:h-7 md:text-sm',
         md: 'h-7 px-2 py-1 text-sm md:h-8 md:text-base',
         lg: 'h-8 px-3 py-1 text-sm md:h-9 md:text-base',
-        none: '',
       },
       round: {
         xs: 'rounded',
@@ -32,7 +29,6 @@ export const badgeVariants = cva(
         lg: 'rounded-2xl',
         xl: 'rounded-3xl',
         full: 'rounded-full',
-        none: '',
       },
     },
     defaultVariants: {
@@ -48,16 +44,22 @@ export type BadgeVariantsProps = VariantProps<typeof badgeVariants>
 
 export type BadgeProps = React.JSX.IntrinsicElements['span'] & BadgeVariantsProps
 
-export const Badge: React.FC<BadgeProps> = ({
-  variant,
-  color,
-  size,
-  round,
-  className,
-  children,
-  ...props
-}) => (
-  <span className={cn(badgeVariants({ variant, color, size, round }), className)} {...props}>
-    {children}
-  </span>
+export const Badge = createPolymorphicComponent<
+  React.JSX.IntrinsicElements['span'],
+  BadgeVariantsProps
+>(
+  ({
+    variant,
+    color,
+    size,
+    round,
+    className,
+    children,
+    component: Component = 'span',
+    ...props
+  }) => (
+    <Component className={cn(badgeVariants({ variant, color, size, round }), className)} {...props}>
+      {children}
+    </Component>
+  ),
 )

@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '../../lib'
+import { cn, createPolymorphicComponent } from '../../lib'
 
 export const buttonVariants = cva(
   'relative flex select-none items-center justify-center whitespace-nowrap font-medium',
@@ -13,10 +13,9 @@ export const buttonVariants = cva(
           'dark:bg-gray-700 dark:hover:bg-gray-600 dark:active:bg-gray-600 dark:disabled:!bg-gray-700',
         subtle:
           'hover:bg-gray-100 active:bg-gray-100 disabled:!bg-transparent dark:hover:bg-gray-700 dark:active:bg-gray-700',
-        none: '',
       },
-      color: { gray: '', info: '', warn: '', none: '' },
-      size: { xs: '', sm: '', md: '', lg: '', none: '' },
+      color: { gray: '', info: '', warn: '' },
+      size: { xs: '', sm: '', md: '', lg: '' },
       square: { true: '', false: '' },
       round: {
         xs: 'rounded',
@@ -25,7 +24,6 @@ export const buttonVariants = cva(
         lg: 'rounded-2xl',
         xl: 'rounded-3xl',
         full: 'rounded-full',
-        none: '',
       },
     },
     compoundVariants: [
@@ -92,25 +90,31 @@ export type ButtonVariantProps = VariantProps<typeof buttonVariants>
 
 export type ButtonProps = React.JSX.IntrinsicElements['button'] & ButtonVariantProps
 
-export const Button: React.FC<ButtonProps> = ({
-  variant,
-  color,
-  size,
-  round,
-  square,
-  className,
-  children,
-  ...props
-}) => (
-  <button
-    type="button"
-    className={cn(
-      buttonVariants({ variant, color, size, round, square }),
-      'disabled:cursor-not-allowed',
-      className,
-    )}
-    {...props}
-  >
-    {children}
-  </button>
+export const Button = createPolymorphicComponent<
+  React.JSX.IntrinsicElements['button'],
+  ButtonVariantProps
+>(
+  ({
+    variant,
+    color,
+    size,
+    round,
+    square,
+    className,
+    children,
+    component: Component = 'button',
+    ...props
+  }) => (
+    <Component
+      type={Component === 'button' ? 'button' : undefined}
+      className={cn(
+        buttonVariants({ variant, color, size, round, square }),
+        'disabled:cursor-not-allowed',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </Component>
+  ),
 )

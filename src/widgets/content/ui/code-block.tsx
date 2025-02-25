@@ -16,7 +16,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ className, children, ...pr
     <Container layer="middle" round="sm" className="relative overflow-hidden border bg-white">
       <Container
         layer="middle"
-        round="none"
+        round={null}
         className="flex items-center justify-between border-b p-2"
       >
         <p className="flex items-center justify-start space-x-2 px-3">

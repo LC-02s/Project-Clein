@@ -1,5 +1,6 @@
-import { cn } from '@/shared/lib'
-import { Button, buttonVariants, LinkWithLoader } from '@/shared/ui'
+'use client'
+
+import { Button, LinkWithLoader } from '@/shared/ui'
 
 export interface SortLinkProps extends React.PropsWithChildren {
   href: string
@@ -18,14 +19,16 @@ export const SortLink: React.FC<SortLinkProps> = ({ href, title, disabled, onCli
   }
 
   return (
-    <LinkWithLoader
+    <Button
       href={href}
       title={title}
-      className={cn(buttonVariants({ variant: 'subtle' }), 'md:h-9')}
+      variant="subtle"
+      className="w-full md:h-9"
       onClick={onClick}
       scroll={false}
+      component={LinkWithLoader}
     >
       {children}
-    </LinkWithLoader>
+    </Button>
   )
 }

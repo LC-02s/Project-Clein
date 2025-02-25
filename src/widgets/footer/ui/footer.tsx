@@ -1,17 +1,16 @@
 import Image from 'next/image'
 import { NICKNAME, NICKNAME_KR, MAIN_DESCRIPTION, USER_GITHUB_ADDRESS } from '@/shared/config'
-import { cn } from '@/shared/lib'
-import { MainLogo, ExternalLink, buttonVariants, containerVariants, Icon } from '@/shared/ui'
+import { MainLogo, ExternalLink, Button, Container, Icon } from '@/shared/ui'
 import { BuyMeACoffeeButton } from './coffee-button'
 import { EmailButton } from './email-button'
 import { SiteMap } from './site-map'
 
 export const Footer: React.FC = () => (
-  <footer
-    className={cn(
-      containerVariants({ layer: 'middle', round: 'none' }),
-      'border-t pb-24 pt-12 md:pb-16 md:pt-6',
-    )}
+  <Container
+    layer="middle"
+    round={null}
+    className="border-t pb-24 pt-12 md:pb-16 md:pt-6"
+    component="footer"
     role="contentinfo"
   >
     <div className="wrapper-xl">
@@ -45,36 +44,29 @@ export const Footer: React.FC = () => (
         </p>
         <ul className="mb-6 flex space-x-2 md:mb-0">
           <li>
-            <ExternalLink
+            <Button
               href={USER_GITHUB_ADDRESS}
               title={`${NICKNAME} 깃허브`}
-              className={cn(
-                buttonVariants({
-                  variant: 'light',
-                  round: 'full',
-                  size: 'lg',
-                  square: true,
-                }),
-                'size-12',
-              )}
+              variant="light"
+              round="full"
+              size="lg"
+              square
+              className="size-12"
+              component={ExternalLink}
             >
               <Icon.GithubLogo className="size-7 dark:text-white" />
               <span className="sr-only">{NICKNAME} 깃허브</span>
-            </ExternalLink>
+            </Button>
           </li>
           <li>
             <EmailButton
               type="button"
               title="이메일 복사 대화창 열기"
-              className={cn(
-                buttonVariants({
-                  variant: 'light',
-                  round: 'full',
-                  size: 'lg',
-                  square: true,
-                }),
-                'size-12',
-              )}
+              variant="light"
+              round="full"
+              size="lg"
+              square
+              className="size-12"
             >
               <Icon.LetterBold className="size-8 dark:text-white" />
               <span className="sr-only">이메일 보기</span>
@@ -86,5 +78,5 @@ export const Footer: React.FC = () => (
         &copy; 2024 {NICKNAME} All Rights Reserved.
       </p>
     </div>
-  </footer>
+  </Container>
 )

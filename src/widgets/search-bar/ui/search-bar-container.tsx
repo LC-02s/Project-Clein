@@ -35,7 +35,7 @@ export const SearchBarContainer: React.FC<SearchBarContainerProps> = ({
             exit={{ y: '-8%', opacity: 0 }}
             transition={{ ease: 'easeInOut', duration: 0.24 }}
           >
-            <Container round="none" className="w-full max-w-3xl shadow-md md:rounded-xl">
+            <Container round={null} className="w-full max-w-3xl shadow-md md:rounded-xl">
               {children}
             </Container>
           </motion.div>

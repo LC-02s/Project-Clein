@@ -2,8 +2,8 @@
 
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect } from 'react'
-import { cn, useOutsideClick, useWindowEvent, useLockBodyScroll, useFocusLoop } from '@/shared/lib'
-import { Button, containerVariants, Dimmed, Icon } from '@/shared/ui'
+import { useOutsideClick, useWindowEvent, useLockBodyScroll, useFocusLoop } from '@/shared/lib'
+import { Button, Container, Dimmed, Icon } from '@/shared/ui'
 
 export interface KeywordsDrawerProps extends React.PropsWithChildren {
   open: boolean
@@ -55,16 +55,16 @@ export const KeywordsDrawer: React.FC<KeywordsDrawerProps> = ({
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-x-0 bottom-0 top-28 z-40">
-          <motion.div
+          <Container
             ref={containerRef}
-            className={cn(
-              containerVariants({ layer: 'bottom', round: 'none' }),
-              'absolute inset-y-0 right-0 max-h-full w-full max-w-80 overflow-y-auto p-4 pb-8 xs:border-l',
-            )}
+            layer="bottom"
+            round={null}
+            className="absolute inset-y-0 right-0 max-h-full w-full max-w-80 overflow-y-auto p-4 pb-8 xs:border-l"
             initial={{ x: '20rem' }}
             animate={{ x: 0 }}
             exit={{ x: '20rem' }}
             transition={{ ease: 'easeInOut', duration: 0.24 }}
+            component={motion.div}
           >
             <div className="mb-6 flex items-center justify-between">
               <h2 className="px-1 font-bold">키워드 별 분류</h2>
@@ -80,7 +80,7 @@ export const KeywordsDrawer: React.FC<KeywordsDrawerProps> = ({
               </Button>
             </div>
             {children}
-          </motion.div>
+          </Container>
           <Dimmed />
         </div>
       )}
