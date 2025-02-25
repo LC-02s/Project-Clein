@@ -1,4 +1,4 @@
-import type { IconProps } from '../icon'
+import type { IconProps } from './interface'
 
 export const FramerMotionLogo: React.FC<IconProps> = (props) => (
   <svg

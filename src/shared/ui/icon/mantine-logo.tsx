@@ -1,4 +1,4 @@
-import type { IconProps } from '../icon'
+import type { IconProps } from './interface'
 
 export const MantineLogo: React.FC<IconProps> = (props) => (
   <svg

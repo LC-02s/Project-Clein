@@ -1,5 +1,5 @@
-import { type PropsWithClassName, cn } from '@/shared/lib'
-import { type IconProps } from '../icon'
+import type { IconProps } from '../icon/interface'
+import { type PropsWithClassName, cn } from '../../lib'
 
 export interface TechStackProps extends PropsWithClassName {
   icon?: React.FC<IconProps> | React.ReactNode

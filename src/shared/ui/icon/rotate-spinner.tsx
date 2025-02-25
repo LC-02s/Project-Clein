@@ -1,4 +1,4 @@
-import type { IconProps } from '../icon'
+import type { IconProps } from './interface'
 import { cn } from '../../lib'
 
 export const RotateSpinner: React.FC<IconProps> = ({ className, ...props }) => (

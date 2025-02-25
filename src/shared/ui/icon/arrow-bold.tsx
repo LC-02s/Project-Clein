@@ -1,4 +1,4 @@
-import { type ArrowIconProps, _arrowIconProps } from '../icon'
+import { type ArrowIconProps, _arrowIconProps } from './interface'
 
 export const ArrowBold: React.FC<ArrowIconProps> = (props) => (
   <svg
