@@ -36,10 +36,12 @@ export const FakeProgressBar: React.FC = () => {
 
 export const LoadingProgressBar: React.FC = () => {
   const { isLoading, off } = useLoaderState()
+  const { start } = useTimeout()
+
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  useEffect(off, [pathname, searchParams, off])
+  useEffect(() => start(off, 0), [pathname, searchParams, off, start])
 
   return (
     <div
