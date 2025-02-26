@@ -41,7 +41,7 @@ export const LoadingProgressBar: React.FC = () => {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  useEffect(() => start(off, 0), [pathname, searchParams, off, start])
+  useEffect(() => start(off, 100), [pathname, searchParams, off, start])
 
   return (
     <div
