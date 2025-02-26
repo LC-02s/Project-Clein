@@ -91,8 +91,8 @@ export type ButtonVariantProps = VariantProps<typeof buttonVariants>
 export type ButtonProps = React.JSX.IntrinsicElements['button'] & ButtonVariantProps
 
 export const Button = createPolymorphicComponent<
-  React.JSX.IntrinsicElements['button'],
-  ButtonVariantProps
+  ButtonVariantProps,
+  React.JSX.IntrinsicElements['button']
 >(
   ({
     variant,

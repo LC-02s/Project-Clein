@@ -45,8 +45,8 @@ export type BadgeVariantsProps = VariantProps<typeof badgeVariants>
 export type BadgeProps = React.JSX.IntrinsicElements['span'] & BadgeVariantsProps
 
 export const Badge = createPolymorphicComponent<
-  React.JSX.IntrinsicElements['span'],
-  BadgeVariantsProps
+  BadgeVariantsProps,
+  React.JSX.IntrinsicElements['span']
 >(
   ({
     variant,
