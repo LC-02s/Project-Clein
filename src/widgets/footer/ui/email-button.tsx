@@ -42,8 +42,8 @@ export const EmailButton: React.FC<EmailButtonProps> = (props) => {
   const { startedAt, open } = useOverlay<HTMLButtonElement>()
 
   return (
-    <button {...props} ref={startedAt} onClick={() => open(EmailDialog)}>
+    <Button {...props} ref={startedAt} onClick={() => open(EmailDialog)}>
       {props.children}
-    </button>
+    </Button>
   )
 }
