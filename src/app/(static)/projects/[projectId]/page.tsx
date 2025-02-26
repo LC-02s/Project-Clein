@@ -68,7 +68,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = async ({ params }) =
           }, '<ul>') + '</ul>'
 
   return (
-    <div className="wrapper-xl py-screen">
+    <article id="project-introduce" className="wrapper-xl py-screen">
       <h2 className="relative mb-12 flex items-center justify-center whitespace-nowrap p-4 pr-8 text-center text-2xl font-bold md:text-3xl">
         <Image
           src={iconURL}
@@ -85,7 +85,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = async ({ params }) =
         mapper={{ name, description, type, period, githubURL, serviceURL, posts }}
         className="pt-0"
       />
-    </div>
+    </article>
   )
 }
 

@@ -8,7 +8,7 @@ export const ABOUT_PATH = '/about' as const
 
 export const BLOG_PATH = '/blog' as const
 
-export const PROJECT_PATH = '/project' as const
+export const PROJECT_PATH = '/projects' as const
 
 export const PLAYGROUND_PATH = '/playground' as const
 
