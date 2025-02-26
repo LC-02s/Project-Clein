@@ -44,7 +44,7 @@ export const ContentImage: React.FC<
     >
       <FallbackRender render={isError} component={<ImageErrorFallback />}>
         <FallbackRender render={!isHydrated} component={<ImageLoader />}>
-          <ExternalLink href={src} title="이미지 크게 보기">
+          <ExternalLink href={src} title="이미지 크게 보기" className="absolute inset-0">
             <Image
               src={src}
               alt={props.alt || ''}
