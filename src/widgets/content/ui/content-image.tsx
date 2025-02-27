@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import { PUBLIC_PATH } from '@/shared/config'
-import { THEME, useCheckHydration, useTheme } from '@/shared/lib'
+import { cn, THEME, useCheckHydration, useTheme } from '@/shared/lib'
 import { Container, ExternalLink, FallbackRender, Icon } from '@/shared/ui'
 
 const ImageErrorFallback: React.FC = () => (
@@ -39,7 +39,7 @@ export const ContentImage: React.FC<
     <Container
       variant="image"
       layer="middle"
-      className="relative flex w-full items-center justify-center"
+      className={cn('relative flex w-full items-center justify-center', props.className)}
       style={{ paddingBottom: isError ? undefined : `${(ratio * 100).toFixed(4)}%` }}
     >
       <FallbackRender render={isError} component={<ImageErrorFallback />}>

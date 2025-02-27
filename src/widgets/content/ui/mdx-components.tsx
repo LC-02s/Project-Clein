@@ -1,6 +1,7 @@
+/* eslint-disable tailwindcss/no-custom-classname */
+
 import type { MDXRemoteProps } from 'next-mdx-remote/rsc'
-import { cn } from '@/shared/lib'
-import { badgeVariants } from '@/shared/ui'
+import { Badge } from '@/shared/ui'
 import { getHTMLParseInterface } from '../lib'
 import { CodeBlock } from './code-block'
 import { ContentImage } from './content-image'
@@ -8,7 +9,7 @@ import { LinkText } from './link-text'
 
 export const htmlComponents = [
   getHTMLParseInterface('table')((props) => (
-    <div className="overflow-x-auto rounded-md border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
+    <div className="group-table overflow-x-auto rounded-md border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
       <table {...props} className="w-full min-w-96 table-auto">
         {props.children}
       </table>
@@ -47,7 +48,7 @@ export const htmlComponents = [
   getHTMLParseInterface('ul')((props) => (
     <ul
       {...props}
-      className="list-none space-y-2 py-2 *:before:absolute *:before:left-1.5 *:before:top-3 *:before:size-1.5 *:before:rounded-full *:before:bg-gray-500 *:before:dark:bg-gray-400"
+      className="group-list list-none space-y-2 py-2 *:before:absolute *:before:left-1.5 *:before:top-3 *:before:size-1.5 *:before:rounded-full *:before:bg-gray-500 *:before:dark:bg-gray-400"
       style={{ counterReset: 'list' }}
     >
       {props.children}
@@ -56,7 +57,7 @@ export const htmlComponents = [
   getHTMLParseInterface('ol')((props) => (
     <ol
       {...props}
-      className="list-none space-y-2 py-2 *:before:absolute *:before:left-0 *:before:top-0 *:before:text-gray-500 *:before:content-[counter(list)'.'] *:before:dark:text-gray-400"
+      className="group-list list-none space-y-2 py-2 *:before:absolute *:before:left-0 *:before:top-0 *:before:text-gray-500 *:before:content-[counter(list)'.'] *:before:dark:text-gray-400"
       style={{ counterReset: 'list' }}
     >
       {props.children}
@@ -103,9 +104,11 @@ export const htmlComponents = [
       {props.children}
     </p>
   )),
-  getHTMLParseInterface('img')(ContentImage),
+  getHTMLParseInterface('img')((props) => (
+    <ContentImage {...props} className="group-[-table]:my-1 group-[-table]:rounded-none" />
+  )),
   getHTMLParseInterface('p')((props) => (
-    <p {...props} className="break-keep leading-loose">
+    <p {...props} className="break-keep leading-loose group-[-list]:leading-7">
       {props.children}
     </p>
   )),
@@ -125,26 +128,26 @@ export const htmlComponents = [
   getHTMLParseInterface('blockquote')((props) => (
     <blockquote
       {...props}
-      className="group space-y-2 overflow-hidden break-keep rounded-lg border-l-4 border-gray-200 bg-gray-50 p-5 pl-6 dark:border-gray-600 dark:bg-gray-800"
+      className="group-blockquote space-y-2 overflow-hidden break-keep rounded-lg border-l-4 border-gray-200 bg-gray-50 p-5 pl-6 dark:border-gray-600 dark:bg-gray-800"
     >
       {props.children}
     </blockquote>
   )),
-  getHTMLParseInterface('code')((props) => (
-    <code
-      {...props}
-      className={
-        !(props as Record<string, unknown>)['data-theme']
-          ? cn(
-              badgeVariants({ round: 'xs' }),
-              'm-0.5 inline-flex whitespace-nowrap bg-gray-50 px-1 py-0.5 text-sm font-medium text-gray-700 group-[]:bg-white md:text-base dark:bg-gray-800 dark:text-gray-50 group-[]:dark:bg-gray-700',
-            )
-          : undefined
-      }
-    >
-      {props.children}
-    </code>
-  )),
+  getHTMLParseInterface('code')((props) => {
+    if (!(props as Record<string, unknown>)['data-theme']) {
+      return (
+        <Badge
+          round="xs"
+          component="code"
+          className="m-0.5 inline-flex whitespace-nowrap bg-gray-50 px-1 py-0.5 text-sm font-medium text-gray-700 group-[-blockquote]:bg-white md:text-base dark:bg-gray-800 dark:text-gray-50 group-[-blockquote]:dark:bg-gray-700"
+        >
+          {props.children}
+        </Badge>
+      )
+    }
+
+    return <code {...props}>{props.children}</code>
+  }),
   getHTMLParseInterface('pre')((props) => (
     <CodeBlock
       {...props}
