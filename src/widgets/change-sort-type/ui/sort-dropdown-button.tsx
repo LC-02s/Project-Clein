@@ -16,13 +16,17 @@ import {
 import { Button, DropdownToDialog, Icon } from '@/shared/ui'
 import { SortLink } from './sort-link'
 
-export interface SortDropdownButtonProps<K extends string> extends PropsWithClassName {
+export interface SortDropdownButtonProps<K extends string = string> extends PropsWithClassName {
   baseURL: string
   sortParams: LiteralSortParams
   paramsKey: K
 }
 
-export const SortDropdownButton = <K extends string>({
+export interface SortDropdownButtonComponent extends React.FC<SortDropdownButtonProps> {
+  <K extends string = string>(props: SortDropdownButtonProps<K>): React.ReactNode
+}
+
+export const SortDropdownButton: SortDropdownButtonComponent = <K extends string = string>({
   sortParams,
   baseURL,
   paramsKey,
