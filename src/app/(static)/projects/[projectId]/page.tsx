@@ -50,22 +50,19 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = async ({ params }) =
   }
 
   const [data, content] = await Promise.all([
-    getPostList({ [POST_LIST_PARAMS.KEYWORD]: projectId }).catch(() => {
-      return '&#128591;&#127995; 관련 포스트를 불러오지 못했어요 ㅠ &#128591;&#127995;'
-    }),
+    getPostList({ [POST_LIST_PARAMS.KEYWORD]: projectId }).catch(() => null),
     getMarkdownContent(`/projects/${projectId}`).catch(() => ''),
   ])
 
   const { name, description, period, githubURL, serviceURL, iconURL } = project
   const type = PROJECT_TYPE_LABEL[project.type]
-  const posts =
-    typeof data === 'string'
-      ? data
-      : data.contents.length <= 0 || data.keywords.current !== projectId
-        ? '관련 포스트가 없어요'
-        : data.contents.reduce((text, { id, title }) => {
-            return (text += `<li><a href="${BLOG_PATH}/${id}">${title}</a></li>`)
-          }, '<ul>') + '</ul>'
+  const posts = !data
+    ? '&#128591;&#127995; 관련 포스트를 불러오지 못했어요 ㅠ &#128591;&#127995;'
+    : data.contents.length <= 0 || data.keywords.current !== projectId
+      ? '관련 포스트가 없어요'
+      : data.contents.reduce((text, { id, title }) => {
+          return (text += `<li><a href="${BLOG_PATH}/${id}">${title}</a></li>`)
+        }, '<ul>') + '</ul>'
 
   return (
     <article id="project-introduce" className="wrapper-xl py-screen">
