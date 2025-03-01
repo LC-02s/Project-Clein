@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'motion/react'
 import type { ProjectId, ProjectData } from '@/entities/project'
 import { PROJECT_TYPE_LABEL } from '@/entities/project'
 import { PROJECT_PATH } from '@/shared/config'
@@ -20,8 +21,13 @@ interface ProjectListProps extends PropsWithClassName {
 
 export const ProjectList: React.FC<ProjectListProps> = ({ contents, className }) => (
   <ul className={cn('grid w-full grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3', className)}>
-    {contents.map(([id, data]) => (
-      <li key={id}>
+    {contents.map(([id, data], idx) => (
+      <motion.li
+        key={id}
+        initial={{ opacity: 0, y: '12%' }}
+        animate={{ opacity: 1, y: '0%' }}
+        transition={{ delay: 0.1 * idx }}
+      >
         <Container
           layer="middle"
           round="md"
@@ -93,7 +99,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ contents, className })
             )}
           </div>
         </Container>
-      </li>
+      </motion.li>
     ))}
   </ul>
 )
