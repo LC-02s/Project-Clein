@@ -1,7 +1,7 @@
 import { Exception } from './exception'
 
 export const getMarkdownContent = async (path: string) => {
-  const reference = new URL(`/docs/${path}.md`, process.env.NEXT_PUBLIC_DOMAIN_ADDRESS!)
+  const reference = new URL(`/docs/${path}/content.md`, process.env.NEXT_PUBLIC_DOMAIN_ADDRESS!)
   const response = await fetch(reference)
 
   if (!response.ok) {

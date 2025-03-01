@@ -1,4 +1,4 @@
-<table>
+<table id="project-summary">
   <colgroup>
     <col />
     <col width="84%" />
@@ -34,7 +34,7 @@
     <tr>
       <th>사용 기술</th>
       <td>
-        <code>React</code>&nbsp;<code>TypeScript</code>&nbsp;<code>React-Router</code>&nbsp;<code>React-Hook-Form</code>&nbsp;<code>CKEditor</code>&nbsp;
+        <code>React</code>&nbsp;<code>TypeScript</code>&nbsp;<code>React-Router</code>&nbsp;<code>React-Hook-Form</code>&nbsp;<code>CKEditor</code>
         <br />
         <strong>v2 변경 내역</strong><br />
         <ul>
@@ -60,9 +60,30 @@
 <br />
 <br />
 
+> **목차**
+>
+> 1. [프로젝트 소개](#프로젝트-소개)
+> 2. [사용 기술](#사용-기술)
+> 3. [트러블 슈팅](#트러블-슈팅)
+
+<br />
+<br />
+
 ## 프로젝트 소개
 
-<img src="/public/images/thumbnail/pbl-notes-default.jpg" alt="PBL Notes" width="1200" height="630" />
+<img src="/public/docs/projects/pbl-notes/images/intro.jpg" alt="[{name}]" width="1200" height="630" />
+
+<br />
+
+<br />
+<br />
+
+## 사용 기술
+
+<br />
+<br />
+
+## 트러블 슈팅
 
 <br />
 
