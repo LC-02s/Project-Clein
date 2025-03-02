@@ -1,3 +1,5 @@
+import { PUBLIC_PATH } from '@/shared/config'
+
 export interface CommonHTMLComponentParseData<TagName extends keyof React.JSX.IntrinsicElements> {
   tagName: TagName
   displayName: string
@@ -40,3 +42,6 @@ export const getHTMLParseInterface =
     displayName: key.charAt(0).toUpperCase() + key.slice(1),
     component,
   })
+
+export const adjustPublicPath = (path: string) =>
+  path.startsWith(PUBLIC_PATH) ? path.replace(PUBLIC_PATH, '') : path

@@ -1,8 +1,8 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 
 import type { MDXRemoteProps } from 'next-mdx-remote/rsc'
-import { Badge } from '@/shared/ui'
-import { getHTMLParseInterface } from '../lib'
+import { Badge, Container } from '@/shared/ui'
+import { adjustPublicPath, getHTMLParseInterface } from '../lib'
 import { CodeBlock } from './code-block'
 import { ContentImage } from './content-image'
 import { LinkText } from './link-text'
@@ -105,7 +105,21 @@ export const htmlComponents = [
     </p>
   )),
   getHTMLParseInterface('img')((props) => (
-    <ContentImage {...props} className="group-[-table]:my-1 group-[-table]:rounded-none" />
+    <ContentImage {...props} className="group-[-table]:my-1 group-[-table]:rounded" />
+  )),
+  getHTMLParseInterface('video')(({ width, height, children }) => (
+    <Container
+      variant="image"
+      layer="middle"
+      className="group-[-table]:my-1 group-[-table]:rounded"
+    >
+      <video controls muted autoPlay width={width} height={height}>
+        {children}
+      </video>
+    </Container>
+  )),
+  getHTMLParseInterface('source')(({ src = '', ...props }) => (
+    <source {...props} src={adjustPublicPath(src)} />
   )),
   getHTMLParseInterface('p')((props) => (
     <p {...props} className="break-keep leading-loose group-[-list]:leading-7">

@@ -2,9 +2,9 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { PUBLIC_PATH } from '@/shared/config'
 import { cn, THEME, useCheckHydration, useTheme } from '@/shared/lib'
 import { Container, ExternalLink, FallbackRender, Icon } from '@/shared/ui'
+import { adjustPublicPath } from '../lib'
 
 const ImageErrorFallback: React.FC = () => (
   <p className="flex select-none flex-col items-center justify-center px-3 py-12">
@@ -30,7 +30,7 @@ export const ContentImage: React.FC<
   const isDarkTheme = theme === THEME.DARK
 
   const raw = isDarkTheme && !!props['data-dark-src'] ? props['data-dark-src'] : props.src || ''
-  const src = raw.startsWith(PUBLIC_PATH) ? raw.replace(PUBLIC_PATH, '') : raw
+  const src = adjustPublicPath(raw)
 
   const ratio = (Number(props.height ?? 0) || 0) / (Number(props.width ?? 0) || 0)
   const [isError, setIsError] = useState(!ratio)
@@ -52,6 +52,7 @@ export const ContentImage: React.FC<
               quality={100}
               fill
               onError={() => setIsError(true)}
+              unoptimized={['webp', 'gif'].some((e) => src.endsWith(e))}
             />
           </ExternalLink>
         </FallbackRender>
