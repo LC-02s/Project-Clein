@@ -1,11 +1,10 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 
-export const useCheckHydration = () => {
-  const [isHydrated, setIsHydrated] = useState(false)
-
-  useEffect(() => setIsHydrated(true), [])
-
-  return isHydrated
-}
+export const useCheckHydration = () =>
+  useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  )
