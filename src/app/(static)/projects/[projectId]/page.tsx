@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { ProjectRepository } from '@/database/projects'
 import { ContentBody } from '@/widgets/content'
@@ -7,7 +8,6 @@ import { type ProjectId, PROJECT_TYPE_LABEL } from '@/entities/project'
 import { getMarkdownContent } from '@/shared/api'
 import { BLOG_PATH, THUMBNAIL_SIZE } from '@/shared/config'
 import { extractImageType } from '@/shared/lib'
-import { NotFound } from '@/shared/ui'
 
 interface ProjectDetailParams {
   projectId: ProjectId
@@ -46,7 +46,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = async ({ params }) =
   const project = ProjectRepository.findById(projectId)
 
   if (!project) {
-    return <NotFound className="flex min-h-[54rem] flex-col items-center justify-center" />
+    notFound()
   }
 
   const [data, content] = await Promise.all([
