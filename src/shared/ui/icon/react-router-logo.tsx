@@ -8,6 +8,11 @@ export const ReactRouterLogo: React.FC<IconProps> = (props) => (
     viewBox="0 0 128 128"
     aria-label="React Router 로고"
     {...props}
+    style={{
+      ...props.style,
+      filter:
+        'drop-shadow(0.5px 0.5px rgba(255,255,255,0.6)) drop-shadow(0.5px -0.5px rgba(255,255,255,0.6)) drop-shadow(-0.5px 0.5px rgba(255,255,255,0.6)) drop-shadow(-0.5px -0.5px rgba(255,255,255,0.6))',
+    }}
   >
     <path
       fill="#f44250"

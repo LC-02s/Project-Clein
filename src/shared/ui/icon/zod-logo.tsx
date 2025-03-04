@@ -8,6 +8,11 @@ export const ZodLogo: React.FC<IconProps> = (props) => (
     viewBox="0 0 256 203"
     aria-label="Zod 로고"
     {...props}
+    style={{
+      ...props.style,
+      filter:
+        'drop-shadow(0.5px 0.5px rgba(255,255,255,0.6)) drop-shadow(0.5px -0.5px rgba(255,255,255,0.6)) drop-shadow(-0.5px 0.5px rgba(255,255,255,0.6)) drop-shadow(-0.5px -0.5px rgba(255,255,255,0.6))',
+    }}
   >
     <defs>
       <filter

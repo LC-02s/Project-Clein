@@ -17,10 +17,10 @@ export const TechStack = createPolymorphicComponent<TechStackProps>(
     >
       {!!Icon &&
         (typeof Icon === 'function' ? (
-          <Icon className="size-5 drop-shadow md:size-6" />
+          <Icon className="size-5 md:size-6" />
         ) : (
           <span
-            className="relative flex size-5 items-center justify-center drop-shadow md:size-6"
+            className="relative flex size-5 items-center justify-center md:size-6"
             style={{ fontSize: '1.2em' }}
           >
             {Icon}

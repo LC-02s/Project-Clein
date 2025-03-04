@@ -8,6 +8,11 @@ export const NextJSLogo: React.FC<IconProps> = (props) => (
     viewBox="0 0 128 128"
     aria-label="Next.js 로고"
     {...props}
+    style={{
+      ...props.style,
+      filter:
+        'drop-shadow(0.5px 0.5px rgba(255,255,255,0.6)) drop-shadow(0.5px -0.5px rgba(255,255,255,0.6)) drop-shadow(-0.5px 0.5px rgba(255,255,255,0.6)) drop-shadow(-0.5px -0.5px rgba(255,255,255,0.6))',
+    }}
   >
     <circle cx={64} cy={64} r={64} />
     <path
