@@ -5,7 +5,7 @@ import { ProjectRepository } from '@/database/projects'
 import type { GetPostListResponse, PostItem, Keyword, PostId } from '@/entities/post'
 import { POST_LIST_PARAMS, computeReadingTime, createSeparateKeywords } from '@/entities/post'
 import { getMarkdownContent } from '@/shared/api'
-import { sortByDate, Pagination } from '@/shared/lib'
+import { sortByDate, Pagination, pick } from '@/shared/lib'
 
 export const GET = async (request: NextRequest) => {
   const { searchParams } = request.nextUrl
@@ -39,14 +39,9 @@ export const GET = async (request: NextRequest) => {
       const post = PostRepository.findById(id)
 
       return {
+        ...pick(post, ['title', 'description', 'thumbnail', 'createdAt', 'updatedAt', 'isWriting']),
         id,
-        title: post.title,
-        description: post.description,
-        thumbnail: post.thumbnail,
-        createdAt: post.createdAt,
-        updatedAt: post.updatedAt,
         readingTime: computeReadingTime(content),
-        isWriting: post.isWriting,
       } as PostItem
     })
 
