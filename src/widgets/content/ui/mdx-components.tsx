@@ -48,7 +48,7 @@ export const htmlComponents = [
   getHTMLParseInterface('ul')((props) => (
     <ul
       {...props}
-      className="group-list list-none space-y-2 py-2 *:before:absolute *:before:left-1.5 *:before:top-3 *:before:size-1.5 *:before:rounded-full *:before:bg-gray-500 *:before:dark:bg-gray-400"
+      className="group-list list-none space-y-1 py-2 *:before:absolute *:before:left-1.5 *:before:top-2.5 *:before:size-1.5 *:before:rounded-full *:before:bg-gray-500 md:space-y-2 *:before:dark:bg-gray-400"
       style={{ counterReset: 'list' }}
     >
       {props.children}
@@ -57,7 +57,7 @@ export const htmlComponents = [
   getHTMLParseInterface('ol')((props) => (
     <ol
       {...props}
-      className="group-list list-none space-y-2 py-2 *:before:absolute *:before:left-0 *:before:top-0 *:before:text-gray-500 *:before:content-[counter(list)'.'] *:before:dark:text-gray-400"
+      className="group-list list-none space-y-1 py-2 *:before:absolute *:before:left-0 *:before:top-0 *:before:text-gray-500 *:before:content-[counter(list)'.'] md:space-y-2 *:before:dark:text-gray-400"
       style={{ counterReset: 'list' }}
     >
       {props.children}
@@ -122,7 +122,7 @@ export const htmlComponents = [
     <source {...props} src={adjustPublicPath(src)} />
   )),
   getHTMLParseInterface('p')((props) => (
-    <p {...props} className="break-keep leading-loose group-[-list]:leading-7">
+    <p {...props} className="break-keep group-[-list]:leading-7 md:leading-loose">
       {props.children}
     </p>
   )),
@@ -135,7 +135,7 @@ export const htmlComponents = [
     </strong>
   )),
   getHTMLParseInterface('del')((props) => (
-    <del {...props} className="break-keep line-through">
+    <del {...props} className="break-keep text-gray-500 line-through dark:text-gray-400">
       {props.children}
     </del>
   )),
