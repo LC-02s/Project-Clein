@@ -6,7 +6,7 @@ export interface PolymorphicComponentProps<Props = object> {
 }
 
 export interface PolymorphicComponent<VariantProps, DefaultProps = object>
-  extends React.FC<ExtendedProps<DefaultProps, VariantProps> & PolymorphicComponentProps> {
+  extends Pick<React.FC, 'displayName'> {
   <Props = object, ComponentProp extends PolymorphicComponentProps<Props> = object>(
     props: ComponentProp['component'] extends React.ElementType
       ? ExtendedProps<React.ComponentProps<ComponentProp['component']>, VariantProps> &
