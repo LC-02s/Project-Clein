@@ -1,6 +1,10 @@
 > &#128680; 해당 글에 나오는 예제 코드는 [Next.js v14](https://nextjs.org/docs/14) 및 [React v18](https://18.react.dev/)을 기준으로 작성되었습니다.
 
 <br />
+
+> &#128226; 어트랙션 프로젝트에 대한 소개글은 [여기](/projects/attraction)에서 보실 수 있습니다.
+
+<br />
 <br />
 
 ## 구현 목표
