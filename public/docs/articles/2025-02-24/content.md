@@ -217,7 +217,7 @@ export interface PolymorphicComponentProps<Props = object> {
 }
 
 export interface PolymorphicComponent<VariantProps, DefaultProps = object>
-  extends React.FC<ExtendedProps<DefaultProps, VariantProps> & PolymorphicComponentProps> {
+  extends Pick<React.FC, 'displayName'> {
   <Props = object, ComponentProp extends PolymorphicComponentProps<Props> = object>(
     props: ComponentProp['component'] extends React.ElementType
       ? ExtendedProps<React.ComponentProps<ComponentProp['component']>, VariantProps> &
@@ -288,23 +288,38 @@ export const Button = createPolymorphicComponent<
 
 <br />
 
-구현하면서 조금 신경썼던 부분이라면 타입 추론 성능이었습니다. `JSX`에서 제공하는 모든 HTML 태그의 갯수(`JSX.IntrinsicElements`)는 세어보니 약 176개 정도 되며, 각각의 상세 타입에는 300개가 넘는 속성에 대한 `props`가 있습니다. 잘 못 구현하게 되면 \*타입스크립트에서 연산을 포기해 버리는 경우가 생기게 되죠. 어떻게든 구현한다고 해도 타입 추론을 할 때마다 5~10초씩 걸리는 경우도 있습니다.
+구현하면서 조금 신경썼던 부분이라면 타입 추론 성능이었습니다. `JSX`에서 제공하는 모든 HTML 태그의 갯수(`JSX.IntrinsicElements`)는 세어보니 약 176개 정도 되며, 각각의 상세 타입에는 300개가 넘는 속성에 대한 `props`가 있습니다. 잘 못 구현하게 되면 아래와 같이 타입스크립트에서 연산을 포기해 버리는 경우가 생기게 되죠. 어떻게든 구현한다고 해도 타입 추론을 할 때마다 5~10초씩 걸리는 경우도 있습니다.
 
 <br />
 
-\* `ts(2590): 식에서는 너무 복잡해서 표시할 수 없는 공용 구조체 형식을 생성합니다.`
+```text
+ts(2590): 식에서는 너무 복잡해서 표시할 수 없는 공용 구조체 형식을 생성합니다.
+```
 
 <br />
 
 그런 경우들을 사전에 방지하고자 해당 코드에서는 삼항 연산자를 통해 타입스크립트가 모든 경우의 수에 대한 타입을 미리 생성하지 않고 동적으로 타입을 추론할 수 있게 했으며, 모든 HTML 태그에 대한 유니온 타입을 표현하는 `keyof JSX.IntrinsicElements` 타입 대신 리액트에서 제공하는 최적화가 완료된 `React.ElementType` 타입을 사용했습니다. 또한 타입 관계 캐싱을 통한 성능 향상을 위해 `type` 키워드 대신 `interface`로 작성한 부분도 있습니다.
 
 <br />
+
+아래 영상은 적용 결과입니다. 깔끔하네요. 👍
+
+<br />
+
+<video controls muted autoplay width="800" height="532">
+  <source src="/public/docs/articles/2025-02-24/images/polymorphic-component-result.mp4" type="video/mp4" />
+</video>
+
+<br />
 <br />
 
 ## 후기
 
-이전에 어트랙션의 디자인 시스템을 구축할 때 `Styled-Component` 라이브러리를 통해 접했던 `as props`를 구현하다가 실패했던 적이 있었습니다. 생각해보면 해당 글에서 다루었던 내용과 똑같은 내용이었던 것 같네요. 그때 당시에는 타입스크립트에 대해 제대로 알지 못해서 구현에 실패했었지만 지금 시점에는 구현에 성공한 것을 보니 나름 성장했다는 것이 느껴져서 뿌듯한 마음이 드는 것 같습니다.
+이전에 어트랙션의 디자인 시스템을 구축할 때 `Styled-Component` 라이브러리를 통해 접했던 `as props`를 구현하다가 실패했던 적이 있었습니다. 생각해보면 해당 글에서 다루었던 내용과 똑같은 내용이었던 것 같아요. 그때 당시에는 타입스크립트에 대해 제대로 알지 못해서 구현에 실패했었지만 지금 시점에는 구현에 성공한 것을 보니 나름 성장했다는 것이 느껴져서 뿌듯하네요.
 
 <br />
 
-긴 글 읽어주셔서 감사합니다. :)
+긴 글 읽어주셔서 감사합니다. 😊
+
+<br />
+<br />

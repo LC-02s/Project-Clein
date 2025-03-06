@@ -115,6 +115,8 @@
 
 ### 시연 영상
 
+<img src="/public/docs/projects/eung-cham-jal/images/video.gif" alt="[{name}] 시연 영상" width="1882" height="869" />
+
 <br />
 <br />
 

@@ -2,7 +2,7 @@
 
 <br />
 
-> &#128226; 어트랙션 프로젝트에 대한 소개글은 [여기](/projects/attraction)에서 보실 수 있습니다.
+> &#128226; 어트랙션 프로젝트에 대한 소개글은 <a href="/projects/attraction" title="어트랙션 프로젝트 소개글">여기</a>에서 보실 수 있습니다.
 
 <br />
 <br />
@@ -396,4 +396,4 @@ export default function MyPage() {
 
 <br />
 
-긴 글 읽어주셔서 감사합니다. :)
+긴 글 읽어주셔서 감사합니다. 😊

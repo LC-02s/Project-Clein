@@ -15,7 +15,7 @@
 
 <br />
 
-해당 영상을 녹화한 기기는 맥북 프로 16인치 M2 PRO 프로세서에 램 32GB 옵션이었습니다. 나름 괜찮은 성능을 제공하는 기기임에도 저 정도의 성능 문제가 생기는 것으로 미루어 보아 확실한 문제가 있다고 판단했었죠. 구형 안드로이드 모바일 기기에서 테스트해보니 아무것도 하지 않은 IDLE 상태에서 프레임 드랍 현상까지 있었습니다.
+해당 영상을 녹화한 기기는 맥북 프로 16인치 M2 PRO 프로세서에 램 32GB 옵션이었습니다. 나름 괜찮은 성능을 제공하는 기기임에도 저 정도의 성능 문제가 생기는 것으로 미루어 보아 확실한 문제가 있다고 판단했었죠. 구형 안드로이드 모바일 기기에서 테스트해보니 아무것도 하지 않은 IDLE 상태에서도 프레임 드랍 현상이 있었습니다.
 
 <br />
 <br />
@@ -28,7 +28,7 @@
 
 기존 코드가 너무 길어 변경사항만 추적하는 식으로 보여드리겠습니다. 아래의 코드를 참고하여 글을 읽어 주세요.
 
-(처음 참고했던 원본 코드는 [여기](https://motion.dev/docs/react-scroll-animations#scroll-velocity-and-direction)에 있습니다.)
+(처음 참고했던 원본 코드는 <a href="https://motion.dev/docs/react-scroll-animations#scroll-velocity-and-direction" title="scroll velocity and direction">여기</a>에 있습니다.)
 
 <br />
 
@@ -197,7 +197,7 @@ export const ParallaxText: React.FC<ParallaxTextProps> = ({ baseVelocity = 5, ch
 
 <br />
 
-해당 조치 덕분에 기존에 비해서는 많은 개선을 이루었지만 모바일 기기에서의 프레임 드랍 현상은 계속 되었고 맥북에서도 간헐적으로 프레임 드랍이 있었습니다.
+해당 조치 덕분에 기존에 비해서는 많은 개선을 이루었지만 마지노선 느낌이었습니다. 모바일 기기에서의 프레임 드랍 현상은 계속 되었고 맥북에서도 간헐적으로 프레임 드랍이 있었죠.
 
 <br />
 <br />
@@ -355,7 +355,7 @@ export const TechStackExample: React.FC = ({ icon: Icon, label }) => (
 
 <br />
 
-긴 글 읽어주셔서 감사합니다. :)
+긴 글 읽어주셔서 감사합니다. 😊
 
 <br />
 <br />

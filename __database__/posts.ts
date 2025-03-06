@@ -31,7 +31,7 @@ export const PostRepository = new Repository<PostId, PostData>({
       alt: '어트랙션 - 나만의 뉴스레터 관리 서비스 (DROPPED)',
     },
     createdAt: '2025-01-15 22:23',
-    updatedAt: '2025-01-27 13:06',
+    updatedAt: '2025-02-12 13:06',
     keywords: ['review', 'fe', 'service', 'attraction'],
     isWriting: true,
   },
@@ -43,17 +43,6 @@ export const PostRepository = new Repository<PostId, PostData>({
     createdAt: '2024-12-31 21:46',
     updatedAt: '2025-01-12 00:10',
     keywords: ['review'],
-    isWriting: true,
-  },
-  '2024-12-20': {
-    title: '레거시 리액트 프로젝트 FSD 아키텍처로 재구성하기',
-    description:
-      'PBL Notes 프로젝트를 리팩토링하면서 FSD 아키텍처를 적용한 과정과 그에 따른 고민에 대한 글이에요',
-    thumbnail: ProjectRepository.findById('pbl-notes').thumbnail,
-    createdAt: '2024-12-20 14:23',
-    updatedAt: '2024-12-20 14:23',
-    keywords: ['react', 'fsd', 'refactor', 'fe', 'pbl-notes'],
-    isWriting: true,
   },
   '2024-12-18': {
     title: '새로고침할 때 깜빡이지 않는 완성형 다크 모드 구현하기',

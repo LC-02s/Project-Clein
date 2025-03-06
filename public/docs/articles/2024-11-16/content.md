@@ -6,7 +6,7 @@
 
 <br />
 
-> &#128226; 시너지 밋 2024에 대한 소개글은 [여기](/projects/synergy-meet-2024)에서 보실 수 있습니다.
+> &#128226; 시너지 밋 2024에 대한 소개글은 <a href="/projects/synergy-meet-2024" title="시너지 밋 프로젝트 소개글">여기</a>에서 보실 수 있습니다.
 
 <br />
 <br />
@@ -106,7 +106,7 @@
 
 <br />
 
-```text
+```bash
 pnpm create vite .
 
 ✔ Select a framework: › React
@@ -147,7 +147,7 @@ vite.config.ts
 
 <br />
 
-```text
+```bash
 pnpm add -D express
 ```
 
@@ -317,7 +317,7 @@ hydrateRoot(document.getElementById('root')!, <App />)
 
 <br />
 
-```text
+```bash
 pnpm add @emotion/react @emotion/cache @emotion/server
 ```
 
@@ -598,4 +598,4 @@ dist/server/entry-server.js  96.91 kB
 
 <br />
 
-긴 글 읽어주셔서 감사합니다. :)
+긴 글 읽어주셔서 감사합니다. 😊
