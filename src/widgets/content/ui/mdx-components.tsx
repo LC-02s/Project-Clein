@@ -48,7 +48,7 @@ export const htmlComponents = [
   getHTMLParseInterface('ul')((props) => (
     <ul
       {...props}
-      className="group-list list-none space-y-1 py-2 *:before:absolute *:before:left-1.5 *:before:top-2.5 *:before:size-1.5 *:before:rounded-full *:before:bg-gray-500 md:space-y-2 *:before:dark:bg-gray-400"
+      className="group-list list-none space-y-1 py-2 *:before:absolute *:before:left-1.5 *:before:top-2.5 *:before:size-1.5 *:before:rounded-full *:before:bg-gray-500 md:space-y-2 *:before:md:top-3 *:before:md:group-[-table]:top-2.5 *:before:dark:bg-gray-400"
       style={{ counterReset: 'list' }}
     >
       {props.children}
@@ -111,7 +111,7 @@ export const htmlComponents = [
     <Container
       variant="image"
       layer="middle"
-      className="group-[-table]:my-1 group-[-table]:rounded"
+      className="flex flex-col items-center justify-center group-[-table]:my-1 group-[-table]:rounded"
     >
       <video controls muted autoPlay width={width} height={height}>
         {children}
@@ -126,8 +126,10 @@ export const htmlComponents = [
       {props.children}
     </p>
   )),
-  getHTMLParseInterface('a')(({ href, children }) => (
-    <LinkText href={href || '/'}>{children}</LinkText>
+  getHTMLParseInterface('a')(({ href, title, children }) => (
+    <LinkText href={href || '/'} title={title}>
+      {children}
+    </LinkText>
   )),
   getHTMLParseInterface('strong')((props) => (
     <strong {...props} className="break-keep font-bold">
