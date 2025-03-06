@@ -21,7 +21,6 @@ export const PostRepository = new Repository<PostId, PostData>({
     createdAt: '2025-02-18 15:16',
     updatedAt: '2025-02-18 15:16',
     keywords: ['react', 'trouble', 'fe', 'portfolio-site'],
-    isWriting: true,
   },
   '2025-01-15': {
     title: '어트랙션 서비스 운영 실패 회고',
