@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers'
 import type { Metadata } from 'next'
-import { ProjectRepository } from '@/database/projects'
+import { ProjectEntity } from '@/database/projects'
 import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
 import { SearchBarTrigger } from '@/widgets/search-bar'
@@ -21,7 +21,7 @@ import { Pretendard } from './assets/font'
 
 import './assets/style/globals.css'
 
-const { thumbnail } = ProjectRepository.findById('portfolio-site')
+const { thumbnail } = ProjectEntity.findById('portfolio-site')
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_DOMAIN_ADDRESS!),

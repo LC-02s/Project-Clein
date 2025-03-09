@@ -1,11 +1,11 @@
-import { type RepositoryId, type RepositorySchema, Repository } from '@/shared/lib'
-import { ProjectRepository } from './projects'
+import { type EntityId, type EntitySchema, Entity } from '@/shared/lib'
+import { ProjectEntity } from './projects'
 
-export const SeriesRepository = new Repository({
+export const SeriesEntity = new Entity({
   service: '서비스 운영 여정',
 } as const)
 
-export const KeywordRepository = new Repository({
+export const KeywordEntity = new Entity({
   // tags
   react: 'React',
   next: 'Next.js',
@@ -33,12 +33,12 @@ export const KeywordRepository = new Repository({
   review: '회고',
 
   // series
-  ...(SeriesRepository.getEntries().reduce((repo, [id, name]) => {
+  ...(SeriesEntity.getEntries().reduce((repo, [id, name]) => {
     return Object.assign(repo, { [id]: name })
-  }, {}) as RepositorySchema<typeof SeriesRepository>),
+  }, {}) as EntitySchema<typeof SeriesEntity>),
 
   // projects
-  ...(ProjectRepository.getEntries().reduce((repo, [id, { name }]) => {
+  ...(ProjectEntity.getEntries().reduce((repo, [id, { name }]) => {
     return Object.assign(repo, { [id]: name })
-  }, {}) as Record<RepositoryId<typeof ProjectRepository>, string>),
+  }, {}) as Record<EntityId<typeof ProjectEntity>, string>),
 } as const)

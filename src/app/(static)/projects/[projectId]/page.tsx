@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { ProjectRepository } from '@/database/projects'
+import { ProjectEntity } from '@/database/projects'
 import { ContentBody } from '@/widgets/content'
 import { getPostList, POST_LIST_PARAMS } from '@/entities/post'
 import { type ProjectId, PROJECT_TYPE_LABEL } from '@/entities/project'
@@ -18,11 +18,11 @@ interface ProjectDetailPageProps {
 }
 
 export const generateStaticParams = () =>
-  ProjectRepository.getKeys().map<ProjectDetailParams>((key) => ({ projectId: key }))
+  ProjectEntity.getKeys().map<ProjectDetailParams>((key) => ({ projectId: key }))
 
 export const generateMetadata = async ({ params }: ProjectDetailPageProps): Promise<Metadata> => {
   const { projectId } = await params
-  const project = ProjectRepository.findById(projectId)
+  const project = ProjectEntity.findById(projectId)
 
   if (!project) {
     return {}
@@ -43,7 +43,7 @@ export const generateMetadata = async ({ params }: ProjectDetailPageProps): Prom
 
 const ProjectDetailPage: React.FC<ProjectDetailPageProps> = async ({ params }) => {
   const { projectId } = await params
-  const project = ProjectRepository.findById(projectId)
+  const project = ProjectEntity.findById(projectId)
 
   if (!project) {
     notFound()

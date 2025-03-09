@@ -1,8 +1,8 @@
 import { createProjectData } from '@/entities/project'
 import { MAIN_TITLE, GITHUB, USER_GITHUB_ADDRESS } from '@/shared/config'
-import { getThumbnailData, Repository } from '@/shared/lib'
+import { getThumbnailData, Entity } from '@/shared/lib'
 
-export const ProjectRepository = new Repository({
+export const ProjectEntity = new Entity({
   'it-moji': createProjectData({
     name: 'IT-MOJI',
     description: 'IT인들끼리 MO여 JI식을 나누는 모임 관리 서비스',

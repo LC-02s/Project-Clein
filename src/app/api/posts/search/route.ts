@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server'
-import { KeywordRepository } from '@/database/keywords'
-import { PostRepository } from '@/database/posts'
+import { KeywordEntity } from '@/database/keywords'
+import { PostEntity } from '@/database/posts'
 import type { SearchPostItem, SearchPostResponse } from '@/entities/post'
 import { SEARCH_POST_PARAMS } from '@/entities/post'
 import { exceptionMessage } from '@/shared/api'
@@ -15,13 +15,13 @@ export const GET = (request: NextRequest) => {
   }
 
   const word = query.toLowerCase()
-  const targetPosts = PostRepository.getEntries()
+  const targetPosts = PostEntity.getEntries()
     .filter(([, data]) => {
       return (
         data.title.toLowerCase().includes(word) ||
         data.description.toLowerCase().includes(word) ||
         data.thumbnail.alt.toLowerCase().includes(word) ||
-        data.keywords.some((key) => KeywordRepository.findById(key).toLowerCase().includes(word)) ||
+        data.keywords.some((key) => KeywordEntity.findById(key).toLowerCase().includes(word)) ||
         data.externalTags?.some((tag) => tag.toLowerCase().includes(word))
       )
     })

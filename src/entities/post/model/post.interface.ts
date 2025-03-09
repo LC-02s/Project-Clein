@@ -1,7 +1,7 @@
-import type { KeywordRepository } from '@/database/keywords'
-import type { ImageData, LiteralDate, RepositoryId, SortedFromDate } from '@/shared/lib'
+import type { KeywordEntity } from '@/database/keywords'
+import type { ImageData, LiteralDate, EntityId, SortedFromDate } from '@/shared/lib'
 
-export type Keyword = RepositoryId<typeof KeywordRepository>
+export type Keyword = EntityId<typeof KeywordEntity>
 
 export interface MappedKeyword {
   id: Keyword

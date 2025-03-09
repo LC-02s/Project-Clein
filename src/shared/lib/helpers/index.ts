@@ -1,4 +1,4 @@
-export * from './repository'
+export * from './entity'
 export * from './pagination'
 export * from './sort-by-date'
 export * from './thumbnail'

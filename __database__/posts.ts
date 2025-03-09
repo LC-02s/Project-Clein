@@ -1,8 +1,8 @@
 import type { PostId, PostData } from '@/entities/post'
-import { Repository, getThumbnailData } from '@/shared/lib'
-import { ProjectRepository } from './projects'
+import { Entity, getThumbnailData } from '@/shared/lib'
+import { ProjectEntity } from './projects'
 
-export const PostRepository = new Repository<PostId, PostData>({
+export const PostEntity = new Entity<PostId, PostData>({
   '2025-02-24': {
     title: '다형성 개념으로 공용 컴포넌트 재사용성 극대화하기',
     description:
@@ -61,7 +61,7 @@ export const PostRepository = new Repository<PostId, PostData>({
     title: '간단한 리액트 SSG 빌드 파이프라인 구축하기 (with Vite, Emotion)',
     description:
       'Synergy Meet 2024 프로젝트를 진행하며 구축했던 Vite의 SSR 예제를 활용한 SSG 빌드 파이프라인에 대한 글이에요',
-    thumbnail: ProjectRepository.findById('synergy-meet-2024').thumbnail,
+    thumbnail: ProjectEntity.findById('synergy-meet-2024').thumbnail,
     createdAt: '2024-11-16 22:12',
     updatedAt: '2024-12-30 19:58',
     keywords: ['react', 'ssr', 'ssg', 'fe', 'synergy-meet-2024'],
@@ -71,7 +71,7 @@ export const PostRepository = new Repository<PostId, PostData>({
     title: 'Next.js에서의 안전한 로그인 구현 여정 (without NextAuth)',
     description:
       '어트랙션 서비스를 개발하면서 고민했었던 보안을 고려한 로그인 구현 과정에 대한 글이에요',
-    thumbnail: ProjectRepository.findById('attraction').thumbnail,
+    thumbnail: ProjectEntity.findById('attraction').thumbnail,
     createdAt: '2024-07-10 17:04',
     updatedAt: '2024-12-16 13:02',
     keywords: ['next', 'ssr', 'auth', 'fe', 'attraction'],

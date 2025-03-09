@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server'
-import { ProjectRepository } from '@/database/projects'
+import { ProjectEntity } from '@/database/projects'
 import type { SearchProjectItem, SearchProjectResponse } from '@/entities/project'
 import { PROJECT_TYPE_LABEL, SEARCH_PROJECT_PARAMS } from '@/entities/project'
 import { exceptionMessage } from '@/shared/api'
@@ -13,7 +13,7 @@ export const GET = (request: NextRequest) => {
   }
 
   const word = query.toLowerCase()
-  const targetProjects = ProjectRepository.getEntries()
+  const targetProjects = ProjectEntity.getEntries()
     .filter(([, data]) => {
       return (
         data.name.toLowerCase().includes(word) ||

@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server'
-import { KeywordRepository, SeriesRepository } from '@/database/keywords'
-import { PostRepository } from '@/database/posts'
-import { ProjectRepository } from '@/database/projects'
+import { KeywordEntity, SeriesEntity } from '@/database/keywords'
+import { PostEntity } from '@/database/posts'
+import { ProjectEntity } from '@/database/projects'
 import type { GetPostListResponse, PostItem, Keyword, PostId } from '@/entities/post'
 import { POST_LIST_PARAMS, computeReadingTime, createSeparateKeywords } from '@/entities/post'
 import { getMarkdownContent } from '@/shared/api'
@@ -10,9 +10,9 @@ import { sortByDate, Pagination, pick } from '@/shared/lib'
 export const GET = async (request: NextRequest) => {
   const { searchParams } = request.nextUrl
 
-  const postKeysAll = PostRepository.getKeys()
+  const postKeysAll = PostEntity.getKeys()
   const postByKeywordMap = postKeysAll.reduce((map, id) => {
-    PostRepository.findById(id).keywords.forEach((keyword) => {
+    PostEntity.findById(id).keywords.forEach((keyword) => {
       map.set(keyword, (map.get(keyword) ?? new Set<PostId>()).add(id))
     })
 
@@ -36,7 +36,7 @@ export const GET = async (request: NextRequest) => {
     .filter((postId) => !!postId)
     .map(async (id) => {
       const content = await getMarkdownContent(`/articles/${id}`).catch(() => '')
-      const post = PostRepository.findById(id)
+      const post = PostEntity.findById(id)
 
       return {
         ...pick(post, ['title', 'description', 'thumbnail', 'createdAt', 'updatedAt', 'isWriting']),
@@ -48,8 +48,8 @@ export const GET = async (request: NextRequest) => {
   const sortedContents: PostItem[] = (await Promise.all(targetPosts)).sort(compare)
 
   const separateKeywords = createSeparateKeywords({
-    projects: new Set(ProjectRepository.getKeys()),
-    series: new Set(SeriesRepository.getKeys()),
+    projects: new Set(ProjectEntity.getKeys()),
+    series: new Set(SeriesEntity.getKeys()),
   })
 
   return NextResponse.json({
@@ -61,7 +61,7 @@ export const GET = async (request: NextRequest) => {
       total: postKeysAll.length,
       ...separateKeywords([...postByKeywordMap.keys()], (keyword) => ({
         id: keyword,
-        name: KeywordRepository.findById(keyword),
+        name: KeywordEntity.findById(keyword),
         length: postByKeywordMap.get(keyword)!.size,
       })),
     },

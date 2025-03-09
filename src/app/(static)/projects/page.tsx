@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ProjectRepository } from '@/database/projects'
+import { ProjectEntity } from '@/database/projects'
 import { ProjectList } from '@/widgets/project-list'
 import type { ProjectId, ProjectData } from '@/entities/project'
 import { Icon } from '@/shared/ui'
@@ -27,7 +27,7 @@ const ProjectsMainPage: React.FC = () => (
     <ProjectList
       contents={TARGET_PROJECTS.map<[ProjectId, ProjectData]>((id) => [
         id,
-        ProjectRepository.findById(id),
+        ProjectEntity.findById(id),
       ])}
     />
   </div>

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { PostRepository } from '@/database/posts'
+import { PostEntity } from '@/database/posts'
 import { ContentBody } from '@/widgets/content'
 import {
   ARTICLE_ID,
@@ -27,7 +27,7 @@ interface PostDetailPageProps {
 }
 
 export const generateStaticParams = () =>
-  PostRepository.getKeys().map<PostDetailPageParams>((key) => ({ postId: key }))
+  PostEntity.getKeys().map<PostDetailPageParams>((key) => ({ postId: key }))
 
 export const generateMetadata = async ({ params }: PostDetailPageProps): Promise<Metadata> => {
   try {
