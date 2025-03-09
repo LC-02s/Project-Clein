@@ -80,6 +80,7 @@
 > **목차**
 >
 > 1. [프로젝트 소개](#프로젝트-소개)
+>    - [정보 구조도](#정보-구조도)
 >    - [시연 영상](#시연-영상)
 >    - [역할](#역할)
 > 2. [사용 기술](#사용-기술)
@@ -113,6 +114,139 @@
 
 <br />
 
+### 정보 구조도
+
+<table>
+  <thead>
+    <tr>
+      <th>작업 단위</th>
+      <th colspan="2">기능 구성</th>
+      <th>상세 내용</th>
+      <th>기여</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3">인트로 페이지</td>
+      <td colspan="2">서비스 키 비주얼</td>
+      <td></td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td colspan="2">시작하기 버튼</td>
+      <td>클릭 시 이름 작성 페이지 이동</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td colspan="2">누적 부적 생성 횟수 출력</td>
+      <td>Notion API 활용</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td rowspan="2">이름 작성 페이지</td>
+      <td colspan="2">이름 입력 인풋</td>
+      <td>기본 값으로 랜덤 이름 생성</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td colspan="2">다음으로 버튼</td>
+      <td>클릭 시 부적 템플릿 선택 페이지 이동</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td rowspan="2">부적 템플릿 선택 페이지</td>
+      <td colspan="2">부적 템플릿 선택 슬라이드</td>
+      <td></td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td colspan="2">다음으로 버튼</td>
+      <td>클릭 시 부적 템플릿 편집 페이지 이동</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td rowspan="6">부적 템플릿 편집 페이지</td>
+      <td colspan="2">편집 중인 부적 이미지 미리보기</td>
+      <td>개별 텍스트 영역 클릭 시 편집 기능 활성화</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td rowspan="3">폰트 편집 기능</td>
+      <td>텍스트 별 폰트 종류 변경</td>
+      <td rowspan="3">변경 시 미리보기와 동기화</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>텍스트 별 폰트 두께 변경</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>텍스트 별 폰트 크기 변경</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td colspan="2">텍스트 수정 인풋</td>
+      <td>내용 입력 시 미리보기와 동기화</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td colspan="2">저장하기 버튼</td>
+      <td>부적 생성 결과 페이지 이동</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td rowspan="5">부적 생성 결과 페이지</td>
+      <td colspan="2">안내 문구 출력</td>
+      <td>입력받은 이름 사용</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td colspan="2">편집된 부적 이미지 미리보기 출력</td>
+      <td></td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td colspan="2">소장하기 버튼</td>
+      <td>클릭 시 편집된 부적 이미지 저장</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td colspan="2">부적 링크 공유하기 버튼</td>
+      <td>클릭 시 클립보드에 부적 공유 링크 복사</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td colspan="2">하나 더 만들기 버튼</td>
+      <td>클릭 시 인트로 페이지 이동</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td rowspan="4">부적 공유 페이지</td>
+      <td colspan="2">안내 문구 출력</td>
+      <td>입력받은 이름 사용</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td colspan="2">공유된 부적 이미지 미리보기 출력</td>
+      <td></td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td colspan="2">나도 만들어 보기 버튼</td>
+      <td>클릭 시 인트로 페이지 이동</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td colspan="2">소장하기 버튼</td>
+      <td>클릭 시 공유된 부적 이미지 저장</td>
+      <td>X</td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+<br />
+
 ### 시연 영상
 
 <img src="/public/docs/projects/eung-cham-jal/images/video.gif" alt="[{name}] 시연 영상" width="1882" height="869" />
@@ -122,13 +256,13 @@
 
 ### 역할
 
-랜덤 이름 생성 기능과 부적 생성 횟수 누적 기능 중 노션 API를 활용한 부분을 제외한 거의 대부분의 로직에 기여했으며, 프로젝트 배포를 전담하였습니다.
+랜덤 이름 생성 기능과 부적 생성 횟수 누적 기능 중 노션 API를 활용한 부분을 제외한 거의 대부분의 핵심 로직에 기여했으며, 프로젝트 배포를 전담하였습니다.
 
 (GitHub Insights Contributors 기준 커밋 1위, 코드 추가 2위, 코드 삭제 1위입니다.)
 
 <br />
 
-프로젝트 기획 단계에서 구두로만 결정된 MVP 작업 단위를 와이어 프레임으로 시각화하여 팀원 분들의 서비스 이해도를 높여 실 개발 단계 이전의 의견 조율을 원활하게 이끌었습니다.
+프로젝트 기획 단계에서 구두로만 결정된 MVP 작업 단위를 와이어 프레임으로 시각화하여 제공함으로써 팀원 분들의 서비스 이해도를 높여 실 개발 단계 이전의 의견 조율을 원활하게 이끌었습니다.
 
 <br />
 
