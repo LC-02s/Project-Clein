@@ -1,9 +1,15 @@
 import { type NextRequest, NextResponse } from 'next/server'
+
 import { KeywordEntity, SeriesEntity } from '@/database/keywords'
 import { PostEntity } from '@/database/posts'
 import { ProjectEntity } from '@/database/projects'
-import type { GetPostDetailResponse, MappedKeyword, PostId } from '@/entities/post'
-import { computeReadingTime, createSeparateKeywords } from '@/entities/post'
+import {
+  type GetPostDetailResponse,
+  type MappedKeyword,
+  type PostId,
+  computeReadingTime,
+  createSeparateKeywords,
+} from '@/entities/post'
 import { exceptionMessage, getMarkdownContent } from '@/shared/api'
 import { orderByDateAsc } from '@/shared/lib'
 

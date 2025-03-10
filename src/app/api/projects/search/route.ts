@@ -1,7 +1,12 @@
 import { NextResponse, type NextRequest } from 'next/server'
+
 import { ProjectEntity } from '@/database/projects'
-import type { SearchProjectItem, SearchProjectResponse } from '@/entities/project'
-import { PROJECT_TYPE_LABEL, SEARCH_PROJECT_PARAMS } from '@/entities/project'
+import {
+  type SearchProjectItem,
+  type SearchProjectResponse,
+  PROJECT_TYPE_LABEL,
+  SEARCH_PROJECT_PARAMS,
+} from '@/entities/project'
 import { exceptionMessage } from '@/shared/api'
 
 export const GET = (request: NextRequest) => {

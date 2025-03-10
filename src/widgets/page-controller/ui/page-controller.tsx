@@ -7,6 +7,7 @@ import {
   PAGINATION_PARAMS,
 } from '@/shared/lib'
 import { Button, Icon } from '@/shared/ui'
+
 import { PageInput } from './page-input'
 import { PageLink } from './page-link'
 

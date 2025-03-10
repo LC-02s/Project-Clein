@@ -1,6 +1,7 @@
-import type { PostItem } from '@/entities/post'
+import { type PostItem } from '@/entities/post'
 import { type PropsWithClassName, type SortedFromDateKey, formatDateFromNow } from '@/shared/lib'
 import { Icon } from '@/shared/ui'
+
 import { PostLink } from './post-link'
 
 export interface PostListProps extends React.PropsWithChildren<PropsWithClassName> {

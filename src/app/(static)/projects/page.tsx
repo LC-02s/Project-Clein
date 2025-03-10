@@ -1,7 +1,8 @@
-import type { Metadata } from 'next'
+import { type Metadata } from 'next'
+
 import { ProjectEntity } from '@/database/projects'
 import { ProjectList } from '@/widgets/project-list'
-import type { ProjectId, ProjectData } from '@/entities/project'
+import { type ProjectId, type ProjectData } from '@/entities/project'
 import { Icon } from '@/shared/ui'
 
 export const metadata: Metadata = {

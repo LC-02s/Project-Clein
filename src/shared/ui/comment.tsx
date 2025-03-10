@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+
 import { GITHUB } from '../config'
 import { type Theme, useTheme, cn, useCheckHydration } from '../lib'
 

@@ -1,5 +1,5 @@
-import type { MappedKeywordWithLength } from '@/entities/post'
-import type { PropsWithClassName } from '@/shared/lib'
+import { type MappedKeywordWithLength } from '@/entities/post'
+import { type PropsWithClassName } from '@/shared/lib'
 
 export interface KeywordListProps extends React.PropsWithChildren<PropsWithClassName> {
   list: MappedKeywordWithLength[]

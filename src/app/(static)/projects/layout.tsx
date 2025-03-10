@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 import { BackgroundGrid } from '@/shared/ui'
 
 const ProjectLayout: React.FC<React.PropsWithChildren> = ({ children }) => (

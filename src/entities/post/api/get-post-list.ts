@@ -1,6 +1,13 @@
 import { type SearchParams, server } from '@/shared/api'
-import { PAGINATION_PARAMS, type ResponseWithPagination, type SortedInfo } from '@/shared/lib'
-import type { Keyword, MappedKeywordWithLength, PostItem, SeparatedKeywordsKey } from '../model'
+import { type ResponseWithPagination, type SortedInfo, PAGINATION_PARAMS } from '@/shared/lib'
+
+import {
+  type Keyword,
+  type MappedKeywordWithLength,
+  type PostItem,
+  type SeparatedKeywordsKey,
+} from '../model'
+
 import { ENDPOINT_POST } from './endpoint'
 
 export type PostListParamsKey = (typeof POST_LIST_PARAMS)[keyof typeof POST_LIST_PARAMS]

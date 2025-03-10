@@ -1,6 +1,7 @@
 'use client'
 
 import { SITE_MAP } from '@/shared/config'
+
 import { TabLink } from './tab-link'
 
 export const TabMenu: React.FC = () => (

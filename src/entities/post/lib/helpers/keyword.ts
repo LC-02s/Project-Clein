@@ -1,4 +1,4 @@
-import type { Keyword, SeparatedKeywordsKey } from '../../model'
+import { type Keyword, type SeparatedKeywordsKey } from '../../model'
 
 export interface CreateSeparateKeywordsParams<P extends Keyword, S extends Keyword> {
   projects: Set<P>

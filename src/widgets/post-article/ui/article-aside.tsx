@@ -1,6 +1,6 @@
-import type { SeparatedKeywordsKey } from '@/entities/post'
-import type { PostDetail } from '@/entities/post'
+import { type SeparatedKeywordsKey, type PostDetail } from '@/entities/post'
 import { type PropsWithClassName, cn } from '@/shared/lib'
+
 import { KeywordsBadge } from './keywords-badge'
 import { RelatedLink } from './related-link'
 

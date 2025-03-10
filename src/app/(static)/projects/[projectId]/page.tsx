@@ -1,6 +1,7 @@
+import { type Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import type { Metadata } from 'next'
+
 import { ProjectEntity } from '@/database/projects'
 import { ContentBody } from '@/widgets/content'
 import { getPostList, POST_LIST_PARAMS } from '@/entities/post'

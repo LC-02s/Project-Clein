@@ -2,6 +2,7 @@
 
 import { useBreakpoint, useOverlay } from '@/shared/lib'
 import { Button, Icon } from '@/shared/ui'
+
 import { KeywordsDrawer } from './keywords-drawer'
 
 export interface KeywordsDrawerTriggerProps {

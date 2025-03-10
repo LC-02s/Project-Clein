@@ -1,4 +1,5 @@
 import { MainLogo, Container } from '@/shared/ui'
+
 import { TabMenu } from './tab-menu'
 
 export const Header: React.FC<React.PropsWithChildren> = ({ children }) => (

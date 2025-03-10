@@ -5,7 +5,7 @@ import { PostKeyword } from '@/widgets/post-keyword'
 import { PostList } from '@/widgets/post-list'
 import { Profile, ProfileSkeleton } from '@/widgets/profile'
 import { type PostListParamsKey, getPostList, POST_LIST_PARAMS } from '@/entities/post'
-import type { SearchParams } from '@/shared/api'
+import { type SearchParams } from '@/shared/api'
 import { BLOG_PATH } from '@/shared/config'
 import {
   createSearchParamsFilter,

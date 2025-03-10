@@ -1,8 +1,11 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 
-import type { MDXRemoteProps } from 'next-mdx-remote/rsc'
+import { type MDXRemoteProps } from 'next-mdx-remote/rsc'
+
 import { Badge, Container } from '@/shared/ui'
+
 import { adjustPublicPath, getHTMLParseInterface } from '../lib'
+
 import { CodeBlock } from './code-block'
 import { ContentImage } from './content-image'
 import { LinkText } from './link-text'

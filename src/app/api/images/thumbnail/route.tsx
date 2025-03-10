@@ -1,7 +1,9 @@
 import { readFile } from 'fs/promises'
 import { resolve } from 'path'
+
 import { ImageResponse } from 'next/og'
-import type { NextRequest } from 'next/server'
+import { type NextRequest } from 'next/server'
+
 import { MAIN_TITLE, THUMBNAIL_SIZE } from '@/shared/config'
 
 const options: ConstructorParameters<typeof ImageResponse>[1] = {

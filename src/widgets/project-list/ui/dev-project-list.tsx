@@ -1,8 +1,8 @@
 'use client'
 
 import { motion } from 'motion/react'
-import type { ProjectId, ProjectData } from '@/entities/project'
-import { PROJECT_TYPE_LABEL } from '@/entities/project'
+
+import { type ProjectId, type ProjectData, PROJECT_TYPE_LABEL } from '@/entities/project'
 import { PROJECT_PATH } from '@/shared/config'
 import { type PropsWithClassName, cn } from '@/shared/lib'
 import {

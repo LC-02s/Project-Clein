@@ -2,9 +2,12 @@
 
 import { useIsomorphicLayoutEffect } from 'motion/react'
 import { useState } from 'react'
+
 import { useOverlay, useWindowEvent } from '@/shared/lib'
 import { Badge, Button, Icon } from '@/shared/ui'
+
 import { SEARCH_HOTKEY } from '../config'
+
 import { SearchBar } from './search-bar'
 import { SearchBarContainer } from './search-bar-container'
 

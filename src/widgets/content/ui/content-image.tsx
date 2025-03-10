@@ -2,8 +2,10 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { cn, THEME, useCheckHydration, useTheme } from '@/shared/lib'
+
+import { cn, useCheckHydration, useTheme, THEME } from '@/shared/lib'
 import { Container, ExternalLink, FallbackRender, Icon } from '@/shared/ui'
+
 import { adjustPublicPath } from '../lib'
 
 const ImageErrorFallback: React.FC = () => (

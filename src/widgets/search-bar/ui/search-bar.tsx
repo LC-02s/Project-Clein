@@ -1,10 +1,12 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+
 import { useSearchPost } from '@/entities/post'
 import { useSearchProject } from '@/entities/project'
 import { cn, useDebounce, useFocusLoop, useOutsideClick } from '@/shared/lib'
 import { Badge, Button, Icon, TextInput } from '@/shared/ui'
+
 import { SearchResult } from './search-result'
 
 export interface SearchBarProps {

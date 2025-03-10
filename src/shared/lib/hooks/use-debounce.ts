@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+
 import { useTimeout } from './use-timeout'
 
 export const useDebounce = <T>(value: T, delay = 500) => {

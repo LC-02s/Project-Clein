@@ -1,6 +1,7 @@
-import type { ProjectEntity } from '@/database/projects'
-import type { ImageData, EntityId } from '@/shared/lib'
-import type { PROJECT_TYPE } from '../config'
+import { type ProjectEntity } from '@/database/projects'
+import { type ImageData, type EntityId } from '@/shared/lib'
+
+import { type PROJECT_TYPE } from '../config'
 
 export type ProjectType = (typeof PROJECT_TYPE)[keyof typeof PROJECT_TYPE]
 

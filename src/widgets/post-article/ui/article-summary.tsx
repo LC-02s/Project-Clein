@@ -1,4 +1,4 @@
-import type { PostDetail } from '@/entities/post'
+import { type PostDetail } from '@/entities/post'
 import { type SortedFromDateKey, type PropsWithClassName, cn } from '@/shared/lib'
 import { Container, ReadingTimeText } from '@/shared/ui'
 

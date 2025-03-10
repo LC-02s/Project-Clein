@@ -1,6 +1,7 @@
 import Image from 'next/image'
+
 import { THUMBNAIL_SIZE } from '../../config'
-import type { ImageData } from '../../lib'
+import { type ImageData } from '../../lib'
 
 export type ThumbnailImageProps = ImageData &
   Omit<React.ComponentProps<typeof Image>, keyof ImageData>

@@ -1,6 +1,6 @@
-import type { PostItem as Item } from '@/entities/post'
+import { type PostItem } from '@/entities/post'
 import { BLOG_PATH } from '@/shared/config'
-import type { SortedFromDateKey } from '@/shared/lib'
+import { type SortedFromDateKey } from '@/shared/lib'
 import {
   LinkWithLoader,
   Button,
@@ -11,11 +11,11 @@ import {
   ThumbnailImage,
 } from '@/shared/ui'
 
-export interface PostItemProps extends Omit<Item, SortedFromDateKey> {
+export interface PostLinkProps extends Omit<PostItem, SortedFromDateKey> {
   date: string
 }
 
-export const PostLink: React.FC<PostItemProps> = ({
+export const PostLink: React.FC<PostLinkProps> = ({
   id,
   title,
   description,

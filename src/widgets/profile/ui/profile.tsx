@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 import { NICKNAME, NICKNAME_KR, EMAIL_ADDRESS, USER_GITHUB_ADDRESS } from '@/shared/config'
 import { type PropsWithClassName, cn } from '@/shared/lib'
 import { Container, ExternalLink, Icon } from '@/shared/ui'

@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
-import type { ThemeState, SystemTheme } from './use-theme.model'
-import { THEME, THEME_STORE_KEY } from './use-theme.model'
+
+import { type ThemeState, type SystemTheme, THEME, THEME_STORE_KEY } from './use-theme.model'
 
 export const matchDarkThemeMedia = () => window.matchMedia('(prefers-color-scheme: dark)')
 

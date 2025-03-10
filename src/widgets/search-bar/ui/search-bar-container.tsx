@@ -1,6 +1,7 @@
 'use client'
 
 import { AnimatePresence, motion } from 'motion/react'
+
 import { useLockBodyScroll, useWindowEvent } from '@/shared/lib'
 import { Container, Dimmed } from '@/shared/ui'
 

@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+
 import { useDocumentEvent } from './use-document-event'
 
 export const useOutsideClick = <E extends Element>(callback: (event: MouseEvent) => void) => {

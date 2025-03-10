@@ -1,4 +1,4 @@
-import type { PostDetail } from '@/entities/post'
+import { type PostDetail } from '@/entities/post'
 import { BLOG_PATH } from '@/shared/config'
 import { cn } from '@/shared/lib'
 import { LinkWithLoader, Button } from '@/shared/ui'

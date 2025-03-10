@@ -1,8 +1,9 @@
 'use client'
 
 import { useCallback, useImperativeHandle, useEffect } from 'react'
-import type { OverlayControllerProps } from './use-overlay.model'
+
 import { useBooleanState } from './use-boolean-state'
+import { type OverlayControllerProps } from './use-overlay.model'
 
 export const OverlayController: React.FC<OverlayControllerProps> = ({
   overlayElement: OverlayElement,

@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+
 import { type PropsWithClassName, cn } from '@/shared/lib'
 import { Button, Container, CopyButton, Icon } from '@/shared/ui'
 

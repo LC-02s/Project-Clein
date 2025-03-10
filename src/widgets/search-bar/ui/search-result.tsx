@@ -1,9 +1,10 @@
 'use client'
 
-import type { SearchPostItem } from '@/entities/post'
-import type { SearchProjectItem } from '@/entities/project'
+import { type SearchPostItem } from '@/entities/post'
+import { type SearchProjectItem } from '@/entities/project'
 import { BLOG_PATH, PROJECT_PATH } from '@/shared/config'
 import { LinkWithLoader, Button, FallbackRender, Icon } from '@/shared/ui'
+
 import { type SearchBarProps } from './search-bar'
 
 export interface SearchResultProps extends SearchBarProps {

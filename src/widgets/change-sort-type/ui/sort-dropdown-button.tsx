@@ -1,7 +1,10 @@
 'use client'
 
 import { useRef, useCallback } from 'react'
+
 import {
+  type LiteralSortParams,
+  type PropsWithClassName,
   createSearchParamsToURL,
   DEFAULT_SORT_PARAMS,
   SORT_PARAMS_LABEL_MAP,
@@ -10,10 +13,9 @@ import {
   useLockBodyScroll,
   useOutsideClick,
   useWindowEvent,
-  type LiteralSortParams,
-  type PropsWithClassName,
 } from '@/shared/lib'
 import { Button, DropdownToDialog, Icon } from '@/shared/ui'
+
 import { SortLink } from './sort-link'
 
 export interface SortDropdownButtonProps<K extends string = string> extends PropsWithClassName {

@@ -1,7 +1,12 @@
-import type { GetPostListResponse, Keyword, PostListParamsKey } from '@/entities/post'
-import { POST_LIST_PARAMS } from '@/entities/post'
+import {
+  type GetPostListResponse,
+  type Keyword,
+  type PostListParamsKey,
+  POST_LIST_PARAMS,
+} from '@/entities/post'
 import { type PropsWithClassName, cn, createSearchParamsToURL, DEFAULT_PAGE } from '@/shared/lib'
 import { FallbackRender, Icon } from '@/shared/ui'
+
 import { BadgeLink, BarLink, type KeywordLinkProps } from './keyword-link'
 import { KeywordList } from './keyword-list'
 import { KeywordTitle } from './keyword-title'

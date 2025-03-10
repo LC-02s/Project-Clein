@@ -1,5 +1,6 @@
-import type { IconProps } from './interface'
 import { cn } from '../../lib'
+
+import { type IconProps } from './interface'
 
 export const RotateSpinner: React.FC<IconProps> = ({ className, ...props }) => (
   <svg

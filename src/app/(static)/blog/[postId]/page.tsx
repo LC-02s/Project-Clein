@@ -1,5 +1,6 @@
+import { type Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import type { Metadata } from 'next'
+
 import { PostEntity } from '@/database/posts'
 import { ContentBody } from '@/widgets/content'
 import {

@@ -1,10 +1,10 @@
 import { type NextRequest, NextResponse } from 'next/server'
+
 import { KeywordEntity } from '@/database/keywords'
 import { PostEntity } from '@/database/posts'
-import type { SearchPostItem, SearchPostResponse } from '@/entities/post'
-import { SEARCH_POST_PARAMS } from '@/entities/post'
+import { type SearchPostItem, type SearchPostResponse, SEARCH_POST_PARAMS } from '@/entities/post'
 import { exceptionMessage } from '@/shared/api'
-import { Pagination, sortByDate } from '@/shared/lib'
+import { Pagination, pick, sortByDate } from '@/shared/lib'
 
 export const GET = (request: NextRequest) => {
   const { searchParams } = request.nextUrl
@@ -31,8 +31,8 @@ export const GET = (request: NextRequest) => {
   const { page, range } = new Pagination(searchParams, targetPosts.length).response()
   const contents = range
     .map((index) => targetPosts[index])
-    .filter((data) => !!data)
-    .map<SearchPostItem>(({ id, title }) => ({ id, title }))
+    .filter((post) => !!post)
+    .map<SearchPostItem>((post) => pick(post, ['id', 'title']))
 
   return NextResponse.json({ page, contents } satisfies SearchPostResponse)
 }

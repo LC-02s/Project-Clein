@@ -1,6 +1,7 @@
 'use client'
 
 import { AnimatePresence, motion, type Target } from 'motion/react'
+
 import {
   type PropsWithClassName,
   cn,
@@ -9,6 +10,7 @@ import {
   useOutsideClick,
   useWindowEvent,
 } from '../../lib'
+
 import { Button } from './button'
 import { Dimmed } from './dimmed'
 

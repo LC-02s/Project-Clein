@@ -4,6 +4,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+
 import { getFocusableElementAll } from '../utils'
 
 export interface UseFocusLoopParams<E extends Element> {

@@ -1,10 +1,15 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import type { FocusableElement } from '../utils'
-import type { CreateOverlayElement, OverlayControlRef } from './use-overlay.model'
+
+import { type FocusableElement } from '../utils'
+
 import { OverlayController } from './use-overlay.controller'
-import { useOverlayStore } from './use-overlay.model'
+import {
+  type CreateOverlayElement,
+  type OverlayControlRef,
+  useOverlayStore,
+} from './use-overlay.model'
 
 let elementId = 1
 

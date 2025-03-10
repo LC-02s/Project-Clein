@@ -1,6 +1,8 @@
 import Image from 'next/image'
+
 import { NICKNAME, NICKNAME_KR, MAIN_DESCRIPTION, USER_GITHUB_ADDRESS } from '@/shared/config'
 import { MainLogo, ExternalLink, Button, Container, Icon } from '@/shared/ui'
+
 import { BuyMeACoffeeButton } from './coffee-button'
 import { EmailButton } from './email-button'
 import { SiteMap } from './site-map'

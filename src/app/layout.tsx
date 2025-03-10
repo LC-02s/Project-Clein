@@ -1,5 +1,6 @@
+import { type Metadata } from 'next'
 import { cookies } from 'next/headers'
-import type { Metadata } from 'next'
+
 import { ProjectEntity } from '@/database/projects'
 import { Footer } from '@/widgets/footer'
 import { Header } from '@/widgets/header'
@@ -17,6 +18,7 @@ import {
 } from '@/shared/config'
 import { BreakpointProvider, extractImageType, OverlayViewer, THEME_STORE_KEY } from '@/shared/lib'
 import { LoadingProgressBar, ThemeDropdownButton, ThemeProvider } from '@/shared/ui'
+
 import { Pretendard } from './assets/font'
 
 import './assets/style/globals.css'

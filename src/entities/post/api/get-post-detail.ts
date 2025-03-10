@@ -1,5 +1,7 @@
 import { type ExceptionInterceptor, server } from '@/shared/api'
-import type { PostDetail, PostId } from '../model'
+
+import { type PostDetail, type PostId } from '../model'
+
 import { ENDPOINT_POST } from './endpoint'
 
 export interface GetPostDetailResponse {

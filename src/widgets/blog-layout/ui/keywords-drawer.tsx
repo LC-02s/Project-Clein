@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect } from 'react'
+
 import { useOutsideClick, useWindowEvent, useLockBodyScroll, useFocusLoop } from '@/shared/lib'
 import { Button, Container, Dimmed, Icon } from '@/shared/ui'
 

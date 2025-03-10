@@ -1,5 +1,5 @@
-import type { IconProps } from '../icon/interface'
 import { type PropsWithClassName, cn, createPolymorphicComponent } from '../../lib'
+import { type IconProps } from '../icon/interface'
 
 export interface TechStackProps extends PropsWithClassName {
   icon?: React.FC<IconProps> | React.ReactNode

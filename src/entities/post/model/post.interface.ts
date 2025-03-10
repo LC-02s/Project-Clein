@@ -1,5 +1,5 @@
-import type { KeywordEntity } from '@/database/keywords'
-import type { ImageData, LiteralDate, EntityId, SortedFromDate } from '@/shared/lib'
+import { type KeywordEntity } from '@/database/keywords'
+import { type ImageData, type LiteralDate, type EntityId, type SortedFromDate } from '@/shared/lib'
 
 export type Keyword = EntityId<typeof KeywordEntity>
 

@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+
 import { NICKNAME_KR } from '@/shared/config'
 import { type CreateOverlayElement, useOverlay } from '@/shared/lib'
 import { type ButtonProps, Button, Dialog, Icon } from '@/shared/ui'

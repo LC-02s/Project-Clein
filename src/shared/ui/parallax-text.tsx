@@ -11,6 +11,7 @@ import {
   useVelocity,
 } from 'motion/react'
 import { Fragment, useRef } from 'react'
+
 import { useBreakpoint } from '@/shared/lib'
 
 const wrap = ({ min = 0, max = 0, value = 0 }) => {

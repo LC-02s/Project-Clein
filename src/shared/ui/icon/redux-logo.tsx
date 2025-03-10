@@ -1,4 +1,4 @@
-import type { IconProps } from './interface'
+import { type IconProps } from './interface'
 
 export const ReduxLogo: React.FC<IconProps> = (props) => (
   <svg

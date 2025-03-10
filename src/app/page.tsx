@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react'
 import Image from 'next/image'
+
 import { CONTENT_ID } from '@/widgets/skip-content'
 import { MAIN_TITLE, NICKNAME_KR, USER_GITHUB_ADDRESS } from '@/shared/config'
 import {

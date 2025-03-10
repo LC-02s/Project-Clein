@@ -1,6 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
+
 import { server } from '@/shared/api'
-import type { SearchProjectItem } from '../model'
+
+import { type SearchProjectItem } from '../model'
+
 import { ENDPOINT_PROJECT } from './endpoint'
 
 export type SearchProjectParamsKey =

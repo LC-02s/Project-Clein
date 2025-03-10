@@ -1,4 +1,4 @@
-import type { PostDetail } from '@/entities/post'
+import { type PostDetail } from '@/entities/post'
 
 export type ArticleHeaderProps = React.PropsWithChildren<Pick<PostDetail, 'title' | 'description'>>
 

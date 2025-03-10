@@ -1,5 +1,9 @@
-import type { PaginationParamsKey } from '../lib'
-import { createSearchParamsToURL, DEFAULT_PAGE, PAGINATION_PARAMS } from '../lib'
+import {
+  type PaginationParamsKey,
+  createSearchParamsToURL,
+  DEFAULT_PAGE,
+  PAGINATION_PARAMS,
+} from '../lib'
 import { Icon } from '../ui'
 
 export const PUBLIC_PATH = '/public' as const

@@ -3,6 +3,7 @@
 import { useIsomorphicLayoutEffect } from 'motion/react'
 import { useCallback, useState } from 'react'
 import { create } from 'zustand'
+
 import { useWindowEvent } from './use-window-event'
 
 export type BreakpointKey = (typeof BREAKPOINT_ENTRIES)[number][0]

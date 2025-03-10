@@ -3,8 +3,16 @@
 import { useIsomorphicLayoutEffect } from 'motion/react'
 import { useEffect, useState } from 'react'
 import { create } from 'zustand'
-import type { SystemTheme, Theme, ThemeState } from './use-theme.model'
-import { DEFAULT_THEME, DEFAULT_SYSTEM_THEME, THEME, THEME_LIST } from './use-theme.model'
+
+import {
+  type SystemTheme,
+  type Theme,
+  type ThemeState,
+  DEFAULT_THEME,
+  DEFAULT_SYSTEM_THEME,
+  THEME,
+  THEME_LIST,
+} from './use-theme.model'
 import { matchDarkThemeMedia, themeInterceptor } from './use-theme.utils'
 
 interface ThemeStore extends ThemeState {

@@ -2,6 +2,7 @@
 
 import { createScrollToSection } from '@/shared/lib'
 import { Icon, Button } from '@/shared/ui'
+
 import { ARTICLE_ASIDE_CLOSE_CLASS_NAME, ARTICLE_COMMENT_ID } from '../config'
 
 export const ArticleCommentAnchor: React.FC = () => (

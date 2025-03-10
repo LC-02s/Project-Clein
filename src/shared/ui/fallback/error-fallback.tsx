@@ -1,9 +1,10 @@
 'use client'
 
-import { Exception, type CommonErrorProps } from '../../api'
+import { type CommonErrorProps, Exception } from '../../api'
 import { EMAIL_ADDRESS, GITHUB_ISSUE_ADDRESS, MAIN_TITLE } from '../../config'
 import { cn } from '../../lib'
 import { Button, Icon, ExternalLink } from '../../ui'
+
 import { PageIconWrapper } from './page-icon-wrapper'
 
 export interface ErrorFallbackProps

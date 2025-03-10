@@ -1,6 +1,6 @@
 'use client'
 
-import type { PostDetail } from '@/entities/post'
+import { type PostDetail } from '@/entities/post'
 import { share } from '@/shared/lib'
 import { Button, Icon } from '@/shared/ui'
 

@@ -1,4 +1,4 @@
-import type { PostId } from '../model'
+import { type PostId } from '../model'
 
 export const ENDPOINT_POST = {
   LIST: '/api/posts',

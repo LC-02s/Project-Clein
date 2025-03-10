@@ -1,8 +1,11 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
+
 import { type PropsWithClassName, cn, createPolymorphicComponent } from '@/shared/lib'
 import { FallbackRender } from '@/shared/ui'
+
 import { options } from '../config'
 import { type ContentMapper, parseHTMLContent } from '../lib'
+
 import { EmptyContent } from './empty-content'
 import { components, htmlComponents } from './mdx-components'
 

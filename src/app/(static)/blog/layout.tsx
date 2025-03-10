@@ -1,4 +1,5 @@
-import type { Metadata } from 'next'
+import { type Metadata } from 'next'
+
 import { THUMBNAIL_SIZE, BLOG_DESCRIPTION, BLOG_KEYWORDS, BLOG_TITLE } from '@/shared/config'
 
 export const metadata: Metadata = {
