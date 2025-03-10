@@ -1,10 +1,10 @@
 'use client'
 
 import { EMAIL_ADDRESS } from '@/shared/config'
-import { type OverlayElementState, useOverlay } from '@/shared/lib'
+import { type CreateOverlayElement, useOverlay } from '@/shared/lib'
 import { type ButtonProps, Button, CopyButton, Dialog, Icon, TextInput } from '@/shared/ui'
 
-const EmailDialog: React.FC<OverlayElementState> = ({ isOpen, close }) => (
+const EmailDialog: CreateOverlayElement = ({ isOpen, close }) => (
   <Dialog open={isOpen} onClose={close} size="sm" cancelWithOutsideClick cancelWithEscape>
     <Dialog.Title>이메일 복사하기</Dialog.Title>
     <div className="flex items-center justify-between space-x-2 px-px pt-2">

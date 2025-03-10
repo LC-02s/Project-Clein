@@ -1,6 +1,6 @@
 export interface KeywordTitleProps {
   label: string
-  icon: (props: React.SVGProps<SVGSVGElement>) => React.ReactNode
+  icon: React.FC<React.SVGProps<SVGSVGElement>>
 }
 
 export const KeywordTitle: React.FC<KeywordTitleProps> = ({ label, icon: Icon }) => (

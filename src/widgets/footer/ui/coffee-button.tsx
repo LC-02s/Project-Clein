@@ -2,10 +2,10 @@
 
 import Image from 'next/image'
 import { NICKNAME_KR } from '@/shared/config'
-import { type OverlayElementState, useOverlay } from '@/shared/lib'
+import { type CreateOverlayElement, useOverlay } from '@/shared/lib'
 import { type ButtonProps, Button, Dialog, Icon } from '@/shared/ui'
 
-const AccountDialog: React.FC<OverlayElementState> = ({ isOpen, close }) => (
+const AccountDialog: CreateOverlayElement = ({ isOpen, close }) => (
   <Dialog open={isOpen} onClose={close} size="sm" cancelWithOutsideClick cancelWithEscape>
     <Dialog.Title className="mb-6 flex items-center">
       <Icon.BubbleTeaEmoji className="mb-1 mr-2 text-xl md:text-2xl" />

@@ -16,7 +16,7 @@ export interface Page {
   href: string
   segment: string
   title: string
-  icon: (props: React.SVGProps<SVGSVGElement>) => React.ReactNode
+  icon: React.FC<React.SVGProps<SVGSVGElement>>
 }
 
 export const SITE_MAP: readonly Page[] = [
