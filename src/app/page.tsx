@@ -107,34 +107,32 @@ const MainPage: React.FC = () => (
             name="Zustand"
             icon={<Image src="/images/zustand-logo.png" alt="Zustand 로고" fill />}
           />
-          <TechStack name="Redux" icon={Icon.ReduxLogo} />
           <TechStack name="React Router" icon={Icon.ReactRouterLogo} />
           <TechStack name="Vite" icon={Icon.ViteLogo} />
-          <TechStack name="Vitest" icon={Icon.VitestLogo} />
         </ParallaxText>
         <ParallaxText baseVelocity={-2}>
+          <TechStack name="Vitest" icon={Icon.VitestLogo} />
+          <TechStack name="Playwright" icon={Icon.PlaywrightLogo} />
+          <TechStack name="StoryBook" icon={Icon.StoryBookLogo} />
+          <TechStack name="MSW" icon={Icon.MSWLogo} />
+          <TechStack name="Zod" icon={Icon.ZodLogo} />
           <TechStack name="Framer Motion" icon={Icon.FramerMotionLogo} />
           <TechStack name="TailWindCSS" icon={Icon.TailWindCSSLogo} />
-          <TechStack name="Styled Components" icon={<>💅</>} />
-          <TechStack name="Emotion" icon={<>👩‍🎤</>} />
-          <TechStack name="Sass" icon={Icon.SASSLogo} />
           <TechStack name="Mantine" icon={Icon.MantineLogo} />
-          <TechStack name="StoryBook" icon={Icon.StoryBookLogo} />
-          <TechStack name="Playwright" icon={Icon.PlaywrightLogo} />
-          <TechStack name="Zod" icon={Icon.ZodLogo} />
-          <TechStack name="MSW" icon={Icon.MSWLogo} />
-          <TechStack name="supabase" icon={Icon.SupabaseLogo} />
+          <TechStack name="Figma" icon={Icon.FigmaLogo} />
+          <TechStack name="Notion" icon={Icon.NotionLogo} />
         </ParallaxText>
         <ParallaxText baseVelocity={2}>
-          <TechStack name="Adobe XD" icon={Icon.AdobeXdLogo} />
-          <TechStack name="Figma" icon={Icon.FigmaLogo} />
-          <TechStack name="Slack" icon={Icon.SlackLogo} />
-          <TechStack name="Jira" icon={Icon.JiraLogo} />
+          <TechStack name="Discord" icon={Icon.DiscordLogo} />
           <TechStack name="GitHub" icon={Icon.GithubLogo} />
           <TechStack name="GitHub Actions" icon={Icon.GitHubActionsLogo} />
+          <TechStack name="Node.js" icon={Icon.NodeJSLogo} />
+          <TechStack name="PostgreSQL" icon={Icon.PostgreSQLLogo} />
+          <TechStack name="Prisma" icon={Icon.PrismaLogo} />
+          <TechStack name="supabase" icon={Icon.SupabaseLogo} />
+          <TechStack name="turbo repo" icon={Icon.TurboRepoLogo} />
           <TechStack name="docker" icon={Icon.DockerLogo} />
           <TechStack name="AWS Amplify" icon={Icon.AWSAmplifyLogo} />
-          <TechStack name="Notion" icon={Icon.NotionLogo} />
         </ParallaxText>
       </div>
       <p className="wrapper-xl mt-4 break-keep text-center text-sm text-gray-500 md:text-base dark:text-gray-400">
