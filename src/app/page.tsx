@@ -41,7 +41,7 @@ const MainPage: React.FC = () => (
           size="lg"
           component={ExternalLink}
         >
-          <Icon.GithubLogo className="mr-3 text-xl" />
+          <Icon.GithubLogo className="mr-3 text-xl md:text-2xl" />
           <span className="mr-7">GitHub 바로가기</span>
           <Icon.NewTabOutline className="text-sm text-gray-300 md:text-base dark:text-gray-600" />
         </Button>
@@ -130,9 +130,9 @@ const MainPage: React.FC = () => (
           <TechStack name="PostgreSQL" icon={Icon.PostgreSQLLogo} />
           <TechStack name="Prisma" icon={Icon.PrismaLogo} />
           <TechStack name="supabase" icon={Icon.SupabaseLogo} />
-          <TechStack name="turbo repo" icon={Icon.TurboRepoLogo} />
           <TechStack name="docker" icon={Icon.DockerLogo} />
           <TechStack name="AWS Amplify" icon={Icon.AWSAmplifyLogo} />
+          <TechStack name="Turbo Repo" icon={Icon.TurboRepoLogo} />
         </ParallaxText>
       </div>
       <p className="wrapper-xl mt-4 break-keep text-center text-sm text-gray-500 md:text-base dark:text-gray-400">
