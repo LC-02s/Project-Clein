@@ -1,5 +1,10 @@
 import { type PostItem } from '@/entities/post'
-import { type PropsWithClassName, type SortedFromDateKey, formatDateFromNow } from '@/shared/lib'
+import {
+  type PropsWithClassName,
+  type SortedFromDateKey,
+  formatDateFromNow,
+  omit,
+} from '@/shared/lib'
 import { Icon } from '@/shared/ui'
 
 import { PostLink } from './post-link'
@@ -32,12 +37,7 @@ export const PostList: React.FC<PostListProps> = ({
       {contents.map((props) => (
         <li key={props.id}>
           <PostLink
-            id={props.id}
-            title={props.title}
-            description={props.description}
-            thumbnail={props.thumbnail}
-            readingTime={props.readingTime}
-            isWriting={props.isWriting}
+            {...omit(props, ['createdAt', 'updatedAt'])}
             date={formatDateFromNow(props[sortedFrom])}
           />
         </li>

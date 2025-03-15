@@ -13,7 +13,7 @@ import {
   createSeparateKeywords,
 } from '@/entities/post'
 import { getMarkdownContent } from '@/shared/api'
-import { sortByDate, Pagination, pick } from '@/shared/lib'
+import { Pagination, omit, sortByDate } from '@/shared/lib'
 
 export const GET = async (request: NextRequest) => {
   const { searchParams } = request.nextUrl
@@ -47,7 +47,7 @@ export const GET = async (request: NextRequest) => {
       const post = PostEntity.findById(id)
 
       return {
-        ...pick(post, ['title', 'description', 'thumbnail', 'createdAt', 'updatedAt', 'isWriting']),
+        ...omit(post, ['keywords', 'externalTags']),
         id,
         readingTime: computeReadingTime(content),
       } as PostItem
