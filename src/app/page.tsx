@@ -101,11 +101,11 @@ const MainPage: React.FC = () => (
           <TechStack name="Next.js" icon={Icon.NextJSLogo} />
           <TechStack
             name="Tanstack Query"
-            icon={<Image src="/images/tanstack-logo.png" alt="Tanstack Query 로고" fill />}
+            icon={<Image src="/images/tanstack-logo.png" alt="로고" fill sizes="3rem" />}
           />
           <TechStack
             name="Zustand"
-            icon={<Image src="/images/zustand-logo.png" alt="Zustand 로고" fill />}
+            icon={<Image src="/images/zustand-logo.png" alt="로고" fill sizes="3rem" />}
           />
           <TechStack name="React Router" icon={Icon.ReactRouterLogo} />
           <TechStack name="Vite" icon={Icon.ViteLogo} />
