@@ -6,15 +6,15 @@
   <tbody>
     <tr>
       <th>이름</th>
-      <td>[{name}] [잇모지]</td>
+      <td>%{name}% [잇모지]</td>
     </tr>
     <tr>
       <th>설명</th>
-      <td>[{description}] 🧑🏻‍💻</td>
+      <td>%{description}% 🧑🏻‍💻</td>
     </tr>
     <tr>
       <th>유형</th>
-      <td>[{type}]</td>
+      <td>%{type}%</td>
     </tr>
     <tr>
       <th>인원 구성</th>
@@ -26,15 +26,15 @@
     </tr>
     <tr>
       <th>기간</th>
-      <td>[{period}]</td>
+      <td>%{period}%</td>
     </tr>
     <tr>
       <th>도메인</th>
-      <td>[{serviceURL}]</td>
+      <td>%{serviceURL}%</td>
     </tr>
     <tr>
       <th>GitHub</th>
-      <td>[{githubURL}]</td>
+      <td>%{githubURL}%</td>
     </tr>
     <tr>
       <th>StoryBook</th>
@@ -79,7 +79,7 @@
     </tr>
     <tr>
       <th>관련 포스트</th>
-      <td>[{posts}]</td>
+      <td>%{posts}%</td>
     </tr>
   </tbody>
 </table>

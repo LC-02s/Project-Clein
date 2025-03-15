@@ -6,30 +6,30 @@
   <tbody>
     <tr>
       <th>이름</th>
-      <td>[{name}]</td>
+      <td>%{name}%</td>
     </tr>
     <tr>
       <th>설명</th>
-      <td>[{description}]</td>
+      <td>%{description}%</td>
     </tr>
     <tr>
       <th>유형</th>
-      <td>[{type}]</td>
+      <td>%{type}%</td>
     </tr>
     <tr>
       <th>기간</th>
-      <td>[{period}]</td>
+      <td>%{period}%</td>
     </tr>
     <tr>
       <th>도메인</th>
-      <td>[{serviceURL}]</td>
+      <td>%{serviceURL}%</td>
     </tr>
     <tr>
       <th rowspan="2">GitHub</th>
-      <td>[v2] [{githubURL}]</td>
+      <td>[v2] %{githubURL}%</td>
     </tr>
     <tr>
-      <td>[v1] [{githubURL}]/tree/ver.1</td>
+      <td>[v1] %{githubURL}%/tree/ver.1</td>
     </tr>
     <tr>
       <th>사용 기술</th>
@@ -66,7 +66,7 @@
 
 ## 프로젝트 소개
 
-<img src="/public/docs/projects/pbl-notes/images/intro.jpg" alt="[{name}]" width="1200" height="630" />
+<img src="/public/docs/projects/pbl-notes/images/intro.jpg" alt="%{name}%" width="1200" height="630" />
 
 <br />
 

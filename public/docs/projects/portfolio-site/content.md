@@ -6,27 +6,27 @@
   <tbody>
     <tr>
       <th>이름</th>
-      <td>[{name}]</td>
+      <td>%{name}%</td>
     </tr>
     <tr>
       <th>설명</th>
-      <td>[{description}]</td>
+      <td>%{description}%</td>
     </tr>
     <tr>
       <th>유형</th>
-      <td>[{type}]</td>
+      <td>%{type}%</td>
     </tr>
     <tr>
       <th>기간</th>
-      <td>[{period}]</td>
+      <td>%{period}%</td>
     </tr>
     <tr>
       <th>도메인</th>
-      <td>[{serviceURL}]</td>
+      <td>%{serviceURL}%</td>
     </tr>
     <tr>
       <th>GitHub</th>
-      <td>[{githubURL}]</td>
+      <td>%{githubURL}%</td>
     </tr>
     <tr>
       <th>사용 기술</th>
@@ -36,7 +36,7 @@
     </tr>
     <tr>
       <th>관련 포스트</th>
-      <td>[{posts}]</td>
+      <td>%{posts}%</td>
     </tr>
   </tbody>
 </table>
@@ -47,6 +47,7 @@
 > **목차**
 >
 > 1. [프로젝트 소개](#프로젝트-소개)
+>    - [정보 구조도](#정보-구조도)
 > 2. [사용 기술](#사용-기술)
 > 3. [트러블 슈팅](#트러블-슈팅)
 >    - [Scroll Parallax UI 프레임 드랍 이슈](#scroll-parallax-ui-프레임-드랍-이슈)
@@ -58,18 +59,203 @@
 
 ## 프로젝트 소개
 
-<img src="/public/images/og-image-main.jpg" alt="[{name}]" width="1200" height="630" />
+<img src="/public/images/og-image-main.jpg" alt="%{name}%" width="1200" height="630" />
 
 <br />
 
 소개 랜딩페이지, 이력서, 블로그, 참여했던 프로젝트 모음 등의 내용으로 구성된 Next.js 기반 개인 포트폴리오 사이트 프로젝트입니다. 디자이너 시절부터 가지고 싶었던 제 작업물들을 모아두는 사이트와 함께 블로그 및 이력서를 포함하는 저의 모든 포트폴리오들을 한 곳에 정리해두고 편하게 보여주기 위해 만들게 되었습니다.
 
 <br />
+
+### 정보 구조도
+
+<table data-max-md>
+  <thead>
+    <tr>
+      <th>작업 단위</th>
+      <th colspan="2">기능 및 구성</th>
+      <th>상세 내용</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="4">메인 랜딩 페이지</td>
+      <td colspan="2">사이트 키 비주얼</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="2">간단 소개 및 비전</td>
+      <td>Reveal 애니메이션 효과</td>
+    </tr>
+    <tr>
+      <td colspan="2">선호 기술 Scroll Parallax UI</td>
+      <td>Framer Motion 활용 <a href="/blog/improve-scroll-parallax-performance" title="Scroll Parallax UI 프레임 드랍 이슈 개선하기">(참조)</a></td>
+    </tr>
+    <tr>
+      <td colspan="2">이메일 또는 디스코드 기반 <code>contact</code> 기능</td>
+      <td data-sub>(기획 중, 추후 구현 예정)</td>
+    </tr>
+    <tr>
+      <td rowspan="9">공통 레이아웃</td>
+      <td rowspan="4">헤더</td>
+      <td>로고 및 사이트 네비게이션</td>
+      <td>클릭 시 해당하는 페이지 이동</td>
+    </tr>
+    <tr>
+      <td rowspan="2">통합 검색창</td>
+      <td>단축키 및 키보드 접근성 지원</td>
+    </tr>
+    <tr>
+      <td>블로그 및 프로젝트 소개글 키워드 검색 가능</td>
+    </tr>
+    <tr>
+      <td>테마 변경 드롭다운</td>
+      <td>Flicker 현상 X, 테마 동기화 지원 <a href="/blog/no-flicker-dark-mode" title="새로고침할 때 깜빡이지 않는 완성형 다크 모드 구현하기">(참조)</a></td>
+    </tr>
+    <tr>
+      <td rowspan="4">푸터</td>
+      <td>로고 및 사이트 네비게이션</td>
+      <td>클릭 시 해당하는 페이지 이동</td>
+    </tr>
+    <tr>
+      <td>Buy Me a Coffee</td>
+      <td>Toss 송금 QR 코드 활용</td>
+    </tr>
+    <tr>
+      <td>이메일 및 연관 링크</td>
+      <td>이메일 클립보드 복사 가능</td>
+    </tr>
+    <tr>
+      <td>카피라이트 출력</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="2">사이트 맵 XML 동적 생성 기능</td>
+      <td data-sub>(구현 예정)</td>
+    </tr>
+    <tr>
+      <td rowspan="7">About 페이지</td>
+      <td colspan="2">개발자 소개</td>
+      <td data-sub>(추가 예정)</td>
+    </tr>
+    <tr>
+      <td colspan="2">사용 기술</td>
+      <td data-sub>(추가 예정)</td>
+    </tr>
+    <tr>
+      <td colspan="2">프로젝트 경험</td>
+      <td data-sub>(추가 예정)</td>
+    </tr>
+    <tr>
+      <td colspan="2">업무 경험</td>
+      <td data-sub>(추가 예정)</td>
+    </tr>
+    <tr>
+      <td colspan="2">대외 활동</td>
+      <td data-sub>(추가 예정)</td>
+    </tr>
+    <tr>
+      <td colspan="2">자격증</td>
+      <td data-sub>(추가 예정)</td>
+    </tr>
+    <tr>
+      <td colspan="2">관심사</td>
+      <td data-sub>(추가 예정)</td>
+    </tr>
+    <tr>
+      <td rowspan="15">Blog 페이지</td>
+      <td rowspan="8">리스트 뷰</td>
+      <td>개발자 약식 프로필</td>
+      <td>이름, 소개글, GitHub 링크, 이메일 구성</td>
+    </tr>
+    <tr>
+      <td>블로그 글 정렬 방식 변경 드롭다운</td>
+      <td>옵션 클릭 시 블로그 정렬 방식 변경</td>
+    </tr>
+    <tr>
+      <td rowspan="4">블로그 글 출력</td>
+      <td>썸네일, 제목, 설명, 날짜, 분량 구성</td>
+    </tr>
+    <tr>
+      <td>썸네일 동적 생성 가능 (템플릿 형식)</td>
+    </tr>
+    <tr>
+      <td>페이지네이션 적용</td>
+    </tr>
+    <tr>
+      <td>클릭 시 블로그 상세 뷰 이동</td>
+    </tr>
+    <tr>
+      <td rowspan="2">키워드 별 조회 기능</td>
+      <td>태그, 시리즈, 프로젝트 구성</td>
+    </tr>
+    <tr>
+      <td>클릭 시 키워드 별 블로그 리스트 뷰 이동</td>
+    </tr>
+    <tr>
+      <td rowspan="7">상세 뷰</td>
+      <td>블로그 상세 정보 출력</td>
+      <td>제목, 설명, 작성자 정보, 생성 및 수정 날짜, 분량, 썸네일 구성</td>
+    </tr>
+    <tr>
+      <td rowspan="2">블로그 공유 기능</td>
+      <td>링크 클립보드 복사 가능</td>
+    </tr>
+    <tr>
+      <td>Share API 활용 네이티브 공유 가능</td>
+    </tr>
+    <tr>
+      <td>블로그 내용 출력</td>
+      <td>마크다운 형식 및 MDX Parser 활용</td>
+    </tr>
+    <tr>
+      <td>관련 키워드 출력</td>
+      <td>클릭 시 관련 키워드 별 리스트 뷰 이동</td>
+    </tr>
+    <tr>
+      <td>이전 및 다음 블로그 글 출력</td>
+      <td>클릭 시 해당하는 블로그 상세 뷰 이동</td>
+    </tr>
+    <tr>
+      <td>댓글 출력 및 작성 기능</td>
+      <td>GitHub OAuth 기반 (Giscus 활용)</td>
+    </tr>
+    <tr>
+      <td rowspan="4">Project 페이지</td>
+      <td rowspan="2">리스트 뷰</td>
+      <td rowspan="2">프로젝트 소개글 출력</td>
+      <td>썸네일, 제목, 설명, 기간, 유형, GitHub 링크, 도메인 주소 구성</td>
+    </tr>
+    <tr>
+      <td>Reveal 애니메이션 효과</td>
+    </tr>
+    <tr>
+      <td rowspan="2">상세 뷰</td>
+      <td>소개글 개요 출력</td>
+      <td>썸네일, 제목, 설명, 기간, 유형, GitHub 링크, 도메인 주소, 역할, 사용 기술, 기여 구성</td>
+    </tr>
+    <tr>
+      <td>소개글 내용 출력</td>
+      <td>마크다운 형식 및 MDX Parser 활용</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Playground 페이지</td>
+      <td colspan="2">커스텀 키보드 모음집</td>
+      <td data-sub>(추가 예정)</td>
+    </tr>
+    <tr>
+      <td colspan="2">디자인 작업물 박제관</td>
+      <td data-sub>(추가 예정)</td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
 <br />
 
 ## 사용 기술
 
-사이트에 사용된 기술과 이유입니다.
+사이트에 사용된 기술과 사용한 이유입니다.
 
 <br />
 
@@ -117,7 +303,7 @@
 ### MDX
 
 - `mdx` 언어를 사용하지는 않았지만 마크다운 문서를 편하게 파싱하기 위한 용도로 사용하기 위해 `next-mdx-remote` 패키지를 도입하였습니다.
-- 마크다운 문서에 `HTML` 문법을 사용할 시 올바르게 파싱되지 않는 문제가 있어 정규 표현식을 활용한 [전처리 로직]([{githubURL}]/blob/main/src/widgets/content/lib/index.ts)을 추가하였습니다.
+- 마크다운 문서에 `HTML` 문법을 사용할 시 올바르게 파싱되지 않는 문제가 있어 정규 표현식을 활용한 [전처리 로직](%{githubURL}%/blob/main/src/widgets/content/lib/index.ts)을 추가하였습니다.
 
 <br />
 

@@ -6,15 +6,15 @@
   <tbody>
     <tr>
       <th>이름</th>
-      <td>[{name}] [응.참.잘.]</td>
+      <td>%{name}% [응.참.잘.]</td>
     </tr>
     <tr>
       <th>설명</th>
-      <td>[{description}]</td>
+      <td>%{description}%</td>
     </tr>
     <tr>
       <th>유형</th>
-      <td>[{type}]</td>
+      <td>%{type}%</td>
     </tr>
     <tr>
       <th>인원 구성</th>
@@ -26,15 +26,15 @@
     </tr>
     <tr>
       <th>기간</th>
-      <td>[{period}]</td>
+      <td>%{period}%</td>
     </tr>
     <tr>
       <th>도메인</th>
-      <td>[{serviceURL}]</td>
+      <td>%{serviceURL}%</td>
     </tr>
     <tr>
       <th>GitHub</th>
-      <td>[{githubURL}]</td>
+      <td>%{githubURL}%</td>
     </tr>
     <tr>
       <th>누적 사용자</th>
@@ -97,11 +97,11 @@
 
 ## 프로젝트 소개
 
-<img src="/public/docs/projects/eung-cham-jal/images/intro.png" alt="[{name}]" width="1200" height="630" />
+<img src="/public/docs/projects/eung-cham-jal/images/intro.png" alt="%{name}%" width="1200" height="630" />
 
 <br />
 
-[{name}]은 제공되는 부적 템플릿을 통하여 사용자가 원하는 부적을 손쉽게 만들어낸 후 공유까지 해볼 수 있는 커스텀 부적 메이커 서비스입니다.
+%{name}%은 제공되는 부적 템플릿을 통하여 사용자가 원하는 부적을 손쉽게 만들어낸 후 공유까지 해볼 수 있는 커스텀 부적 메이커 서비스입니다.
 
 <br />
 
@@ -249,7 +249,26 @@
 
 ### 시연 영상
 
-<img src="/public/docs/projects/eung-cham-jal/images/video.gif" alt="[{name}] 시연 영상" width="1882" height="869" />
+<table>
+  <colgroup>
+    <col width="50%" />
+    <col width="50%" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>템플릿 편집</th>
+      <th>결과물 저장 및 공유</th>
+    </tr>
+    <tr>
+      <td>준비 중입니다</td>
+      <td>준비 중입니다</td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+
+<img src="/public/docs/projects/eung-cham-jal/images/video.gif" alt="%{name}% 시연 영상" width="1882" height="869" />
 
 <br />
 <br />

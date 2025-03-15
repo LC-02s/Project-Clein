@@ -17,7 +17,7 @@ export const parseHTMLContent = <K extends keyof React.JSX.IntrinsicElements>(
 ) =>
   (mapper
     ? Object.entries(mapper).reduce((mapped, [key, value]) => {
-        return mapped.replaceAll(`[{${key}}]`, value)
+        return mapped.replaceAll(`%{${key}}%`, value)
       }, content)
     : content
   )
