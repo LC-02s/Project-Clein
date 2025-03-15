@@ -1,4 +1,5 @@
 import { type EntityId, type EntitySchema, Entity } from '@/shared/lib'
+
 import { ProjectEntity } from './projects'
 
 export const SeriesEntity = new Entity({
