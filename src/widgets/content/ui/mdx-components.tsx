@@ -2,6 +2,7 @@
 
 import { type MDXRemoteProps } from 'next-mdx-remote/rsc'
 
+import { cn, omit } from '@/shared/lib'
 import { Badge, Container } from '@/shared/ui'
 
 import { adjustPublicPath, getHTMLParseInterface } from '../lib'
@@ -13,7 +14,13 @@ import { LinkText } from './link-text'
 export const htmlComponents = [
   getHTMLParseInterface('table')((props) => (
     <div className="group-table overflow-x-auto rounded-md border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
-      <table {...props} className="w-full min-w-96 table-auto">
+      <table
+        {...omit(props, ['data-max-md'] as unknown as (keyof typeof props)[])}
+        className={cn(
+          'w-full min-w-96 table-auto',
+          !!(props as Record<string, string>)['data-max-md'] && 'min-w-[48rem]',
+        )}
+      >
         {props.children}
       </table>
     </div>
@@ -30,20 +37,28 @@ export const htmlComponents = [
   )),
   getHTMLParseInterface('th')((props) => (
     <th
-      className="break-keep border-r border-gray-200 bg-gray-50 px-3 py-2 text-sm font-medium last:border-none md:text-base dark:border-gray-700 dark:bg-gray-800"
+      {...omit(props, ['rowspan', 'colspan', 'data-sub'] as unknown as (keyof typeof props)[])}
+      className={cn(
+        'break-keep border-r border-gray-200 bg-gray-50 px-3 py-2 text-sm font-medium last:border-none md:text-base dark:border-gray-700 dark:bg-gray-800',
+        !!(props as Record<string, string>)['data-sub'] && 'text-gray-500 dark:text-gray-400',
+        props.className,
+      )}
       rowSpan={Number((props as Record<string, string>).rowspan) || props.rowSpan}
       colSpan={Number((props as Record<string, string>).colspan) || props.colSpan}
-      style={props.style}
     >
       {props.children}
     </th>
   )),
   getHTMLParseInterface('td')((props) => (
     <td
-      className="break-keep border-r border-gray-200 px-3 py-2 last:border-none dark:border-gray-700"
+      {...omit(props, ['rowspan', 'colspan', 'data-sub'] as unknown as (keyof typeof props)[])}
+      className={cn(
+        'break-keep border-r border-gray-200 px-3 py-2 last:border-none dark:border-gray-700',
+        !!(props as Record<string, string>)['data-sub'] && 'text-gray-500 dark:text-gray-400',
+        props.className,
+      )}
       rowSpan={Number((props as Record<string, string>).rowspan) || props.rowSpan}
       colSpan={Number((props as Record<string, string>).colspan) || props.colSpan}
-      style={props.style}
     >
       {props.children}
     </td>
