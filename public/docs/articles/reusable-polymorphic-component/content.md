@@ -307,7 +307,7 @@ ts(2590): 식에서는 너무 복잡해서 표시할 수 없는 공용 구조체
 <br />
 
 <video controls muted autoplay width="800" height="532">
-  <source src="/public/docs/articles/2025-02-24/images/polymorphic-component-result.mp4" type="video/mp4" />
+  <source src="/public/docs/articles/reusable-polymorphic-component/images/polymorphic-component-result.mp4" type="video/mp4" />
 </video>
 
 <br />

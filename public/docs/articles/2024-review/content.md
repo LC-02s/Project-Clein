@@ -141,7 +141,7 @@
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/meeting.jpeg" alt="미팅 때 개발자 분들과 같이 찍었던 셀카" width="1339" height="703" />
+<img src="/public/docs/articles/2024-review/images/meeting.jpeg" alt="미팅 때 개발자 분들과 같이 찍었던 셀카" width="1339" height="703" />
 
 <br />
 <br />
@@ -179,23 +179,23 @@
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/jasmine-0.jpg" alt="스터디 모집 공고" width="1569" height="1205" />
+<img src="/public/docs/articles/2024-review/images/jasmine-0.jpg" alt="스터디 모집 공고" width="1569" height="1205" />
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/jasmine-1.jpg" alt="스터디 소개글" width="1470" height="743" />
+<img src="/public/docs/articles/2024-review/images/jasmine-1.jpg" alt="스터디 소개글" width="1470" height="743" />
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/jasmine-2.jpg" alt="스터디 목표" width="1470" height="1118" />
+<img src="/public/docs/articles/2024-review/images/jasmine-2.jpg" alt="스터디 목표" width="1470" height="1118" />
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/jasmine-3.jpg" alt="스터디 운영 방식" width="1470" height="1143" />
+<img src="/public/docs/articles/2024-review/images/jasmine-3.jpg" alt="스터디 운영 방식" width="1470" height="1143" />
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/jasmine-4.jpg" alt="스터디 노션 페이지" width="1470" height="1452" />
+<img src="/public/docs/articles/2024-review/images/jasmine-4.jpg" alt="스터디 노션 페이지" width="1470" height="1452" />
 
 <br />
 
@@ -211,19 +211,19 @@
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/jasmine-5.jpg" alt="스터디 일일 문제풀이 과제 데이터베이스" width="1440" height="1224" />
+<img src="/public/docs/articles/2024-review/images/jasmine-5.jpg" alt="스터디 일일 문제풀이 과제 데이터베이스" width="1440" height="1224" />
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/jasmine-6.jpg" alt="스터디 일일 TIL 데이터베이스" width="1440" height="972" />
+<img src="/public/docs/articles/2024-review/images/jasmine-6.jpg" alt="스터디 일일 TIL 데이터베이스" width="1440" height="972" />
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/jasmine-7.jpg" alt="스터디 일일 회의록 데이터베이스" width="1440" height="1122" />
+<img src="/public/docs/articles/2024-review/images/jasmine-7.jpg" alt="스터디 일일 회의록 데이터베이스" width="1440" height="1122" />
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/jasmine-8.jpg" alt="스터디 이슈트래커 데이터베이스" width="1530" height="1404" />
+<img src="/public/docs/articles/2024-review/images/jasmine-8.jpg" alt="스터디 이슈트래커 데이터베이스" width="1530" height="1404" />
 
 <br />
 <br />
@@ -268,11 +268,11 @@
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/redux-immer-memo-1.jpg" alt="리덕스 immer 문제 개요" width="1476" height="1326" />
+<img src="/public/docs/articles/2024-review/images/redux-immer-memo-1.jpg" alt="리덕스 immer 문제 개요" width="1476" height="1326" />
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/redux-immer-memo-2.jpg" alt="리덕스 immer 문제 개선 코드" width="1476" height="1002" />
+<img src="/public/docs/articles/2024-review/images/redux-immer-memo-2.jpg" alt="리덕스 immer 문제 개선 코드" width="1476" height="1002" />
 
 <br />
 <br />
@@ -307,7 +307,7 @@
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/attraction-figma.png" alt="어트랙션 기획 및 디자인 프로세스 관련 피그마" width="1920" height="1400" />
+<img src="/public/docs/articles/2024-review/images/attraction-figma.png" alt="어트랙션 기획 및 디자인 프로세스 관련 피그마" width="1920" height="1400" />
 
 <br />
 
@@ -319,7 +319,7 @@
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/attraction-casa-tier-2.png" alt="확인되지 않은 앱 - Google에서 아직 확인하지 않은 앱입니다. 개발자를 알고 있으며 신뢰할 수 있는 경우에만 진행하세요." width="1270" height="578" />
+<img src="/public/docs/articles/2024-review/images/attraction-casa-tier-2.png" alt="확인되지 않은 앱 - Google에서 아직 확인하지 않은 앱입니다. 개발자를 알고 있으며 신뢰할 수 있는 경우에만 진행하세요." width="1270" height="578" />
 
 <br />
 
@@ -331,7 +331,7 @@ B2C 서비스를 운영해야하는 입장에서 최악의 상황이었죠. 해�
 
 <br />
 
-여기서 다루지 못한 기술적인 내용은 [어트랙션 서비스 운영 실패 회고](/blog/2025-01-15)글에서 따로 다뤄보도록 하겠습니다.
+여기서 다루지 못한 기술적인 내용은 [어트랙션 서비스 운영 실패 회고](/blog/attraction-service-failure-review)글에서 따로 다뤄보도록 하겠습니다.
 
 <br />
 <br />
@@ -346,7 +346,7 @@ B2C 서비스를 운영해야하는 입장에서 최악의 상황이었죠. 해�
 
 <br />
 
-저는 기존에 좋아했었던 `Scroll-Linked` 애니메이션 기법을 활용한 인터랙티브 웹을 리액트로 구현해보고 싶기도 했었고, 다른 사람들 앞에서 발표를 진행해보는 것도 흔치 않은 기회인 것 같아 바로 수락했습니다. 당시 가용할 수 있는 시간도 얼마 없어서 바로 사이트 개발을 착수했었는데 결국 구름 측과의 원만한 협의를 하지 못해 대관에 실패했고, 그렇게 행사는 없던 일이 되었습니다. 상세한 내용은 <a href="/blog/2024-11-16" title="간단한 리액트 SSG 빌드 파이프라인 구축하기">해당 글</a>에서 확인하실 수 있습니다.
+저는 기존에 좋아했었던 `Scroll-Linked` 애니메이션 기법을 활용한 인터랙티브 웹을 리액트로 구현해보고 싶기도 했었고, 다른 사람들 앞에서 발표를 진행해보는 것도 흔치 않은 기회인 것 같아 바로 수락했습니다. 당시 가용할 수 있는 시간도 얼마 없어서 바로 사이트 개발을 착수했었는데 결국 구름 측과의 원만한 협의를 하지 못해 대관에 실패했고, 그렇게 행사는 없던 일이 되었습니다. 상세한 내용은 <a href="/blog/simple-react-ssg-pipeline" title="간단한 리액트 SSG 빌드 파이프라인 구축하기">해당 글</a>에서 확인하실 수 있습니다.
 
 <br />
 <br />
@@ -369,7 +369,7 @@ B2C 서비스를 운영해야하는 입장에서 최악의 상황이었죠. 해�
 
 <br />
 
-<img src="/public/docs/articles/2024-12-31/images/woowacourse-result.jpg" alt="우테코 프리코스 FE 7기 미션 결과 모음" width="1280" height="2216" />
+<img src="/public/docs/articles/2024-review/images/woowacourse-result.jpg" alt="우테코 프리코스 FE 7기 미션 결과 모음" width="1280" height="2216" />
 
 <br />
 

@@ -44,7 +44,7 @@
 <br />
 <br />
 
-<img src="/public/docs/articles/2024-07-10/images/xss-example.png" alt="XSS 공격 예시" width="1280" height="430" />
+<img src="/public/docs/articles/secure-login-in-nextjs/images/xss-example.png" alt="XSS 공격 예시" width="1280" height="430" />
 
 <br />
 
@@ -79,7 +79,7 @@
 
 ## 그래서 어떻게 구현했나?
 
-<img src="/public/docs/articles/2024-07-10/images/login-flow.png" alt="로그인 플로우 차트" width="1280" height="586" />
+<img src="/public/docs/articles/secure-login-in-nextjs/images/login-flow.png" alt="로그인 플로우 차트" width="1280" height="586" />
 
 <br />
 
@@ -108,7 +108,7 @@
 
 <br />
 
-<img src="/public/docs/articles/2024-07-10/images/cookie-options.png" alt="적용한 쿠키 옵션 예시" width="1280" height="94" />
+<img src="/public/docs/articles/secure-login-in-nextjs/images/cookie-options.png" alt="적용한 쿠키 옵션 예시" width="1280" height="94" />
 
 <br />
 
@@ -379,7 +379,7 @@ export default function MyPage() {
 
 <br />
 
-<img src="/public/docs/articles/2024-07-10/images/need-login-fallback.png" alt="WithAuth 결과 UI" width="1280" height="609" />
+<img src="/public/docs/articles/secure-login-in-nextjs/images/need-login-fallback.png" alt="WithAuth 결과 UI" width="1280" height="609" />
 
 <br />
 <br />

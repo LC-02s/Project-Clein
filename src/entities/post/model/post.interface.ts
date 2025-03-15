@@ -1,5 +1,6 @@
 import { type KeywordEntity } from '@/database/keywords'
-import { type ImageData, type LiteralDate, type EntityId, type SortedFromDate } from '@/shared/lib'
+import { type PostEntity } from '@/database/posts'
+import { type ImageData, type EntityId, type SortedFromDate } from '@/shared/lib'
 
 export type Keyword = EntityId<typeof KeywordEntity>
 
@@ -14,7 +15,7 @@ export interface MappedKeywordWithLength extends MappedKeyword {
 
 export type SeparatedKeywordsKey = 'tags' | 'projects' | 'series'
 
-export type PostId = LiteralDate
+export type PostId = EntityId<typeof PostEntity>
 
 export interface PostData extends SortedFromDate {
   title: string

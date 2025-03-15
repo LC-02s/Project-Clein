@@ -11,7 +11,7 @@ import {
   createSeparateKeywords,
 } from '@/entities/post'
 import { exceptionMessage, getMarkdownContent } from '@/shared/api'
-import { orderByDateAsc } from '@/shared/lib'
+import { pick, sortByDate, joinSortParams, SORT_TYPE, SORTED_FROM_DATE } from '@/shared/lib'
 
 interface GetPostDetailParams {
   params: Promise<{ postId: PostId }>
@@ -19,29 +19,33 @@ interface GetPostDetailParams {
 
 export const GET = async (_: NextRequest, { params }: GetPostDetailParams) => {
   const { postId } = await params
-  const post = PostEntity.findById(postId)
+  const { compare } = sortByDate(joinSortParams(SORTED_FROM_DATE.CREATE, SORT_TYPE.ASC))
+  const posts = PostEntity.getEntries()
+    .map(([id, data]) => Object.assign(data, { id }))
+    .sort(compare)
 
-  if (!post) {
+  const currentIndex = posts.findIndex(({ id, createdAt }) => {
+    return id === postId || createdAt.split(' ')[0] === postId // NOTE - 레거시 ID 대응
+  })
+
+  if (!(0 <= currentIndex && currentIndex < posts.length)) {
     return NextResponse.json(exceptionMessage('요청하신 포스트를 찾지 못했어요'), { status: 404 })
   }
 
-  const content = await getMarkdownContent(`/articles/${postId}`).catch(() => '')
+  const { id: targetId, keywords, ...rest } = posts[currentIndex]
+  const content = await getMarkdownContent(`/articles/${targetId}`).catch(() => '')
 
-  const { keywords, ...rest } = post
   const separateKeywords = createSeparateKeywords({
     projects: new Set(ProjectEntity.getKeys()),
     series: new Set(SeriesEntity.getKeys()),
   })
 
-  const postKeys = PostEntity.getKeys().sort(orderByDateAsc)
-  const currentIndex = postKeys.findIndex((key) => key === postId)
-
-  const prevPostId = postKeys[currentIndex - 1]
-  const nextPostId = postKeys[currentIndex + 1]
+  const prevPostId = posts[currentIndex - 1]?.id
+  const nextPostId = posts[currentIndex + 1]?.id
 
   return NextResponse.json({
     post: {
-      id: postId,
+      id: targetId,
       content,
       readingTime: computeReadingTime(content),
       ...rest,
@@ -50,8 +54,12 @@ export const GET = async (_: NextRequest, { params }: GetPostDetailParams) => {
         name: KeywordEntity.findById(keyword),
       })),
       related: {
-        prev: prevPostId ? { id: prevPostId, title: PostEntity.findById(prevPostId).title } : null,
-        next: nextPostId ? { id: nextPostId, title: PostEntity.findById(nextPostId).title } : null,
+        prev: prevPostId
+          ? { id: prevPostId, ...pick(PostEntity.findById(prevPostId), ['title']) }
+          : null,
+        next: nextPostId
+          ? { id: nextPostId, ...pick(PostEntity.findById(nextPostId), ['title']) }
+          : null,
       },
     },
   } satisfies GetPostDetailResponse)
