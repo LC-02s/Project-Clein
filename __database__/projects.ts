@@ -1,13 +1,16 @@
 import { createProjectData } from '@/entities/project'
 import { MAIN_TITLE, GITHUB, USER_GITHUB_ADDRESS } from '@/shared/config'
-import { getThumbnailData, Entity } from '@/shared/lib'
+import { Entity } from '@/shared/lib'
 
 export const ProjectEntity = new Entity({
   'it-moji': createProjectData({
-    name: 'IT-MOJI',
+    name: 'IT-MOJI [잇모지]',
     description: 'IT인들끼리 MO여 JI식을 나누는 모임 관리 서비스',
     period: '2025.01 ~ 운영 중',
-    thumbnail: getThumbnailData('임시 썸네일이에요 🙏'),
+    thumbnail: {
+      src: '/docs/projects/it-moji/images/intro.png',
+      alt: 'IT-MOJI - IT인들끼리 MO여 JI식을 나누는 모임 관리 서비스',
+    },
     githubURL: 'https://github.com/it-moji/it-moji-client',
     serviceURL: 'https://it-moji.com/',
     iconURL: '/blob/dev/src/app/icon.png?raw=true',

@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 }
 
 const TARGET_PROJECTS: ProjectId[] = [
-  // 'it-moji',
+  'it-moji',
+  'portfolio-site',
   'eung-cham-jal',
   'attraction',
-  'portfolio-site',
   'pbl-notes',
   'synergy-meet-2024',
 ]
