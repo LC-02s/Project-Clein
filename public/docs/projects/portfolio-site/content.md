@@ -59,7 +59,7 @@
 
 ## 프로젝트 소개
 
-<img src="/public/images/og-image-main.jpg" alt="%{name}%" width="1200" height="630" />
+%{thumbnail}%
 
 <br />
 
@@ -96,7 +96,7 @@
       <td data-sub>(기획 중, 추후 구현 예정)</td>
     </tr>
     <tr>
-      <td rowspan="9">공통 레이아웃</td>
+      <td rowspan="8">공통 레이아웃</td>
       <td rowspan="4">헤더</td>
       <td>로고 및 사이트 네비게이션</td>
       <td>클릭 시 해당하는 페이지 이동</td>
@@ -128,10 +128,6 @@
     <tr>
       <td>카피라이트 출력</td>
       <td></td>
-    </tr>
-    <tr>
-      <td colspan="2">사이트 맵 XML 동적 생성 기능</td>
-      <td data-sub>(구현 예정)</td>
     </tr>
     <tr>
       <td rowspan="7">About 페이지</td>
@@ -173,7 +169,7 @@
       <td>옵션 클릭 시 블로그 정렬 방식 변경</td>
     </tr>
     <tr>
-      <td rowspan="4">블로그 글 출력</td>
+      <td rowspan="4">블로그 목록 출력</td>
       <td>썸네일, 제목, 설명, 날짜, 분량 구성</td>
     </tr>
     <tr>
@@ -221,22 +217,25 @@
       <td>GitHub OAuth 기반 (Giscus 활용)</td>
     </tr>
     <tr>
-      <td rowspan="4">Project 페이지</td>
+      <td rowspan="5">Project 페이지</td>
       <td rowspan="2">리스트 뷰</td>
-      <td rowspan="2">프로젝트 소개글 출력</td>
+      <td rowspan="2">프로젝트 목록 출력</td>
       <td>썸네일, 제목, 설명, 기간, 유형, GitHub 링크, 도메인 주소 구성</td>
     </tr>
     <tr>
       <td>Reveal 애니메이션 효과</td>
     </tr>
     <tr>
-      <td rowspan="2">상세 뷰</td>
+      <td rowspan="3">상세 뷰</td>
       <td>소개글 개요 출력</td>
       <td>썸네일, 제목, 설명, 기간, 유형, GitHub 링크, 도메인 주소, 역할, 사용 기술, 기여 구성</td>
     </tr>
     <tr>
-      <td>소개글 내용 출력</td>
+      <td rowspan="2">소개글 내용 출력</td>
       <td>마크다운 형식 및 MDX Parser 활용</td>
+    </tr>
+    <tr>
+      <td>컨텐츠 매핑 기능 적용</td>
     </tr>
     <tr>
       <td rowspan="2">Playground 페이지</td>

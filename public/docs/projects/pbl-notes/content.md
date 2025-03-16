@@ -66,7 +66,7 @@
 
 ## 프로젝트 소개
 
-<img src="/public/docs/projects/pbl-notes/images/intro.jpg" alt="%{name}%" width="1200" height="630" />
+%{thumbnail}%
 
 <br />
 

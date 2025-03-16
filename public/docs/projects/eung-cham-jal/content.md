@@ -97,7 +97,7 @@
 
 ## 프로젝트 소개
 
-<img src="/public/docs/projects/eung-cham-jal/images/intro.png" alt="%{name}%" width="1200" height="630" />
+%{thumbnail}%
 
 <br />
 

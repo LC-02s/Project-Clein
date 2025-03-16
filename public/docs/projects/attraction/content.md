@@ -93,7 +93,7 @@
 
 ## 프로젝트 소개
 
-<img src="/public/docs/projects/attraction/images/intro-default.jpg" alt="Attraction - 나만의 뉴스레터 관리 서비스" width="1200" height="630" />
+%{thumbnail}%
 
 <br />
 

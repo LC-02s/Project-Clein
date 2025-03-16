@@ -57,7 +57,7 @@
 
 ## 프로젝트 소개
 
-<img src="/public/docs/projects/synergy-meet-2024/images/intro.jpg" alt="2024 Synergy Meet" width="1200" height="630" />
+%{thumbnail}%
 
 <br />
 

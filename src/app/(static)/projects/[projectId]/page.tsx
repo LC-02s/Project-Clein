@@ -57,6 +57,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = async ({ params }) =
 
   const { name, description, period, githubURL, serviceURL, iconURL } = project
   const type = PROJECT_TYPE_LABEL[project.type]
+
   const posts = !data
     ? '&#128591;&#127995; 관련 포스트를 불러오지 못했어요 ㅠ &#128591;&#127995;'
     : data.contents.length <= 0 || data.keywords.current !== projectId
@@ -64,6 +65,10 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = async ({ params }) =
       : data.contents.reduce((text, { id, title }) => {
           return (text += `<li><a href="${BLOG_PATH}/${id}">${title}</a></li>`)
         }, '<ul>') + '</ul>'
+
+  const { src, alt } = project.thumbnail
+  const { width, height } = THUMBNAIL_SIZE
+  const thumbnail = `<img src="${src}" alt="${alt}" width="${width}" height="${height}" />`
 
   return (
     <article id="project-introduce" className="wrapper-xl py-screen">
@@ -80,7 +85,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = async ({ params }) =
       </h2>
       <ContentBody
         content={content}
-        mapper={{ name, description, type, period, githubURL, serviceURL, posts }}
+        mapper={{ name, description, type, period, githubURL, serviceURL, posts, thumbnail }}
         className="pt-0"
       />
     </article>

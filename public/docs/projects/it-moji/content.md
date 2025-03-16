@@ -6,7 +6,7 @@
   <tbody>
     <tr>
       <th>이름</th>
-      <td>%{name}% [잇모지]</td>
+      <td>%{name}%</td>
     </tr>
     <tr>
       <th>설명</th>
@@ -104,6 +104,8 @@
 <br />
 
 ## 프로젝트 소개
+
+%{thumbnail}%
 
 <br />
 
