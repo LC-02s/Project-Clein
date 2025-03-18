@@ -9,10 +9,10 @@ export const ProjectEntity = new Entity({
     period: '2025.01 ~ 운영 중',
     thumbnail: {
       src: '/docs/projects/it-moji/images/intro.png',
-      alt: 'IT-MOJI - IT인들끼리 MO여 JI식을 나누는 모임 관리 서비스',
+      alt: 'IT-MOJI: IT인들끼리 MO여 JI식을 나누는 모임 관리 서비스',
     },
     githubURL: 'https://github.com/it-moji/it-moji-client',
-    serviceURL: 'https://it-moji.com/',
+    serviceURL: 'https://it-moji.com',
     iconURL: '/blob/dev/src/app/icon.png?raw=true',
   }),
   'portfolio-site': createProjectData({
@@ -21,7 +21,7 @@ export const ProjectEntity = new Entity({
     period: '2024.12 ~ 운영 중',
     thumbnail: { src: '/images/og-image-main.jpg', alt: MAIN_TITLE },
     githubURL: `${USER_GITHUB_ADDRESS}/${GITHUB.REPO.NAME}`,
-    serviceURL: process.env.NEXT_PUBLIC_DOMAIN_ADDRESS!,
+    serviceURL: '현재 사이트',
     iconURL: '/blob/main/src/app/icon.png?raw=true',
   }),
   attraction: createProjectData({
@@ -33,9 +33,8 @@ export const ProjectEntity = new Entity({
       alt: 'Attraction - 나만의 뉴스레터 관리 서비스',
     },
     githubURL: 'https://github.com/Atractorrr/Attraction-FE',
-    serviceURL: 'https://attraction.run/',
+    serviceURL: '서비스 종료됨',
     iconURL: '/blob/main/apps/service/src/app/icon.png?raw=true',
-    isDropped: true,
   }),
   'pbl-notes': createProjectData({
     name: 'PBL Notes',
@@ -43,7 +42,7 @@ export const ProjectEntity = new Entity({
     period: '2024.02 ~ 유지보수 중',
     thumbnail: { src: '/docs/projects/pbl-notes/images/intro.jpg', alt: 'PBL Notes' },
     githubURL: `${USER_GITHUB_ADDRESS}/PBL-Notes`,
-    serviceURL: 'https://pbl-notes.netlify.app/',
+    serviceURL: 'https://pbl-notes.netlify.app',
     iconURL: '/blob/main/public/img/logo512.png?raw=true',
   }),
   'eung-cham-jal': createProjectData({
@@ -52,7 +51,7 @@ export const ProjectEntity = new Entity({
     period: '2024.12 ~ 유지보수 중',
     thumbnail: { src: '/docs/projects/eung-cham-jal/images/intro.png', alt: '응원 참 잘하는 집' },
     githubURL: 'https://github.com/ooh-eung-wan/eung-cham-jal',
-    serviceURL: 'https://eung-cham-jal.vercel.app/',
+    serviceURL: 'https://eung-cham-jal.vercel.app',
     iconURL: '/blob/main/src/app/favicon.ico?raw=true',
   }),
   'synergy-meet-2024': createProjectData({
@@ -64,7 +63,7 @@ export const ProjectEntity = new Entity({
       alt: '2024 Synergy Meet',
     },
     githubURL: `${USER_GITHUB_ADDRESS}/Synergy-Meet-2024`,
-    serviceURL: 'https://synergy-meet-2024.vercel.app/',
+    serviceURL: 'https://synergy-meet-2024.vercel.app',
     iconURL: '/blob/main/public/img/synergy-logo-512.png?raw=true',
   }),
 } as const)

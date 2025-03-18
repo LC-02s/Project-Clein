@@ -77,7 +77,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ contents, className })
               GitHub 바로가기
               <Icon.NewTabOutline className="pointer-events-none ml-auto text-sm text-gray-500 dark:text-gray-400" />
             </Button>
-            {!data.isDropped ? (
+            {data.serviceURL.startsWith('http') ? (
               <Button
                 href={data.serviceURL}
                 title={data.name}
@@ -93,7 +93,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ contents, className })
             ) : (
               <Button variant="light" round="xs" className="w-full flex-1" disabled>
                 <Icon.LaptopEmoji className="mb-1 mr-3 text-xl grayscale" />
-                서비스 종료됨
+                {data.serviceURL}
                 <Icon.NewTabOutline className="ml-auto text-sm text-gray-400 dark:text-gray-500" />
               </Button>
             )}

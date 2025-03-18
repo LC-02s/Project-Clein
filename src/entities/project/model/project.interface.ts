@@ -13,10 +13,9 @@ export interface ProjectData {
   thumbnail: ImageData
   type: ProjectType
   period: string
-  githubURL: string
+  githubURL: `https://github.com/${string}`
   serviceURL: string
   iconURL: string
-  isDropped?: boolean
 }
 
 export interface SearchProjectItem extends Pick<ProjectData, 'name'> {
