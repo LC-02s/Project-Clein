@@ -22,7 +22,7 @@
     </tr>
     <tr>
       <th>도메인</th>
-      <td>%{serviceURL}%</td>
+      <td>https://clein-dev.com</td>
     </tr>
     <tr>
       <th>GitHub</th>

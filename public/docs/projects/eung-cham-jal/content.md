@@ -254,11 +254,13 @@
     <col width="50%" />
     <col width="50%" />
   </colgroup>
-  <tbody>
+  <thead>
     <tr>
       <th>템플릿 편집</th>
       <th>결과물 저장 및 공유</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
       <td>준비 중입니다</td>
       <td>준비 중입니다</td>
