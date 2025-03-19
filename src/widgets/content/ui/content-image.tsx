@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { cn, useCheckHydration, useTheme, THEME } from '@/shared/lib'
 import { Container, ExternalLink, FallbackRender, Icon } from '@/shared/ui'
 
-import { adjustPublicPath } from '../lib'
+import { type DatasetProps, adjustPublicPath } from '../lib'
 
 const ImageErrorFallback: React.FC = () => (
   <p className="flex select-none flex-col items-center justify-center px-3 py-12">
@@ -23,9 +23,9 @@ const ImageLoader: React.FC = () => (
   </span>
 )
 
-export const ContentImage: React.FC<
-  React.JSX.IntrinsicElements['img'] & { 'data-dark-src'?: string }
-> = (props) => {
+export const ContentImage: React.FC<React.JSX.IntrinsicElements['img'] & DatasetProps> = (
+  props,
+) => {
   const isHydrated = useCheckHydration()
 
   const { theme } = useTheme()

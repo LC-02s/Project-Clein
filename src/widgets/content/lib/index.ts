@@ -1,9 +1,13 @@
 import { PUBLIC_PATH } from '@/shared/config'
 
+export interface DatasetProps {
+  [key: `data-${string}`]: string | undefined
+}
+
 export interface CommonHTMLComponentParseData<TagName extends keyof React.JSX.IntrinsicElements> {
   tagName: TagName
   displayName: string
-  component: React.FC<React.JSX.IntrinsicElements[TagName]>
+  component: React.FC<React.JSX.IntrinsicElements[TagName] & DatasetProps>
 }
 
 export interface ContentMapper {

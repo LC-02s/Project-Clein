@@ -37,10 +37,16 @@ export const htmlComponents = [
   )),
   getHTMLParseInterface('th')((props) => (
     <th
-      {...omit(props, ['rowspan', 'colspan', 'data-sub'] as unknown as (keyof typeof props)[])}
+      {...omit(props, [
+        'rowspan' as keyof typeof props,
+        'colspan' as keyof typeof props,
+        'data-gray',
+        'data-left',
+      ])}
       className={cn(
         'break-keep border-r border-gray-200 bg-gray-50 px-3 py-2 text-sm font-medium last:border-none md:text-base dark:border-gray-700 dark:bg-gray-800',
-        !!(props as Record<string, string>)['data-sub'] && 'text-gray-500 dark:text-gray-400',
+        props['data-gray'] && 'text-gray-500 dark:text-gray-400',
+        props['data-left'] && 'text-left',
         props.className,
       )}
       rowSpan={Number((props as Record<string, string>).rowspan) || props.rowSpan}
@@ -51,10 +57,18 @@ export const htmlComponents = [
   )),
   getHTMLParseInterface('td')((props) => (
     <td
-      {...omit(props, ['rowspan', 'colspan', 'data-sub'] as unknown as (keyof typeof props)[])}
+      {...omit(props, [
+        'rowspan' as keyof typeof props,
+        'colspan' as keyof typeof props,
+        'data-gray',
+        'data-center',
+        'data-tech-stack',
+      ])}
       className={cn(
         'break-keep border-r border-gray-200 px-3 py-2 last:border-none dark:border-gray-700',
-        !!(props as Record<string, string>)['data-sub'] && 'text-gray-500 dark:text-gray-400',
+        props['data-gray'] && 'text-gray-500 dark:text-gray-400',
+        props['data-center'] && 'text-center',
+        props['data-tech-stack'] && '*:leading-loose',
         props.className,
       )}
       rowSpan={Number((props as Record<string, string>).rowspan) || props.rowSpan}
@@ -168,7 +182,7 @@ export const htmlComponents = [
     </blockquote>
   )),
   getHTMLParseInterface('code')((props) => {
-    if (!(props as Record<string, unknown>)['data-theme']) {
+    if (!props['data-theme']) {
       return (
         <Badge
           round="xs"
@@ -192,10 +206,15 @@ export const htmlComponents = [
   )),
   getHTMLParseInterface('span')((props) => (
     <span
-      {...props}
-      className={
-        props.style ? 'text-[var(--shiki-light)] dark:text-[var(--shiki-dark)]' : undefined
-      }
+      {...omit(props, ['data-gray', 'data-red', 'data-yellow', 'data-green', 'data-blue'])}
+      className={cn(
+        props['data-gray'] && 'text-gray-500 dark:text-gray-400',
+        props['data-red'] && 'text-red-700 dark:text-red-400',
+        props['data-yellow'] && 'text-yellow-700 dark:text-yellow-400',
+        props['data-green'] && 'text-green-700 dark:text-green-400',
+        props['data-blue'] && 'text-blue-700 dark:text-blue-300',
+        props.style && 'text-[var(--shiki-light)] dark:text-[var(--shiki-dark)]',
+      )}
     >
       {props.children}
     </span>

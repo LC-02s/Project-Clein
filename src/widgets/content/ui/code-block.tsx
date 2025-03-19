@@ -5,9 +5,10 @@ import { useRef } from 'react'
 import { type PropsWithClassName, cn } from '@/shared/lib'
 import { Button, Container, CopyButton, Icon } from '@/shared/ui'
 
-export interface CodeBlockProps extends React.PropsWithChildren<PropsWithClassName> {
+import { type DatasetProps } from '../lib'
+
+export interface CodeBlockProps extends React.PropsWithChildren<PropsWithClassName>, DatasetProps {
   style?: React.CSSProperties
-  'data-language'?: string
 }
 
 export const CodeBlock: React.FC<CodeBlockProps> = ({ className, children, ...props }) => {
