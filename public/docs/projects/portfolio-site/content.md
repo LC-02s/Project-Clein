@@ -30,7 +30,7 @@
     </tr>
     <tr>
       <th>사용 기술</th>
-      <td>
+      <td data-tech-stack>
         <code>Next.js</code>&nbsp;<code>React</code>&nbsp;<code>TypeScript</code>&nbsp;<code>Zustand</code>&nbsp;<code>Tanstack Query</code>&nbsp;<code>TailWindCSS</code>&nbsp;<code>Motion</code>&nbsp;<code>MDX</code>&nbsp;<code>pnpm</code>
       </td>
     </tr>
@@ -93,7 +93,7 @@
     </tr>
     <tr>
       <td colspan="2">이메일 또는 디스코드 기반 <code>contact</code> 기능</td>
-      <td data-sub>(기획 중, 추후 구현 예정)</td>
+      <td data-gray>(기획 중, 추후 구현 예정)</td>
     </tr>
     <tr>
       <td rowspan="8">공통 레이아웃</td>
@@ -132,31 +132,31 @@
     <tr>
       <td rowspan="7">About 페이지</td>
       <td colspan="2">개발자 소개</td>
-      <td data-sub>(추가 예정)</td>
+      <td data-gray>(추가 예정)</td>
     </tr>
     <tr>
       <td colspan="2">사용 기술</td>
-      <td data-sub>(추가 예정)</td>
+      <td data-gray>(추가 예정)</td>
     </tr>
     <tr>
       <td colspan="2">프로젝트 경험</td>
-      <td data-sub>(추가 예정)</td>
+      <td data-gray>(추가 예정)</td>
     </tr>
     <tr>
       <td colspan="2">업무 경험</td>
-      <td data-sub>(추가 예정)</td>
+      <td data-gray>(추가 예정)</td>
     </tr>
     <tr>
       <td colspan="2">대외 활동</td>
-      <td data-sub>(추가 예정)</td>
+      <td data-gray>(추가 예정)</td>
     </tr>
     <tr>
       <td colspan="2">자격증</td>
-      <td data-sub>(추가 예정)</td>
+      <td data-gray>(추가 예정)</td>
     </tr>
     <tr>
       <td colspan="2">관심사</td>
-      <td data-sub>(추가 예정)</td>
+      <td data-gray>(추가 예정)</td>
     </tr>
     <tr>
       <td rowspan="15">Blog 페이지</td>
@@ -240,11 +240,11 @@
     <tr>
       <td rowspan="2">Playground 페이지</td>
       <td colspan="2">커스텀 키보드 모음집</td>
-      <td data-sub>(추가 예정)</td>
+      <td data-gray>(추가 예정)</td>
     </tr>
     <tr>
       <td colspan="2">디자인 작업물 박제관</td>
-      <td data-sub>(추가 예정)</td>
+      <td data-gray>(추가 예정)</td>
     </tr>
   </tbody>
 </table>

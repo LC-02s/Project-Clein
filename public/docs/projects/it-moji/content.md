@@ -49,7 +49,7 @@
     </tr>
     <tr>
       <th>사용 기술</th>
-      <td>
+      <td data-tech-stack>
         <code>Next.js</code>&nbsp;<code>React</code>&nbsp;<code>TypeScript</code>&nbsp;<code>Tanstack-Query</code>&nbsp;<code>Zustand</code>&nbsp;<code>Zod</code>&nbsp;<code>MSW</code>&nbsp;<code>pnpm</code>&nbsp;<code>StoryBook</code>&nbsp;<code>TailWindCSS</code>&nbsp;<code>Motion</code>&nbsp;<code>Mantine</code>&nbsp;<code>GitHub-Actions</code>&nbsp;<code>GitHub-Pages</code>&nbsp;<code>AWS-Amplify</code>&nbsp;<code>ESLint</code>&nbsp;<code>Husky</code>&nbsp;<code>commitlint</code>
       </td>
     </tr>
@@ -62,6 +62,13 @@
             <p>공지사항 관리 기능 개발</p>
             <ul>
               <li>약 1주일간 신규 팀원 온보딩 목적의 페어 프로그래밍 진행</li>
+            </ul>
+          </li>
+          <li>
+            <p>출석 관리 기능 개발</p>
+            <ul>
+              <li>출석 옵션 설정 기능 개발</li>
+              <li>배지 설정 기능 개발</li>
             </ul>
           </li>
           <li>리뷰를 통한 API Mocking Coverage 100% 수준으로 유지</li>

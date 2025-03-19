@@ -30,7 +30,7 @@
     </tr>
     <tr>
       <th>사용 기술</th>
-      <td>
+      <td data-tech-stack>
         <code>React</code>&nbsp;<code>TypeScript</code>&nbsp;<code>Vite</code>&nbsp;<code>Zustand</code>&nbsp;<code>Emotion</code>&nbsp;<code>Motion</code>&nbsp;<code>Swiper.js</code>&nbsp;<code>Express.js</code>&nbsp;<code>pnpm</code>
       </td>
     </tr>
