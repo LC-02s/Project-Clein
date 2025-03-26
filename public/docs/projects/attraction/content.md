@@ -282,6 +282,21 @@
       <td>이 자리에 배너 걸어드립니다</td>
       <td data-center>O</td>
     </tr>
+  </tbody>
+</table>
+
+<br />
+
+<table data-max-md>
+  <thead>
+    <tr>
+      <th colspan="3">작업 단위</th>
+      <th colspan="2">기능 및 구성</th>
+      <th>상세 내용</th>
+      <th>기여</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <td rowspan="6">레이아웃</td>
       <td rowspan="3">헤더</td>

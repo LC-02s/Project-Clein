@@ -37,11 +37,8 @@
       <td>%{githubURL}%</td>
     </tr>
     <tr>
-      <th rowspan="2">StoryBook</th>
+      <th>StoryBook</th>
       <td>https://it-moji.github.io/it-moji-client</td>
-    </tr>
-    <tr>
-      <td>https://storybook.it-moji.com</td>
     </tr>
     <tr>
       <th>MAU</th>
