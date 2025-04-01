@@ -52,6 +52,11 @@ export const metadata: Metadata = {
       ...THUMBNAIL_SIZE,
     },
   },
+  verification: {
+    other: {
+      'naver-site-verification': process.env.NAVER_SITE_VERIFICATION!,
+    },
+  },
   robots: { index: true, follow: true },
 }
 

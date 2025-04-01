@@ -84,8 +84,8 @@
 
 ### Requirement
 
-- [node.js ^20](https://nodejs.org/ko)
-- [pnpm @9](https://pnpm.io/ko/)
+- [node.js @^20](https://nodejs.org/ko)
+- [pnpm @9.1.0](https://pnpm.io/ko/)
 
 <br />
 
@@ -93,6 +93,7 @@
 
 ```bash
 NEXT_PUBLIC_DOMAIN_ADDRESS="http://localhost:1007" # It's My Birthday!
+NAVER_SITE_VERIFICATION=""
 ```
 
 <br />
