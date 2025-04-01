@@ -139,13 +139,20 @@ export const htmlComponents = [
   getHTMLParseInterface('img')((props) => (
     <ContentImage {...props} className="group-[-table]:my-1 group-[-table]:rounded" />
   )),
-  getHTMLParseInterface('video')(({ width, height, children }) => (
+  getHTMLParseInterface('video')(({ src, width, height, children, ...props }) => (
     <Container
       variant="image"
       layer="middle"
       className="flex flex-col items-center justify-center group-[-table]:my-1 group-[-table]:rounded"
     >
-      <video controls muted autoPlay width={width} height={height}>
+      <video
+        controls
+        muted
+        src={src ? adjustPublicPath(src) : undefined}
+        width={width}
+        height={height}
+        autoPlay={(props as Record<string, string>)['autoplay'] ? true : props.autoPlay}
+      >
         {children}
       </video>
     </Container>
