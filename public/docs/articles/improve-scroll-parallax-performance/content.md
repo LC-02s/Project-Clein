@@ -10,7 +10,7 @@
 <br />
 
 <video controls muted autoplay width="1528" height="982">
-  <source src="/public/docs/projects/portfolio-site/images/scroll-parallax-text-perfomance-issue.mp4" type="video/mp4" />
+  <source src="/public/docs/projects/portfolio-site/assets/scroll-parallax-text-perfomance-issue.mp4" type="video/mp4" />
 </video>
 
 <br />
@@ -192,7 +192,7 @@ export const ParallaxText: React.FC<ParallaxTextProps> = ({ baseVelocity = 5, ch
 <br />
 
 <video controls muted autoplay width="1528" height="982">
-  <source src="/public/docs/projects/portfolio-site/images/scroll-parallax-text-perfomance-issue-improvement-1.mp4" type="video/mp4" />
+  <source src="/public/docs/projects/portfolio-site/assets/scroll-parallax-text-perfomance-issue-improvement-1.mp4" type="video/mp4" />
 </video>
 
 <br />
@@ -326,12 +326,12 @@ export const TechStackExample: React.FC = ({ icon: Icon, label }) => (
     <tr>
       <td>
         <video controls muted autoplay width="1528" height="982">
-          <source src="/public/docs/projects/portfolio-site/images/scroll-parallax-text-perfomance-issue.mp4" type="video/mp4" />
+          <source src="/public/docs/projects/portfolio-site/assets/scroll-parallax-text-perfomance-issue.mp4" type="video/mp4" />
         </video>
       </td>
       <td>
         <video controls muted autoplay width="1528" height="982">
-          <source src="/public/docs/projects/portfolio-site/images/scroll-parallax-text-perfomance-issue-improvement-2.mp4" type="video/mp4" />
+          <source src="/public/docs/projects/portfolio-site/assets/scroll-parallax-text-perfomance-issue-improvement-2.mp4" type="video/mp4" />
         </video>
       </td>
     </tr>

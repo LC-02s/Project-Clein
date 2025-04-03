@@ -249,7 +249,7 @@
 
 ### 시연 영상
 
-<table>
+<table data-max-md>
   <colgroup>
     <col width="50%" />
     <col width="50%" />
@@ -264,12 +264,12 @@
     <tr>
       <td>
         <video controls muted width="1064" height="1972">
-          <source src="/public/docs/projects/eung-cham-jal/images/edit-template.mp4" type="video/mp4" />
+          <source src="/public/docs/projects/eung-cham-jal/assets/edit-template.mp4" type="video/mp4" />
         </video>
       </td>
       <td>
         <video controls muted width="1064" height="1972">
-          <source src="/public/docs/projects/eung-cham-jal/images/save-and-share.mp4" type="video/mp4" />
+          <source src="/public/docs/projects/eung-cham-jal/assets/save-and-share.mp4" type="video/mp4" />
         </video>
       </td>
     </tr>
@@ -295,7 +295,7 @@
 
 <br />
 
-<img src="/public/docs/projects/eung-cham-jal/images/wire-frame.jpg" alt="응참잘 와이어 프레임 산출물" width="1758" height="846" />
+<img src="/public/docs/projects/eung-cham-jal/assets/wire-frame.jpg" alt="응참잘 와이어 프레임 산출물" width="1758" height="846" />
 
 <br />
 <br />
@@ -308,11 +308,11 @@
 
 <br />
 
-<img src="/public/docs/projects/eung-cham-jal/images/ui-concept.jpg" alt="응참잘 UI 디자인 컨셉" width="1812" height="768" />
+<img src="/public/docs/projects/eung-cham-jal/assets/ui-concept.jpg" alt="응참잘 UI 디자인 컨셉" width="1812" height="768" />
 
 <br />
 
-<img src="/public/docs/projects/eung-cham-jal/images/charm-templates.jpg" alt="응참잘 부적 템플릿 피그마 파일 캡처" width="1200" height="568" />
+<img src="/public/docs/projects/eung-cham-jal/assets/charm-templates.jpg" alt="응참잘 부적 템플릿 피그마 파일 캡처" width="1200" height="568" />
 
 <br />
 <br />
@@ -369,7 +369,7 @@
 
 ### Swiper.js
 
-- 사전 기획 단계에서 부적 템플릿 선택 UI를 고민하던 중 Swiper에서 괜찮은 템플릿을 데모로 제공하는 것을 발견하여 도입하였습니다.
+- 사전 기획 단계에서 부적 템플릿 선택 UI를 고민하던 중 Swiper에서 괜찮은 템플릿을 [데모](https://swiperjs.com/demos#effect-cards)로 제공하는 것을 발견하여 도입하였습니다.
 
 <br />
 
@@ -382,6 +382,8 @@
 
 ### 아쉬웠던 점
 
+시간상 프로젝트 초기에 컨벤션을 구체적으로 정하지 못해 코드 작성 방식을 통일하지 못했던 점과, 첫 번째 스프린트 이후 추가적인 스프린트를 지속하며 제품을 개선해보는 경험을 해보지 못했던게 아쉬웠습니다.
+
 <br />
 <br />
 
@@ -390,6 +392,40 @@
 <br />
 
 ### URI 기반 이미지 공유 기능 관련 414 상태 코드 이슈
+
+저희는 최대한 백엔드 서버와 데이터베이스 및 스토리지 서비스를 사용하지 않고 MVP를 구현하는 것이 목표였기 때문에 이미지 공유 기능을 기획할 때 아래의 방법들을 고안하였습니다.
+
+<br />
+
+> **이미지 공유 기능 구현 계획**
+>
+> 1. 생성된 이미지를 `base64`로 인코딩하여 URL 쿼리 파라미터를 통해 공유
+> 2. 생성된 이미지를 구성하는 메타데이터를 URL 쿼리 파라미터로 공유하여 페이지 진입 시점에 이미지 재 생성
+> 3. 생성된 이미지를 데이터베이스 및 스토리지 서비스를 활용하여 저장 및 링크 공유
+
+<br />
+
+3번 계획은 마지막 보루로 두었고, 먼저 1번 계획으로 구현을 시도하였습니다. 1번 계획은 생성된 이미지를 `base64`로 인코딩하여 URL 쿼리 파라미터를 통해 공유하는 방식이었는데, 해당 방식은 URL이 많이 길어지는 문제가 있긴했지만 복잡하지 않은 이미지는 충분히 공유가 가능했었습니다. 하지만 생성된 부적 이미지는 복잡한 축에 속했고, 부적 이미지를 `base64`로 인코딩하여 쿼리 파라미터로 공유할 경우 414(URI Too Long) 상태 코드 이슈가 발생했습니다.
+
+<br />
+
+414 HTTP 상태 코드는 찾아보니 드물게 아래의 경우에서 발생한다는 것을 파악했고,
+
+<br />
+
+> **414 HTTP 상태 코드 발생 원인**
+>
+> 1. 클라이언트가 POST 요청을 부적절하게 긴 쿼리 정보를 가진 GET 요청으로 변환한 경우
+> 2. 클라이언트가 리디렉션 루프(예: 자신의 접미사를 가리키는 리디렉션된 URI 접두사)에 빠진 경우
+> 3. 또는 서버의 잠재적인 보안 허점을 악용하려는 클라이언트의 공격을 받는 경우
+
+<br />
+
+저희는 첫 번째 경우에 해당하여 해당 문제를 해결하기 위해 2번 계획인 생성된 이미지를 구성하는 메타데이터를 URL 쿼리 파라미터로 공유하여 페이지 진입 시점에 이미지 재 생성하는 방식으로 변경하여 문제를 해결할 수 있었습니다.
+
+<br />
+
+하지만 URL에 메타데이터를 담아서 공유하는 방식 또한 공유되는 URL이 길어지는 문제는 동일하게 가지고 있어, 제품 개선을 위한 추가적인 스프린트가 진행되었다면 아마 [`lz-string`](https://www.npmjs.com/package/lz-string)이라는 문자열 압축 라이브러리를 사용하여 공유되는 URL의 길이를 줄이는 작업을 추진해봤을 것 같습니다.
 
 <br />
 <br />
@@ -400,7 +436,7 @@
 
 <br />
 
-<table>
+<table data-max-md>
   <colgroup>
     <col width="50%" />
     <col width="50%" />
@@ -414,10 +450,10 @@
   <tbody>
     <tr>
       <td>
-        <img src="/public/docs/projects/eung-cham-jal/images/charm-success.png" alt="원래 기대했던 결과물" width="1000" height="1400" />
+        <img src="/public/docs/projects/eung-cham-jal/assets/charm-success.png" alt="원래 기대했던 결과물" width="1000" height="1400" />
       </td>
       <td>
-        <img src="/public/docs/projects/eung-cham-jal/images/charm-failed.png" alt="올바른 스타일 적용에 실패한 결과물" width="1000" height="1400" />
+        <img src="/public/docs/projects/eung-cham-jal/assets/charm-failed.png" alt="올바른 스타일 적용에 실패한 결과물" width="1000" height="1400" />
       </td>
     </tr>
   </tbody>
@@ -480,7 +516,11 @@ export const useTemplate = (): TemplateState => ({
 
 ## 인사이트
 
-해당 프로젝트는 테오의 스프린트 18기 진행 중 구성되었으며, 1주일 간의 짧은 기간(기획 5일, 개발 2일)동안 MVP를 만든 후 배포까지 완수하는 목적으로 진행되었습니다.
+해당 프로젝트는 테오의 스프린트 18기 진행 중 구성되었으며, 1주일 간의 짧은 기간(기획 5일, 개발 2일)동안 MVP를 만든 후 배포까지 완수하는 목적으로 진행되었습니다. 테오의 스프린트는 지원자 분들이 대부분 프론트엔드 개발자로 구성되어 디자이너 지원자가 선택한 아이디어를 가진 팀은 경쟁률이 강해 초기 목표했었던 디자이너와의 협업은 경험해보지 못해 조금 아쉬웠지만, 스프린트를 통해 다양한 방식의 기획 및 설계 프로세스를 배울 수 있었습니다.
+
+<br />
+
+특히
 
 <br />
 <br />

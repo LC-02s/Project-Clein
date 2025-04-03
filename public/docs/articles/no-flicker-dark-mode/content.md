@@ -149,7 +149,7 @@ export default {
 
 <br />
 
-<img src="/public/docs/articles/no-flicker-dark-mode/images/theme-compare.png" alt="라이트 모드 다크 모드 UI 비교 예시" width="1800" height="945" />
+<img src="/public/docs/articles/no-flicker-dark-mode/assets/theme-compare.png" alt="라이트 모드 다크 모드 UI 비교 예시" width="1800" height="945" />
 
 <br />
 

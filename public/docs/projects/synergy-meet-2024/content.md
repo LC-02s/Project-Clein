@@ -68,7 +68,7 @@
 ### 시연 영상
 
 <video controls muted autoplay width="1528" height="990">
-  <source src="/public/docs/projects/synergy-meet-2024/images/video.mp4" type="video/mp4" />
+  <source src="/public/docs/projects/synergy-meet-2024/assets/demo.mp4" type="video/mp4" />
 </video>
 
 <br />

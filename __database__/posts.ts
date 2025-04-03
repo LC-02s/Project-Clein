@@ -28,7 +28,7 @@ export const PostEntity = new Entity({
     description:
       '뉴스레터 통합 관리 서비스 어트랙션을 구축 및 운영하며 저질렀던 기술적인 실수들을 되돌아보는 글이에요',
     thumbnail: {
-      src: '/docs/projects/attraction/images/intro-dropped.jpg',
+      src: '/docs/projects/attraction/assets/intro-dropped.jpg',
       alt: '어트랙션 - 나만의 뉴스레터 관리 서비스 (DROPPED)',
     },
     createdAt: '2025-01-15 22:23',
@@ -50,7 +50,7 @@ export const PostEntity = new Entity({
     description:
       '여러 프로젝트에서 다크 모드를 구현하며 고민했었던 각 상황에 맞는 완성형 다크 모드 기능 구현 과정에 대한 글이에요',
     thumbnail: {
-      src: '/docs/articles/no-flicker-dark-mode/images/dark-mode.jpg',
+      src: '/docs/articles/no-flicker-dark-mode/assets/dark-mode.jpg',
       alt: '다크 모드 사용하다 눈뽕 맞는 짤',
     },
     createdAt: '2024-12-18 16:52',

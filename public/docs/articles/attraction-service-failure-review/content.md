@@ -14,7 +14,7 @@
 
 <br />
 
-<img src="/public/docs/articles/attraction-service-failure-review/images/interstellar.png" alt="지금 심정 (인터스텔라)" width="1400" height="770" />
+<img src="/public/docs/articles/attraction-service-failure-review/assets/interstellar.png" alt="지금 심정 (인터스텔라)" width="1400" height="770" />
 
 <br />
 <br />
@@ -192,17 +192,12 @@ FSD 아키텍처는 생각보다 어려웠던게 문제였습니다. 팀 프로�
 <br />
 <br />
 
-### 3-2. 리뷰를 통한 제품 개선
+### 3-2. 코드 리뷰
 
 <br />
 <br />
 
-### 3-3. 공유 문화
-
-<br />
-<br />
-
-### 3-4. 문서화
+### 3-3. 문서화
 
 이제껏 많은 문제가 있었지만 문서화를 소홀이 한 것은 가장 치명적인 문제라고 생각합니다. 회의를 하고 난 후에 회의록을 작성해두지 않으니 각자의 이해도가 다른 것 이전에 작업을 한 이후 서로 하는 말이 달랐습니다. 제대로 작업 단위를 분리하지도 않았고, 일정 산출도 너무 대략적으로만 했던 것 같습니다. 이는 종합적으로 작업의 비효율을 야기했죠. 아래의 `AWS`의 경우와 같이 복합적으로 문제가 되기도 했었습니다.
 
@@ -212,7 +207,7 @@ FSD 아키텍처는 생각보다 어려웠던게 문제였습니다. 팀 프로�
 
 <br />
 
-#### 3-4-1. AWS S3 & AWS CloudFront
+#### 3-3-1. AWS S3 & AWS CloudFront
 
 저희 팀은 프론트엔드 3명, 백엔드 3명으로 넉넉하게 구성되었기 때문에 각자 프로젝트에서 하고 싶은 것이 있다면 최대한 밀어주었습니다. 지금 생각해보면 적극적으로 말렸어야 했지만 이미지 처리를 담당하신 한 팀원분께서 프론트엔드에서 `S3`와 `CloudFront`를 관리하고 싶다고 하셨고, 그대로 도입하게 되었습니다. 사실 당시에도 좋은 생각은 아닌 것 같다는 의견을 냈었지만 관련해서 설득하는 능력 자체가 부족했었던 것 같습니다. 반대했던 이유는 해당 기능이 데이터의 생성 또는 삭제 시점에 따라 포함된 이미지에도 영향을 주는 형태였습니다. 백엔드에서 주도권을 가져야하는 기능이었던 것이죠.
 
@@ -227,7 +222,7 @@ FSD 아키텍처는 생각보다 어려웠던게 문제였습니다. 팀 프로�
 <br />
 <br />
 
-### 3-5. 협업 툴의 파편화
+### 3-4. 협업 툴의 파편화
 
 어트랙션에서는 서비스 관리상의 이유로 몇가지 `SaaS`를 도입했었습니다. `Amplitude`, `Channel Talk`, `Sentry` 등 서비스 운영을 위한 목적으로 사용되는 도구들은 어쩔 수 없었지만 문제는 협업 도구를 불필요하게 너무 많이 사용했던 것이었죠. `GitHub` 부터 시작해서 `Jira`, `Notion`, `Naver Works`, `Slack`, `Discord`, `Google Sheets`, `Figma` 등 지금 보니 정말 다양하게 사용했네요. 안그래도 사용하던 `SaaS`들도 각각의 관리 도구를 제공하는데 협업 도구까지 다양하게 사용하니 PC에 상시로 띄워두는 도구만 11개가 되었습니다. `IDE`까지 포함하면 12개네요.
 
@@ -245,7 +240,7 @@ FSD 아키텍처는 생각보다 어려웠던게 문제였습니다. 팀 프로�
 
 <br />
 
-<img src="/public/docs/articles/attraction-service-failure-review/images/discord-webhook-example-light.png" data-dark-src="/public/docs/articles/attraction-service-failure-review/images/discord-webhook-example-dark.png" alt="디스코드 웹훅 사용 예시" width="1380" height="344" />
+<img src="/public/docs/articles/attraction-service-failure-review/assets/discord-webhook-example-light.png" data-dark-src="/public/docs/articles/attraction-service-failure-review/assets/discord-webhook-example-dark.png" alt="디스코드 웹훅 사용 예시" width="1380" height="344" />
 
 <br />
 <br />

@@ -573,11 +573,11 @@ dist/server/entry-server.js  96.91 kB
 
 <br />
 
-<img src="/public/docs/articles/simple-react-ssg-pipeline/images/build-result-1.jpg" alt="SSG 빌드 결과 1" width="1458" height="795" />
+<img src="/public/docs/articles/simple-react-ssg-pipeline/assets/build-result-1.jpg" alt="SSG 빌드 결과 1" width="1458" height="795" />
 
 <br />
 
-<img src="/public/docs/articles/simple-react-ssg-pipeline/images/build-result-2.jpg" alt="SSG 빌드 결과 2" width="1467" height="692" />
+<img src="/public/docs/articles/simple-react-ssg-pipeline/assets/build-result-2.jpg" alt="SSG 빌드 결과 2" width="1467" height="692" />
 
 <br />
 <br />

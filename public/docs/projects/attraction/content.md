@@ -55,7 +55,7 @@
       <td>
         <ul>
           <li>
-            디자인 시스템 구축 및 문서화
+            <p>디자인 시스템 구축 및 문서화</p>
             <ul>
               <li>Shadcn/UI를 활용하여 초기 디자인 시스템 구축 및 StoryBook 문서화</li>
               <li>Vitest 및 Testing-Library 를 활용하여 공용 커스텀 훅 및 디자인 컴포넌트 로직 검증</li>
@@ -64,7 +64,7 @@
           </li>
           <li>Route Handler 및 Server Action을 활용한 구글 로그인 기능 고도화</li>
           <li>
-            아티클 보관함 기능 개발
+            <p>아티클 보관함 기능 개발</p>
             <ul>
               <li>아티클 필터링 및 검색 기능 개발</li>
               <li>아티클 무한 스크롤 기능 개발</li>
@@ -140,13 +140,13 @@
   <tbody>
     <tr>
       <td>
-        <img src="/public/docs/projects/attraction/images/introduce-1-light.png" data-dark-src="/public/docs/projects/attraction/images/introduce-1-dark.png" alt="뉴스레터 맞춤 추천 - 좋은 뉴스레터를 놓치고 싶지 않다면? 관심사를 기반으로 뉴스레터를 추천해드려요!" width="860" height="1864" />
+        <img src="/public/docs/projects/attraction/assets/introduce-1-light.png" data-dark-src="/public/docs/projects/attraction/assets/introduce-1-dark.png" alt="뉴스레터 맞춤 추천 - 좋은 뉴스레터를 놓치고 싶지 않다면? 관심사를 기반으로 뉴스레터를 추천해드려요!" width="860" height="1864" />
       </td>
       <td>
-        <img src="/public/docs/projects/attraction/images/introduce-2-light.png" data-dark-src="/public/docs/projects/attraction/images/introduce-2-dark.png" alt="메일함 자동 정리 - 쏟아지는 뉴스레터로 인해 메일함 정리가 힘드셨나요? 오직 뉴스레터에만 집중할 수 있도록 자동으로 모아드려요!" width="860" height="1864" />
+        <img src="/public/docs/projects/attraction/assets/introduce-2-light.png" data-dark-src="/public/docs/projects/attraction/assets/introduce-2-dark.png" alt="메일함 자동 정리 - 쏟아지는 뉴스레터로 인해 메일함 정리가 힘드셨나요? 오직 뉴스레터에만 집중할 수 있도록 자동으로 모아드려요!" width="860" height="1864" />
       </td>
       <td>
-        <img src="/public/docs/projects/attraction/images/introduce-3-light.png" data-dark-src="/public/docs/projects/attraction/images/introduce-3-dark.png" alt="뉴스레터 구독 관리 - 귀찮게 하나하나 찾아다닐 필요 없이 여러 뉴스레터를 한 곳에서 간편하게 관리해요!" width="860" height="1864" />
+        <img src="/public/docs/projects/attraction/assets/introduce-3-light.png" data-dark-src="/public/docs/projects/attraction/assets/introduce-3-dark.png" alt="뉴스레터 구독 관리 - 귀찮게 하나하나 찾아다닐 필요 없이 여러 뉴스레터를 한 곳에서 간편하게 관리해요!" width="860" height="1864" />
       </td>
     </tr>
   </tbody>
@@ -351,7 +351,7 @@
 ### 시연 영상
 
 <video controls muted autoplay>
-  <source src="/public/docs/projects/attraction/images/video.mp4" type="video/mp4" />
+  <source src="/public/docs/projects/attraction/assets/demo.mp4" type="video/mp4" />
 </video>
 
 <br />
