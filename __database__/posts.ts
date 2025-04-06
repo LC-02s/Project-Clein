@@ -34,7 +34,6 @@ export const PostEntity = new Entity({
     createdAt: '2025-01-15 22:23',
     updatedAt: '2025-02-12 13:06',
     keywords: ['review', 'fe', 'service', 'attraction'],
-    isWriting: true,
   } as PostData,
   '2024-review': {
     title: '난 1년 동안 얼마나 성장했을까? (2024년 회고)',
