@@ -31,7 +31,7 @@
     <tr>
       <th>사용 기술</th>
       <td data-tech-stack>
-        <code>Next.js</code>&nbsp;<code>React</code>&nbsp;<code>TypeScript</code>&nbsp;<code>Zustand</code>&nbsp;<code>Tanstack Query</code>&nbsp;<code>TailWindCSS</code>&nbsp;<code>Motion</code>&nbsp;<code>MDX</code>&nbsp;<code>pnpm</code>
+        <code>Next.js</code>&nbsp;<code>React</code>&nbsp;<code>React Compiler</code>&nbsp;<code>TypeScript</code>&nbsp;<code>Zustand</code>&nbsp;<code>Tanstack Query</code>&nbsp;<code>TailWindCSS</code>&nbsp;<code>Motion</code>&nbsp;<code>MDX</code>&nbsp;<code>pnpm</code>
       </td>
     </tr>
     <tr>

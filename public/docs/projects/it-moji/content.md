@@ -47,7 +47,7 @@
     <tr>
       <th>사용 기술</th>
       <td data-tech-stack>
-        <code>Next.js</code>&nbsp;<code>React</code>&nbsp;<code>TypeScript</code>&nbsp;<code>Tanstack-Query</code>&nbsp;<code>Zustand</code>&nbsp;<code>Zod</code>&nbsp;<code>MSW</code>&nbsp;<code>pnpm</code>&nbsp;<code>StoryBook</code>&nbsp;<code>TailWindCSS</code>&nbsp;<code>Motion</code>&nbsp;<code>Mantine</code>&nbsp;<code>GitHub-Actions</code>&nbsp;<code>GitHub-Pages</code>&nbsp;<code>AWS-Amplify</code>&nbsp;<code>ESLint</code>&nbsp;<code>Husky</code>&nbsp;<code>commitlint</code>
+        <code>Next.js</code>&nbsp;<code>React</code>&nbsp;<code>React Compiler</code>&nbsp;<code>TypeScript</code>&nbsp;<code>Tanstack-Query</code>&nbsp;<code>Zustand</code>&nbsp;<code>Zod</code>&nbsp;<code>MSW</code>&nbsp;<code>pnpm</code>&nbsp;<code>StoryBook</code>&nbsp;<code>TailWindCSS</code>&nbsp;<code>Motion</code>&nbsp;<code>Mantine</code>&nbsp;<code>GitHub-Actions</code>&nbsp;<code>GitHub-Pages</code>&nbsp;<code>AWS-Amplify</code>&nbsp;<code>ESLint</code>&nbsp;<code>Husky</code>&nbsp;<code>commitlint</code>
       </td>
     </tr>
     <tr>
